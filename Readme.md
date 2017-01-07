@@ -1,6 +1,8 @@
 # Goal
 This project provides a initial pelican configs and theme files to offer a painless experience to publish jupyter notebooks as pelican blogs.
 
+See [my blog](https://junjiecai.github.io) if you need a demo
+
 # Adaptations
 Although pelican has ipynb plugin to convert .ipynb file into blog html, many adaptations have to be made to support jupyter notebook bloggin.
 
