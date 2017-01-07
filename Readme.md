@@ -1,7 +1,5 @@
 # Goal
-This project provides a initial pelican configs and theme files to offer a painless experience to publish jupyter notebooks as pelican blogs.
-
-See [my blog](https://junjiecai.github.io) if you need a demo
+This project provides a initial pelican configs and theme files to offer a painless experience to publish jupyter notebooks as pelican blogs into gitpages.
 
 # Adaptations
 Although pelican has ipynb plugin to convert .ipynb file into blog html, many adaptations have to be made to support jupyter notebook bloggin.
@@ -17,6 +15,12 @@ primary adaptations
     * Wechat reward image
 
 # Usage
+If you have no idea about pelican and gitpages, please read one of these articles first.
+
+* [Building a data science portfolio: Making a data science blog](https://www.dataquest.io/blog/how-to-setup-a-data-science-blog/)
+* [my blog on the same topic (Chinese)]
+
+
 ## custom.py
 create a custom.py file (same folder with pelicanconf.py) and add the following content
 ```
@@ -63,7 +67,8 @@ Images are stored under "/themes/pelican-clean-blog/static/images"
 * home-bg.jpg: Used for blog background
 * award.jpeg: Used for wechat payment qr code image at the bottom of each article. I appreciate it very much if you keep my payment qr code:)
 
-## .ipybn-meta
+## Compose .ipynb and .ipynb-meta files
+.ipybn-meta
 Pelican needs an extra .ipynb-meta file to publish .ipynb file in to blog html.
 
 For example: 
@@ -90,7 +95,15 @@ Summary: Introduction for pytest
 
 'Id' is a number assigned to each blog and should be kept unqiue among all blogs, or comments system like DUOSHUO won't work properly.
 
+## Generate html and push to gitpages
+Run these three commands and enjoy your blogs.
+```
+pelican
+ghp-import output -b master
+git push origin master
+``
 
+*** Don't forget to delete .ipynb_checkpoints files before run ```pelican``` command***
 
-# Notes
-Don't forget to delete .ipynb_checkpoints files before run ```pelican``` command
+# Demo
+My jupyter notebooks are kept in [here](https://github.com/junjiecai/jupyter_labs/tree/master/exolution)　and you can check what they look like after they are published into blogs [here]((https://junjiecai.github.io)
