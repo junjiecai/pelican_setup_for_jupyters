@@ -22,8 +22,43 @@ If you have no idea about pelican and gitpages, please read one of these article
 * [Building a data science portfolio: Making a data science blog](https://www.dataquest.io/blog/how-to-setup-a-data-science-blog/)
 * [my blog on the same topic (Chinese)](http://junjiecai.github.io/posts/2016/Aug/10/blog_with_jupyter/)
 
-# How to use
+# How to use this project
 After cloning the repo to your local machine, finish the following tasks
+
+## create virtualenv (Recommended)
+Install virtualenv if you don't have it
+```
+pip install virtualenv
+```
+Change directory into the project folder and create a virutalenv for it, python3.5 or higher is recommended
+
+```
+virtualenv -p /usr/bin/python3.5 venv
+```
+
+Activate the virtualenv
+
+```
+source venv/bin/activate
+```
+
+## install requirements
+create a requirements.txt and put in the following lines
+```
+markdown
+pelican
+jupyter
+ipython
+nbconvert
+beautifulsoup4
+matplotlib
+```
+
+Then run
+
+```
+pip install -r requirements.txt
+```
 
 ## Register DUOSHUO 
 Register a DUOSHUO service [here](http://duoshuo.com/) for your blog and take note on your DUOSHUO site name. (looks like 'XXXX.duoshuo.com')
@@ -77,6 +112,9 @@ Images are stored under "/themes/pelican-clean-blog/static/images"
 * home-bg.jpg: Used for blog background
 * award.jpeg: Used for wechat payment qr code image at the bottom of each article. I appreciate it very much if you keep my payment qr code:)
 
+## Create content folder
+Create a folder named with 'content' in the project folder
+
 ## Compose your jupyter notebook
 1. Create a folder (it must be subdirectory of paths defined in ARTICLE_PATHS), you can create one folder for each jupyter notebook lab.
 2. Create a .ipynb file and write down the content you wish
@@ -84,12 +122,20 @@ Images are stored under "/themes/pelican-clean-blog/static/images"
 
 
 For example: 
-If I want write down a jupyter notebook about pytest, then I end up with the following folder and files
+If I want write down a jupyter notebook about pytest, and I set ARTICLE_PATHS like this
+```
+ARTICLE_PATHS = ['articles']
+```
+
+Then I should end up with the following folders and files
 
 ```
-pytest_intro
-|   pytest_intro.ipynb
-|   pytest_intro.ipynb-meta
+content
+|   articles
+    |   pytest_intro
+        |   pytest_intro.ipynb
+        |   pytest_intro.ipynb-meta
+
 ```
 
 Within the pytest_intro.ipynb-meta, it should looks like this.

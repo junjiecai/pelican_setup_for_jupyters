@@ -4,7 +4,8 @@ from __future__ import unicode_literals
 
 # Don't touch this
 
-
+import sys
+sys.path.append('')
 from customs import AUTHOR, SITENAME, DUOSHUO_PREFIX,ARTICLE_PATHS,DUOSHUO_SITENAME,GITHUB_URL,GITHUB_URL,GOOGLE_ANALYTICS
 
 AUTHOR = 'Exolution'
