@@ -156,12 +156,18 @@ Summary: Introduction for pytest
 
 'Id' is a number assigned to each blog and should be kept unqiue among all blogs, or comments system like DUOSHUO won't work properly.
 
+## Add your gitpages remote
+```
+git remote add blog git@github.com:[username]/[username].github.io.git
+```
+Replace [username] with your github username
+
 ## Generate html and push to gitpages
 Run these three commands and enjoy your blogs.
 ```
 pelican
 ghp-import output -b master
-git push origin master
+git push blog master
 ```
 
 *** Don't forget to delete .ipynb_checkpoints files before run ```pelican``` command***
