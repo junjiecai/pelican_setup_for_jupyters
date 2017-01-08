@@ -115,6 +115,9 @@ Images are stored under "/themes/pelican-clean-blog/static/images"
 ## Create content folder
 Create a folder named with 'content' in the project folder
 
+## Edit aboutme page
+Edit content in content/posts/aboutme.ipynb
+
 ## Compose your jupyter notebook
 1. Create a folder (it must be subdirectory of paths defined in ARTICLE_PATHS), you can create one folder for each jupyter notebook lab.
 2. Create a .ipynb file and write down the content you wish
