@@ -81,7 +81,7 @@ PLUGINS = ['ipynb.markup']
 #,'', 'extract_toc','neighbors','pdf'
 
 ## Theme Config for pelican-clean-blog
-THEME = "themes/pelican-clean-blog"
+THEME = "themes"
 
 HEADER_COVER = '../theme/images/home-bg.jpg'
 
