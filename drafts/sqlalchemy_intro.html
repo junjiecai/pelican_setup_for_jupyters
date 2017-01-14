@@ -1167,10 +1167,11 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [19]:</div>
+<div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">create_engine</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">create_engine</span>
 
 <span class="n">user</span> <span class="o">=</span> <span class="s1">'test'</span>
 <span class="n">password</span> <span class="o">=</span> <span class="s1">'test'</span>
@@ -1194,7 +1195,7 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [20]:</div>
+<div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">helper</span> <span class="k">import</span> <span class="n">users_data</span><span class="p">,</span> <span class="n">addresses_data</span>
@@ -1214,7 +1215,7 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [21]:</div>
+<div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">users_data</span>
@@ -1224,7 +1225,7 @@ h6:hover .anchor-link {
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[21]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -1268,7 +1269,7 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [22]:</div>
+<div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">addresses_data</span>
@@ -1278,7 +1279,7 @@ h6:hover .anchor-link {
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[22]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -1329,7 +1330,7 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [23]:</div>
+<div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">helper</span> <span class="k">import</span> <span class="n">reset_db</span>
@@ -1349,7 +1350,7 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [24]:</div>
+<div class="prompt input_prompt">In [45]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sql</span> <span class="o">=</span> <span class="s1">'''</span>
@@ -1383,7 +1384,7 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [25]:</div>
+<div class="prompt input_prompt">In [46]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">select</span><span class="p">,</span> <span class="n">func</span>
@@ -1420,7 +1421,7 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [26]:</div>
+<div class="prompt input_prompt">In [47]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span>
@@ -1470,7 +1471,7 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [27]:</div>
+<div class="prompt input_prompt">In [48]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">select</span><span class="p">,</span> <span class="n">func</span>
@@ -1535,7 +1536,7 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [28]:</div>
+<div class="prompt input_prompt">In [49]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">((</span><span class="n">s</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">compile_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">"literal_binds"</span><span class="p">:</span> <span class="kc">True</span><span class="p">})))</span>
@@ -1567,7 +1568,7 @@ HAVING count(test.addresses.email_address) > 1
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [29]:</div>
+<div class="prompt input_prompt">In [50]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">compile_kwargs</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
@@ -1625,7 +1626,7 @@ HAVING count(test.addresses.email_address) > %(count_1)s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [30]:</div>
+<div class="prompt input_prompt">In [51]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy.schema</span> <span class="k">import</span> <span class="n">CreateSchema</span>
@@ -1663,7 +1664,7 @@ CREATE SCHEMA test2
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [31]:</div>
+<div class="prompt input_prompt">In [52]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
@@ -1697,7 +1698,7 @@ CREATE SCHEMA test2
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [32]:</div>
+<div class="prompt input_prompt">In [53]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy.schema</span> <span class="k">import</span> <span class="n">DropSchema</span>
@@ -1735,7 +1736,7 @@ DROP SCHEMA test2 CASCADE
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [33]:</div>
+<div class="prompt input_prompt">In [54]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
@@ -1778,7 +1779,7 @@ DROP SCHEMA test2 CASCADE
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [34]:</div>
+<div class="prompt input_prompt">In [55]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">Table</span><span class="p">,</span> <span class="n">Column</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">MetaData</span><span class="p">,</span> <span class="n">ForeignKey</span><span class="p">,</span> <span class="n">Sequence</span>
@@ -1806,7 +1807,7 @@ DROP SCHEMA test2 CASCADE
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_text output_error">
 <pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">"<ipython-input-34-5605527d8371>"</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">16</span>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">"<ipython-input-55-5605527d8371>"</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">16</span>
 <span class="ansi-red-fg">    )</span>
      ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> unexpected EOF while parsing
@@ -1827,7 +1828,7 @@ DROP SCHEMA test2 CASCADE
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [56]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">table</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="n">table_name</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">schema</span> <span class="o">=</span> <span class="n">schema</span><span class="p">,</span> <span class="n">autoload</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">autoload_with</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
@@ -1835,14 +1836,44 @@ DROP SCHEMA test2 CASCADE
 </div>
 </div>
 </div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg"><ipython-input-56-b382c0c1921e></span> in <span class="ansi-cyan-fg"><module></span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----> 1</span><span class="ansi-red-fg"> </span>table <span class="ansi-blue-fg">=</span> Table<span class="ansi-blue-fg">(</span>table_name<span class="ansi-blue-fg">,</span> metadata<span class="ansi-blue-fg">,</span> schema <span class="ansi-blue-fg">=</span> schema<span class="ansi-blue-fg">,</span> autoload<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">,</span> autoload_with<span class="ansi-blue-fg">=</span>engine<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name 'Table' is not defined</pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [57]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">table</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
 </pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg"><ipython-input-57-5aed1892cc26></span> in <span class="ansi-cyan-fg"><module></span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----> 1</span><span class="ansi-red-fg"> </span>table<span class="ansi-blue-fg">.</span>c<span class="ansi-blue-fg">.</span>values<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name 'table' is not defined</pre>
+</div>
 </div>
 </div>
 </div>
@@ -1877,7 +1908,7 @@ DROP SCHEMA test2 CASCADE
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [58]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">helper</span> <span class="k">import</span> <span class="n">clear_db</span>
@@ -1898,7 +1929,7 @@ DROP SCHEMA test2 CASCADE
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [59]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">obj</span> <span class="o">=</span> <span class="n">CreateTable</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
@@ -1906,6 +1937,24 @@ DROP SCHEMA test2 CASCADE
 
 <span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">obj</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg"><ipython-input-59-683f4770aa0a></span> in <span class="ansi-cyan-fg"><module></span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----> 1</span><span class="ansi-red-fg"> </span>obj <span class="ansi-blue-fg">=</span> CreateTable<span class="ansi-blue-fg">(</span>table<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> engine<span class="ansi-blue-fg">.</span>execute<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> 
+<span class="ansi-green-intense-fg ansi-bold">      4</span> print_sql<span class="ansi-blue-fg">(</span>engine<span class="ansi-blue-fg">,</span>obj<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name 'CreateTable' is not defined</pre>
+</div>
 </div>
 </div>
 </div>
@@ -1934,7 +1983,7 @@ DROP SCHEMA test2 CASCADE
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [60]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
@@ -1942,6 +1991,17 @@ DROP SCHEMA test2 CASCADE
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">),</span><span class="n">e</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><class 'sqlalchemy.exc.ProgrammingError'> (psycopg2.ProgrammingError) schema "test2" does not exist
+ [SQL: 'DROP SCHEMA test2 CASCADE']
+</pre>
+</div>
 </div>
 </div>
 </div>
@@ -1957,7 +2017,7 @@ DROP SCHEMA test2 CASCADE
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [71]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">create_table</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">table_name</span><span class="p">,</span><span class="n">column_configs</span><span class="p">,</span> <span class="n">schema</span> <span class="o">=</span> <span class="n">schema</span><span class="p">,</span> <span class="n">metadata</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
@@ -1999,7 +2059,7 @@ DROP SCHEMA test2 CASCADE
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [72]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">table_name</span> <span class="o">=</span> <span class="s1">'users'</span>
@@ -2013,6 +2073,25 @@ DROP SCHEMA test2 CASCADE
 
 <span class="n">create_table</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">table_name</span><span class="p">,</span><span class="n">column_configs</span><span class="p">,</span> <span class="n">schema</span> <span class="o">=</span> <span class="s1">'test'</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg"><ipython-input-72-37239510acf5></span> in <span class="ansi-cyan-fg"><module></span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-red-fg"># put mandatory parameters in [] and optional parameters in {}</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> column_configs = [
+<span class="ansi-green-fg">----> 5</span><span class="ansi-red-fg">     </span><span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">'id'</span><span class="ansi-blue-fg">,</span>Integer<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">{</span><span class="ansi-blue-fg">'primary_key'</span><span class="ansi-blue-fg">:</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">}</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span>     <span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">'name'</span><span class="ansi-blue-fg">,</span>String<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">20</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">{</span><span class="ansi-blue-fg">}</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">      7</span>     <span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">'fullname'</span><span class="ansi-blue-fg">,</span>String<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">20</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">{</span><span class="ansi-blue-fg">}</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name 'Integer' is not defined</pre>
+</div>
 </div>
 </div>
 </div>
@@ -2539,7 +2618,7 @@ DROP SCHEMA test2 CASCADE
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [36]:</div>
+<div class="prompt input_prompt">In [94]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">helper</span> <span class="k">import</span> <span class="n">read_select</span>
@@ -2566,7 +2645,7 @@ FROM test.users
 </pre>
 </div>
 </div>
-<div class="output_area"><div class="prompt output_prompt">Out[36]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[94]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -2610,11 +2689,20 @@ FROM test.users
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [95]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">s1</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
 </pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt output_prompt">Out[95]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>['id', 'name', 'fullname']</pre>
+</div>
 </div>
 </div>
 </div>
@@ -2630,7 +2718,7 @@ FROM test.users
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [96]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">select</span>
@@ -2641,6 +2729,49 @@ FROM test.users
 
 <span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s2</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Compiled SQL
+=============================
+SELECT test.users.id, test.users.name, test.users.fullname 
+FROM test.users
+</pre>
+</div>
+</div>
+<div class="output_area"><div class="prompt output_prompt">Out[96]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>id</th>
+<th>name</th>
+<th>fullname</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1</td>
+<td>jack</td>
+<td>Jack Jones</td>
+</tr>
+<tr>
+<th>1</th>
+<td>2</td>
+<td>wendy</td>
+<td>Wendy Williams</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -2678,13 +2809,675 @@ FROM test.users
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="rename-column">rename column<a class="anchor-link" href="#rename-column">¶</a></h2><p>用label实现</p>
+<h3 id="limit-and-offset">limit and offset<a class="anchor-link" href="#limit-and-offset">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>例如用offset跳过1行，并且用limit只显示2行</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [109]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">select</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="n">addresses</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+            <span class="n">addresses</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">email_address</span><span class="p">,</span>
+        <span class="p">]</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">offset</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="p">)</span>
+
+
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">,</span> <span class="n">compile_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">"literal_binds"</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span>
+
+<span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Compiled SQL
+=============================
+SELECT test.addresses.id, test.addresses.email_address 
+FROM test.addresses 
+ LIMIT 2 OFFSET 1
+</pre>
+</div>
+</div>
+<div class="output_area"><div class="prompt output_prompt">Out[109]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>id</th>
+<th>email_address</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>2</td>
+<td>jack@msn.com</td>
+</tr>
+<tr>
+<th>1</th>
+<td>3</td>
+<td>www@www.org</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="select-as-scalar">select as scalar<a class="anchor-link" href="#select-as-scalar">¶</a></h3><p>如果select的结果是1行1列,可以将这个select指定成scalar类型,然后就可以像普通的Column一样用于其他的select语句。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">scalar</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">select</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="n">func</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">addresses</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+        <span class="p">]</span>
+    <span class="p">)</span><span class="o">.</span>
+    <span class="n">where</span><span class="p">(</span><span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">addresses</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">user_id</span><span class="p">)</span><span class="o">.</span>
+    <span class="n">as_scalar</span><span class="p">()</span> <span class="c1">#！！</span>
+<span class="p">)</span>
+
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s1</span><span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">select</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+        <span class="n">scalar</span> <span class="c1">#!!</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+
+<span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>不过上面的构造方法中SQLAlchemy采用的列名非常不友好</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>只需要将scalar替换成label就能解决这个问题</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">scalar</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">select</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="n">func</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">addresses</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+        <span class="p">]</span>
+    <span class="p">)</span><span class="o">.</span>
+    <span class="n">where</span><span class="p">(</span><span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">addresses</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">user_id</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">'scalar'</span><span class="p">)</span> <span class="c1">#！！</span>
+<span class="p">)</span>
+
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">select</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+        <span class="n">scalar</span> <span class="c1">#!!</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+
+<span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>如果选择出的结果不是1行1列，上面的方法会报错</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">scalar</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">select</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="n">addresses</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span>
+        <span class="p">]</span>
+    <span class="p">)</span><span class="o">.</span>
+    <span class="n">as_scalar</span><span class="p">()</span> <span class="c1">#！！</span>
+<span class="p">)</span>
+
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s1</span><span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">select</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+        <span class="n">scalar</span> <span class="c1">#!!</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">),</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>这里可以注意到,尽管定义s1的时候，定义了label,但是没有被SQLAlchemy正确的识别。可以在应用一次label解决这个问题。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">select</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+        <span class="n">s1</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">'scalar'</span><span class="p">)</span> <span class="c1">#!!</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+
+<span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>s2作为Column使用的话，尽管不会报错，但是编译出的语句是错误的。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">select</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+        <span class="n">s2</span> <span class="c1">#!!</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+
+<span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>提醒</strong></p>
+<p>上面的多个例子都显示，两个Object编译出的SQL一样，并不代表两个Object的行为会一致。因此出现意外结果的时候，不能光检查编译出的SQL语句是否合理。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Correlated-query">Correlated query<a class="anchor-link" href="#Correlated-query">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>上面的例子中，读者可能会疑问,最终编译后出现的SQL语句中,子查询中并没有出现users,为何能够顺利的被执行?</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<pre><code>SELECT 
+    test.users.id, 
+    (
+        SELECT 
+            count(test.addresses.id) AS scalar 
+        FROM
+            test.addresses #From 语句并没有出现test.users
+        WHERE
+            test.users.id = test.addresses.user_id #where中出现了test.users
+    ) AS scalar 
+FROM test.users</code></pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [76]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">scalar</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">select</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="n">func</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">addresses</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+        <span class="p">]</span>
+    <span class="p">)</span><span class="o">.</span>
+    <span class="n">where</span><span class="p">(</span><span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">addresses</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">user_id</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">'scalar'</span><span class="p">)</span> <span class="c1">#！！</span>
+<span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">select</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+        <span class="n">scalar</span> <span class="c1">#!!</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+
+<span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Compiled SQL
+=============================
+SELECT test.users.id, (SELECT count(test.addresses.id) AS count_1 
+FROM test.addresses 
+WHERE test.users.id = test.addresses.user_id) AS scalar 
+FROM test.users
+</pre>
+</div>
+</div>
+<div class="output_area"><div class="prompt output_prompt">Out[76]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>id</th>
+<th>scalar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<th>1</th>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<th>2</th>
+<td>3</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>这里的关键在于,如果子sub query中找不到相关的table，那么就会自动去和外层select中的表去关联。在这里例子里，如果外层的user是id为1的user的话,sub query中的user也是id为1的user,sub query起到了找出id为1的user有多少个email_address的效果。因此，这个查询实际上相当于起到了对所有user进行遍历，并选出这些user的id和email_address个数的效果。为了方便理解，可以想象有一个接受user id,返回user对应email_address个数的函数。上面的语句相当于。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<pre><code>    select 
+        user.id,
+        count_email(user.id) #例子中的sub query等价接受user.id，返回邮件个数的函数
+    from 
+        users</code></pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>可以通过correlate, correlate_except指定或排除sub query中需要关联的外层的table范围。例如通过<code>correlate(None)</code>或者<code>correlate_except(users)</code>禁止sub query关联外层的users</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [78]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">scalar</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">select</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="n">func</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">addresses</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+        <span class="p">]</span>
+    <span class="p">)</span><span class="o">.</span>
+    <span class="n">where</span><span class="p">(</span><span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">addresses</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">user_id</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">correlate</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span> <span class="c1">#.correlate_except(users)在这个例子里也能起到同样的效果</span>
+    <span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">'scalar'</span><span class="p">)</span> <span class="c1">#！！</span>
+<span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">select</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+        <span class="n">scalar</span> <span class="c1">#!!</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+
+<span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Compiled SQL
+=============================
+SELECT test.users.id, (SELECT count(test.addresses.id) AS count_1 
+FROM test.addresses, test.users 
+WHERE test.users.id = test.addresses.user_id) AS scalar 
+FROM test.users
+</pre>
+</div>
+</div>
+<div class="output_area"><div class="prompt output_prompt">Out[78]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>id</th>
+<th>scalar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1</td>
+<td>4</td>
+</tr>
+<tr>
+<th>1</th>
+<td>2</td>
+<td>4</td>
+</tr>
+<tr>
+<th>2</th>
+<td>3</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>可以看到上面的例子里，sub query中自动在From语句中补充了users，成为完成的select语句，结果也变成了固定的4</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="join-lateral">join lateral<a class="anchor-link" href="#join-lateral">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [93]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">true</span>
+
+<span class="n">sub_query</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">select</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="n">func</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">addresses</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">'count'</span><span class="p">)</span>
+        <span class="p">]</span>
+    <span class="p">)</span><span class="o">.</span>
+    <span class="n">where</span><span class="p">(</span><span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">addresses</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">user_id</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">lateral</span><span class="p">(</span><span class="s1">'sub_query'</span><span class="p">)</span> <span class="c1">#！！用lateral()代替常规的label()</span>
+<span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">select</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+        <span class="n">sub_query</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">count</span>
+    <span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">select_from</span><span class="p">(</span>
+    <span class="n">users</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+        <span class="n">sub_query</span><span class="p">,</span>
+        <span class="n">true</span><span class="p">()</span> <span class="c1">#用这个代替常规的on条件</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+
+<span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Compiled SQL
+=============================
+SELECT test.users.id, sub_query.count 
+FROM test.users JOIN LATERAL (SELECT count(test.addresses.id) AS count 
+FROM test.addresses 
+WHERE test.users.id = test.addresses.user_id) AS sub_query ON true
+</pre>
+</div>
+</div>
+<div class="output_area"><div class="prompt output_prompt">Out[93]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>id</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<th>1</th>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<th>2</th>
+<td>3</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>join lateral语句实际上也起到了遍历users,取出id和对应email_address个数的功能。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<pre><code>    SELECT 
+        test.users.id, sub_query.count 
+    FROM 
+        test.users #被sub query关联的表
+            JOIN LATERAL 
+        (
+            SELECT
+                count(test.addresses.id) AS count 
+            FROM
+                test.addresses
+            WHERE
+                test.users.id = test.addresses.user_id 
+                #users关联了join lateral左边的test.users
+        ) AS sub_query ON true</code></pre>
+<p>这段代码等价于</p>
+<pre><code>    SELECT 
+        sub_query.id, sub_query.count 
+    FROM
+        (
+            select
+                users.id as id,
+                email_count(user.id) as count #email_count是假想的函数
+            from users
+        ) AS sub_query</code></pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="rename-column">rename column<a class="anchor-link" href="#rename-column">¶</a></h2><p>用label实现</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [77]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">select</span><span class="p">(</span>
@@ -2698,6 +3491,51 @@ FROM test.users
 
 <span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Compiled SQL
+=============================
+SELECT test.users.id AS user_id, test.users.name AS user_name 
+FROM test.users
+</pre>
+</div>
+</div>
+<div class="output_area"><div class="prompt output_prompt">Out[77]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>user_id</th>
+<th>user_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1</td>
+<td>jack</td>
+</tr>
+<tr>
+<th>1</th>
+<td>2</td>
+<td>wendy</td>
+</tr>
+<tr>
+<th>2</th>
+<td>3</td>
+<td>jack</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -3232,12 +4070,24 @@ FROM test.users
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [99]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">in_</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
 <span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">compile_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">"literal_binds"</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span>
 </pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Compiled SQL
+=============================
+test.users.id IN (1, 2, 3)
+</pre>
+</div>
 </div>
 </div>
 </div>
@@ -3450,22 +4300,11 @@ FROM test.users
 <h2 id="join">join<a class="anchor-link" href="#join">¶</a></h2>
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">addresses</span><span class="p">,</span>
-               <span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span><span class="o">==</span><span class="n">addresses</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">user_id</span>
-              <span class="p">)</span>
+</div>s = users.join(addresses,
+               users.c.id==addresses.c.user_id
+              )
 
-<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">compile_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">"literal_binds"</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
+print_sql(engine,s,compile_kwargs={"literal_binds": True})
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -3477,12 +4316,24 @@ FROM test.users
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [73]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">addresses</span><span class="p">)</span>
 <span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">compile_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">"literal_binds"</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span>
 </pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Compiled SQL
+=============================
+test.users JOIN test.addresses ON test.users.id = test.addresses.user_id
+</pre>
+</div>
 </div>
 </div>
 </div>
@@ -3499,13 +4350,30 @@ FROM test.users
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [74]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">metadata</span> <span class="o">=</span> <span class="n">MetaData</span><span class="p">()</span>
 <span class="n">addresses</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="s1">'addresses'</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">schema</span> <span class="o">=</span> <span class="s1">'test'</span><span class="p">,</span> <span class="n">autoload</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">autoload_with</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
 <span class="n">addresses</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
 </pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg"><ipython-input-74-8ffaebad27bd></span> in <span class="ansi-cyan-fg"><module></span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----> 1</span><span class="ansi-red-fg"> </span>metadata <span class="ansi-blue-fg">=</span> MetaData<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> addresses <span class="ansi-blue-fg">=</span> Table<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">'addresses'</span><span class="ansi-blue-fg">,</span> metadata<span class="ansi-blue-fg">,</span> schema <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">'test'</span><span class="ansi-blue-fg">,</span> autoload<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">,</span> autoload_with<span class="ansi-blue-fg">=</span>engine<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> addresses<span class="ansi-blue-fg">.</span>c<span class="ansi-blue-fg">.</span>values<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name 'MetaData' is not defined</pre>
+</div>
 </div>
 </div>
 </div>
@@ -3746,6 +4614,163 @@ FROM test.users
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Update">Update<a class="anchor-link" href="#Update">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>最基本的update，不指定任何条件，相当于对所有的row做了遍历。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [113]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stmt</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">users</span><span class="o">.</span><span class="n">update</span><span class="p">()</span><span class="o">.</span>
+            <span class="n">values</span><span class="p">(</span><span class="n">fullname</span><span class="o">=</span><span class="s2">"Fullname: "</span> <span class="o">+</span> <span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="p">)</span>
+
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">stmt</span><span class="p">,</span> <span class="n">compile_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">"literal_binds"</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span>
+
+<span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">stmt</span><span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">select</span><span class="p">()</span>
+
+<span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Compiled SQL
+=============================
+UPDATE test.users SET fullname=('Fullname: ' || test.users.name)
+</pre>
+</div>
+</div>
+<div class="output_area"><div class="prompt output_prompt">Out[113]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>id</th>
+<th>name</th>
+<th>fullname</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1</td>
+<td>jack</td>
+<td>Fullname: jack</td>
+</tr>
+<tr>
+<th>1</th>
+<td>2</td>
+<td>wendy</td>
+<td>Fullname: wendy</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>选择单行并进行遍历</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [114]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stmt</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">users</span><span class="o">.</span><span class="n">update</span><span class="p">()</span><span class="o">.</span>
+    <span class="n">where</span><span class="p">(</span><span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">'jack'</span><span class="p">)</span><span class="o">.</span>
+    <span class="n">values</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'ed'</span><span class="p">)</span>
+<span class="p">)</span>
+
+
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">stmt</span><span class="p">,</span> <span class="n">compile_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">"literal_binds"</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span>
+
+<span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">stmt</span><span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">select</span><span class="p">()</span>
+
+<span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Compiled SQL
+=============================
+UPDATE test.users SET name='ed' WHERE test.users.name = 'jack'
+</pre>
+</div>
+</div>
+<div class="output_area"><div class="prompt output_prompt">Out[114]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>id</th>
+<th>name</th>
+<th>fullname</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>2</td>
+<td>wendy</td>
+<td>Fullname: wendy</td>
+</tr>
+<tr>
+<th>1</th>
+<td>1</td>
+<td>ed</td>
+<td>Fullname: jack</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="带参数的SQL逻辑">带参数的SQL逻辑<a class="anchor-link" href="#带参数的SQL逻辑">¶</a></h3>
 </div>
 </div>
@@ -3814,7 +4839,7 @@ FROM test.users
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [38]:</div>
+<div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy.sql</span> <span class="k">import</span> <span class="n">bindparam</span>
@@ -3825,44 +4850,6 @@ FROM test.users
 
 <span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">user_id</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#read_select会将user_id=1传给engine.execute</span>
 </pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Compiled SQL
-=============================
-SELECT test.users.id, test.users.name, test.users.fullname 
-FROM test.users 
-WHERE test.users.id = %(user_id)s
-</pre>
-</div>
-</div>
-<div class="output_area"><div class="prompt output_prompt">Out[38]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>id</th>
-<th>name</th>
-<th>fullname</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>0</th>
-<td>1</td>
-<td>jack</td>
-<td>Jack Jones</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -3887,7 +4874,7 @@ WHERE test.users.id = %(user_id)s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [46]:</div>
+<div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">text</span>
@@ -3907,25 +4894,6 @@ WHERE test.users.id = %(user_id)s
 </div>
 </div>
 </div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Compiled SQL
-=============================
-SELECT test.users.id, test.users.name, test.users.fullname 
-FROM test.users 
-WHERE test.users.name LIKE NULL + '%%'
-<class 'sqlalchemy.exc.ProgrammingError'> (psycopg2.ProgrammingError) operator is not unique: unknown + unknown
-LINE 3: WHERE test.users.name LIKE 'jack' + '%'
-                                          ^
-HINT:  Could not choose a best candidate operator. You might need to add explicit type casts.
- [SQL: "SELECT test.users.id, test.users.name, test.users.fullname \nFROM test.users \nWHERE test.users.name LIKE %(username)s + '%%'"] [parameters: {'username': 'jack'}]
-</pre>
-</div>
-</div>
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -3938,7 +4906,7 @@ HINT:  Could not choose a best candidate operator. You might need to add explici
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [51]:</div>
+<div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">text</span><span class="p">,</span><span class="n">String</span>
@@ -3949,9 +4917,53 @@ HINT:  Could not choose a best candidate operator. You might need to add explici
 
 <span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">compile_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">'literal_binds'</span><span class="p">:</span><span class="kc">True</span><span class="p">})</span>
 
-
-
 <span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>利用这个技巧可以只写对于单个row的update逻辑，但是传入参数list实现多行的update。(不确定是否是atomic operation)</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [124]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">bindparam</span>
+
+<span class="n">users</span><span class="p">,</span> <span class="n">addresses</span> <span class="o">=</span> <span class="n">reset_db</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+
+
+<span class="n">stmt</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">users</span><span class="o">.</span><span class="n">update</span><span class="p">()</span><span class="o">.</span>
+    <span class="n">where</span><span class="p">(</span><span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">bindparam</span><span class="p">(</span><span class="s1">'oldname'</span><span class="p">))</span><span class="o">.</span>
+    <span class="n">values</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">bindparam</span><span class="p">(</span><span class="s1">'newname'</span><span class="p">))</span>
+<span class="p">)</span>
+
+<span class="n">data</span> <span class="o">=</span>  <span class="p">[</span>
+    <span class="p">{</span><span class="s1">'oldname'</span><span class="p">:</span><span class="s1">'jack'</span><span class="p">,</span> <span class="s1">'newname'</span><span class="p">:</span><span class="s1">'ed'</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">'oldname'</span><span class="p">:</span><span class="s1">'wendy'</span><span class="p">,</span> <span class="s1">'newname'</span><span class="p">:</span><span class="s1">'mary'</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">'oldname'</span><span class="p">:</span><span class="s1">'jim'</span><span class="p">,</span> <span class="s1">'newname'</span><span class="p">:</span><span class="s1">'jake'</span><span class="p">}</span>
+<span class="p">]</span>   
+
+<span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">stmt</span><span class="p">,</span><span class="n">data</span><span class="p">)</span>
+
+
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">stmt</span><span class="p">)</span>
+
+<span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">stmt</span><span class="p">,</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">select</span><span class="p">()</span>
+
+<span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3962,13 +4974,11 @@ HINT:  Could not choose a best candidate operator. You might need to add explici
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Compiled SQL
 =============================
-SELECT test.users.id, test.users.name, test.users.fullname 
-FROM test.users 
-WHERE test.users.name LIKE ('jack' || '%%')
+UPDATE test.users SET name=%(newname)s WHERE test.users.name = %(oldname)s
 </pre>
 </div>
 </div>
-<div class="output_area"><div class="prompt output_prompt">Out[51]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[124]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -3984,8 +4994,14 @@ WHERE test.users.name LIKE ('jack' || '%%')
 <tr>
 <th>0</th>
 <td>1</td>
-<td>jack</td>
+<td>ed</td>
 <td>Jack Jones</td>
+</tr>
+<tr>
+<th>1</th>
+<td>2</td>
+<td>mary</td>
+<td>Wendy Williams</td>
 </tr>
 </tbody>
 </table>
@@ -3995,282 +5011,420 @@ WHERE test.users.name LIKE ('jack' || '%%')
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="p">(</span>
-<span class="s2">"SELECT users.fullname || ', ' || addresses.email_address AS title "</span>
-    <span class="s2">"FROM users, addresses "</span>
-    <span class="s2">"WHERE users.id = addresses.user_id "</span>
-    <span class="s2">"AND users.name BETWEEN :x AND :y "</span>
-    <span class="s2">"AND (addresses.email_address LIKE :e1 "</span>
-         <span class="s2">"OR addresses.email_address LIKE :e2)"</span><span class="p">)</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">'m'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'z'</span><span class="p">,</span> <span class="n">e1</span><span class="o">=</span><span class="s1">'%@aol.com'</span><span class="p">,</span> <span class="n">e2</span><span class="o">=</span><span class="s1">'%@msn.com'</span><span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
-<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy.sql</span> <span class="k">import</span> <span class="n">text</span>
-<span class="n">sql</span> <span class="o">=</span> <span class="n">text</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-
-<span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">'m'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'z'</span><span class="p">,</span> <span class="n">e1</span><span class="o">=</span><span class="s1">'%@aol.com'</span><span class="p">,</span> <span class="n">e2</span><span class="o">=</span><span class="s1">'%@msn.com'</span><span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>也可以用bindparams提前指定参数</p>
+<p>不过update语句的参数数值只能在execute阶段传入，不能使用params()传入</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stmt</span> <span class="o">=</span> <span class="n">text</span><span class="p">(</span><span class="s2">"SELECT * FROM users WHERE users.name BETWEEN :x AND :y"</span><span class="p">)</span>
-<span class="n">stmt</span> <span class="o">=</span> <span class="n">stmt</span><span class="o">.</span><span class="n">bindparams</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">"m"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"z"</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="部分模块用text-sql替代">部分模块用text sql替代<a class="anchor-link" href="#部分模块用text-sql替代">¶</a></h2><p>sqlalchemy中一个sql逻辑的每一个组件都是用python object来定义的, 如果有时候希望用文本形式的sql来定义这些组件怎么办? 这时可以利用sqlalchemy中的text()函数</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">str</span><span class="p">((</span><span class="n">stmt</span><span class="p">)</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">compile_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">"literal_binds"</span><span class="p">:</span> <span class="kc">True</span><span class="p">}))</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="http://docs.sqlalchemy.org/en/rel_1_1/core/tutorial.html#specifying-bound-parameter-behaviors">文档</a>上提到，可以通过bindparam显式的指定绑定参数的类型，不过似乎没什么用...</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [143]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">bindparam</span>
-<span class="n">stmt</span> <span class="o">=</span> <span class="n">stmt</span><span class="o">.</span><span class="n">bindparams</span><span class="p">(</span><span class="n">bindparam</span><span class="p">(</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">String</span><span class="p">),</span> <span class="n">bindparam</span><span class="p">(</span><span class="s2">"y"</span><span class="p">,</span> <span class="n">Integer</span><span class="p">),</span><span class="n">x</span><span class="o">=</span><span class="s2">"m"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"z"</span><span class="p">)</span>
-<span class="nb">str</span><span class="p">((</span><span class="n">stmt</span><span class="p">)</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">compile_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">"literal_binds"</span><span class="p">:</span> <span class="kc">True</span><span class="p">}))</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>指定绑定参数的类型，没看出作用</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stmt</span> <span class="o">=</span> <span class="n">text</span><span class="p">(</span><span class="s2">"SELECT users.id, users.name FROM users WHERE users.name BETWEEN :x AND :y"</span><span class="p">)</span>
-<span class="n">stmt</span> <span class="o">=</span> <span class="n">stmt</span><span class="o">.</span><span class="n">bindparams</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">"m"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"z"</span><span class="p">)</span>
-<span class="n">stmt</span> <span class="o">=</span> <span class="n">stmt</span><span class="o">.</span><span class="n">columns</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">Integer</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">String</span><span class="p">)</span>
-<span class="nb">str</span><span class="p">((</span><span class="n">stmt</span><span class="p">)</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">compile_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">"literal_binds"</span><span class="p">:</span> <span class="kc">True</span><span class="p">}))</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stmt</span> <span class="o">=</span> <span class="n">text</span><span class="p">(</span><span class="s2">"SELECT users.id, users.name FROM users WHERE users.name BETWEEN :x AND :y"</span><span class="p">)</span>
-<span class="n">stmt</span> <span class="o">=</span> <span class="n">stmt</span><span class="o">.</span><span class="n">bindparams</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">"m"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"z"</span><span class="p">)</span>
-<span class="n">stmt</span> <span class="o">=</span> <span class="n">stmt</span><span class="o">.</span><span class="n">columns</span><span class="p">(</span><span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-<span class="nb">str</span><span class="p">((</span><span class="n">stmt</span><span class="p">)</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">compile_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">"literal_binds"</span><span class="p">:</span> <span class="kc">True</span><span class="p">}))</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stmt</span> <span class="o">=</span> <span class="n">text</span><span class="p">(</span><span class="s2">"SELECT users.id, users.name FROM users"</span><span class="p">)</span>
-<span class="n">j</span> <span class="o">=</span> <span class="n">stmt</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">addresses</span><span class="p">,</span> <span class="n">stmt</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">addresses</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">user_id</span><span class="p">)</span>
-<span class="n">new_stmt</span> <span class="o">=</span> <span class="n">select</span><span class="p">([</span><span class="n">stmt</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">addresses</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span><span class="p">])</span><span class="o">.</span>\
-    <span class="n">select_from</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">stmt</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">'x'</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stmt</span> <span class="o">=</span> <span class="n">text</span><span class="p">(</span><span class="s2">"SELECT users.id, users.name FROM users"</span><span class="p">)</span>
-<span class="n">stmt</span> <span class="o">=</span> <span class="n">stmt</span><span class="o">.</span><span class="n">columns</span><span class="p">(</span><span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-<span class="n">j</span> <span class="o">=</span> <span class="n">stmt</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">addresses</span><span class="p">,</span> <span class="n">stmt</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">addresses</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">user_id</span><span class="p">)</span>
-<span class="n">new_stmt</span> <span class="o">=</span> <span class="n">select</span><span class="p">([</span><span class="n">stmt</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">addresses</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span><span class="p">])</span><span class="o">.</span>\
-    <span class="n">select_from</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">stmt</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">'x'</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">((</span><span class="n">new_stmt</span><span class="p">)</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">compile_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">"literal_binds"</span><span class="p">:</span> <span class="kc">True</span><span class="p">})))</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>用文本片段代替sqlalchemy object,注意文本中可以使用:name的方式标记参数</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">select</span><span class="p">([</span>
-       <span class="n">text</span><span class="p">(</span><span class="s2">"users.fullname || ', ' || addresses.email_address AS title"</span><span class="p">)</span>
-    <span class="p">])</span><span class="o">.</span>\
-        <span class="n">where</span><span class="p">(</span>
-            <span class="n">and_</span><span class="p">(</span>
-                <span class="n">text</span><span class="p">(</span><span class="s2">"users.id = addresses.user_id"</span><span class="p">),</span>
-                <span class="n">text</span><span class="p">(</span><span class="s2">"users.name BETWEEN 'm' AND 'z'"</span><span class="p">),</span>
-                <span class="n">text</span><span class="p">(</span>
-                    <span class="s2">"(addresses.email_address LIKE :x "</span>
-                    <span class="s2">"OR addresses.email_address LIKE :y)"</span><span class="p">)</span>
-            <span class="p">)</span>
-        <span class="p">)</span><span class="o">.</span><span class="n">select_from</span><span class="p">(</span><span class="n">text</span><span class="p">(</span><span class="s1">'users, addresses'</span><span class="p">))</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">((</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">engine</span><span class="p">)))</span>
-<span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">'%@aol.com'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'%@msn.com'</span><span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>select无法使用bindparams,只能在execute的时候传入参数</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">select</span><span class="p">([</span>
-       <span class="n">text</span><span class="p">(</span><span class="s2">"users.fullname || ', ' || addresses.email_address AS title"</span><span class="p">)</span>
-    <span class="p">])</span><span class="o">.</span>\
-        <span class="n">where</span><span class="p">(</span>
-            <span class="n">and_</span><span class="p">(</span>
-                <span class="n">text</span><span class="p">(</span><span class="s2">"users.id = addresses.user_id"</span><span class="p">),</span>
-                <span class="n">text</span><span class="p">(</span><span class="s2">"users.name BETWEEN 'm' AND 'z'"</span><span class="p">),</span>
-                <span class="n">text</span><span class="p">(</span>
-                    <span class="s2">"(addresses.email_address LIKE :x "</span>
-                    <span class="s2">"OR addresses.email_address LIKE :y)"</span><span class="p">)</span>
-            <span class="p">)</span>
-        <span class="p">)</span><span class="o">.</span><span class="n">select_from</span><span class="p">(</span><span class="n">text</span><span class="p">(</span><span class="s1">'users, addresses'</span><span class="p">))</span>
-
-<span class="n">s</span><span class="o">.</span><span class="n">bindparams</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">'%@aol.com'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'%@msn.com'</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>可以用literal_column, table将列和表单独处理。这种写法介于text中放入纯sql文本和纯sqlalchemy object之间</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [52]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">select</span><span class="p">,</span> <span class="n">and_</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">String</span>
-<span class="kn">from</span> <span class="nn">sqlalchemy.sql</span> <span class="k">import</span> <span class="n">table</span><span class="p">,</span> <span class="n">literal_column</span>
-<span class="n">s</span> <span class="o">=</span> <span class="n">select</span><span class="p">([</span>
-   <span class="n">literal_column</span><span class="p">(</span><span class="s2">"users.fullname"</span><span class="p">,</span> <span class="n">String</span><span class="p">)</span> <span class="o">+</span>
-   <span class="s1">', '</span> <span class="o">+</span>
-   <span class="n">literal_column</span><span class="p">(</span><span class="s2">"addresses.email_address"</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">"title"</span><span class="p">)</span>
-<span class="p">])</span><span class="o">.</span>\
-   <span class="n">where</span><span class="p">(</span>
-       <span class="n">and_</span><span class="p">(</span>
-           <span class="n">literal_column</span><span class="p">(</span><span class="s2">"users.id"</span><span class="p">)</span> <span class="o">==</span> <span class="n">literal_column</span><span class="p">(</span><span class="s2">"addresses.user_id"</span><span class="p">),</span>
-           <span class="n">text</span><span class="p">(</span><span class="s2">"users.name BETWEEN 'm' AND 'z'"</span><span class="p">),</span>
-           <span class="n">text</span><span class="p">(</span>
-               <span class="s2">"(addresses.email_address LIKE :x OR "</span>
-               <span class="s2">"addresses.email_address LIKE :y)"</span><span class="p">)</span>
-       <span class="p">)</span>
-   <span class="p">)</span><span class="o">.</span><span class="n">select_from</span><span class="p">(</span><span class="n">table</span><span class="p">(</span><span class="s1">'users'</span><span class="p">))</span><span class="o">.</span><span class="n">select_from</span><span class="p">(</span><span class="n">table</span><span class="p">(</span><span class="s1">'addresses'</span><span class="p">))</span>
+<span class="n">users</span><span class="p">,</span> <span class="n">addresses</span> <span class="o">=</span> <span class="n">reset_db</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
 
 
-<span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">'%@aol.com'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'%@msn.com'</span><span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+<span class="n">stmt</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">users</span><span class="o">.</span><span class="n">update</span><span class="p">()</span><span class="o">.</span>
+    <span class="n">where</span><span class="p">(</span><span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">bindparam</span><span class="p">(</span><span class="s1">'oldname'</span><span class="p">))</span><span class="o">.</span>
+    <span class="n">values</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">bindparam</span><span class="p">(</span><span class="s1">'newname'</span><span class="p">))</span>
+<span class="p">)</span>
+
+<span class="n">data</span> <span class="o">=</span>  <span class="p">{</span><span class="s1">'oldname'</span><span class="p">:</span><span class="s1">'jack'</span><span class="p">,</span> <span class="s1">'newname'</span><span class="p">:</span><span class="s1">'ed'</span><span class="p">}</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">stmt</span><span class="o">.</span><span class="n">params</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">),</span><span class="n">e</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[52]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>[('Wendy Williams, wendy@aol.com',)]</pre>
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><class 'NotImplementedError'> params() is not supported for INSERT/UPDATE/DELETE statements. To set the values for an INSERT or UPDATE statement, use stmt.values(**parameters).
+</pre>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>用其它的sub query的数据更新数据。这里需要添加一个where条件去定义原来的两张表之间的行是怎么对应。在下面的例子里，我们用每个user的lexicographical order靠前的email_addresses去替换用户的name</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [184]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">bindparam</span><span class="p">,</span><span class="n">func</span>
+
+<span class="n">users</span><span class="p">,</span> <span class="n">addresses</span> <span class="o">=</span> <span class="n">reset_db</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+
+<span class="n">first_addresses</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">select</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="n">addresses</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">user_id</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">'user_id'</span><span class="p">),</span>
+            <span class="n">func</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">addresses</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">email_address</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">'name'</span><span class="p">)</span>
+        <span class="p">]</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span>
+        <span class="n">addresses</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">user_id</span>
+    <span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s1">'first_address'</span><span class="p">)</span>
+
+
+<span class="n">s</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">users</span>
+    <span class="o">.</span><span class="n">update</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">values</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">name</span><span class="p">:</span><span class="n">first_addresses</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">name</span>
+        <span class="p">}</span>
+
+    <span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
+        <span class="n">first_addresses</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">user_id</span> <span class="o">==</span> <span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+
+<span class="n">s1</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">select</span><span class="p">()</span>
+
+<span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Compiled SQL
+=============================
+UPDATE test.users SET name=first_address.name FROM (SELECT test.addresses.user_id AS user_id, min(test.addresses.email_address) AS name 
+FROM test.addresses GROUP BY test.addresses.user_id) AS first_address WHERE first_address.user_id = test.users.id
+</pre>
+</div>
+</div>
+<div class="output_area"><div class="prompt output_prompt">Out[184]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>id</th>
+<th>name</th>
+<th>fullname</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1</td>
+<td>jack@msn.com</td>
+<td>Jack Jones</td>
+</tr>
+<tr>
+<th>1</th>
+<td>2</td>
+<td>wendy@aol.com</td>
+<td>Wendy Williams</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>也可以使用correlated的方式取进行update。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [175]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">bindparam</span><span class="p">,</span><span class="n">func</span>
+
+<span class="n">users</span><span class="p">,</span> <span class="n">addresses</span> <span class="o">=</span> <span class="n">reset_db</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+
+<span class="n">first_address</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">select</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="n">func</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">addresses</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">email_address</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">'name'</span><span class="p">)</span>
+        <span class="p">]</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span>
+        <span class="n">addresses</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">user_id</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
+        <span class="n">addresses</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">user_id</span> <span class="o">==</span> <span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+
+
+<span class="n">s</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">users</span>
+    <span class="o">.</span><span class="n">update</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">values</span><span class="p">(</span>   
+        <span class="p">{</span>
+            <span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">name</span><span class="p">:</span><span class="n">first_address</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+
+<span class="n">s1</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">select</span><span class="p">()</span>
+
+<span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Compiled SQL
+=============================
+UPDATE test.users SET name=(SELECT min(test.addresses.email_address) AS name 
+FROM test.addresses 
+WHERE test.addresses.user_id = test.users.id GROUP BY test.addresses.user_id)
+</pre>
+</div>
+</div>
+<div class="output_area"><div class="prompt output_prompt">Out[175]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>id</th>
+<th>name</th>
+<th>fullname</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1</td>
+<td>jack@msn.com</td>
+<td>Jack Jones</td>
+</tr>
+<tr>
+<th>1</th>
+<td>2</td>
+<td>wendy@aol.com</td>
+<td>Wendy Williams</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>不过这里不需要添加.scalar（）</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>用correlated subquery进行update的时候,如果返回多行，sql会报错。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [181]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">bindparam</span><span class="p">,</span><span class="n">func</span>
+
+<span class="n">users</span><span class="p">,</span> <span class="n">addresses</span> <span class="o">=</span> <span class="n">reset_db</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+
+<span class="n">first_address</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">select</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="n">addresses</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">email_address</span>
+        <span class="p">]</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
+        <span class="n">addresses</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">user_id</span> <span class="o">==</span> <span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+
+
+<span class="n">s</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">users</span>
+    <span class="o">.</span><span class="n">update</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">values</span><span class="p">(</span>   
+        <span class="p">{</span>
+            <span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">name</span><span class="p">:</span><span class="n">first_address</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">),</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><class 'sqlalchemy.exc.ProgrammingError'> (psycopg2.ProgrammingError) more than one row returned by a subquery used as an expression
+ [SQL: 'UPDATE test.users SET name=(SELECT test.addresses.email_address \nFROM test.addresses \nWHERE test.addresses.user_id = test.users.id)']
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>如果sub query返回的结果不止一条的话，也不会出错。选出了每个id的第一行email作为实际使用的值。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [149]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">bindparam</span><span class="p">,</span><span class="n">func</span>
+
+<span class="n">users</span><span class="p">,</span> <span class="n">addresses</span> <span class="o">=</span> <span class="n">reset_db</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">users</span>
+    <span class="o">.</span><span class="n">update</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">values</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">name</span><span class="p">:</span><span class="n">addresses</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">email_address</span>
+        <span class="p">}</span>
+
+    <span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
+        <span class="n">addresses</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">user_id</span> <span class="o">==</span> <span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+
+<span class="n">s1</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">select</span><span class="p">()</span>
+
+<span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Compiled SQL
+=============================
+UPDATE test.users SET name=test.addresses.email_address FROM test.addresses WHERE test.addresses.user_id = test.users.id
+</pre>
+</div>
+</div>
+<div class="output_area"><div class="prompt output_prompt">Out[149]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>id</th>
+<th>name</th>
+<th>fullname</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1</td>
+<td>jack@yahoo.com</td>
+<td>Jack Jones</td>
+</tr>
+<tr>
+<th>1</th>
+<td>2</td>
+<td>www@www.org</td>
+<td>Wendy Williams</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="使用文本SQL">使用文本SQL<a class="anchor-link" href="#使用文本SQL">¶</a></h2><p>sqlalchemy中一个sql逻辑的每一个组件都是用python object来定义的, 如果有时候我们希望用用文本形式的sql直接转化成SQLAlchemy的obj。例如下面两种场景。</p>
+<ul>
+<li>已经存在现成的sql代码片段，不想用SQLAlchemy重写</li>
+<li>遇到SQLAlchemy无法表达，只有原生的SQL能表达的场景</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>如果有完整的SQL语句,直接传入SQL语句即可。</p>
 </div>
 </div>
 </div>
@@ -4279,9 +5433,270 @@ WHERE test.users.name LIKE ('jack' || '%%')
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s1">'select users.id, users.name, users.fullname from test.users'</span>
+
+<span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>如果有待定参数的SQL语句,直接传入执行的话会失败。例如下面的语句是SQLAlchemy可识别的带参数的语句<code>:id</code>是名为id的参数。在传入实际的参数前,这个语句是不完整的，如果直接传入engine.execute的话，会出错。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s1">'select users.id, users.name, users.fullname from test.users where users.id=:user_id'</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">),</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>这时可以用text处理并且用bindparams函数绑定数据</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s1">'select users.id, users.name, users.fullname from test.users where users.id=:user_id'</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">text</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">bindparams</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">compile_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">'literal_binds'</span><span class="p">:</span><span class="kc">True</span><span class="p">})</span>
+<span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>也可以在execute阶段传入数据</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s1">'select users.id, users.name, users.fullname from test.users where users.id=:user_id'</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">text</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+<span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">user_id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>除了用文本定义大段的SQL逻辑外，也可以用文本SQL的片段去定义部分的SQLAlchemy逻辑。注意最外层的结构是sqlalchemy.sql.selectable.Select,绑定数据的时候用调用的method是params而不是bindparams</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">select</span><span class="p">(</span>
+            <span class="p">[</span>
+               <span class="n">text</span><span class="p">(</span><span class="s2">"users.fullname || ', ' || addresses.email_address AS title"</span><span class="p">)</span>
+            <span class="p">]</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
+            <span class="n">and_</span><span class="p">(</span>
+                <span class="n">text</span><span class="p">(</span><span class="s2">"users.id = addresses.user_id"</span><span class="p">),</span>
+                <span class="n">text</span><span class="p">(</span><span class="s2">"users.name BETWEEN 'm' AND 'z'"</span><span class="p">),</span>
+                <span class="n">text</span><span class="p">(</span>
+                    <span class="s2">"(addresses.email_address LIKE :x "</span>
+                    <span class="s2">"OR addresses.email_address LIKE :y)"</span><span class="p">)</span>
+                <span class="p">)</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">select_from</span><span class="p">(</span>
+            <span class="n">text</span><span class="p">(</span><span class="s1">'test.users, test.addresses'</span><span class="p">)</span>
+        <span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">params</span><span class="p">({</span><span class="s1">'x'</span><span class="p">:</span><span class="s1">'%@aol.com'</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">:</span><span class="s1">'%@msn.com'</span><span class="p">})</span>
+
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+
+<span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>如果用文本定义的SQL片段是table,和column, 可以用literal_column, table代替text去处理文本SQL。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">literal_column</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span><span class="n">table</span><span class="p">,</span><span class="n">literal</span>
+
+<span class="n">users</span> <span class="o">=</span> <span class="n">table</span><span class="p">(</span><span class="s1">'users'</span><span class="p">)</span>
+<span class="n">users</span><span class="o">.</span><span class="n">schema</span> <span class="o">=</span> <span class="s1">'test'</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">select</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">literal_column</span><span class="p">(</span><span class="s1">'users.id'</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">'id'</span><span class="p">),</span>
+        <span class="p">(</span><span class="n">literal</span><span class="p">(</span><span class="s1">'=<'</span><span class="p">)</span><span class="o">+</span><span class="n">literal_column</span><span class="p">(</span><span class="s1">'users.fullname'</span><span class="p">,</span><span class="n">type_</span> <span class="o">=</span> <span class="n">String</span><span class="p">)</span><span class="o">+</span><span class="n">literal</span><span class="p">(</span><span class="s1">'>='</span><span class="p">))</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">'name'</span><span class="p">)</span>        
+    <span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">select_from</span> <span class="p">(</span>
+    <span class="n">users</span>
+<span class="p">)</span>
+
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s1</span><span class="p">)</span>
+
+<span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>注意schema不能在构造table时以字符串传入，否则生成的语句会错误</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">literal_column</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span><span class="n">table</span><span class="p">,</span><span class="n">literal</span>
+
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">select</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">literal_column</span><span class="p">(</span><span class="s1">'users.id'</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">'id'</span><span class="p">),</span>
+        <span class="p">(</span><span class="n">literal</span><span class="p">(</span><span class="s1">'=<'</span><span class="p">)</span><span class="o">+</span><span class="n">literal_column</span><span class="p">(</span><span class="s1">'users.fullname'</span><span class="p">,</span><span class="n">type_</span> <span class="o">=</span> <span class="n">String</span><span class="p">)</span><span class="o">+</span><span class="n">literal</span><span class="p">(</span><span class="s1">'>='</span><span class="p">))</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">'name'</span><span class="p">)</span>        
+    <span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">select_from</span> <span class="p">(</span>
+    <span class="n">table</span><span class="p">(</span><span class="s1">'test.users'</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">),</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>用literal_column和table相比text,构造出的object能够更好的被SQLAlchemy支持。看下面的例子。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">users</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">reset_db</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="n">select</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+        <span class="n">text</span><span class="p">(</span><span class="s1">'users.fullname AS name'</span><span class="p">)</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s1</span><span class="p">)</span>
+
+<span class="n">s2</span> <span class="o">=</span> <span class="n">select</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+        <span class="n">literal_column</span><span class="p">(</span><span class="s1">'users.fullname'</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">'name'</span><span class="p">)</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>尽管编译出的语句是一样的，但是观察SQLAlchemy识别出的column names,发现SQLAlchemy无法识别text构造的列。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">s1</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s2</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>因此应该优先考虑使用literal_column, table等更"专业"的构造方式。</p>
 </div>
 </div>
 </div>
