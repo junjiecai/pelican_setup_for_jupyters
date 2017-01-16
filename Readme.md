@@ -66,13 +66,13 @@ Register a DUOSHUO service [here](http://duoshuo.com/) for your blog and take no
 ## Register Google Analytics
 Register a google analytics service [here](https://analytics.google.com/) for your blog site and take note on the google analytics id (looks like 'UA-xxxxxxxx-x')
 
-## Create a custom.py
-create a custom.py file (same folder with pelicanconf.py) and add the following content
+## Create a customs.py
+create a customs.py file (same folder with pelicanconf.py) and add the following content
 ```
 AUTHOR = 'YourName'
 SITENAME = "YourSiteName"
-DUOSHUO_PREFIX = 'YourSiteUrl'
-DUOSHUO_SITENAME = <your duoshuo site name> #If your site name is 'XXXX.duoshuo.com', just fill in XXXX here
+DUOSHUO_PREFIX = "YourSiteUrl"
+DUOSHUO_SITENAME = "your duoshuo site name" #If your site name is 'XXXX.duoshuo.com', just fill in XXXX here
 GITHUB_URL = <your github url>
 GOOGLE_ANALYTICS = 'UA-xxxxxxxx-x' #Your google analytics id
 ARTICLE_PATHS = ['articles'] # your article paths, relative to PATH in pelicanconf.py. See examples below

@@ -8,7 +8,7 @@ import sys
 sys.path.append('')
 from customs import AUTHOR, SITENAME, DUOSHUO_PREFIX,ARTICLE_PATHS,DUOSHUO_SITENAME,GITHUB_URL,GITHUB_URL,GOOGLE_ANALYTICS
 
-DIRECT_TEMPLATES = ['index', 'categories', 'authors', 'archives']
+DIRECT_TEMPLATES = ['index', 'categories', 'authors', 'archives','tags']
 
 YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
 MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/index.html'
@@ -25,7 +25,6 @@ MENUITEMS = [
     ('归档','archives.html')
 ]
 PAGE_PATHS = ['pages']
-
 DISPLAY_PAGES_ON_MENU = True
 
 
