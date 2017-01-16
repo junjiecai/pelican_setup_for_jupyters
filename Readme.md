@@ -11,7 +11,7 @@ primary adaptations
     * Duoshuo Comments (disqus is blocked for chinese users)
     * Responsive sidebar toc menu
     * Menus for category, tag, archives
-    * Wechat reward image
+    * Wechat award image
 
 # Demonstration
 My jupyter notebooks are kept in [here](https://github.com/junjiecai/jupyter_labs/tree/master/exolution)　and you can check what they look like after they are published into blogs [here]((https://junjiecai.github.io)
@@ -98,7 +98,7 @@ content
         |   article_2
             |   article2.ipynb
             |   article2.ipynb-meta
-|   posts
+|   pages
 ```
 
 And we only want to publish contents in directory labs_A and lifes to blog posts, then set ARTICLE_PATHS as
@@ -116,7 +116,7 @@ Images are stored under "/themes/pelican-clean-blog/static/images"
 Create a folder named with 'content' in the project folder
 
 ## Edit aboutme page
-Edit content in content/posts/aboutme.ipynb
+Edit content in content/pages/aboutme.ipynb
 
 ## Compose your jupyter notebook
 1. Create a folder (it must be subdirectory of paths defined in ARTICLE_PATHS), you can create one folder for each jupyter notebook lab.
@@ -171,5 +171,12 @@ git push blog master
 ```
 
 *** Don't forget to delete .ipynb_checkpoints files before run ```pelican``` command***
+
+## Tips for blogging
+In jupyter notebook, ```print``` and ```IPython.display.display``` won't create ```Output[x]``` mark in the output region, but auto-displaying for the last object in input region does.
+
+![demo.jpeg](imgs/comparison.png)
+
+Mixting these two style makes the generated HTML harder to read, so always explicitly call print or display to make the output region consistent is recommended.
 
 

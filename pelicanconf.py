@@ -8,11 +8,6 @@ import sys
 sys.path.append('')
 from customs import AUTHOR, SITENAME, DUOSHUO_PREFIX,ARTICLE_PATHS,DUOSHUO_SITENAME,GITHUB_URL,GITHUB_URL,GOOGLE_ANALYTICS
 
-AUTHOR = 'Exolution'
-SITENAME = "Exolution's Blog"
-SITEURL = ''
-DUOSHUO_PREFIX = 'junjiecai.github.io'
-
 DIRECT_TEMPLATES = ['index', 'categories', 'authors', 'archives']
 
 YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
@@ -34,6 +29,7 @@ PAGE_PATHS = ['pages']
 DISPLAY_PAGES_ON_MENU = True
 
 
+FILENAME_METADATA = '(?P<id>\d{4})_(?P<slug>.*)'
 ARTICLE_URL = 'posts/{date:%Y}/{date:%b}/{date:%d}/{slug}/'
 ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/{date:%d}/{slug}/index.html'
 
