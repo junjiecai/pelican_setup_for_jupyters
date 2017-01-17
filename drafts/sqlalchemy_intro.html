@@ -1151,7 +1151,7 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="关于这份noteook的说明">关于这份noteook的说明<a class="anchor-link" href="#关于这份noteook的说明">¶</a></h2>
+<h2 id="说明">说明<a class="anchor-link" href="#说明">¶</a></h2>
 </div>
 </div>
 </div>
@@ -1160,18 +1160,46 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>SQLAlchemy包含SQLAlchemy Core和SQLAlchemy ORM两部分, 这里只介绍SQLAlchemy Core的内容。</p>
-<p>SQLAlchemy中需要通过engine和目标数据库建立连接，如果要运行文中的代码,请安装postgresql数据库并且建立测试用户和测试数据库,用户名,数据库名,密码都是test。如果使用了其它的用户名,密码和数据库名，请相应的对下面建立engine的代码做出修改。</p>
+<p>SQLAlchemy包含SQLAlchemy Core和SQLAlchemy ORM两部分, 这个系列只包含SQLAlchemy Core的内容。</p>
+<p>本文的jupyter notebook .ipynb文件和相关的.py代码可以在<a href="">这里</a>找到</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="准备">准备<a class="anchor-link" href="#准备">¶</a></h2><h3 id="安装sqlalchemy">安装sqlalchemy<a class="anchor-link" href="#安装sqlalchemy">¶</a></h3><p><code>pip install SQLAlchemy</code></p>
+<h3 id="安装postgresql数据库">安装postgresql数据库<a class="anchor-link" href="#安装postgresql数据库">¶</a></h3><p>如果想运行文中的代码,请安装postgresql数据库并且建立相应的测试用户和测试数据库。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="创建engine">创建engine<a class="anchor-link" href="#创建engine">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>SQLAlchemy通过engine和目标数据库建立连接，它是后面所有的数据库操作都需要使用的object。
+我本机的使用的用户名,数据库名,密码都是'test',端口为'5432'。如果不一致请相应的对下面的代码做出修改。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [4]:</div>
+<div class="prompt input_prompt">In [58]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span>
-<span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">create_engine</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">create_engine</span>
 
 <span class="n">user</span> <span class="o">=</span> <span class="s1">'test'</span>
 <span class="n">password</span> <span class="o">=</span> <span class="s1">'test'</span>
@@ -1189,13 +1217,71 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>helper.py文件可以在本notebook的文件夹中可以找到。它包含了后面的实验需要的测试数据</p>
+<h3 id="导入helper.py">导入helper.py<a class="anchor-link" href="#导入helper.py">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>为了方便代码实现的进行，我编写了helper.py，里面提供的函数功能如下</p>
+<ul>
+<li>reset_tables:在名为'test'的schema下重置users,addresses两张表的数据</li>
+<li>clear_tables:在名为'test'的schema下删除users和addresses两张表</li>
+<li>clear_schema:删除名为'test'的schema</li>
+<li>get_table:获得名为'test'的schema中指定表的数据(DataFrame形式)</li>
+<li>get_select:获得名为'test'的schema中指定查询语句得到数据(DataFrame形式)</li>
+<li>print_sql:print sqlalchemy object编译后对应的sql语句</li>
+</ul>
+<p>读者暂时不必关心这些函数是怎么实现的，等完成这份教程后自然有能力自己去实现同样的功能。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [2]:</div>
+<div class="prompt input_prompt">In [59]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">helper</span> <span class="k">import</span> <span class="n">reset_tables</span><span class="p">,</span><span class="n">clear_tables</span><span class="p">,</span><span class="n">clear_schema</span><span class="p">,</span><span class="n">get_select</span><span class="p">,</span><span class="n">get_table</span><span class="p">,</span><span class="n">print_sql</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="导入其它代码实验要用到的库">导入其它代码实验要用到的库<a class="anchor-link" href="#导入其它代码实验要用到的库">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [60]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="测试数据">测试数据<a class="anchor-link" href="#测试数据">¶</a></h3><p>教程中用到的测试数据如下</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [61]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">helper</span> <span class="k">import</span> <span class="n">users_data</span><span class="p">,</span> <span class="n">addresses_data</span>
@@ -1209,24 +1295,24 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>users表和user是一一对应关系,它包含的测试数据</p>
+<p>users表和user是一一对应关系,它包含的测试数据是id为1,2的用户的name和fullname</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [3]:</div>
+<div class="prompt input_prompt">In [62]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">users_data</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">users_data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_html rendered_html output_subarea ">
 <div>
 <table border="1" class="dataframe">
 <thead>
@@ -1263,24 +1349,24 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>addresses表和user是一对多的关系,它包含的测试数据</p>
+<p>addresses表和user是一对多的关系,它包含的测试数据是id为1,2的用户的email_addresses</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [4]:</div>
+<div class="prompt input_prompt">In [63]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">addresses_data</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">addresses_data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_html rendered_html output_subarea ">
 <div>
 <table border="1" class="dataframe">
 <thead>
@@ -1324,33 +1410,14 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>reset_db函数的功能是在postgresql数据库中重置这两张表的数据,并且返回指向两张表的sqlalchemy.sql.schema.Table对象，有了这两个object记录了表中有哪些列，列的数据类型是什么等信息，它们是用SQLAlchemy构建SQL逻辑的基础object。如果看到这里不明白的话不用在意，后面会有详细的解说。</p>
+<h2 id="SQLAlchemy-Core初印象">SQLAlchemy Core初印象<a class="anchor-link" href="#SQLAlchemy-Core初印象">¶</a></h2><p>SQLAlchemy Core提供了一套SQL Expression language,它提供了一套用Python construct(Python object)去表达SQL逻辑的体系。下面通过一些代码演示一下SQL Expression language的基本特征。这里读者只需要有大致的感觉即可，如果有一些细节不理解不用在意，后面都会有详细的解释。</p>
+<p>传统的SQL语句是用文本方式编写的。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [5]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">helper</span> <span class="k">import</span> <span class="n">reset_db</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="SQLAlchemy初印象">SQLAlchemy初印象<a class="anchor-link" href="#SQLAlchemy初印象">¶</a></h2><p>SQLAlchemy Core的显著特征是用sqlalchemy中提供object层层组合,去表达SQL逻辑。例如下面这段SQL逻辑</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [45]:</div>
+<div class="prompt input_prompt">In [64]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sql</span> <span class="o">=</span> <span class="s1">'''</span>
@@ -1384,12 +1451,12 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [46]:</div>
+<div class="prompt input_prompt">In [65]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">select</span><span class="p">,</span> <span class="n">func</span>
 
-<span class="n">users</span><span class="p">,</span> <span class="n">addresses</span> <span class="o">=</span> <span class="n">reset_db</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+<span class="n">users</span><span class="p">,</span> <span class="n">addresses</span> <span class="o">=</span> <span class="n">reset_tables</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
 
 <span class="n">s</span> <span class="o">=</span> <span class="p">(</span>
     <span class="n">select</span><span class="p">(</span>
@@ -1405,7 +1472,25 @@ h6:hover .anchor-link {
     <span class="p">)</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
     <span class="o">.</span><span class="n">having</span><span class="p">(</span><span class="n">func</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">addresses</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">email_address</span><span class="p">)</span><span class="o">></span><span class="mi">1</span><span class="p">)</span>
 <span class="p">)</span>
+
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Compiled SQL
+=============================
+SELECT test.users.id, test.users.fullname 
+FROM test.users JOIN test.addresses ON test.users.id = test.addresses.user_id GROUP BY test.users.id 
+HAVING count(test.addresses.email_address) > 1
+
+
+</pre>
+</div>
 </div>
 </div>
 </div>
@@ -1415,13 +1500,13 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>其中所有的SQL逻辑基本要素例如表,列,条件,join语句,以及组成的整体SQL逻辑都是SQLAlchemy中的object</p>
+<p>上面的SQL逻辑可以看作是很多更基本的元件构成的，包括表,列,条件,join语句等等。整个Select逻辑和这些组成元件，对应的都是sqlalchemy object</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [47]:</div>
+<div class="prompt input_prompt">In [66]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span>
@@ -1456,7 +1541,7 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>由于因此使用SQLAlchemy Core表达SQL逻辑的时候，是一个从代表简单SQL逻辑的object组装成复杂object的过程。这样做有几个好处。</p>
+<p>由于因此使用SQLAlchemy Core表达SQL逻辑的时候，是一个从代表基本SQL逻辑模块的object逐步组装成复杂object的过程。这样做有几个好处。</p>
 </div>
 </div>
 </div>
@@ -1465,34 +1550,72 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="分而治之">分而治之<a class="anchor-link" href="#分而治之">¶</a></h3><p>当SQL逻辑复杂的时候，可以分阶段的构造。先构造简单的SQL逻辑模块，再组装成复杂的SQL逻辑。相比一次性构造完成的复杂SQL逻辑相比，头脑的负担更低，也不容易出错。</p>
+<h3 id="容易拆分">容易拆分<a class="anchor-link" href="#容易拆分">¶</a></h3><p>当SQL逻辑复杂的时候，可以分阶段的构造。先构造简单的SQL逻辑模块，再逐步组装成复杂的SQL逻辑。相比一次性构造完整的复杂SQL逻辑相比，头脑的负担更低，也不容易出错。</p>
+<p>下面的例子里，我们可以把前面例子中的要选择的columns,join语句,having条件先构造好,然后再组装成完整的SQL逻辑。每一个SQL逻辑模块构造好后我们都可以观察一下对应的SQL语句是什么。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [48]:</div>
+<div class="prompt input_prompt">In [67]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">select</span><span class="p">,</span> <span class="n">func</span>
 
-<span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">fullname</span><span class="p">]</span>
+<span class="n">columns_selection</span> <span class="o">=</span> <span class="n">select</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">fullname</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">columns_selection</span><span class="p">)</span>
 
 <span class="n">join_clause</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
     <span class="n">addresses</span><span class="p">,</span>
     <span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span><span class="o">==</span><span class="n">addresses</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">user_id</span>    
 <span class="p">)</span>
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">join_clause</span><span class="p">)</span>
 
 <span class="n">condition</span> <span class="o">=</span> <span class="n">func</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">addresses</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">email_address</span><span class="p">)</span><span class="o">></span><span class="mi">1</span>
-
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">condition</span><span class="p">)</span>
 
 <span class="n">s</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">select</span><span class="p">(</span><span class="n">columns</span><span class="p">)</span>
+    <span class="n">columns_selection</span>
     <span class="o">.</span><span class="n">select_from</span><span class="p">(</span><span class="n">join_clause</span><span class="p">)</span>
     <span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
     <span class="o">.</span><span class="n">having</span><span class="p">(</span><span class="n">condition</span><span class="p">)</span>
 <span class="p">)</span>
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Compiled SQL
+=============================
+SELECT test.users.id, test.users.fullname 
+FROM test.users
+
+
+Compiled SQL
+=============================
+test.users JOIN test.addresses ON test.users.id = test.addresses.user_id
+
+
+Compiled SQL
+=============================
+count(test.addresses.email_address) > 1
+
+
+Compiled SQL
+=============================
+SELECT test.users.id, test.users.fullname 
+FROM test.users JOIN test.addresses ON test.users.id = test.addresses.user_id GROUP BY test.users.id 
+HAVING count(test.addresses.email_address) > 1
+
+
+</pre>
+</div>
 </div>
 </div>
 </div>
@@ -1502,7 +1625,42 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="容易复用">容易复用<a class="anchor-link" href="#容易复用">¶</a></h3><p>由于使用SQLAlchemy Core去表达SQL，本质上是使用python语言写代码。　因此我们可以利用python提供的一切工具和手段将重复出现的SQL逻辑转化成可复用的python代码。</p>
+<h3 id="容易复用">容易复用<a class="anchor-link" href="#容易复用">¶</a></h3><p>由于使用SQLAlchemy Core去表达SQL，本质上是使用python语言写代码。　因此我们可以利用python提供的一切工具和手段将重复出现的SQL逻辑抽提成可复用的python代码。</p>
+<p>例如我们在多个地方要根据fullname的长度，和首字母去筛选user。那么可以用一个函数生成这个条件，以后直接调用这个函数即可。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [68]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">Table</span><span class="p">,</span> <span class="n">and_</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">bindparam</span>
+
+<span class="k">def</span> <span class="nf">email_condition</span><span class="p">(</span><span class="n">users</span><span class="p">,</span> <span class="n">init</span><span class="p">,</span> <span class="n">length</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">and_</span><span class="p">(</span>
+    <span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">fullname</span><span class="o">.</span><span class="n">like</span><span class="p">(</span><span class="s1">'</span><span class="si">{}</span><span class="s1">%'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">init</span><span class="p">)),</span>
+    <span class="n">func</span><span class="o">.</span><span class="n">len</span><span class="p">(</span><span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">fullname</span><span class="p">)</span><span class="o">==</span><span class="n">length</span>
+<span class="p">)</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">email_condition</span><span class="p">(</span><span class="n">users</span><span class="p">,</span><span class="s1">'J'</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Compiled SQL
+=============================
+test.users.fullname LIKE 'J%' AND len(test.users.fullname) = 5
+
+
+</pre>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1520,8 +1678,9 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>在用SQLAlchemy Core表达SQL逻辑的时候，只是表达了用户的意图，并不是最终的SQL语句。</p>
-<p>同样的SQL逻辑，在不同的数据库中语法可能会有变化，而SQLAlchemy Core会根据database的种类，编译出和这个database兼容的SQL语句。这样用户写一次SQLAlchemy Core组织一次SQL逻辑，就可以在多个数据库中复用。</p>
+<p>在用SQLAlchemy Core表达SQL逻辑的时候，只是表达了用户的意图，并未生成最终的SQL语句。</p>
+<p>同样的SQL逻辑，在不同的database中语法可能会有变化，因此对应的SQL语句是不同的。 而SQLAlchemy Core会根据database的种类，编译出和这个database匹配的SQL语句。这样用户用SQLAlchemy Core组织一次SQL逻辑，就可以在多个数据库中复用。</p>
+<p>当然每个database都有一些自己独有的功能，对于这部分差异SQLAlchemy是不能自动处理的。</p>
 </div>
 </div>
 </div>
@@ -1530,16 +1689,27 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>例如我们engine指向的是postgresql数据库，我们可以用下面的语句观察针对postgresql编译后的SQL语句。</p>
+<h2 id="SQLAlchemy-Core使用详解">SQLAlchemy Core使用详解<a class="anchor-link" href="#SQLAlchemy-Core使用详解">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="查看编译后的语句">查看编译后的语句<a class="anchor-link" href="#查看编译后的语句">¶</a></h3><p>使用SQLAlchemy Core一个基本的需求是查看sqlalchemy object编译后的SQL语句是什么样的。这个可以用object提供的compile方法实现。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [49]:</div>
+<div class="prompt input_prompt">In [69]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">((</span><span class="n">s</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">compile_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">"literal_binds"</span><span class="p">:</span> <span class="kc">True</span><span class="p">})))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">condition</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">'jack'</span>
+<span class="n">compiled</span> <span class="o">=</span> <span class="n">condition</span><span class="o">.</span><span class="n">compile</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">compiled</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1548,9 +1718,7 @@ h6:hover .anchor-link {
 <div class="output">
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>SELECT test.users.id, test.users.fullname 
-FROM test.users JOIN test.addresses ON test.users.id = test.addresses.user_id GROUP BY test.users.id 
-HAVING count(test.addresses.email_address) > 1
+<pre>test.users.name = :name_1
 </pre>
 </div>
 </div>
@@ -1562,22 +1730,16 @@ HAVING count(test.addresses.email_address) > 1
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>上面的语句有点长,我们写一个函数方便后面实验</p>
+<p>默认情况下编译后的SQL语句是带参数的形式,并没有把'jack'代入name_1。可以通过调用params属性查看对应的数值是多少。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [50]:</div>
+<div class="prompt input_prompt">In [70]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">compile_kwargs</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
-    <span class="n">compile_kwargs</span> <span class="o">=</span> <span class="n">compile_kwargs</span> <span class="ow">or</span> <span class="p">{}</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'Compiled SQL'</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'============================='</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">((</span><span class="n">obj</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">compile_kwargs</span><span class="o">=</span><span class="n">compile_kwargs</span><span class="p">)))</span>
-
-<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">compiled</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1586,11 +1748,7 @@ HAVING count(test.addresses.email_address) > 1
 <div class="output">
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Compiled SQL
-=============================
-SELECT test.users.id, test.users.fullname 
-FROM test.users JOIN test.addresses ON test.users.id = test.addresses.user_id GROUP BY test.users.id 
-HAVING count(test.addresses.email_address) > %(count_1)s
+<pre>{'name_1': 'jack'}
 </pre>
 </div>
 </div>
@@ -1602,7 +1760,60 @@ HAVING count(test.addresses.email_address) > %(count_1)s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="SQLAlchemy的使用">SQLAlchemy的使用<a class="anchor-link" href="#SQLAlchemy的使用">¶</a></h2>
+<p>如果希望编译后的SQL语句是非参数化的形式，可以添加<code>compile_kwargs={"literal_binds": True}</code>选项。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [71]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">compiled</span> <span class="o">=</span> <span class="n">condition</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">compile_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">"literal_binds"</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">compiled</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>test.users.name = 'jack'
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>由于具体的SQL逻辑在不同的database对应的语法并不完全相同，所以建议传入一个指向特定数据库的engine,可以得到更准确的编译结果。(在这个例子里没有差别)</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [72]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">compiled</span> <span class="o">=</span> <span class="n">condition</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">compile_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">"literal_binds"</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">compiled</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>test.users.name = 'jack'
+</pre>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1620,22 +1831,24 @@ HAVING count(test.addresses.email_address) > %(count_1)s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="create-schema">create schema<a class="anchor-link" href="#create-schema">¶</a></h4>
+<h4 id="创建schema">创建schema<a class="anchor-link" href="#创建schema">¶</a></h4>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [51]:</div>
+<div class="prompt input_prompt">In [73]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy.schema</span> <span class="k">import</span> <span class="n">CreateSchema</span>
 
-<span class="n">schema_name</span> <span class="o">=</span> <span class="s1">'test2'</span>
+<span class="n">clear_schema</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+
+<span class="n">schema_name</span> <span class="o">=</span> <span class="s1">'test'</span>
 <span class="n">obj</span> <span class="o">=</span> <span class="n">CreateSchema</span><span class="p">(</span><span class="n">schema_name</span><span class="p">)</span>
 <span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
 
-<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">obj</span><span class="p">)</span>
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">obj</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1646,7 +1859,9 @@ HAVING count(test.addresses.email_address) > %(count_1)s
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Compiled SQL
 =============================
-CREATE SCHEMA test2
+CREATE SCHEMA test
+
+
 </pre>
 </div>
 </div>
@@ -1658,13 +1873,13 @@ CREATE SCHEMA test2
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>如果新建已经存在的schema,会出现ProgrammingError的错误。</p>
+<p>如果创建已经存在的schema,会导致异常。例如，刚才已经创建了名为'test'的schema，如果再创建一遍的话,会提示schema "test" already exists</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [52]:</div>
+<div class="prompt input_prompt">In [74]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
@@ -1679,8 +1894,8 @@ CREATE SCHEMA test2
 <div class="output">
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre><class 'sqlalchemy.exc.ProgrammingError'> (psycopg2.ProgrammingError) schema "test2" already exists
- [SQL: 'CREATE SCHEMA test2']
+<pre><class 'sqlalchemy.exc.ProgrammingError'> (psycopg2.ProgrammingError) schema "test" already exists
+ [SQL: 'CREATE SCHEMA test']
 </pre>
 </div>
 </div>
@@ -1692,22 +1907,104 @@ CREATE SCHEMA test2
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="drop-schema">drop schema<a class="anchor-link" href="#drop-schema">¶</a></h3>
+<p><div class = 'warning'>注意</div></p>
+<p>有些sqlalchemy object，例如这个例子中的<code>CreateSchema(schema_name)</code>，结果为None。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [53]:</div>
+<div class="prompt input_prompt">In [75]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">compile</span><span class="p">()</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt output_prompt">Out[75]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>NoneType</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>对于这类object,<code>compile</code>的时候添加<code>compile_kwargs={"literal_binds": True}</code>会导致异常。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [76]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">compile_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">"literal_binds"</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">),</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><class 'TypeError'> visit_create_schema() got an unexpected keyword argument 'literal_binds'
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>默认情况<code>print_sql</code>函数会添加<code>"literal_binds": True</code>， 可以将第三个参数设置成<code>False</code>关闭这个设置。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="删除schema">删除schema<a class="anchor-link" href="#删除schema">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>和新建schema类似。不过如果这个schema下有一些依赖于这个schema存在的资源，比如tables,那么只有先删除了这些资源后才能删除这个schema，否则会异常。</p>
+<p>这里有一个有用的参数cascade，设置成True的话会自动删除所有依赖于这个schema的资源。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [77]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy.schema</span> <span class="k">import</span> <span class="n">DropSchema</span>
 
-<span class="n">schema_name</span> <span class="o">=</span> <span class="s1">'test2'</span>
+<span class="n">schema_name</span> <span class="o">=</span> <span class="s1">'test'</span>
 <span class="n">obj</span> <span class="o">=</span> <span class="n">DropSchema</span><span class="p">(</span><span class="n">schema_name</span><span class="p">,</span> <span class="n">cascade</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-<span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">obj</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
 
-<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">obj</span><span class="p">)</span>
+<span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1718,8 +2015,15 @@ CREATE SCHEMA test2
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Compiled SQL
 =============================
-DROP SCHEMA test2 CASCADE
+DROP SCHEMA test CASCADE
+
+
 </pre>
+</div>
+</div>
+<div class="output_area"><div class="prompt output_prompt">Out[77]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre><sqlalchemy.engine.result.ResultProxy at 0x7f918f803470></pre>
 </div>
 </div>
 </div>
@@ -1734,28 +2038,12 @@ DROP SCHEMA test2 CASCADE
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [54]:</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
-<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">),</span><span class="n">e</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre><class 'sqlalchemy.exc.ProgrammingError'> (psycopg2.ProgrammingError) schema "test2" does not exist
- [SQL: 'DROP SCHEMA test2 CASCADE']
-</pre>
-</div>
-</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>同样，如果删除并不存在的schema，会报异常，这个不演示了。</p>
 </div>
 </div>
 </div>
@@ -1773,13 +2061,14 @@ DROP SCHEMA test2 CASCADE
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="define-ｔａble">define ｔａble<a class="anchor-link" href="#define-ｔａble">¶</a></h4><p>定义SQLAlchemy的数据表，主要参数是提供table名,schema名以及相关的column的名称,类型，是否是primary_key等信息。</p>
+<h4 id="定义ｔａble">定义ｔａble<a class="anchor-link" href="#定义ｔａble">¶</a></h4><p>定义SQLAlchemy可理解的table数据结构，主要参数是table名,schema名以及相关的column的名称,类型，是否是primary_key等信息。</p>
+<p>定义table是进行新建表，构建select语句等操作的基础。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [55]:</div>
+<div class="prompt input_prompt">In [78]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">Table</span><span class="p">,</span> <span class="n">Column</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">MetaData</span><span class="p">,</span> <span class="n">ForeignKey</span><span class="p">,</span> <span class="n">Sequence</span>
@@ -1795,24 +2084,33 @@ DROP SCHEMA test2 CASCADE
     <span class="n">metadata</span><span class="p">,</span>
     <span class="n">Column</span><span class="p">(</span><span class="s1">'id'</span><span class="p">,</span><span class="n">Integer</span><span class="p">,</span><span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
     <span class="n">Column</span><span class="p">(</span><span class="s1">'name'</span><span class="p">,</span><span class="n">String</span><span class="p">),</span> 
-    <span class="n">Column</span><span class="p">(</span><span class="s1">'fullname'</span><span class="p">,</span><span class="n">String</span><span class="p">,</span>     
+    <span class="n">Column</span><span class="p">(</span><span class="s1">'fullname'</span><span class="p">,</span><span class="n">String</span><span class="p">),</span>
     <span class="n">schema</span> <span class="o">=</span> <span class="n">schema</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">"<ipython-input-55-5605527d8371>"</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">16</span>
-<span class="ansi-red-fg">    )</span>
-     ^
-<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> unexpected EOF while parsing
-</pre>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>如果是数据库中已经存在的表,可以直接使用autoload功能从数据库中读取表的列信息，可以免去很多麻烦。下面reset_db确保test.users表存在后用autoload自动读取users表的信息。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [79]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">reset_tables</span><span class="p">(</span><span class="n">engine</span><span class="p">);</span>
+
+<span class="n">metadats</span> <span class="o">=</span> <span class="n">MetaData</span><span class="p">()</span>
+<span class="n">users</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="s1">'users'</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">schema</span> <span class="o">=</span> <span class="s1">'test'</span><span class="p">,</span> <span class="n">autoload</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">autoload_with</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -1822,57 +2120,27 @@ DROP SCHEMA test2 CASCADE
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>如果是数据库中已经存在的表,可以直接使用autoload功能从数据库中读取表的列信息，可以免去很多麻烦。</p>
+<p>可以看到users中自动包含了column的定义信息。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [56]:</div>
+<div class="prompt input_prompt">In [80]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">table</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="n">table_name</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">schema</span> <span class="o">=</span> <span class="n">schema</span><span class="p">,</span> <span class="n">autoload</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">autoload_with</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg"><ipython-input-56-b382c0c1921e></span> in <span class="ansi-cyan-fg"><module></span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----> 1</span><span class="ansi-red-fg"> </span>table <span class="ansi-blue-fg">=</span> Table<span class="ansi-blue-fg">(</span>table_name<span class="ansi-blue-fg">,</span> metadata<span class="ansi-blue-fg">,</span> schema <span class="ansi-blue-fg">=</span> schema<span class="ansi-blue-fg">,</span> autoload<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">,</span> autoload_with<span class="ansi-blue-fg">=</span>engine<span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">NameError</span>: name 'Table' is not defined</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [57]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">table</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg"><ipython-input-57-5aed1892cc26></span> in <span class="ansi-cyan-fg"><module></span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----> 1</span><span class="ansi-red-fg"> </span>table<span class="ansi-blue-fg">.</span>c<span class="ansi-blue-fg">.</span>values<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">NameError</span>: name 'table' is not defined</pre>
+<div class="output_area"><div class="prompt output_prompt">Out[80]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>[Column('id', Integer(), table=<users>, primary_key=True, nullable=False),
+ Column('name', String(), table=<users>),
+ Column('fullname', String(), table=<users>)]</pre>
 </div>
 </div>
 </div>
@@ -1883,8 +2151,8 @@ DROP SCHEMA test2 CASCADE
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>注意</strong></p>
-<p>如果table中定义了foreign key信息,autoload得到的表无法用于join是自动匹配foreign key，暂时没找到解决方法。(见join章节的演示)</p>
+<p><div class = "article warning">注意</div></p>
+<p>如果table中定义了foreign key信息,SQLAlchemy Core构建join语句的时候能够自动将foreign key作为join的条件。 但是autoload得到的table会失去这个便利，暂时没找到解决方法。(见join章节的演示)</p>
 </div>
 </div>
 </div>
@@ -1893,7 +2161,7 @@ DROP SCHEMA test2 CASCADE
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="create-table">create table<a class="anchor-link" href="#create-table">¶</a></h4><p>如果是数据库中不存在的表，在定义了table后，需要需要执行下面的语句才能在数据库中建立这张表。</p>
+<h4 id="新建table">新建table<a class="anchor-link" href="#新建table">¶</a></h4><p>再定义了table后，可以在数据库中新建这张表。</p>
 </div>
 </div>
 </div>
@@ -1908,11 +2176,10 @@ DROP SCHEMA test2 CASCADE
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [58]:</div>
+<div class="prompt input_prompt">In [81]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">helper</span> <span class="k">import</span> <span class="n">clear_db</span>
-<span class="n">clear_db</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">clear_tables</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1929,13 +2196,14 @@ DROP SCHEMA test2 CASCADE
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [59]:</div>
+<div class="prompt input_prompt">In [82]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">obj</span> <span class="o">=</span> <span class="n">CreateTable</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
-<span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
 
-<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">obj</span><span class="p">)</span>
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">obj</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">obj</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -1943,17 +2211,21 @@ DROP SCHEMA test2 CASCADE
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg"><ipython-input-59-683f4770aa0a></span> in <span class="ansi-cyan-fg"><module></span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----> 1</span><span class="ansi-red-fg"> </span>obj <span class="ansi-blue-fg">=</span> CreateTable<span class="ansi-blue-fg">(</span>table<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> engine<span class="ansi-blue-fg">.</span>execute<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> 
-<span class="ansi-green-intense-fg ansi-bold">      4</span> print_sql<span class="ansi-blue-fg">(</span>engine<span class="ansi-blue-fg">,</span>obj<span class="ansi-blue-fg">)</span>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Compiled SQL
+=============================
 
-<span class="ansi-red-fg">NameError</span>: name 'CreateTable' is not defined</pre>
+CREATE TABLE test.users (
+	id SERIAL NOT NULL, 
+	name VARCHAR, 
+	fullname VARCHAR, 
+	PRIMARY KEY (id)
+)
+
+
+
+
+</pre>
 </div>
 </div>
 </div>
@@ -1977,122 +2249,7 @@ DROP SCHEMA test2 CASCADE
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>同样, 如果尝试新建已经存在的表，会出错</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [60]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>    
-<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">),</span><span class="n">e</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre><class 'sqlalchemy.exc.ProgrammingError'> (psycopg2.ProgrammingError) schema "test2" does not exist
- [SQL: 'DROP SCHEMA test2 CASCADE']
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>创建表是一个常见的操作,上面的代码比较麻烦而且如果新建已经存在的表会报错，我们可以定义一个函数方面以后使用。这个函数接受table name, schema name, 和column的相关配置信息就能在数据库中建表并返回表对应的sqlalchemy object。且能妥善处理表已经存在的情况。</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [71]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">create_table</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">table_name</span><span class="p">,</span><span class="n">column_configs</span><span class="p">,</span> <span class="n">schema</span> <span class="o">=</span> <span class="n">schema</span><span class="p">,</span> <span class="n">metadata</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
-    <span class="kn">from</span> <span class="nn">sqlalchemy.exc</span> <span class="k">import</span> <span class="n">ProgrammingError</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata</span> <span class="ow">or</span> <span class="n">MetaData</span><span class="p">()</span>
-
-        <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="n">Column</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="k">for</span>
-            <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span> <span class="ow">in</span> <span class="n">column_configs</span>
-        <span class="p">]</span>
-
-        <span class="n">table</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span>
-            <span class="n">table_name</span><span class="p">,</span>
-            <span class="n">metadata</span><span class="p">,</span>
-            <span class="o">*</span><span class="n">columns</span><span class="p">,</span>
-            <span class="n">schema</span> <span class="o">=</span> <span class="n">schema</span>
-        <span class="p">)</span>
-        
-        <span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">CreateTable</span><span class="p">(</span><span class="n">table</span><span class="p">))</span>
-    <span class="k">except</span> <span class="n">ProgrammingError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="k">if</span> <span class="s1">'already exists'</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">):</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">'Table already exists'</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">e</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>使用一下刚才的函数</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [72]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">table_name</span> <span class="o">=</span> <span class="s1">'users'</span>
-<span class="n">schema</span> <span class="o">=</span> <span class="s1">'test'</span>
-<span class="c1"># put mandatory parameters in [] and optional parameters in {}</span>
-<span class="n">column_configs</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">([</span><span class="s1">'id'</span><span class="p">,</span><span class="n">Integer</span><span class="p">],{</span><span class="s1">'primary_key'</span><span class="p">:</span><span class="kc">True</span><span class="p">}),</span>
-    <span class="p">([</span><span class="s1">'name'</span><span class="p">,</span><span class="n">String</span><span class="p">(</span><span class="mi">20</span><span class="p">)],{}),</span>
-    <span class="p">([</span><span class="s1">'fullname'</span><span class="p">,</span><span class="n">String</span><span class="p">(</span><span class="mi">20</span><span class="p">)],{})</span>
-<span class="p">]</span>        
-
-<span class="n">create_table</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">table_name</span><span class="p">,</span><span class="n">column_configs</span><span class="p">,</span> <span class="n">schema</span> <span class="o">=</span> <span class="s1">'test'</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg"><ipython-input-72-37239510acf5></span> in <span class="ansi-cyan-fg"><module></span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-red-fg"># put mandatory parameters in [] and optional parameters in {}</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> column_configs = [
-<span class="ansi-green-fg">----> 5</span><span class="ansi-red-fg">     </span><span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">'id'</span><span class="ansi-blue-fg">,</span>Integer<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">{</span><span class="ansi-blue-fg">'primary_key'</span><span class="ansi-blue-fg">:</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">}</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">      6</span>     <span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">'name'</span><span class="ansi-blue-fg">,</span>String<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">20</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">{</span><span class="ansi-blue-fg">}</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">      7</span>     <span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">'fullname'</span><span class="ansi-blue-fg">,</span>String<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">20</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">{</span><span class="ansi-blue-fg">}</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">NameError</span>: name 'Integer' is not defined</pre>
-</div>
-</div>
+<p>同样, 如果尝试新建已经存在的表，会出错,这个不演示了。</p>
 </div>
 </div>
 </div>
@@ -2110,27 +2267,45 @@ DROP SCHEMA test2 CASCADE
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>drop table的处理方法和create table类似</p>
+<p>drop table的处理方法和create table类似。不过在定义</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [56]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy.schema</span> <span class="k">import</span> <span class="n">DropTable</span>
 
+<span class="n">reset_tables</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+
+<span class="n">metadata</span> <span class="o">=</span> <span class="n">MetaData</span><span class="p">()</span>
 <span class="n">table</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span>
-        <span class="n">table_name</span><span class="p">,</span>
+        <span class="s1">'users'</span><span class="p">,</span>
         <span class="n">metadata</span><span class="p">,</span>
-        <span class="n">schema</span> <span class="o">=</span> <span class="n">schema</span>
+        <span class="n">schema</span> <span class="o">=</span> <span class="s1">'test'</span>
     <span class="p">)</span>
 
-<span class="n">obj</span> <span class="o">=</span> <span class="n">DropTable</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">obj</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
 
-<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">obj</span><span class="p">)</span>
+<span class="n">obj</span> <span class="o">=</span> <span class="n">DropTable</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Compiled SQL
+=============================
+
+DROP TABLE test.users
+
+
+</pre>
+</div>
 </div>
 </div>
 </div>
@@ -2146,16 +2321,29 @@ DROP SCHEMA test2 CASCADE
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [57]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">users</span><span class="p">,</span> <span class="n">addresses</span> <span class="o">=</span> <span class="n">reset_db</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">users</span><span class="p">,</span> <span class="n">addresses</span> <span class="o">=</span> <span class="n">reset_tables</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
 
 <span class="k">try</span><span class="p">:</span>
     <span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">),</span><span class="n">e</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><class 'sqlalchemy.exc.InternalError'> (psycopg2.InternalError) cannot drop table users because other objects depend on it
+DETAIL:  constraint addresses_user_id_fkey on table addresses depends on table users
+HINT:  Use DROP ... CASCADE to drop the dependent objects too.
+ [SQL: '\nDROP TABLE test.users']
+</pre>
+</div>
 </div>
 </div>
 </div>
@@ -2198,8 +2386,8 @@ DROP SCHEMA test2 CASCADE
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>提示</strong></p>
-<p>根据自己的场景选择合适自己的工具即可。在构建复杂的SQL逻辑的时候,SQLAlchemy会比文本形式的SQL更容易构建和复用。但是堆drop table这样的操作,原生的SQL已经足够简单，不一定非要用SQLAlchemy。</p>
+<p><div class = 'article tip'>提示</div></p>
+<p>SQLAlchemy的优势更多的是体现在构造和复用复杂的SQL逻辑上。在删除table的这个例子里。SQLAlchemy Core实际上并不如原生的SQL语句好用。我们完全可以针对自己的场景，选择适合的工作去完成任务。</p>
 </div>
 </div>
 </div>
@@ -2618,10 +2806,10 @@ DROP SCHEMA test2 CASCADE
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [94]:</div>
+<div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">helper</span> <span class="k">import</span> <span class="n">read_select</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">helper</span> <span class="k">import</span> <span class="n">get_select</span>
 
 <span class="n">users</span><span class="p">,</span> <span class="n">addresses</span> <span class="o">=</span> <span class="n">reset_db</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
 
@@ -2629,51 +2817,8 @@ DROP SCHEMA test2 CASCADE
 
 <span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s1</span><span class="p">)</span>
 
-<span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s1</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">get_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s1</span><span class="p">))</span>
 </pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Compiled SQL
-=============================
-SELECT test.users.id, test.users.name, test.users.fullname 
-FROM test.users
-</pre>
-</div>
-</div>
-<div class="output_area"><div class="prompt output_prompt">Out[94]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>id</th>
-<th>name</th>
-<th>fullname</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>0</th>
-<td>1</td>
-<td>jack</td>
-<td>Jack Jones</td>
-</tr>
-<tr>
-<th>1</th>
-<td>2</td>
-<td>wendy</td>
-<td>Wendy Williams</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -2689,20 +2834,11 @@ FROM test.users
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [95]:</div>
+<div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">s1</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
 </pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[95]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>['id', 'name', 'fullname']</pre>
-</div>
 </div>
 </div>
 </div>
@@ -2718,7 +2854,7 @@ FROM test.users
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [96]:</div>
+<div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">select</span>
@@ -2727,51 +2863,8 @@ FROM test.users
 
 <span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s2</span><span class="p">)</span>
 
-<span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s2</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">get_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s2</span><span class="p">))</span>
 </pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Compiled SQL
-=============================
-SELECT test.users.id, test.users.name, test.users.fullname 
-FROM test.users
-</pre>
-</div>
-</div>
-<div class="output_area"><div class="prompt output_prompt">Out[96]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>id</th>
-<th>name</th>
-<th>fullname</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>0</th>
-<td>1</td>
-<td>jack</td>
-<td>Jack Jones</td>
-</tr>
-<tr>
-<th>1</th>
-<td>2</td>
-<td>wendy</td>
-<td>Wendy Williams</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -2798,7 +2891,7 @@ FROM test.users
 <span class="p">)</span>
 <span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
 
-<span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">get_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -2824,7 +2917,7 @@ FROM test.users
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [109]:</div>
+<div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="p">(</span>
@@ -2840,49 +2933,8 @@ FROM test.users
 
 <span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">,</span> <span class="n">compile_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">"literal_binds"</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span>
 
-<span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">get_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">))</span>
 </pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Compiled SQL
-=============================
-SELECT test.addresses.id, test.addresses.email_address 
-FROM test.addresses 
- LIMIT 2 OFFSET 1
-</pre>
-</div>
-</div>
-<div class="output_area"><div class="prompt output_prompt">Out[109]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>id</th>
-<th>email_address</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>0</th>
-<td>2</td>
-<td>jack@msn.com</td>
-</tr>
-<tr>
-<th>1</th>
-<td>3</td>
-<td>www@www.org</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -3139,7 +3191,7 @@ FROM test.users</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [76]:</div>
+<div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">scalar</span> <span class="o">=</span> <span class="p">(</span>
@@ -3163,53 +3215,6 @@ FROM test.users</code></pre>
 
 <span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Compiled SQL
-=============================
-SELECT test.users.id, (SELECT count(test.addresses.id) AS count_1 
-FROM test.addresses 
-WHERE test.users.id = test.addresses.user_id) AS scalar 
-FROM test.users
-</pre>
-</div>
-</div>
-<div class="output_area"><div class="prompt output_prompt">Out[76]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>id</th>
-<th>scalar</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>0</th>
-<td>1</td>
-<td>2</td>
-</tr>
-<tr>
-<th>1</th>
-<td>2</td>
-<td>2</td>
-</tr>
-<tr>
-<th>2</th>
-<td>3</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -3247,7 +3252,7 @@ FROM test.users
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [78]:</div>
+<div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">scalar</span> <span class="o">=</span> <span class="p">(</span>
@@ -3275,53 +3280,6 @@ FROM test.users
 </div>
 </div>
 </div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Compiled SQL
-=============================
-SELECT test.users.id, (SELECT count(test.addresses.id) AS count_1 
-FROM test.addresses, test.users 
-WHERE test.users.id = test.addresses.user_id) AS scalar 
-FROM test.users
-</pre>
-</div>
-</div>
-<div class="output_area"><div class="prompt output_prompt">Out[78]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>id</th>
-<th>scalar</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>0</th>
-<td>1</td>
-<td>4</td>
-</tr>
-<tr>
-<th>1</th>
-<td>2</td>
-<td>4</td>
-</tr>
-<tr>
-<th>2</th>
-<td>3</td>
-<td>4</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -3343,7 +3301,7 @@ FROM test.users
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [93]:</div>
+<div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">true</span>
@@ -3374,53 +3332,6 @@ FROM test.users
 
 <span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Compiled SQL
-=============================
-SELECT test.users.id, sub_query.count 
-FROM test.users JOIN LATERAL (SELECT count(test.addresses.id) AS count 
-FROM test.addresses 
-WHERE test.users.id = test.addresses.user_id) AS sub_query ON true
-</pre>
-</div>
-</div>
-<div class="output_area"><div class="prompt output_prompt">Out[93]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>id</th>
-<th>count</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>0</th>
-<td>1</td>
-<td>2</td>
-</tr>
-<tr>
-<th>1</th>
-<td>2</td>
-<td>2</td>
-</tr>
-<tr>
-<th>2</th>
-<td>3</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -3477,7 +3388,7 @@ WHERE test.users.id = test.addresses.user_id) AS sub_query ON true
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [77]:</div>
+<div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">select</span><span class="p">(</span>
@@ -3491,51 +3402,6 @@ WHERE test.users.id = test.addresses.user_id) AS sub_query ON true
 
 <span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Compiled SQL
-=============================
-SELECT test.users.id AS user_id, test.users.name AS user_name 
-FROM test.users
-</pre>
-</div>
-</div>
-<div class="output_area"><div class="prompt output_prompt">Out[77]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>user_id</th>
-<th>user_name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>0</th>
-<td>1</td>
-<td>jack</td>
-</tr>
-<tr>
-<th>1</th>
-<td>2</td>
-<td>wendy</td>
-</tr>
-<tr>
-<th>2</th>
-<td>3</td>
-<td>jack</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -4070,24 +3936,12 @@ FROM test.users
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [99]:</div>
+<div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">in_</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
 <span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">compile_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">"literal_binds"</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span>
 </pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Compiled SQL
-=============================
-test.users.id IN (1, 2, 3)
-</pre>
-</div>
 </div>
 </div>
 </div>
@@ -4316,24 +4170,12 @@ print_sql(engine,s,compile_kwargs={"literal_binds": True})
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [73]:</div>
+<div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">addresses</span><span class="p">)</span>
 <span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">compile_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">"literal_binds"</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span>
 </pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Compiled SQL
-=============================
-test.users JOIN test.addresses ON test.users.id = test.addresses.user_id
-</pre>
-</div>
 </div>
 </div>
 </div>
@@ -4350,30 +4192,13 @@ test.users JOIN test.addresses ON test.users.id = test.addresses.user_id
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [74]:</div>
+<div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">metadata</span> <span class="o">=</span> <span class="n">MetaData</span><span class="p">()</span>
 <span class="n">addresses</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="s1">'addresses'</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">schema</span> <span class="o">=</span> <span class="s1">'test'</span><span class="p">,</span> <span class="n">autoload</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">autoload_with</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
 <span class="n">addresses</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
 </pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg"><ipython-input-74-8ffaebad27bd></span> in <span class="ansi-cyan-fg"><module></span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----> 1</span><span class="ansi-red-fg"> </span>metadata <span class="ansi-blue-fg">=</span> MetaData<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> addresses <span class="ansi-blue-fg">=</span> Table<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">'addresses'</span><span class="ansi-blue-fg">,</span> metadata<span class="ansi-blue-fg">,</span> schema <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">'test'</span><span class="ansi-blue-fg">,</span> autoload<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">,</span> autoload_with<span class="ansi-blue-fg">=</span>engine<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> addresses<span class="ansi-blue-fg">.</span>c<span class="ansi-blue-fg">.</span>values<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">NameError</span>: name 'MetaData' is not defined</pre>
-</div>
 </div>
 </div>
 </div>
@@ -4629,7 +4454,7 @@ test.users JOIN test.addresses ON test.users.id = test.addresses.user_id
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [113]:</div>
+<div class="prompt input_prompt">In [85]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">stmt</span> <span class="o">=</span> <span class="p">(</span>
@@ -4643,7 +4468,7 @@ test.users JOIN test.addresses ON test.users.id = test.addresses.user_id
 
 <span class="n">s</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">select</span><span class="p">()</span>
 
-<span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">get_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -4655,11 +4480,13 @@ test.users JOIN test.addresses ON test.users.id = test.addresses.user_id
 <pre>Compiled SQL
 =============================
 UPDATE test.users SET fullname=('Fullname: ' || test.users.name)
+
+
 </pre>
 </div>
 </div>
-<div class="output_area"><div class="prompt output_prompt">Out[113]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_html rendered_html output_subarea ">
 <div>
 <table border="1" class="dataframe">
 <thead>
@@ -4671,18 +4498,6 @@ UPDATE test.users SET fullname=('Fullname: ' || test.users.name)
 </tr>
 </thead>
 <tbody>
-<tr>
-<th>0</th>
-<td>1</td>
-<td>jack</td>
-<td>Fullname: jack</td>
-</tr>
-<tr>
-<th>1</th>
-<td>2</td>
-<td>wendy</td>
-<td>Fullname: wendy</td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -4702,7 +4517,7 @@ UPDATE test.users SET fullname=('Fullname: ' || test.users.name)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [114]:</div>
+<div class="prompt input_prompt">In [84]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">stmt</span> <span class="o">=</span> <span class="p">(</span>
@@ -4718,7 +4533,7 @@ UPDATE test.users SET fullname=('Fullname: ' || test.users.name)
 
 <span class="n">s</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">select</span><span class="p">()</span>
 
-<span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+<span class="n">get_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -4730,10 +4545,12 @@ UPDATE test.users SET fullname=('Fullname: ' || test.users.name)
 <pre>Compiled SQL
 =============================
 UPDATE test.users SET name='ed' WHERE test.users.name = 'jack'
+
+
 </pre>
 </div>
 </div>
-<div class="output_area"><div class="prompt output_prompt">Out[114]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[84]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -4746,18 +4563,6 @@ UPDATE test.users SET name='ed' WHERE test.users.name = 'jack'
 </tr>
 </thead>
 <tbody>
-<tr>
-<th>0</th>
-<td>2</td>
-<td>wendy</td>
-<td>Fullname: wendy</td>
-</tr>
-<tr>
-<th>1</th>
-<td>1</td>
-<td>ed</td>
-<td>Fullname: jack</td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -4812,7 +4617,7 @@ UPDATE test.users SET name='ed' WHERE test.users.name = 'jack'
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [86]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy.sql</span> <span class="k">import</span> <span class="n">bindparam</span>
@@ -4822,8 +4627,42 @@ UPDATE test.users SET name='ed' WHERE test.users.name = 'jack'
 
 <span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">compile_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">'literal_binds'</span><span class="p">:</span><span class="kc">True</span><span class="p">})</span>
 
-<span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">get_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">))</span>
 </pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Compiled SQL
+=============================
+SELECT test.users.id, test.users.name, test.users.fullname 
+FROM test.users 
+WHERE test.users.id = 1
+
+
+</pre>
+</div>
+</div>
+<div class="output_area"><div class="prompt"></div>
+<div class="output_html rendered_html output_subarea ">
+<div>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>id</th>
+<th>name</th>
+<th>fullname</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -4839,7 +4678,7 @@ UPDATE test.users SET name='ed' WHERE test.users.name = 'jack'
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [87]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy.sql</span> <span class="k">import</span> <span class="n">bindparam</span>
@@ -4848,8 +4687,133 @@ UPDATE test.users SET name='ed' WHERE test.users.name = 'jack'
 <span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
 
 
-<span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">user_id</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#read_select会将user_id=1传给engine.execute</span>
+<span class="n">display</span><span class="p">(</span><span class="n">get_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">user_id</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span> <span class="c1">#read_select会将user_id=1传给engine.execute</span>
 </pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Compiled SQL
+=============================
+</pre>
+</div>
+</div>
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">CompileError</span>                              Traceback (most recent call last)
+<span class="ansi-green-fg"><ipython-input-87-318653a46f3b></span> in <span class="ansi-cyan-fg"><module></span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> s <span class="ansi-blue-fg">=</span> users<span class="ansi-blue-fg">.</span>select<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>where<span class="ansi-blue-fg">(</span>users<span class="ansi-blue-fg">.</span>c<span class="ansi-blue-fg">.</span>id <span class="ansi-blue-fg">==</span> bindparam<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">'user_id'</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> 
+<span class="ansi-green-fg">----> 4</span><span class="ansi-red-fg"> </span>print_sql<span class="ansi-blue-fg">(</span>engine<span class="ansi-blue-fg">,</span>s<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> 
+<span class="ansi-green-intense-fg ansi-bold">      6</span> 
+
+<span class="ansi-green-fg">/home/exolution/Documents/jupyter-blog/content/articles/jupyter_labs/exolution/0009_sqlalchemy/helper.py</span> in <span class="ansi-cyan-fg">print_sql</span><span class="ansi-blue-fg">(engine, obj, compile_kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    158</span>     print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">'Compiled SQL'</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    159</span>     print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">'============================='</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--> 160</span><span class="ansi-red-fg">     </span>print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">.</span>compile<span class="ansi-blue-fg">(</span>engine<span class="ansi-blue-fg">,</span> compile_kwargs<span class="ansi-blue-fg">=</span>compile_kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    161</span>     print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">'\n'</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg"><string></span> in <span class="ansi-cyan-fg"><lambda></span><span class="ansi-blue-fg">(self, bind, dialect, **kw)</span>
+
+<span class="ansi-green-fg">/home/exolution/venv3.5/lib/python3.5/site-packages/sqlalchemy/sql/elements.py</span> in <span class="ansi-cyan-fg">compile</span><span class="ansi-blue-fg">(self, default, bind, dialect, **kw)</span>
+<span class="ansi-green-intense-fg ansi-bold">    431</span>             <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    432</span>                 dialect <span class="ansi-blue-fg">=</span> default<span class="ansi-blue-fg">.</span>StrCompileDialect<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--> 433</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>_compiler<span class="ansi-blue-fg">(</span>dialect<span class="ansi-blue-fg">,</span> bind<span class="ansi-blue-fg">=</span>bind<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kw<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    434</span> 
+<span class="ansi-green-intense-fg ansi-bold">    435</span>     <span class="ansi-green-fg">def</span> _compiler<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> dialect<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kw<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/home/exolution/venv3.5/lib/python3.5/site-packages/sqlalchemy/sql/elements.py</span> in <span class="ansi-cyan-fg">_compiler</span><span class="ansi-blue-fg">(self, dialect, **kw)</span>
+<span class="ansi-green-intense-fg ansi-bold">    437</span>         Dialect."""
+<span class="ansi-green-intense-fg ansi-bold">    438</span> 
+<span class="ansi-green-fg">--> 439</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> dialect<span class="ansi-blue-fg">.</span>statement_compiler<span class="ansi-blue-fg">(</span>dialect<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kw<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    440</span> 
+<span class="ansi-green-intense-fg ansi-bold">    441</span>     <span class="ansi-green-fg">def</span> __str__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/home/exolution/venv3.5/lib/python3.5/site-packages/sqlalchemy/sql/compiler.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-fg">(self, dialect, statement, column_keys, inline, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    421</span>         <span class="ansi-red-fg"># dialect.label_length or dialect.max_identifier_length</span>
+<span class="ansi-green-intense-fg ansi-bold">    422</span>         self<span class="ansi-blue-fg">.</span>truncated_names <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">{</span><span class="ansi-blue-fg">}</span>
+<span class="ansi-green-fg">--> 423</span><span class="ansi-red-fg">         </span>Compiled<span class="ansi-blue-fg">.</span>__init__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> dialect<span class="ansi-blue-fg">,</span> statement<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    424</span> 
+<span class="ansi-green-intense-fg ansi-bold">    425</span>         if (
+
+<span class="ansi-green-fg">/home/exolution/venv3.5/lib/python3.5/site-packages/sqlalchemy/sql/compiler.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-fg">(self, dialect, statement, bind, schema_translate_map, compile_kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    206</span>             self<span class="ansi-blue-fg">.</span>statement <span class="ansi-blue-fg">=</span> statement
+<span class="ansi-green-intense-fg ansi-bold">    207</span>             self<span class="ansi-blue-fg">.</span>can_execute <span class="ansi-blue-fg">=</span> statement<span class="ansi-blue-fg">.</span>supports_execution
+<span class="ansi-green-fg">--> 208</span><span class="ansi-red-fg">             </span>self<span class="ansi-blue-fg">.</span>string <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>process<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>statement<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>compile_kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    209</span> 
+<span class="ansi-green-intense-fg ansi-bold">    210</span>     @util.deprecated("0.7", ":class:`.Compiled` objects now compile "
+
+<span class="ansi-green-fg">/home/exolution/venv3.5/lib/python3.5/site-packages/sqlalchemy/sql/compiler.py</span> in <span class="ansi-cyan-fg">process</span><span class="ansi-blue-fg">(self, obj, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    229</span> 
+<span class="ansi-green-intense-fg ansi-bold">    230</span>     <span class="ansi-green-fg">def</span> process<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> obj<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--> 231</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> obj<span class="ansi-blue-fg">.</span>_compiler_dispatch<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    232</span> 
+<span class="ansi-green-intense-fg ansi-bold">    233</span>     <span class="ansi-green-fg">def</span> __str__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/home/exolution/venv3.5/lib/python3.5/site-packages/sqlalchemy/sql/visitors.py</span> in <span class="ansi-cyan-fg">_compiler_dispatch</span><span class="ansi-blue-fg">(self, visitor, **kw)</span>
+<span class="ansi-green-intense-fg ansi-bold">     79</span>                     <span class="ansi-green-fg">raise</span> exc<span class="ansi-blue-fg">.</span>UnsupportedCompilationError<span class="ansi-blue-fg">(</span>visitor<span class="ansi-blue-fg">,</span> cls<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     80</span>                 <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">---> 81</span><span class="ansi-red-fg">                     </span><span class="ansi-green-fg">return</span> meth<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kw<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     82</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">     83</span>             <span class="ansi-red-fg"># The optimization opportunity is lost for this case because the</span>
+
+<span class="ansi-green-fg">/home/exolution/venv3.5/lib/python3.5/site-packages/sqlalchemy/sql/compiler.py</span> in <span class="ansi-cyan-fg">visit_select</span><span class="ansi-blue-fg">(self, select, asfrom, parens, fromhints, compound_index, nested_join_translation, select_wraps_for, lateral, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1701</span> 
+<span class="ansi-green-intense-fg ansi-bold">   1702</span>         text = self._compose_select_body(
+<span class="ansi-green-fg">-> 1703</span><span class="ansi-red-fg">             text, select, inner_columns, froms, byfrom, kwargs)
+</span><span class="ansi-green-intense-fg ansi-bold">   1704</span> 
+<span class="ansi-green-intense-fg ansi-bold">   1705</span>         <span class="ansi-green-fg">if</span> select<span class="ansi-blue-fg">.</span>_statement_hints<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/home/exolution/venv3.5/lib/python3.5/site-packages/sqlalchemy/sql/compiler.py</span> in <span class="ansi-cyan-fg">_compose_select_body</span><span class="ansi-blue-fg">(self, text, select, inner_columns, froms, byfrom, kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1785</span> 
+<span class="ansi-green-intense-fg ansi-bold">   1786</span>         <span class="ansi-green-fg">if</span> select<span class="ansi-blue-fg">.</span>_whereclause <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">-> 1787</span><span class="ansi-red-fg">             </span>t <span class="ansi-blue-fg">=</span> select<span class="ansi-blue-fg">.</span>_whereclause<span class="ansi-blue-fg">.</span>_compiler_dispatch<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1788</span>             <span class="ansi-green-fg">if</span> t<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">   1789</span>                 text <span class="ansi-blue-fg">+=</span> <span class="ansi-blue-fg">" \nWHERE "</span> <span class="ansi-blue-fg">+</span> t
+
+<span class="ansi-green-fg">/home/exolution/venv3.5/lib/python3.5/site-packages/sqlalchemy/sql/visitors.py</span> in <span class="ansi-cyan-fg">_compiler_dispatch</span><span class="ansi-blue-fg">(self, visitor, **kw)</span>
+<span class="ansi-green-intense-fg ansi-bold">     79</span>                     <span class="ansi-green-fg">raise</span> exc<span class="ansi-blue-fg">.</span>UnsupportedCompilationError<span class="ansi-blue-fg">(</span>visitor<span class="ansi-blue-fg">,</span> cls<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     80</span>                 <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">---> 81</span><span class="ansi-red-fg">                     </span><span class="ansi-green-fg">return</span> meth<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kw<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     82</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">     83</span>             <span class="ansi-red-fg"># The optimization opportunity is lost for this case because the</span>
+
+<span class="ansi-green-fg">/home/exolution/venv3.5/lib/python3.5/site-packages/sqlalchemy/sql/compiler.py</span> in <span class="ansi-cyan-fg">visit_binary</span><span class="ansi-blue-fg">(self, binary, override_operator, **kw)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1006</span>                 <span class="ansi-green-fg">raise</span> exc<span class="ansi-blue-fg">.</span>UnsupportedCompilationError<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> operator_<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1007</span>             <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">-> 1008</span><span class="ansi-red-fg">                 </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>_generate_generic_binary<span class="ansi-blue-fg">(</span>binary<span class="ansi-blue-fg">,</span> opstring<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kw<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1009</span> 
+<span class="ansi-green-intense-fg ansi-bold">   1010</span>     <span class="ansi-green-fg">def</span> visit_custom_op_binary<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> element<span class="ansi-blue-fg">,</span> operator<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kw<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/home/exolution/venv3.5/lib/python3.5/site-packages/sqlalchemy/sql/compiler.py</span> in <span class="ansi-cyan-fg">_generate_generic_binary</span><span class="ansi-blue-fg">(self, binary, opstring, **kw)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1023</span>         <span class="ansi-green-fg">return</span> binary<span class="ansi-blue-fg">.</span>left<span class="ansi-blue-fg">.</span>_compiler_dispatch<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kw<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">+</span><span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span>
+<span class="ansi-green-intense-fg ansi-bold">   1024</span>             opstring <span class="ansi-blue-fg">+</span><span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span>
+<span class="ansi-green-fg">-> 1025</span><span class="ansi-red-fg">             </span>binary<span class="ansi-blue-fg">.</span>right<span class="ansi-blue-fg">.</span>_compiler_dispatch<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kw<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1026</span> 
+<span class="ansi-green-intense-fg ansi-bold">   1027</span>     <span class="ansi-green-fg">def</span> _generate_generic_unary_operator<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> unary<span class="ansi-blue-fg">,</span> opstring<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kw<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/home/exolution/venv3.5/lib/python3.5/site-packages/sqlalchemy/sql/visitors.py</span> in <span class="ansi-cyan-fg">_compiler_dispatch</span><span class="ansi-blue-fg">(self, visitor, **kw)</span>
+<span class="ansi-green-intense-fg ansi-bold">     79</span>                     <span class="ansi-green-fg">raise</span> exc<span class="ansi-blue-fg">.</span>UnsupportedCompilationError<span class="ansi-blue-fg">(</span>visitor<span class="ansi-blue-fg">,</span> cls<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     80</span>                 <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">---> 81</span><span class="ansi-red-fg">                     </span><span class="ansi-green-fg">return</span> meth<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kw<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     82</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">     83</span>             <span class="ansi-red-fg"># The optimization opportunity is lost for this case because the</span>
+
+<span class="ansi-green-fg">/home/exolution/venv3.5/lib/python3.5/site-packages/sqlalchemy/sql/compiler.py</span> in <span class="ansi-cyan-fg">visit_bindparam</span><span class="ansi-blue-fg">(self, bindparam, within_columns_clause, literal_binds, skip_bind_expression, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1148</span>                 raise exc.CompileError("Bind parameter '%s' without a "
+<span class="ansi-green-intense-fg ansi-bold">   1149</span>                                        <span class="ansi-blue-fg">"renderable value not allowed here."</span>
+<span class="ansi-green-fg">-> 1150</span><span class="ansi-red-fg">                                        % bindparam.key)
+</span><span class="ansi-green-intense-fg ansi-bold">   1151</span>             return self.render_literal_bindparam(
+<span class="ansi-green-intense-fg ansi-bold">   1152</span>                 bindparam, within_columns_clause=True, **kwargs)
+
+<span class="ansi-red-fg">CompileError</span>: Bind parameter 'user_id' without a renderable value not allowed here.</pre>
+</div>
 </div>
 </div>
 </div>
@@ -4874,7 +4838,7 @@ UPDATE test.users SET name='ed' WHERE test.users.name = 'jack'
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [88]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">text</span>
@@ -4887,10 +4851,31 @@ UPDATE test.users SET name='ed' WHERE test.users.name = 'jack'
 
 
 <span class="k">try</span><span class="p">:</span>
-    <span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">get_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">s</span><span class="p">))</span>
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">),</span><span class="n">e</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Compiled SQL
+=============================
+SELECT test.users.id, test.users.name, test.users.fullname 
+FROM test.users 
+WHERE test.users.name LIKE NULL + '%%'
+
+
+<class 'sqlalchemy.exc.ProgrammingError'> (psycopg2.ProgrammingError) operator is not unique: unknown + unknown
+LINE 3: WHERE test.users.name LIKE 'jack' + '%'
+                                          ^
+HINT:  Could not choose a best candidate operator. You might need to add explicit type casts.
+ [SQL: "SELECT test.users.id, test.users.name, test.users.fullname \nFROM test.users \nWHERE test.users.name LIKE %(username)s + '%%'"] [parameters: {'username': 'jack'}]
+</pre>
+</div>
 </div>
 </div>
 </div>
@@ -4906,7 +4891,7 @@ UPDATE test.users SET name='ed' WHERE test.users.name = 'jack'
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [89]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">text</span><span class="p">,</span><span class="n">String</span>
@@ -4917,8 +4902,42 @@ UPDATE test.users SET name='ed' WHERE test.users.name = 'jack'
 
 <span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">compile_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">'literal_binds'</span><span class="p">:</span><span class="kc">True</span><span class="p">})</span>
 
-<span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">get_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">s</span><span class="p">))</span>
 </pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Compiled SQL
+=============================
+SELECT test.users.id, test.users.name, test.users.fullname 
+FROM test.users 
+WHERE test.users.name LIKE ('jack' || '%%')
+
+
+</pre>
+</div>
+</div>
+<div class="output_area"><div class="prompt"></div>
+<div class="output_html rendered_html output_subarea ">
+<div>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>id</th>
+<th>name</th>
+<th>fullname</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -4934,12 +4953,12 @@ UPDATE test.users SET name='ed' WHERE test.users.name = 'jack'
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [124]:</div>
+<div class="prompt input_prompt">In [92]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">bindparam</span>
 
-<span class="n">users</span><span class="p">,</span> <span class="n">addresses</span> <span class="o">=</span> <span class="n">reset_db</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+<span class="n">users</span><span class="p">,</span> <span class="n">addresses</span> <span class="o">=</span> <span class="n">reset_tables</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
 
 
 <span class="n">stmt</span> <span class="o">=</span> <span class="p">(</span>
@@ -4957,13 +4976,13 @@ UPDATE test.users SET name='ed' WHERE test.users.name = 'jack'
 <span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">stmt</span><span class="p">,</span><span class="n">data</span><span class="p">)</span>
 
 
-<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">stmt</span><span class="p">)</span>
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">stmt</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
 
 <span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">stmt</span><span class="p">,</span><span class="n">data</span><span class="p">)</span>
 
 <span class="n">s</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">select</span><span class="p">()</span>
 
-<span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">get_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -4975,11 +4994,13 @@ UPDATE test.users SET name='ed' WHERE test.users.name = 'jack'
 <pre>Compiled SQL
 =============================
 UPDATE test.users SET name=%(newname)s WHERE test.users.name = %(oldname)s
+
+
 </pre>
 </div>
 </div>
-<div class="output_area"><div class="prompt output_prompt">Out[124]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_html rendered_html output_subarea ">
 <div>
 <table border="1" class="dataframe">
 <thead>
@@ -5022,7 +5043,7 @@ UPDATE test.users SET name=%(newname)s WHERE test.users.name = %(oldname)s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [143]:</div>
+<div class="prompt input_prompt">In [93]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">bindparam</span>
@@ -5049,9 +5070,18 @@ UPDATE test.users SET name=%(newname)s WHERE test.users.name = %(oldname)s
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre><class 'NotImplementedError'> params() is not supported for INSERT/UPDATE/DELETE statements. To set the values for an INSERT or UPDATE statement, use stmt.values(**parameters).
-</pre>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg"><ipython-input-93-e83a31e5d048></span> in <span class="ansi-cyan-fg"><module></span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">from</span> sqlalchemy <span class="ansi-green-fg">import</span> bindparam
+<span class="ansi-green-intense-fg ansi-bold">      2</span> 
+<span class="ansi-green-fg">----> 3</span><span class="ansi-red-fg"> </span>users<span class="ansi-blue-fg">,</span> addresses <span class="ansi-blue-fg">=</span> reset_db<span class="ansi-blue-fg">(</span>engine<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> 
+<span class="ansi-green-intense-fg ansi-bold">      5</span> 
+
+<span class="ansi-red-fg">NameError</span>: name 'reset_db' is not defined</pre>
 </div>
 </div>
 </div>
@@ -5068,12 +5098,12 @@ UPDATE test.users SET name=%(newname)s WHERE test.users.name = %(oldname)s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [184]:</div>
+<div class="prompt input_prompt">In [95]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">bindparam</span><span class="p">,</span><span class="n">func</span>
 
-<span class="n">users</span><span class="p">,</span> <span class="n">addresses</span> <span class="o">=</span> <span class="n">reset_db</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+<span class="n">users</span><span class="p">,</span> <span class="n">addresses</span> <span class="o">=</span> <span class="n">reset_tables</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
 
 <span class="n">first_addresses</span> <span class="o">=</span> <span class="p">(</span>
     <span class="n">select</span><span class="p">(</span>
@@ -5106,7 +5136,7 @@ UPDATE test.users SET name=%(newname)s WHERE test.users.name = %(oldname)s
 
 <span class="n">s1</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">select</span><span class="p">()</span>
 
-<span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s1</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">get_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s1</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -5119,11 +5149,13 @@ UPDATE test.users SET name=%(newname)s WHERE test.users.name = %(oldname)s
 =============================
 UPDATE test.users SET name=first_address.name FROM (SELECT test.addresses.user_id AS user_id, min(test.addresses.email_address) AS name 
 FROM test.addresses GROUP BY test.addresses.user_id) AS first_address WHERE first_address.user_id = test.users.id
+
+
 </pre>
 </div>
 </div>
-<div class="output_area"><div class="prompt output_prompt">Out[184]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_html rendered_html output_subarea ">
 <div>
 <table border="1" class="dataframe">
 <thead>
@@ -5166,12 +5198,12 @@ FROM test.addresses GROUP BY test.addresses.user_id) AS first_address WHERE firs
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [175]:</div>
+<div class="prompt input_prompt">In [97]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">bindparam</span><span class="p">,</span><span class="n">func</span>
 
-<span class="n">users</span><span class="p">,</span> <span class="n">addresses</span> <span class="o">=</span> <span class="n">reset_db</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+<span class="n">users</span><span class="p">,</span> <span class="n">addresses</span> <span class="o">=</span> <span class="n">reset_tables</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
 
 <span class="n">first_address</span> <span class="o">=</span> <span class="p">(</span>
     <span class="n">select</span><span class="p">(</span>
@@ -5202,7 +5234,7 @@ FROM test.addresses GROUP BY test.addresses.user_id) AS first_address WHERE firs
 
 <span class="n">s1</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">select</span><span class="p">()</span>
 
-<span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s1</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">get_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s1</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -5216,11 +5248,13 @@ FROM test.addresses GROUP BY test.addresses.user_id) AS first_address WHERE firs
 UPDATE test.users SET name=(SELECT min(test.addresses.email_address) AS name 
 FROM test.addresses 
 WHERE test.addresses.user_id = test.users.id GROUP BY test.addresses.user_id)
+
+
 </pre>
 </div>
 </div>
-<div class="output_area"><div class="prompt output_prompt">Out[175]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_html rendered_html output_subarea ">
 <div>
 <table border="1" class="dataframe">
 <thead>
@@ -5272,12 +5306,12 @@ WHERE test.addresses.user_id = test.users.id GROUP BY test.addresses.user_id)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [181]:</div>
+<div class="prompt input_prompt">In [99]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">bindparam</span><span class="p">,</span><span class="n">func</span>
 
-<span class="n">users</span><span class="p">,</span> <span class="n">addresses</span> <span class="o">=</span> <span class="n">reset_db</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+<span class="n">users</span><span class="p">,</span> <span class="n">addresses</span> <span class="o">=</span> <span class="n">reset_tables</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
 
 <span class="n">first_address</span> <span class="o">=</span> <span class="p">(</span>
     <span class="n">select</span><span class="p">(</span>
@@ -5332,7 +5366,7 @@ WHERE test.addresses.user_id = test.users.id GROUP BY test.addresses.user_id)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [149]:</div>
+<div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">bindparam</span><span class="p">,</span><span class="n">func</span>
@@ -5358,50 +5392,8 @@ WHERE test.addresses.user_id = test.users.id GROUP BY test.addresses.user_id)
 
 <span class="n">s1</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">select</span><span class="p">()</span>
 
-<span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s1</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">get_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s1</span><span class="p">))</span>
 </pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Compiled SQL
-=============================
-UPDATE test.users SET name=test.addresses.email_address FROM test.addresses WHERE test.addresses.user_id = test.users.id
-</pre>
-</div>
-</div>
-<div class="output_area"><div class="prompt output_prompt">Out[149]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>id</th>
-<th>name</th>
-<th>fullname</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>0</th>
-<td>1</td>
-<td>jack@yahoo.com</td>
-<td>Jack Jones</td>
-</tr>
-<tr>
-<th>1</th>
-<td>2</td>
-<td>www@www.org</td>
-<td>Wendy Williams</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -5571,7 +5563,7 @@ UPDATE test.users SET name=test.addresses.email_address FROM test.addresses WHER
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [100]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">literal_column</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span><span class="n">table</span><span class="p">,</span><span class="n">literal</span>
@@ -5590,8 +5582,53 @@ UPDATE test.users SET name=test.addresses.email_address FROM test.addresses WHER
 
 <span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s1</span><span class="p">)</span>
 
-<span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s1</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">get_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s1</span><span class="p">))</span>
 </pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Compiled SQL
+=============================
+SELECT test.users.id, test.users.name, test.users.fullname 
+FROM test.users
+
+
+</pre>
+</div>
+</div>
+<div class="output_area"><div class="prompt"></div>
+<div class="output_html rendered_html output_subarea ">
+<div>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>id</th>
+<th>name</th>
+<th>fullname</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1</td>
+<td>jack</td>
+<td>Jack Jones</td>
+</tr>
+<tr>
+<th>1</th>
+<td>2</td>
+<td>wendy</td>
+<td>Wendy Williams</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -5607,7 +5644,7 @@ UPDATE test.users SET name=test.addresses.email_address FROM test.addresses WHER
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [101]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">literal_column</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span><span class="n">table</span><span class="p">,</span><span class="n">literal</span>
@@ -5625,10 +5662,29 @@ UPDATE test.users SET name=test.addresses.email_address FROM test.addresses WHER
 <span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
 
 <span class="k">try</span><span class="p">:</span>
-    <span class="n">read_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">get_select</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">s</span><span class="p">))</span>
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">),</span><span class="n">e</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Compiled SQL
+=============================
+SELECT users.id AS id, '=<' || users.fullname || '>=' AS name 
+FROM "test.users"
+
+
+<class 'sqlalchemy.exc.ProgrammingError'> (psycopg2.ProgrammingError) relation "test.users" does not exist
+LINE 2: FROM "test.users"
+             ^
+ [SQL: 'SELECT users.id AS id, %(param_1)s || users.fullname || %(param_2)s AS name \nFROM "test.users"'] [parameters: {'param_1': '=<', 'param_2': '>='}]
+</pre>
+</div>
 </div>
 </div>
 </div>
@@ -5734,7 +5790,7 @@ UPDATE test.users SET name=test.addresses.email_address FROM test.addresses WHER
 		                <p>tags: <a href="/tag/python.html">python</a>, <a href="/tag/database.html">database</a>, <a href="/tag/sqlalchemy.html">sqlalchemy</a></p>
 		            </div>
 			<p>若觉得本文对您有帮助,欢迎赞助作者一顿早餐:D</p>			
-			<img class='reward' style="display:inline;margin-right:10px" src="/theme/images/reward.jpeg" alt="weixin">
+			<img class='reward' style="display:inline;margin-right:10px" src="/theme/images/award.jpeg" alt="weixin">
 		</div>
 <div class="ds-thread" data-thread-key="junjiecai.github.io/0009" data-title="junjiecai.github.io/0009" data-url="junjiecai.github.io/drafts/sqlalchemy_intro.html" style="width: 80%;margin-left: 20%;"></div>
 <script type="text/javascript">
