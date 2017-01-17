@@ -173,7 +173,7 @@
         <div class="row">
             <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1">
                 <article>
-		    <p style='margin-left:140px'>(<a href="https://github.com/junjiecai/jupyter_labs/tree/master/exolution/0000_blog_with_jupyter">这里</a>下载这篇文章对应的Jupyter .ipynb文件和相关python代码等资源。建议下载后在本地打开Jupuyter边阅读并运行调试其中的代码，会有更好的理解效果。)</p>
+		    <p style='margin-left:140px'>可以从(<a href="https://github.com/junjiecai/jupyter_labs/tree/master/exolution/0000_blog_with_jupyter">这里</a>下载这篇文章对应的Jupyter .ipynb文件和相关python代码等资源。建议下载后在本地打开Jupuyter边阅读并运行调试其中的代码，会有更好的理解效果。)</p>
                     <style type="text/css">/*!
 *
 * IPython notebook
@@ -1151,15 +1151,6 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>(本文对应的jupyter notebook源文件可以在<a href="https://github.com/junjiecai/jupyter_labs/tree/master/exolution/0000_blog_with_jupyter">这里</a>找到。)</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p>Jupyter Notebook是进行代码实验非常好用的工具， 可以一边交互式的进行代码探索，一边利用markdown穿插丰富文本，图片，视频等描述资源。</p>
 <p>另一方面，很多工程师也有写技术Blog记录自己的心得笔记的习惯。 如果能一边用Jupyter Notebook实验代码， 一边添加相关的文本描述， 最后直接将Jupyter Notebook的内容发布为Blog， 那将获得非常流畅的技术Blog创作体验。</p>
 <p>(遥想当年在中科院的时候， 每次要写分析报告， 首先要开matlab编写代码， 运行代码， 将代码的结果保存为文本， 图片，Excel等文件， 然后再开Word， 一边写报告， 一边要导入图片， 数据。 更糟糕的是， 一旦代码发生更改， 程序生成的结果发生了改变， 可能又得重新调整Word文档。 这个过程非常的繁琐耗时。 由于报告的内容和代码并非紧密的结合， 时间久了以后， 想不起来当时某个处理的细节， 又找不到当时的代码的事情也是经常发生。)</p>
@@ -1167,7 +1158,7 @@ h6:hover .anchor-link {
 <h2 id="重要的组件">重要的组件<a class="anchor-link" href="#重要的组件">¶</a></h2><p>在Jupyter Notebook中编写内容， 然后由Pelican负责将jupyter notebook组装成blog html， Github Pages则提供了网站服务，让大家能通过浏览器看到你的Blog。</p>
 <p>不过要注意的是，转成html后的代码部分是不能运行的，如果希望读者享受到Jupyter Notebook的便利，可以将文章对应的.ipynb源文件的地址(可以把源文件也放在Github)贴在文章里，供读者下载。例如这篇文章的。</p>
 <h3 id="Github-Pages">Github Pages<a class="anchor-link" href="#Github-Pages">¶</a></h3><p>Github Pages是github公司提供的免费的静态网站托管服务，具体使用上，就是注册用户在Gihub上创建过一个[username].github.io的repo,并且在里面的master branch存有html文件的话，那么其他人就可以通过<a href="http://[username].github.io">http://[username].github.io</a> 这个链接访问到这些html页面。</p>
-<p>例如我把这篇文章对应的blog_with_jupyter.html放在了junjiecai.github.io的repo中的master branch里(这里是<a href="https://github.com/junjiecai/junjiecai.github.io/tree/master">链接</a>)，那么大家就可以通过<a href="http://junjiecai.github.io/`blog_with_jupyter">http://junjiecai.github.io/`blog_with_jupyter</a> 看到这篇文章</p>
+<p>例如我把这篇文章对应的blog_with_jupyter.html放在了junjiecai.github.io的repo中的master branch里(这里是<a href="https://github.com/junjiecai/junjiecai.github.io/tree/master/posts/2016/Aug/10/blog_with_jupyter">链接</a>，那么大家就可以通过<a href="http://junjiecai.github.io/posts/2016/Aug/10/blog_with_jupyter/看到这篇文章">http://junjiecai.github.io/posts/2016/Aug/10/blog_with_jupyter/看到这篇文章</a></p>
 <p>如果用户愿意，也可以绑定自己准备的域名，代替<a href="http://[username].github.io">http://[username].github.io</a></p>
 <h3 id="Pelican">Pelican<a class="anchor-link" href="#Pelican">¶</a></h3><p>Pelican是一个基于python的开源库，可以将markdown, jupyter notebook(需要额外插件)等文件转成html文件，并根据meta-data和theme信息， 在生成的html中添加分类，标签，菜单，侧边栏等组件和相应的css style，生成可以用于Blog使用的html文件。</p>
 <h3 id="Jupyter-Notebook">Jupyter Notebook<a class="anchor-link" href="#Jupyter-Notebook">¶</a></h3><p>jupyter notebook提供了一个交互环境，可以在web浏览器一边编写code，运行并展示结果，一边用markdown添加图文视频等丰富的内容进行相应的描述。代码调试完，文章也写完，省去了将code复制粘贴到文章的繁琐的过程。既省事，也避免了文章中的code和运行时的code不一致的问题。</p>
