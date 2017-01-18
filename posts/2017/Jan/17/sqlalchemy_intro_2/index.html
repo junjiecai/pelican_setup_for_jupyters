@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-        <title>sqlalchemy入门(2)</title>
+        <title>sqlalchemy入门(下)</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="/theme/css/bootstrap.min.css" rel="stylesheet">
@@ -83,7 +83,7 @@
     </script>
 
 
-        <meta name="description" content="总结了常见的sqlalchemy的用法，第二部分。包含如何用SQLAlchemy Core表达Select, Update, Delete逻辑。">
+        <meta name="description" content="总结了常见的sqlalchemy的用法，下部分。包含如何用SQLAlchemy Core表达Select, Update, Delete逻辑。">
 
         <meta name="author" content="Exolution">
 
@@ -97,9 +97,9 @@
 	<meta property="og:type" content="article">
             <meta property="article:author" content="/author/exolution.html">
 	<meta property="og:url" content="/posts/2017/Jan/17/sqlalchemy_intro_2/">
-	<meta property="og:title" content="sqlalchemy入门(2)">
+	<meta property="og:title" content="sqlalchemy入门(下)">
 	<meta property="article:published_time" content="2017-01-17 00:00:00+08:00">
-            <meta property="og:description" content="总结了常见的sqlalchemy的用法，第二部分。包含如何用SQLAlchemy Core表达Select, Update, Delete逻辑。">
+            <meta property="og:description" content="总结了常见的sqlalchemy的用法，下部分。包含如何用SQLAlchemy Core表达Select, Update, Delete逻辑。">
 
             <meta property="og:image" content="/../theme/images/home-bg.jpg">
 </head>
@@ -141,7 +141,7 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
-                        <h1>sqlalchemy入门(2)</h1>
+                        <h1>sqlalchemy入门(下)</h1>
                         <span class="meta">
                             作者: Exolution
                         </span>
@@ -174,7 +174,7 @@
         <div class="row">
             <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1">
                 <article>
-		    <p style='margin-left:140px'>可以从(<a href="https://github.com/junjiecai/jupyter_labs/tree/master/exolution/0009_sqlalchemy">这里</a>下载这篇文章对应的Jupyter .ipynb文件和相关python代码等资源。建议下载后在本地打开Jupuyter边阅读并运行调试其中的代码，会有更好的理解效果。)</p>
+		    <p style='margin-left:140px'>可以从(<a href="https://github.com/junjiecai/jupyter_labs/tree/master/exolution/0009_sqlalchemy")>这里</a>下载这篇文章对应的.ipynb文件和相关python代码等资源。建议下载后在本地打开Jupuyter边阅读边运行调试其中的代码，会有更好的理解效果。)</p>
                     <style type="text/css">/*!
 *
 * IPython notebook
@@ -1161,8 +1161,7 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>本文的jupyter notebook .ipynb文件和相关的.py代码可以在<a href="">这里</a>找到。</p>
-<p>接上一篇教程，这篇会更详细的讲解和演示如果用SQLAlchemy完成Select, Update, Delete的操作。</p>
+<p>接<a href="http://junjiecai.github.io/posts/2017/Jan/17/sqlalchemy_intro_1/">sqlalchemy入门(上)</a>，这篇会更详细的讲解和演示如果用SQLAlchemy完成Select, Update, Delete的操作。</p>
 </div>
 </div>
 </div>
@@ -1171,7 +1170,7 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="准备">准备<a class="anchor-link" href="#准备">¶</a></h2><p>实验准备内容和<a href="">SQLAlchemy入门1</a>的内容一致，这里不在重复多说。</p>
+<h2 id="准备">准备<a class="anchor-link" href="#准备">¶</a></h2><p>实验准备内容和<a href="http://junjiecai.github.io/posts/2017/Jan/17/sqlalchemy_intro_1/">sqlalchemy入门(上)</a>的内容一致，这里不在重复多说。</p>
 </div>
 </div>
 </div>
@@ -3317,7 +3316,7 @@ test.users JOIN test.addresses ON test.users.id = test.addresses.user_id
 <div class="output">
 <div class="output_area"><div class="prompt output_prompt">Out[37]:</div>
 <div class="output_text output_subarea output_execute_result">
-<pre>[Column('id', INTEGER(), table=<addresses>, primary_key=True, nullable=False, server_default=DefaultClause(<sqlalchemy.sql.elements.TextClause object at 0x7f3091825550>, for_update=False)),
+<pre>[Column('id', INTEGER(), table=<addresses>, primary_key=True, nullable=False, server_default=DefaultClause(<sqlalchemy.sql.elements.TextClause object at 0x7f789a296128>, for_update=False)),
  Column('user_id', INTEGER(), ForeignKey('test.users.id'), table=<addresses>),
  Column('email_address', VARCHAR(length=20), table=<addresses>, nullable=False)]</pre>
 </div>
@@ -4330,6 +4329,333 @@ FROM
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>和关联子查询一样，用这种方式修改数据时，返回的数据也必须是单行单列。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="控制列操作的顺序">控制列操作的顺序<a class="anchor-link" href="#控制列操作的顺序">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>由于SQLAlchemy编译update语句的时候，默认是按照列在users表中的出现顺序去编译。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [85]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">users</span><span class="p">,</span> <span class="n">addresses</span> <span class="o">=</span> <span class="n">reset_tables</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">users</span>
+    <span class="o">.</span><span class="n">update</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">values</span><span class="p">(</span>   
+        <span class="p">{</span>
+            <span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">fullname</span><span class="p">:</span><span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>            
+            <span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">name</span><span class="p">:</span><span class="s1">'*****'</span><span class="p">,</span>            
+        <span class="p">}</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">get_table</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">users</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>***Compiled SQL***
+<<<
+UPDATE test.users SET name='*****', fullname=test.users.name
+>>>
+</pre>
+</div>
+</div>
+<div class="output_area"><div class="prompt"></div>
+<div class="output_html rendered_html output_subarea ">
+<div>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>id</th>
+<th>name</th>
+<th>fullname</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1</td>
+<td>*****</td>
+<td>jack</td>
+</tr>
+<tr>
+<th>1</th>
+<td>2</td>
+<td>*****</td>
+<td>wendy</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>编译的语句中，顺序是<code>name='*****', fullname=test.users.name</code>。如果我们需要精确的去控制编译后语句列更新的顺序，可以用下面的方式</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [86]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">users</span><span class="p">,</span> <span class="n">addresses</span> <span class="o">=</span> <span class="n">reset_tables</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">users</span>
+    <span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">preserve_parameter_order</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1">#添加preserve_parameter_order=True</span>
+    <span class="o">.</span><span class="n">values</span><span class="p">(</span>   <span class="c1">#使用tuple list定义列更新逻辑</span>
+        <span class="p">[</span>
+            <span class="p">(</span><span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">fullname</span><span class="p">,</span><span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">name</span><span class="p">),</span>
+            <span class="p">(</span><span class="n">users</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="s1">'*****'</span><span class="p">),</span>
+        <span class="p">]</span> 
+    <span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+<span class="n">print_sql</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">get_table</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">users</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>***Compiled SQL***
+<<<
+UPDATE test.users SET fullname=test.users.name, name='*****'
+>>>
+</pre>
+</div>
+</div>
+<div class="output_area"><div class="prompt"></div>
+<div class="output_html rendered_html output_subarea ">
+<div>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>id</th>
+<th>name</th>
+<th>fullname</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1</td>
+<td>*****</td>
+<td>jack</td>
+</tr>
+<tr>
+<th>1</th>
+<td>2</td>
+<td>*****</td>
+<td>wendy</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>现在可以看到编译的语句是<code>SET fullname=test.users.name, name='*****'</code>，反映了tuple list的顺序。通过这种方式我们就可以改变编译的SET语句操作列的顺序。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><div class = 'article warning'>注意</div></p>
+<p>对于postgresql，上面两种SET的顺序结果都是一致的。但是对于MYSQL数据库，如果编译结果是</p>
+<pre><code>UPDATE test.users SET name='*****', fullname=test.users.name</code></pre>
+<p>在执行<code>fullname=test.users.name</code>部分的时候，会采用"<strong>*</strong>"作为name的数值，导致最后fullname也变成'<strong>*</strong>'，只有用</p>
+<pre><code>UPDATE test.users SET fullname=test.users.name, name='*****'</code></pre>
+<p>才能得到正确的结果。</p>
+<p>这时就有必要去指定SET语句中列操作的顺序。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="删除数据">删除数据<a class="anchor-link" href="#删除数据">¶</a></h2><p>掌握了修改数据的操作后, 删除的操作就非常简单。不过要注意约束条件。例如addresses的user_id是users表的外键，那么在删除addresses表的数据前，是不能删除users表的数据的。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="删除全量数据">删除全量数据<a class="anchor-link" href="#删除全量数据">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [41]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">users</span><span class="p">,</span> <span class="n">addresses</span> <span class="o">=</span> <span class="n">reset_tables</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>由于外键造成的约束，直接删除users表是会报错的。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [46]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>    
+    <span class="n">display</span><span class="p">(</span><span class="n">get_table</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">users</span><span class="p">))</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">),</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><class 'sqlalchemy.exc.IntegrityError'> (psycopg2.IntegrityError) update or delete on table "users" violates foreign key constraint "addresses_user_id_fkey" on table "addresses"
+DETAIL:  Key (id)=(1) is still referenced from table "addresses".
+ [SQL: 'DELETE FROM test.users']
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>需要先删除addresses, 再删除users</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [48]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">del_addresses</span> <span class="o">=</span> <span class="n">addresses</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+<span class="n">del_users</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+
+<span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">del_addresses</span><span class="p">)</span>    
+<span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">del_users</span><span class="p">)</span>     
+
+<span class="n">display</span><span class="p">(</span><span class="n">get_table</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">users</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">get_table</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">addresses</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_html rendered_html output_subarea ">
+<div>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>id</th>
+<th>name</th>
+<th>fullname</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="output_area"><div class="prompt"></div>
+<div class="output_html rendered_html output_subarea ">
+<div>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>id</th>
+<th>user_id</th>
+<th>email_address</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
