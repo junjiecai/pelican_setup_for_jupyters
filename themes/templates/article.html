@@ -1,0 +1,193 @@
+{% extends "base.html" %}
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/jquery.tocify.css" rel="stylesheet">
+    <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.tocify.js"></script>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <script>
+        $(document).ready(function(){	 
+            $('article').find('div.rendered').each(function(i, item){
+                if(($(item).find('div.rendered_html').length>0)&&($(item).hasClass('text_cell'))){  
+                    $(item).find('div.rendered_html').each(function(i, item){
+		        if ($(window).width() >= 726){
+		            $(item).children().css('margin-left', '140px');
+		        }else{
+			    $(item).children().css('margin-left', '5px');
+			};
+                        $(item).children().detach().appendTo($('article'))
+                    })
+                    $(item).remove()
+                }else{
+                   $(item).detach().appendTo($('article'))
+                }
+            })
+
+            $("#toc").tocify({selectors:'h2,h3,h4'});
+            if ($(window).width() >= 726){	
+                $('#toc').css('top', Math.max(50, 582+50-$(window).scrollTop()));
+            };
+            $(window).scroll(function () {
+                //You've scrolled this much:
+                if ($(window).width() >= 726){	
+                    $('#toc').css('top', Math.max(50, 582+50-$(window).scrollTop()));
+                };
+            });
+        });
+    </script>
+
+    {% for keyword in article.keywords %}
+        <meta name="keywords" content="{{keyword}}" >
+    {% endfor %}
+
+    {% if description %}
+        <meta name="description" content="{{ description }}">
+    {% elif article.headline %}
+        <meta name="description" content="{{ article.headline }}">
+    {% elif article.summary %}
+        <meta name="description" content="{{ article.summary|striptags|truncate(140) }}">
+    {% endif %}
+
+    {% for author in article.authors %}
+        <meta name="author" content="{{ author }}">
+    {% endfor %}
+
+    {% for tag in article.tags %}
+        <meta name="tags" content="{{tag}}">
+    {% endfor %}
+{% endblock %}
+
+{% block twitter_card %}
+    {% for name,link in SOCIAL if name in ['twitter'] %}
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@{{ link|replace('http://', 'https://')|replace('https://twitter.com/', '') }}">
+        <meta name="twitter:title" content="{{ article.title }}">
+
+        {% if article.twitter_image %}
+            {% if article.twitter_image|lower|truncate(4, True, '') == "http" %}
+                <meta property="twitter:image" content="{{ article.twitter_image }}">
+            {% else %}
+                <meta property="twitter:image" content="{{ SITEURL }}/{{ article.twitter_image }}">
+            {% endif %}
+        {% elif article.header_cover %}
+            <meta name="twitter:image" content="{{ SITEURL }}/{{ article.header_cover }}">
+        {% elif HEADER_COVER %}
+            <meta name="twitter:image" content="{{ SITEURL }}/{{ HEADER_COVER }}">
+        {% else %}
+            <meta name="twitter:image" content="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/post-bg.jpg">
+        {% endif %}
+
+        {% if description %}
+            <meta name="twitter:description" content="{{ description }}">
+        {% elif article.headline %}
+            <meta name="twitter:description" content="{{ article.headline }}">
+        {% else %}
+            <meta name="twitter:description" content="{{ article.summary|striptags|truncate(140) }}">
+        {% endif %}
+    {% endfor %}
+{% endblock %}
+{% block opengraph %}
+	{{ super() }}
+	<meta property="og:type" content="article">
+        {% for author in article.authors %}
+            <meta property="article:author" content="{{ SITEURL }}/{{ author.url }}">
+        {% endfor %}
+	<meta property="og:url" content="{{ SITEURL }}/{{ article.url }}">
+	<meta property="og:title" content="{{ article.title }}">
+	<meta property="article:published_time" content="{{ article.date }}">
+        {% if description %}
+            <meta property="og:description" content="{{ description }}">
+        {% elif article.headline %}
+            <meta property="og:description" content="{{ article.headline }}">
+        {% elif article.summary %}
+            <meta property="og:description" content="{{ article.summary|striptags|truncate(140) }}">
+        {% endif %}
+
+        {% if article.og_image %}
+            {% if article.og_image|lower|truncate(4, True, '') == "http" %}
+                <meta property="og:image" content="{{ article.og_image }}">
+            {% else %}
+                <meta property="og:image" content="{{ SITEURL }}/{{ article.og_image }}">
+            {% endif %}
+        {% elif article.header_cover %}
+            <meta property="og:image" content="{{ SITEURL }}/{{ article.header_cover }}">
+        {% elif HEADER_COVER %}
+            <meta property="og:image" content="{{ SITEURL }}/{{ HEADER_COVER }}">
+        {% else %}
+            <meta property="og:image" content="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/post-bg.jpg">
+        {% endif %}
+{% endblock %}
+
+{% block header %}
+    <!-- Page Header -->
+    {% if article.header_cover %}
+        <header class="intro-header" style="background-image: url('{{ article.header_cover }}')">
+    {% elif HEADER_COVER %}
+        <header class="intro-header" style="padding:20px;background:black;background-image: url('{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/home-bg.jpg')">
+    {% elif HEADER_COLOR %}
+        <header class="intro-header" style="background-color: {{ HEADER_COLOR }}">
+    {% else %}
+        <header class="intro-header" style="background-image: url('{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/home-bg.jpg')">
+    {% endif %}
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>{{ article.title }}</h1>
+                        {% if article.headline %}
+                            <h3 class="subheading">{{ article.headline }}</h3>
+                        {% endif %}
+                        <span class="meta">
+                            作者: {{ article.author }}
+                        </span>
+                        <span class="meta">
+                            发布: {{ article.locale_date }}
+                        </span>
+                        <span class="meta">
+                            修改: {{ article.locale_modified }}
+                        </span>
+                        <span class = 'meta'>
+                            <span id="busuanzi_container_page_pv">
+                              阅读: <span id="busuanzi_value_page_pv"></span>次
+                            </span>
+                        </span>
+                        <!--{% import 'translations.html' as translations with context %}-->
+                        <!--{{ translations.translations_for(article) }}-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock header %}
+
+
+{% block content %}
+    <!-- Post Content -->
+    <div id ="toc" class ='toc' style="position: fixed; left:50px; top:582px"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1">
+                <article>
+		    <p style='margin-left:140px'>可以从(<a href="{{JUPYTER_BASE}}/{{article.folder}}")>这里</a>下载这篇文章对应的.ipynb文件和相关python代码等资源。建议下载后在本地打开Jupuyter边阅读边运行调试其中的代码，会有更好的理解效果。)</p>
+                    {{ article.content }}
+                </article>
+		<div align='center'>
+		        {% if article.tags %}
+		            <div class="tags">
+		                <p>tags: {% for tag in article.tags %}<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag | escape }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</p>
+		            </div>
+		        {% endif %}
+			<p>若觉得本文对您有帮助,欢迎赞助作者一顿早餐:D</p>			
+			<img class='reward' style="display:inline;margin-right:10px" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/award.jpeg" alt="weixin">
+		</div>
+                {% include 'disqus_script.html' %}
+            </div>
+        </div>
+    </div>
+
+
+    {% include 'sharing.html' %}
+    <hr>
+{% endblock content %}
