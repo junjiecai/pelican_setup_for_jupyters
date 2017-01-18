@@ -6,7 +6,7 @@ from __future__ import unicode_literals
 
 import sys
 sys.path.append('')
-from customs import AUTHOR, SITENAME, DUOSHUO_PREFIX,ARTICLE_PATHS,DUOSHUO_SITENAME,GITHUB_URL,GITHUB_URL,GOOGLE_ANALYTICS
+from customs import AUTHOR, SITENAME, DUOSHUO_PREFIX,ARTICLE_PATHS,DUOSHUO_SITENAME,GITHUB_URL,GITHUB_URL,GOOGLE_ANALYTICS,JUPYTER_BASE
 
 DIRECT_TEMPLATES = ['index', 'categories', 'authors', 'archives','tags']
 
@@ -29,10 +29,14 @@ DISPLAY_PAGES_ON_MENU = True
 
 
 FILENAME_METADATA = '(?P<id>\d{4})_(?P<slug>.*)'
+
+PATH_METADATA = "(.*/)(?P<folder>.*)(/.*)"
+
+
 ARTICLE_URL = 'posts/{date:%Y}/{date:%b}/{date:%d}/{slug}/'
 ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/{date:%d}/{slug}/index.html'
 
-ARTICLE_ORDER_BY = 'reversed-id'
+ARTICLE_ORDER_BY = 'reversed-date'
 
 PAGE_URL = 'pages/{slug}/'
 PAGE_SAVE_AS = 'pages/{slug}/index.html'

@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.11
+### New Features
+* Support JUPYTER_BASE config in customs.py to auto-append a paragraph in each article, linking to url containing related .ipybn file and other resources.
+
+
 ## 0.10.2
 ### Bug fixes
 * Fix several text errors in readme.

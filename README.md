@@ -1,3 +1,5 @@
+# Version 0.11
+
 # Project Goal
 This project provides a initial pelican configs and theme files to offer a painless experience to publish jupyter notebooks as pelican blogs into gitpages.
 
@@ -14,7 +16,7 @@ primary adaptations
     * Wechat award image
 
 # Demonstration
-My jupyter notebooks are kept in [here](https://github.com/junjiecai/jupyter_labs/tree/master/exolution)　and you can check what they look like after they are published into blogs [here]((https://junjiecai.github.io)
+My jupyter notebooks are kept in [here](https://github.com/junjiecai/jupyter_labs/tree/master/exolution)　and you can check what they look like after they are published into blogs [here](https://junjiecai.github.io)
 
 # Perquisites
 If you have no idea about pelican and gitpages, please read one of these articles first.
@@ -76,9 +78,10 @@ DUOSHUO_SITENAME = "your duoshuo site name" #If your site name is 'XXXX.duoshuo.
 GITHUB_URL = <your github url>
 GOOGLE_ANALYTICS = 'UA-xxxxxxxx-x' #Your google analytics id
 ARTICLE_PATHS = ['articles'] # your article paths, relative to PATH in pelicanconf.py. See examples below
-
+JUPYTER_BASE = 'base url' # your base url to folder containing related .ipynb file and other resources. See explaination below
 ```
 
+### ARTICLE_PATHS
 For example, here we have files structured like this
 
 ```
@@ -100,6 +103,32 @@ content
             |   article2.ipynb-meta
 |   pages
 ```
+
+### JUPYTER_BASE
+If folders of .ipynb files and related files are pushed into an github repository, JUPYTER_BASE can be used to create a paragraph providing links to the original .ipynb file for each blog article. This automatically generated paragraph is inserted at the beginning of each blog after publishing.
+
+For example, I have files structured like this
+
+```
+content
+|   articles
+    |   jupyter_labs
+        |   exolution
+            |   0000_blog_with_jupyter # folder name containing .ipynb file
+                |   0000_blog_with_jupyter.ipynb
+                |   0000_blog_with_jupyter.ipynb-meta
+|   pages
+```
+
+After I push jupyter_labs directory into my repository (https://github.com/junjiecai/jupyter_labs), the url pointing to 0000_blog_with_jupyter.ipynb is 
+
+https://github.com/junjiecai/jupyter_labs/tree/master/exolution/0000_blog_with_jupyter
+
+This url can be seperated into two parts
+
+* 'https://github.com/junjiecai/jupyter_labs/tree/master/exolution/', which is invariant between articles. This is the value of JUPYTER_BASE
+* 0000_blog_with_jupyter, folder name containing the .ipynb file and related resources. This is automatically extracted and appended into JUPYTER_BASE
+
 
 And we only want to publish contents in directory labs_A and lifes to blog posts, then set ARTICLE_PATHS as
 ```
