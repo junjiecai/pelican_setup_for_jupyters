@@ -174,7 +174,7 @@
         <div class="row">
             <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1">
                 <article>
-		    <p style='margin-left:140px'>可以从(<a href="https://github.com/junjiecai/jupyter_labs/tree/master/exolution/0009_sqlalchemy")>这里</a>下载这篇文章对应的.ipynb文件和相关python代码等资源。建议下载后在本地打开Jupuyter边阅读边运行调试其中的代码，会有更好的理解效果。)</p>
+		    <p style='margin-left:140px'>可以从(<a href="https://github.com/junjiecai/jupyter_labs/tree/master/exolution/0009_sqlalchemy_core")>这里</a>下载这篇文章对应的.ipynb文件和相关python代码等资源。建议下载后在本地打开Jupuyter边阅读边运行调试其中的代码，会有更好的理解效果。)</p>
                     <style type="text/css">/*!
 *
 * IPython notebook
@@ -3301,7 +3301,7 @@ test.users JOIN test.addresses ON test.users.id = test.addresses.user_id
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [37]:</div>
+<div class="prompt input_prompt">In [63]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">MetaData</span><span class="p">,</span> <span class="n">Table</span>
@@ -3314,9 +3314,9 @@ test.users JOIN test.addresses ON test.users.id = test.addresses.user_id
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[37]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[63]:</div>
 <div class="output_text output_subarea output_execute_result">
-<pre>[Column('id', INTEGER(), table=<addresses>, primary_key=True, nullable=False, server_default=DefaultClause(<sqlalchemy.sql.elements.TextClause object at 0x7f789a296128>, for_update=False)),
+<pre>[Column('id', INTEGER(), table=<addresses>, primary_key=True, nullable=False, server_default=DefaultClause(<sqlalchemy.sql.elements.TextClause object at 0x7ff85bb48898>, for_update=False)),
  Column('user_id', INTEGER(), ForeignKey('test.users.id'), table=<addresses>),
  Column('email_address', VARCHAR(length=20), table=<addresses>, nullable=False)]</pre>
 </div>
@@ -3335,7 +3335,7 @@ test.users JOIN test.addresses ON test.users.id = test.addresses.user_id
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [38]:</div>
+<div class="prompt input_prompt">In [62]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
@@ -4352,7 +4352,7 @@ FROM
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [85]:</div>
+<div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">users</span><span class="p">,</span> <span class="n">addresses</span> <span class="o">=</span> <span class="n">reset_tables</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
@@ -4377,49 +4377,6 @@ FROM
 </div>
 </div>
 </div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>***Compiled SQL***
-<<<
-UPDATE test.users SET name='*****', fullname=test.users.name
->>>
-</pre>
-</div>
-</div>
-<div class="output_area"><div class="prompt"></div>
-<div class="output_html rendered_html output_subarea ">
-<div>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>id</th>
-<th>name</th>
-<th>fullname</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>0</th>
-<td>1</td>
-<td>*****</td>
-<td>jack</td>
-</tr>
-<tr>
-<th>1</th>
-<td>2</td>
-<td>*****</td>
-<td>wendy</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -4432,7 +4389,7 @@ UPDATE test.users SET name='*****', fullname=test.users.name
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [86]:</div>
+<div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">users</span><span class="p">,</span> <span class="n">addresses</span> <span class="o">=</span> <span class="n">reset_tables</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
@@ -4454,49 +4411,6 @@ UPDATE test.users SET name='*****', fullname=test.users.name
 
 <span class="n">display</span><span class="p">(</span><span class="n">get_table</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">users</span><span class="p">))</span>
 </pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>***Compiled SQL***
-<<<
-UPDATE test.users SET fullname=test.users.name, name='*****'
->>>
-</pre>
-</div>
-</div>
-<div class="output_area"><div class="prompt"></div>
-<div class="output_html rendered_html output_subarea ">
-<div>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>id</th>
-<th>name</th>
-<th>fullname</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>0</th>
-<td>1</td>
-<td>*****</td>
-<td>jack</td>
-</tr>
-<tr>
-<th>1</th>
-<td>2</td>
-<td>*****</td>
-<td>wendy</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -4545,7 +4459,7 @@ UPDATE test.users SET fullname=test.users.name, name='*****'
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [41]:</div>
+<div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">users</span><span class="p">,</span> <span class="n">addresses</span> <span class="o">=</span> <span class="n">reset_tables</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
@@ -4565,7 +4479,7 @@ UPDATE test.users SET fullname=test.users.name, name='*****'
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [46]:</div>
+<div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
@@ -4576,18 +4490,6 @@ UPDATE test.users SET fullname=test.users.name, name='*****'
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">),</span><span class="n">e</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre><class 'sqlalchemy.exc.IntegrityError'> (psycopg2.IntegrityError) update or delete on table "users" violates foreign key constraint "addresses_user_id_fkey" on table "addresses"
-DETAIL:  Key (id)=(1) is still referenced from table "addresses".
- [SQL: 'DELETE FROM test.users']
-</pre>
-</div>
 </div>
 </div>
 </div>
@@ -4603,7 +4505,7 @@ DETAIL:  Key (id)=(1) is still referenced from table "addresses".
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [48]:</div>
+<div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">del_addresses</span> <span class="o">=</span> <span class="n">addresses</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
@@ -4615,46 +4517,6 @@ DETAIL:  Key (id)=(1) is still referenced from table "addresses".
 <span class="n">display</span><span class="p">(</span><span class="n">get_table</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">users</span><span class="p">))</span>
 <span class="n">display</span><span class="p">(</span><span class="n">get_table</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span><span class="n">addresses</span><span class="p">))</span>
 </pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt"></div>
-<div class="output_html rendered_html output_subarea ">
-<div>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>id</th>
-<th>name</th>
-<th>fullname</th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<div class="output_area"><div class="prompt"></div>
-<div class="output_html rendered_html output_subarea ">
-<div>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>id</th>
-<th>user_id</th>
-<th>email_address</th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
-</div>
-</div>
 </div>
 </div>
 </div>
