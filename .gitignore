@@ -16,3 +16,5 @@ six-*.egg/
 output/
 customs.py
 content/articles/jupyter_labs
+themes/static/customs/.*
+content/pages/.*

@@ -65,12 +65,8 @@
 
         <!-- Custom Fonts -->
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-        <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
         <!-- jQuery -->
-        <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.js"></script>
+        <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.min.js"></script>
 
         <!-- Bootstrap Core JavaScript -->
         <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bootstrap.min.js"></script>
@@ -105,8 +101,8 @@
             <meta name="twitter:site" content="@{{ link|replace('http://', 'https://')|replace('https://twitter.com/', '') }}">
             <meta name="twitter:title" content="{{ SITENAME }}">
             <meta name="twitter:description" content="{{ SITESUBTITLE|default('View the blog.') }}">
-            {% if HEADER_COVER %}
-                <meta name="twitter:image" content="{{ SITEURL }}/{{ HEADER_COVER }}">
+            {% if HEADER_COVER_IMAGE %}
+                <meta name="twitter:image" content="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/customs/{{ HEADER_COVER_IMAGE }}">
             {% else %}
                 <meta name="twitter:image" content="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/post-bg.jpg">
             {% endif %}
@@ -136,7 +132,7 @@
                     {% for title, link in MENUITEMS %}
                         <li><a href="{{ SITEURL }}/{{ link }}">{{ title }}</a></li>
                     {% endfor %}
-
+                    <li>debug</li>
                     {% if DISPLAY_PAGES_ON_MENU %}
                         {% for p in PAGES %}
                             <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
@@ -155,7 +151,8 @@
         <!-- /.container -->
     </nav>
 
-    {% block header %}{% endblock header %}
+    {% block header %}
+    {% endblock header %}
 
     <!-- Main Content -->
     <div class="container">

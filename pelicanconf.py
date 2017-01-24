@@ -6,8 +6,13 @@ from __future__ import unicode_literals
 
 import sys
 sys.path.append('')
-from customs import AUTHOR, SITENAME, DUOSHUO_PREFIX,ARTICLE_PATHS,DUOSHUO_SITENAME,GITHUB_URL,GITHUB_URL,GOOGLE_ANALYTICS,JUPYTER_BASE
+import locale
+locale.setlocale(locale.LC_ALL, "en_US.UTF-8")
 
+from customs import *
+
+
+DUOSHUO_PREFIX = SITEURL.split(':')[1]
 DIRECT_TEMPLATES = ['index', 'categories', 'authors', 'archives','tags']
 
 YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
@@ -44,6 +49,8 @@ PAGE_SAVE_AS = 'pages/{slug}/index.html'
 LOAD_CONTENT_CACHE = False
 
 TIMEZONE = 'Asia/Shanghai'
+
+LOCALE = 'en_US.utf8'
 
 DEFAULT_LANG = 'en'
 

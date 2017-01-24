@@ -3,8 +3,8 @@
 {% block header %}
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    {% if HEADER_COVER %}
-        <header class="intro-header" style="background-image: url('{{ HEADER_COVER }}')">
+    {% if HEADER_COVER_IMAGE %}
+        <header class="intro-header" style="background-image: url('{{ SITEURL }}/{{ THEME_STATIC_DIR }}/customs/{{ HEADER_COVER_IMAGE }}')">
     {% elif HEADER_COLOR %}
         <header class="intro-header" style="background-color: {{ HEADER_COLOR }}">
     {% else %}

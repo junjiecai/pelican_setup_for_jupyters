@@ -124,8 +124,8 @@
     <!-- Page Header -->
     {% if article.header_cover %}
         <header class="intro-header" style="background-image: url('{{ article.header_cover }}')">
-    {% elif HEADER_COVER %}
-        <header class="intro-header" style="padding:20px;background:black;background-image: url('{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/home-bg.jpg')">
+    {% elif HEADER_COVER_IMAGE %}
+        <header class="intro-header" style="padding:20px;background:black;background-image: url('{{ SITEURL }}/{{ THEME_STATIC_DIR }}/customs/{{ HEADER_COVER_IMAGE }}')">
     {% elif HEADER_COLOR %}
         <header class="intro-header" style="background-color: {{ HEADER_COLOR }}">
     {% else %}
@@ -170,7 +170,10 @@
         <div class="row">
             <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1">
                 <article>
-		    <p style='margin-left:140px'>可以从(<a href="{{JUPYTER_BASE}}/{{article.folder}}")>这里</a>下载这篇文章对应的.ipynb文件和相关python代码等资源。建议下载后在本地打开Jupuyter边阅读边运行调试其中的代码，会有更好的理解效果。)</p>
+                    {% if JUPYTER_BASE %}
+                        {% include 'source_link.html'%}
+                    {% endif %}
+
                     {{ article.content }}
                 </article>
 		<div align='center'>
@@ -179,8 +182,9 @@
 		                <p>tags: {% for tag in article.tags %}<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag | escape }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</p>
 		            </div>
 		        {% endif %}
-			<p>若觉得本文对您有帮助,欢迎赞助作者一顿早餐:D</p>			
-			<img class='reward' style="display:inline;margin-right:10px" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/award.jpeg" alt="weixin">
+                {% if WECHAT_PAYMENT_IMAGE %}
+                    {% include 'wechat_payment.html'%}
+                {% endif%}
 		</div>
                 {% include 'disqus_script.html' %}
             </div>

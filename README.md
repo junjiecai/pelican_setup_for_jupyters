@@ -1,4 +1,4 @@
-# Version 0.11
+# Version 0.12.1
 
 # Project Goal
 This project provides a initial pelican configs and theme files to offer a painless experience to publish jupyter notebooks as pelican blogs into gitpages.
@@ -48,12 +48,13 @@ source venv/bin/activate
 create a requirements.txt and put in the following lines
 ```
 markdown
-pelican
+pelican==3.6.3
 jupyter
 ipython
 nbconvert
 beautifulsoup4
 matplotlib
+ghp-import
 ```
 
 Then run
@@ -62,26 +63,38 @@ Then run
 pip install -r requirements.txt
 ```
 
-## Register DUOSHUO 
-Register a DUOSHUO service [here](http://duoshuo.com/) for your blog and take note on your DUOSHUO site name. (looks like 'XXXX.duoshuo.com')
+## Register DUOSHUO (Optional)
+DUOSHUO provides comments module for your blogs. If you want it, register a DUOSHUO service [here](http://duoshuo.com/) for your blog and take note on your DUOSHUO site name. (looks like 'XXXX.duoshuo.com')
 
 ## Register Google Analytics
 Register a google analytics service [here](https://analytics.google.com/) for your blog site and take note on the google analytics id (looks like 'UA-xxxxxxxx-x')
 
 ## Create a customs.py
-create a customs.py file (same folder with pelicanconf.py) and add the following content
+create a customs.py file (same folder with pelicanconf.py) and add the following content.
+
+### Required Settings
 ```
 AUTHOR = 'YourName'
 SITENAME = "YourSiteName"
-DUOSHUO_PREFIX = "YourSiteUrl"
-DUOSHUO_SITENAME = "your duoshuo site name" #If your site name is 'XXXX.duoshuo.com', just fill in XXXX here
-GITHUB_URL = <your github url>
-GOOGLE_ANALYTICS = 'UA-xxxxxxxx-x' #Your google analytics id
-ARTICLE_PATHS = ['articles'] # your article paths, relative to PATH in pelicanconf.py. See examples below
-JUPYTER_BASE = 'base url' # your base url to folder containing related .ipynb file and other resources. See explaination below
+SITEURL = "YourSiteUrl" # For example, https://junjiecai.github.io 
+ARTICLE_PATHS = ['articles'] # your article paths, relative to PATH in pelicanconf.py. See examples below.
 ```
 
-### ARTICLE_PATHS
+### Optional Settings
+```
+GOOGLE_ANALYTICS = 'UA-xxxxxxxx-x' # (OPTIONAL) Enable google_analytics for your blog.
+
+WECHAT_PAYMENT_IMAGE = 'award.jpeg' # (OPTIONAL) Enable wechat payment qrc at the bottom of each article. This is the filename for your wechat payment qrc image which should be put int theme/static/customs/ folder
+
+HEAD_COVER_IMAGE = 'bg-image.jpg' # (OPTIONAL) Replace the default header cover image if you wish. This is the filename for your wechat payment qrc image which should be put int theme/static/customs/ folder
+
+DUOSHUO_SITENAME = "your duoshuo site name" # (OPTIONAL) Enable DUOSHUO commenting. If your site name is 'XXXX.duoshuo.com', just fill in XXXX here
+
+JUPYTER_BASE = 'base url' # (OPTIONAL) Provide this to enable auto source code mapping. See explaination below
+```
+
+### Explanation about some settings
+#### ARTICLE_PATHS
 For example, here we have files structured like this
 
 ```
@@ -104,8 +117,14 @@ content
 |   pages
 ```
 
-### JUPYTER_BASE
-If folders of .ipynb files and related files are pushed into an github repository, JUPYTER_BASE can be used to create a paragraph providing links to the original .ipynb file for each blog article. This automatically generated paragraph is inserted at the beginning of each blog after publishing.
+And we only want to publish contents in directory labs_A and lifes to blog posts, then set ARTICLE_PATHS as
+ARTICLE_PATHS = ['articles/jupyter_labs/labs_A','articles/lifes']
+
+
+#### JUPYTER_BASE
+Sometimes, users wish to push the .ipynb files and related resource files into another repository on github. It's convient to automatically map blogs with urls pointing their source files in github. JUPYTER_BASE is used for this situation.
+
+When JUPYTER_BASE is set properly. A automatically generated paragraph is inserted at the beginning of each blog after publishing.
 
 For example, I have files structured like this
 
@@ -120,7 +139,7 @@ content
 |   pages
 ```
 
-After I push jupyter_labs directory into my repository (https://github.com/junjiecai/jupyter_labs), the url pointing to 0000_blog_with_jupyter.ipynb is 
+After I push jupyter_labs directory (contains the source files) into my repository (https://github.com/junjiecai/jupyter_labs), the url pointing to 0000_blog_with_jupyter.ipynb is 
 
 https://github.com/junjiecai/jupyter_labs/tree/master/exolution/0000_blog_with_jupyter
 
@@ -129,38 +148,15 @@ This url can be seperated into two parts
 * 'https://github.com/junjiecai/jupyter_labs/tree/master/exolution/', which is invariant between articles. This is the value of JUPYTER_BASE
 * 0000_blog_with_jupyter, folder name containing the .ipynb file and related resources. This is automatically extracted and appended into JUPYTER_BASE
 
-
-And we only want to publish contents in directory labs_A and lifes to blog posts, then set ARTICLE_PATHS as
-```
-ARTICLE_PATHS = ['articles/jupyter_labs/labs_A','articles/lifes']
-```
-
-## Replace images
-Images are stored under "/themes/pelican-clean-blog/static/images"
-
-* home-bg.jpg: Used for blog background
-* award.jpeg: Used for wechat payment qr code image at the bottom of each article. I appreciate it very much if you keep my payment qr code:)
-
 ## Create content folder
 Create a folder named with 'content' in the project folder
 
-## Edit aboutme page
-Edit content in content/pages/aboutme.ipynb
-
-## Compose your jupyter notebook
+## Write articles
 1. Create a folder (it must be subdirectory of paths defined in ARTICLE_PATHS), you can create one folder for each jupyter notebook lab.
 2. Create a .ipynb file and write down the content you wish
 3. Create a .ipynb-meta file to provide meta-data about your blog, such as id, title, description .etc, the .ipynb-meta file must has same filename with the .ipynb file
 
-
-For example: 
-If I want write down a jupyter notebook about pytest, and I set ARTICLE_PATHS like this
-```
-ARTICLE_PATHS = ['articles']
-```
-
-Then I should end up with the following folders and files
-
+Then you should end up with the directories and files like this.
 ```
 content
 |   articles
@@ -173,17 +169,30 @@ content
 Within the pytest_intro.ipynb-meta, it should looks like this.
 ```
 Title: Pytest Introduction
-Slug: pytest_intro
+
 Date: 2016-08-15 21:05
 Modified: 2016-08-15 21:05
 Tags: python, testing
 Category:jupyter_labs
 Author: Exolution
-Id:0001
 Summary: Introduction for pytest
+Id:0001
+Slug: pytest_intro
 ```
 
 'Id' is a number assigned to each blog and should be kept unqiue among all blogs, or comments system like DUOSHUO won't work properly.
+
+Id and Slug can be automatically extracted from filenames of .ipynb if they are named with the pattern like "<id>_<slug>.ipynb", for example,
+"0001_pytest_intro.ipynb". Then you don't have to provide them in .ipynb-meta files.
+
+
+## Add pages
+You can add pages such as aboutme page, links page in content/pages. They are created in the same way with articles. But links for pages appear in the navigation menu instead of article list.
+
+For example: 
+If I want write down a jupyter notebook about pytest, and I set ARTICLE_PATHS like this
+```
+ARTICLE_PATHS = ['articles']
 
 ## Add your gitpages remote
 ```

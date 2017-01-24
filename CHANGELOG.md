@@ -1,4 +1,14 @@
 # Change Log
+## 0.12.1
+### New Features
+* Make wechat payment, DUOSHUO comments optional components and they can be configed in custom.py.
+* Users can change header cover image through customs.py
+
+### Refactoring
+* html template for wechat payment, source code mapping are moved into indivisual template files.
+
+### Bug fixes
+* Directory name generated from date information always use english now.
 
 ## 0.11
 ### New Features
