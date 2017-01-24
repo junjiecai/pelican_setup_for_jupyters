@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-        <meta charset="utf-8">
+            <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-        <title>关于我</title>
+        <title>Pytest基本介绍</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="/theme/css/bootstrap.min.css" rel="stylesheet">
@@ -47,8 +47,59 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-                <meta property="og:locale" content="">
+    <link href="/theme/css/jquery.tocify.css" rel="stylesheet">
+    <script src="/theme/js/jquery.tocify.js"></script>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <script>
+        $(document).ready(function(){	 
+            $('article').find('div.rendered').each(function(i, item){
+                if(($(item).find('div.rendered_html').length>0)&&($(item).hasClass('text_cell'))){  
+                    $(item).find('div.rendered_html').each(function(i, item){
+		        if ($(window).width() >= 726){
+		            $(item).children().css('margin-left', '140px');
+		        }else{
+			    $(item).children().css('margin-left', '5px');
+			};
+                        $(item).children().detach().appendTo($('article'))
+                    })
+                    $(item).remove()
+                }else{
+                   $(item).detach().appendTo($('article'))
+                }
+            })
+
+            $("#toc").tocify({selectors:'h2,h3,h4'});
+            if ($(window).width() >= 726){	
+                $('#toc').css('top', Math.max(50, 582+50-$(window).scrollTop()));
+            };
+            $(window).scroll(function () {
+                //You've scrolled this much:
+                if ($(window).width() >= 726){	
+                    $('#toc').css('top', Math.max(50, 582+50-$(window).scrollTop()));
+                };
+            });
+        });
+    </script>
+
+
+        <meta name="description" content="总结了Pytest的基本用法">
+
+        <meta name="author" content="Exolution">
+
+        <meta name="tags" content="test">
+
+	                <meta property="og:locale" content="">
 		<meta property="og:site_name" content="Exolution's Blog">
+
+	<meta property="og:type" content="article">
+            <meta property="article:author" content="/author/exolution.html">
+	<meta property="og:url" content="/posts/2016/7月/15/pytestji-ben-jie-shao/">
+	<meta property="og:title" content="Pytest基本介绍">
+	<meta property="article:published_time" content="2016-07-15 00:00:00+08:00">
+            <meta property="og:description" content="总结了Pytest的基本用法">
+
+            <meta property="og:image" content="/../theme/images/home-bg.jpg">
 </head>
 
 <body>
@@ -82,12 +133,28 @@
     </nav>
 
     <!-- Page Header -->
-        <header class="intro-header" style="background-image: url('/../theme/images/home-bg.jpg')">
+        <header class="intro-header" style="padding:20px;background:black;background-image: url('/theme/images/home-bg.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
-                        <h1>关于我</h1>
+                        <h1>Pytest基本介绍</h1>
+                        <span class="meta">
+                            作者: Exolution
+                        </span>
+                        <span class="meta">
+                            发布: 15/07/2016
+                        </span>
+                        <span class="meta">
+                            修改: 15/07/2016
+                        </span>
+                        <span class = 'meta'>
+                            <span id="busuanzi_container_page_pv">
+                              阅读: <span id="busuanzi_value_page_pv"></span>次
+                            </span>
+                        </span>
+                        <!---->
+                        <!---->
                     </div>
                 </div>
             </div>
@@ -98,8 +165,15 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-    <article>
-        <style type="text/css">/*!
+    <!-- Post Content -->
+    <div id ="toc" class ='toc' style="position: fixed; left:50px; top:582px"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1">
+                <article>
+						
+
+					<style type="text/css">/*!
 *
 * IPython notebook
 *
@@ -1076,19 +1150,300 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="站主人Exolution是一位...">站主人Exolution是一位...<a class="anchor-link" href="#站主人Exolution是一位...">¶</a></h1><ul>
-<li>JOJO脑残粉</li>
-<li>渣厨艺的吃货</li>
-<li>自律的拖延症患者</li>
-<li>数学不太好的数据工程师</li>
-<li>不太智能的人工智能爱好者</li>
-<li>三天打鱼两天晒网的终身学习者</li>
-<li>体重在65kg~80kg间不断游走的健身者</li>
-</ul>
-<p><img alt="" src="banner_2.jpg"/></p>
-<h1 id="本站用到技术">本站用到技术<a class="anchor-link" href="#本站用到技术">¶</a></h1><p>本站分类为jupyter labs的文章都能在<a href="https://github.com/junjiecai/jupyter_labs/tree/master/exolution">这里</a>找到对应的jupyter notebooks原文件，欢迎下载后用jupyter notebook打开，调试把玩其中的代码。</p>
-<p>本站的技术文章都是由pelcian直接将jupyter notebook处理成blog html后发布在gitpages上。如果读者感兴趣，可以下载我的<a href="https://github.com/junjiecai/pelican_setup_for_jupyters">这个项目</a>自己建立基于jupyter notebooks的技术博客。</p>
-<h1 id="Email:">Email:<a class="anchor-link" href="#Email:">¶</a></h1><p>fredness7@hotmail.com</p>
+<h1 id="PyTest笔记">PyTest笔记<a class="anchor-link" href="#PyTest笔记">¶</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="pytest的基本文件结构">pytest的基本文件结构<a class="anchor-link" href="#pytest的基本文件结构">¶</a></h2><p>pytest可以自动遍历文件夹中包含测试用例的.py文件， 并且运行其中的测试用例代码。如何才能被pytest自动识别到呢？只要让.py文件，以及其中测试用例代码用'test_'或者'_test'结尾即可。</p>
+<p>例如我们测试文件是这样的组织的</p>
+<pre><code>|demo
+    test_basic.py
+    test_resource.py</code></pre>
+<p>打开的话可以找到很多'test_'开头的函数，这些都是可以被自动识别的。</p>
+<p>(在Jupyter Notebook中用'!'可以运行terminal命令，下面的命令等同于在这个notebook所在的文件夹打开一个terminal,运行<code>pytest demo</code>)</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span> pytest demo
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>上面的例子里， pytest找到了demo文件夹下2个包含测试用例的.py文件， 并且找到其中测试用例代码并且执行。(这里我们的测试用例都是能通过的)</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="测试用例的基本写法">测试用例的基本写法<a class="anchor-link" href="#测试用例的基本写法">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>测试用例的基本思路是， 运行待测函数，然后比较待测函数的行为(生成特定结果， 正确的raise Exception)是否和设计的一致。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>例如我们构想一个函数func, 需要满足两个特征。</p>
+<ol>
+<li>接受参数字符串s和整数n, 返回将s扩增n次以后拼接在一起的结果</li>
+<li>如果s的类型不是str, raise TypeError</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>针对第一个要求， 我们可以构造一个具体的参数组合, 让待测函数执行， 然后比较返回的结果是否和我们设计的一致。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">test_value</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">func</span><span class="p">(</span><span class="s1">'ab'</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="s1">'ababab'</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>assert语句会判断之后的条件表达式是否成立， 如果成立， 什么都不发生； 如果不成立， 会raise Exception并被pytest捕捉。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>针对第二个需求， 无法直接利用assert语句判断， 但是可以利用pytest提供的context manager去表达"这是会raise xx类型的Exception的错误"的要求， 语法如下。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">test_error</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">TypeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">error_info</span><span class="p">:</span>
+        <span class="n">func</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>我们一开始的代码是两个测试都能通过的， 大家可以修改一下代码后观察一下pytest的运行结果。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="需要创建和销毁资源的测试用例">需要创建和销毁资源的测试用例<a class="anchor-link" href="#需要创建和销毁资源的测试用例">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>有些场合下， 我们需要在测试用例执行前创建一些资源， 以及在测试用例执行后销毁一些资源。 比如在数据库中创建表， 导入数据， 测试一段sql逻辑， 然后销毁这张表。 这种场合可以利用pytest提供的@pytest.fixture和yield语法构造一个资源管理器</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span> <span class="c1"># pytest提供的装饰器</span>
+<span class="k">def</span> <span class="nf">function_level_resource</span><span class="p">():</span>
+    <span class="c1"># 创建资源的代码</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'---------------------'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'setup function level resource'</span><span class="p">)</span>
+    
+    <span class="c1"># 如果有必要, 返回生成的资源(例如和特定数据库的连接conn); 如果不需要(例如只是在数据库中建张表), 写一个空的yield语句即可</span>
+    <span class="k">yield</span> <span class="s1">'some resource'</span> <span class="c1"># replace into real resource, such as connection</span>
+
+    <span class="c1"># 销毁资源的代码</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'teardown function level resource'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'---------------------'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>如果不理解python的decorator和yield语法的话， 对上面这段代码可能会比较迷茫。 如果没有时间去详细理解decorator和yield， 这里只要知道</p>
+<ol>
+<li>虽然这段代码用的是函数定义的语法， 但是得到的结果并不是一个函数, 而是一个object， 所以别用函数的观点去理解这段代码</li>
+<li>记住生成资源， 返回资源， 销毁资源的代码写哪即可。</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>如果要在测试用例代码中使用相关的资源， 把这个"函数"名传入测试用例的代码即可</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">test_1</span><span class="p">(</span><span class="n">function_level_resource</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'running test case '</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Get '</span><span class="o">+</span><span class="n">function_level_resource</span><span class="p">)</span> <span class="c1">#yield返回的结果在测试用例代码中可以用函数的名字访问</span>
+
+    <span class="k">assert</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>这样在运行这个测试用例前， 就会执行function_level_resource定义的资源创建代码， 将yield返回的资源通过function_level_resource这个变量暴露给测试用例代码。并且在测试用例完成后，执行销毁资源的代码。</p>
+<p>如果需要让整个.py文件共享一个资源， 在所有该文件的test case执行前统一创建一次资源， 等所有该文件的test case完成后统一销毁资源。 可以定义一个module level的资源管理器， 像这样。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="s2">"module"</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">moudule_level_resource</span><span class="p">():</span>
+    <span class="c1"># setup resource and return by yield</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'=========================='</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'setup module level resource'</span><span class="p">)</span>
+    
+    <span class="k">yield</span> <span class="s1">'some module level resource'</span> <span class="c1"># replace into real resource, such as connection</span>
+
+    <span class="c1"># teardown resource</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'teardown module level resource'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'=========================='</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>在test_resource.py中， 每个测试用例同时使用了module level的资源和function level的资源。</p>
+<p>下面验证一下结果， 可以看到module_level资源只是在测试test_resource.py时被创建和销毁一次， function_level的资源在每个待测函数的起始和终止都被创建和销毁一次。</p>
+<p>(注意pytest默认不会输出print的结果， 如果需要显示， 要添加-s的参数)</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [14]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span> pytest demo -s
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-bold">============================= test session starts ==============================</span>
+platform linux -- Python 3.5.2, pytest-3.0.5, py-1.4.31, pluggy-0.4.0
+rootdir: /home/exolution/Documents/blogs/0010-pytest_tutorial, inifile: 
+collected 4 items 
+
+demo/test_basic.py ..
+demo/test_resource.py 
+==========================
+setup module level resource
+---------------------
+setup function level resource
+running test case 1
+Get some function level resource
+.teardown function level resource
+---------------------
+---------------------
+setup function level resource
+running test case 2
+Get some function level resource
+.teardown function level resource
+---------------------
+teardown module level resource
+==========================
+
+
+<span class="ansi-green-intense-fg ansi-bold">=========================== 4 passed in 0.01 seconds ===========================</span>
+</pre>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1121,7 +1476,32 @@ h6:hover .anchor-link {
 }
 </script>
 
-    </article>
+                </article>
+		<div align='center'>
+		            <div class="tags">
+		                <p>tags: <a href="/tag/test.html">test</a></p>
+		            </div>
+			<p>若觉得本文对您有帮助,欢迎赞助作者一顿早餐:D</p>			
+			<img class='reward' style="display:inline;margin-right:10px" src="/theme/images/award.jpeg" alt="weixin">
+		</div>
+<div class="ds-thread" data-thread-key="junjiecai.github.io/" data-title="junjiecai.github.io/" data-url="junjiecai.github.io/posts/2016/7月/15/pytestji-ben-jie-shao/" style="width: 80%;margin-left: 20%;"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"junjiecai1984"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+            </div>
+        </div>
+    </div>
+
+
+    <hr>
             </div>
         </div>
     </div>

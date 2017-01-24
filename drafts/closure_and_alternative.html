@@ -127,7 +127,6 @@
                         <li><a href="/tags.html">标签</a></li>
                         <li><a href="/archives.html">归档</a></li>
 
-                            <li><a href="/pages/about/">关于我</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -174,8 +173,9 @@
         <div class="row">
             <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1">
                 <article>
-		    <p style='margin-left:140px'>可以从(<a href="https://github.com/junjiecai/jupyter_labs/tree/master/exolution/0008_pandas_vs_sql")>这里</a>下载这篇文章对应的.ipynb文件和相关python代码等资源。建议下载后在本地打开Jupuyter边阅读边运行调试其中的代码，会有更好的理解效果。)</p>
-                    <style type="text/css">/*!
+						
+
+					<style type="text/css">/*!
 *
 * IPython notebook
 *
@@ -332,6 +332,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -352,11 +353,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -1094,8 +1090,10 @@ h6:hover .anchor-link {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -1106,9 +1104,11 @@ h6:hover .anchor-link {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
 <style type="text/css">
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
@@ -1199,7 +1199,8 @@ h6:hover .anchor-link {
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[2]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -1247,7 +1248,8 @@ h6:hover .anchor-link {
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[3]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -1294,7 +1296,8 @@ h6:hover .anchor-link {
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[4]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -1363,7 +1366,8 @@ h6:hover .anchor-link {
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_text output_error">
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
@@ -1431,7 +1435,8 @@ h6:hover .anchor-link {
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>cannot insert A, already exists
 </pre>
@@ -1453,7 +1458,8 @@ h6:hover .anchor-link {
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[44]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[44]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -1515,7 +1521,8 @@ h6:hover .anchor-link {
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[33]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[33]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -1584,7 +1591,8 @@ h6:hover .anchor-link {
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[47]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[47]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -1641,7 +1649,8 @@ h6:hover .anchor-link {
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[28]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[28]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -1773,7 +1782,8 @@ h6:hover .anchor-link {
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[]
 </pre>
@@ -1810,7 +1820,8 @@ h6:hover .anchor-link {
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[]
 </pre>
@@ -1831,7 +1842,8 @@ h6:hover .anchor-link {
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>SELECT test.table_one."A" 
 FROM test.table_one
@@ -1899,7 +1911,8 @@ FROM test.table_one
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[]
 </pre>
@@ -1927,7 +1940,8 @@ FROM test.table_one
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[]
 </pre>
@@ -2166,7 +2180,8 @@ FROM test.table_one
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>     A    B
 0  NaN  1.0
@@ -2194,7 +2209,8 @@ Name: B, dtype: float64
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[124]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[124]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>numpy.float64</pre>
 </div>
@@ -2214,7 +2230,8 @@ Name: B, dtype: float64
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[125]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[125]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>numpy.float64</pre>
 </div>
@@ -2237,7 +2254,8 @@ Name: B, dtype: float64
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>     A    B
 0  NaN  1.0
@@ -2271,7 +2289,8 @@ Name: B, dtype: float64
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>     A     B
 0  NaN     1
@@ -2280,7 +2299,8 @@ Name: B, dtype: float64
 </pre>
 </div>
 </div>
-<div class="output_area"><div class="prompt output_prompt">Out[127]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[127]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -2333,7 +2353,8 @@ Name: B, dtype: float64
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>     A     B
 0  NaN     1
@@ -2342,7 +2363,8 @@ Name: B, dtype: float64
 </pre>
 </div>
 </div>
-<div class="output_area"><div class="prompt output_prompt">Out[128]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[128]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -2395,7 +2417,8 @@ Name: B, dtype: float64
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>     A     B
 0  NaN     1
@@ -2404,7 +2427,8 @@ Name: B, dtype: float64
 </pre>
 </div>
 </div>
-<div class="output_area"><div class="prompt output_prompt">Out[129]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[129]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -2478,7 +2502,8 @@ Name: B, dtype: float64
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[131]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[131]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>A      int64
 B    float64
@@ -2500,7 +2525,8 @@ dtype: object</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[132]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[132]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -2547,7 +2573,8 @@ dtype: object</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[133]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[133]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -2594,7 +2621,8 @@ dtype: object</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[134]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[134]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>array([[  1.,   4.],
        [  2.,  nan],
@@ -2616,7 +2644,8 @@ dtype: object</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[135]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[135]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>array([[ True,  True],
        [ True, False],
@@ -2638,7 +2667,8 @@ dtype: object</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[136]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[136]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>False</pre>
 </div>
@@ -2658,7 +2688,8 @@ dtype: object</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[137]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[137]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>False</pre>
 </div>
@@ -2680,7 +2711,8 @@ dtype: object</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[138]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[138]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>True</pre>
 </div>
@@ -2723,7 +2755,8 @@ dtype: object</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[140]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[140]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>A     int64
 B    object
@@ -2745,7 +2778,8 @@ dtype: object</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[141]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[141]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -2794,7 +2828,8 @@ dtype: object</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[142]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[142]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -2841,7 +2876,8 @@ dtype: object</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[143]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[143]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>A     int64
 B    object
@@ -2863,7 +2899,8 @@ dtype: object</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[144]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[144]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>True</pre>
 </div>
@@ -2883,7 +2920,8 @@ dtype: object</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_text output_error">
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
@@ -2961,7 +2999,8 @@ Arrays are not equal
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[148]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[148]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -3012,7 +3051,8 @@ Arrays are not equal
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[149]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[149]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -3059,7 +3099,8 @@ Arrays are not equal
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[150]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[150]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -3175,7 +3216,8 @@ Arrays are not equal
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>['A', 'B', 'C']
 </pre>
@@ -3207,7 +3249,8 @@ Arrays are not equal
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[156]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[156]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -3291,7 +3334,8 @@ Arrays are not equal
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_text output_error">
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
@@ -3429,7 +3473,8 @@ LINE 1: SELECT anon_1."B"
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>df5 LEFT OUTER JOIN df6 ON df5."B" = df6."B"
 </pre>
@@ -3471,7 +3516,8 @@ LINE 1: SELECT anon_1."B"
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[160]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[160]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -3522,7 +3568,8 @@ LINE 1: SELECT anon_1."B"
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[161]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[161]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -3573,7 +3620,8 @@ LINE 1: SELECT anon_1."B"
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[162]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[162]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -3664,7 +3712,8 @@ LINE 1: SELECT anon_1."B"
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[165]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[165]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -3736,7 +3785,8 @@ LINE 1: SELECT anon_1."B"
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[167]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[167]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -3815,7 +3865,8 @@ LINE 1: SELECT anon_1."B"
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[169]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[169]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -3917,7 +3968,8 @@ LINE 1: SELECT anon_1."B"
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[171]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[171]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -3996,7 +4048,8 @@ LINE 1: SELECT anon_1."B"
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[7]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[7]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>0    None
 1     NaN
@@ -4019,7 +4072,8 @@ dtype: object</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[8]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[8]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>0    False
 1    False
@@ -4042,7 +4096,8 @@ dtype: bool</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[9]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[9]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>0    False
 1    False
@@ -4065,7 +4120,8 @@ dtype: bool</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[10]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[10]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>0     True
 1     True
@@ -4088,7 +4144,8 @@ dtype: bool</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[11]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[11]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>False</pre>
 </div>
@@ -4108,7 +4165,8 @@ dtype: bool</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[16]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[16]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>0     True
 1    False
@@ -4144,7 +4202,8 @@ dtype: bool</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[13]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[13]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>True</pre>
 </div>
@@ -4164,7 +4223,8 @@ dtype: bool</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[14]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[14]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>False</pre>
 </div>
@@ -4188,7 +4248,8 @@ dtype: bool</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[15]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[15]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>True</pre>
 </div>
@@ -4241,7 +4302,8 @@ dtype: bool</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[20]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[20]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -4286,7 +4348,8 @@ dtype: bool</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[21]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[21]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -4372,7 +4435,8 @@ dtype: bool</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_text output_error">
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
@@ -4405,7 +4469,8 @@ dtype: bool</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[27]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[27]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>False</pre>
 </div>
@@ -4425,7 +4490,8 @@ dtype: bool</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[26]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[26]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>[1, 2, 3]</pre>
 </div>
@@ -4448,7 +4514,8 @@ dtype: bool</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[30]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[30]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>[1, 2, 3, 4]</pre>
 </div>
@@ -4469,7 +4536,8 @@ dtype: bool</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[33]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[33]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>0     True
 1    False
@@ -4492,7 +4560,8 @@ dtype: bool</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[35]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[35]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>0    True
 1    True
@@ -4514,7 +4583,8 @@ dtype: bool</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[38]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[38]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>0     True
 1    False
@@ -4535,6 +4605,7 @@ dtype: bool</pre>
 </div>
 </div>
 </div>
+
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';

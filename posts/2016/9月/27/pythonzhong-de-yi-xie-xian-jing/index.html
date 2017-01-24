@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-        <title>python一些微妙的细节</title>
+        <title>python中的一些"陷阱"</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="/theme/css/bootstrap.min.css" rel="stylesheet">
@@ -83,21 +83,21 @@
     </script>
 
 
-        <meta name="description" content="本文介绍了python一些微妙的细节，对初学可能无关紧要。">
+        <meta name="description" content="本文介绍了python中初学者容易忽略的一些“陷阱”">
 
         <meta name="author" content="Exolution">
 
-        <meta name="tags" content="subtles">
+        <meta name="tags" content="pitfalls">
 
 	                <meta property="og:locale" content="">
 		<meta property="og:site_name" content="Exolution's Blog">
 
 	<meta property="og:type" content="article">
             <meta property="article:author" content="/author/exolution.html">
-	<meta property="og:url" content="/drafts/pythonyi-xie-wei-miao-de-xi-jie.html">
-	<meta property="og:title" content="python一些微妙的细节">
-	<meta property="article:published_time" content="2016-10-05 00:00:00+08:00">
-            <meta property="og:description" content="本文介绍了python一些微妙的细节，对初学可能无关紧要。">
+	<meta property="og:url" content="/posts/2016/9月/27/pythonzhong-de-yi-xie-xian-jing/">
+	<meta property="og:title" content="python中的一些"陷阱"">
+	<meta property="article:published_time" content="2016-09-27 21:01:00+08:00">
+            <meta property="og:description" content="本文介绍了python中初学者容易忽略的一些“陷阱”">
 
             <meta property="og:image" content="/../theme/images/home-bg.jpg">
 </head>
@@ -138,15 +138,15 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
-                        <h1>python一些微妙的细节</h1>
+                        <h1>python中的一些"陷阱"</h1>
                         <span class="meta">
                             作者: Exolution
                         </span>
                         <span class="meta">
-                            发布: 05/10/2016
+                            发布: 27/09/2016
                         </span>
                         <span class="meta">
-                            修改: 05/10/2016
+                            修改: 21/12/2016
                         </span>
                         <span class = 'meta'>
                             <span id="busuanzi_container_page_pv">
@@ -1150,7 +1150,20 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="初学者易忽略的地方">初学者易忽略的地方<a class="anchor-link" href="#初学者易忽略的地方">¶</a></h1><p>这份notebook主要包括一些初学者使用python的时候， 容易忽略的语言特性和容易导致的错误</p>
+<p>欢迎去<a href="https://github.com/junjiecai/jupyter_labs/tree/master/cjj_notebooks/0014_python_pitfalls">这里</a>下载到本文对应的jupyter notebook文件，亲自动手实验文中的代码。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [20]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="k">import</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">Series</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -1159,7 +1172,33 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="x-=-x-op-y和x-op=-y">x = x op y和x op= y<a class="anchor-link" href="#x-=-x-op-y和x-op=-y">¶</a></h2>
+<h2 id="float的精度问题">float的精度问题<a class="anchor-link" href="#float的精度问题">¶</a></h2><p>float没办法覆盖所有的数值范围，会导致数值计算的不准确。</p>
+<p>例如，float没法表示小数点后面任意的精度</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [21]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">func_1</span><span class="p">():</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mf">1.13445433423e-300</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">func_1</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[21]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>0.0</pre>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1168,7 +1207,42 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>很多情况下， python对与某个运算符， 都提供了x = x op y和x op= y两种用法(这里op代表+,-,*,/等运算符， 对于不同的数据类型， 它们的功能不一样)。表面看他们的效果是一样的， 例如下面的例子</p>
+<p>如果的确需要如此高的精度计算，可以使用decimal.Decimal这种数据类型。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [22]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">func_2</span><span class="p">():</span>
+    <span class="kn">from</span> <span class="nn">decimal</span> <span class="k">import</span> <span class="n">Decimal</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="s1">'1.13445433423e-300'</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">d</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">func_2</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[22]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>Decimal('1.2869866364532325496929E-600')</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>不过作为代价，Decimal数值类型会消耗更多的计算时间。下面比较两个版本的代码各执行100000次，消耗的时间</p>
 </div>
 </div>
 </div>
@@ -1177,35 +1251,15 @@ h6:hover .anchor-link {
 <div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">]</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">+</span><span class="p">[</span><span class="s1">'c'</span><span class="p">,</span><span class="s1">'d'</span><span class="p">]</span>
-
-<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">]</span>
-<span class="n">b</span> <span class="o">+=</span> <span class="p">[</span><span class="s1">'c'</span><span class="p">,</span> <span class="s1">'d'</span><span class="p">]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">datetime</span>
+<span class="k">def</span> <span class="nf">timing</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kargs</span><span class="p">):</span>
+    <span class="n">t1</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kargs</span><span class="p">)</span>
+    <span class="n">t2</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">((</span><span class="n">t2</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">())</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>['a', 'b', 'c', 'd'] ['a', 'b', 'c', 'd']
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>看上去两种方式都是让[3, 4]连接到[1, 2]上， 但是实际上， <code>b += ['c','d']</code>直接修改了b， 而<code>a = a+['c','d']</code>则是将计算结果存在memory中的另一个空间， 然后让a重新指向这个地址。 可以用下面代码来验证这点。</p>
 </div>
 </div>
 </div>
@@ -1214,15 +1268,7 @@ h6:hover .anchor-link {
 <div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">]</span>
-<span class="n">origin</span> <span class="o">=</span> <span class="n">a</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">+</span><span class="p">[</span><span class="s1">'c'</span><span class="p">,</span><span class="s1">'d'</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">is</span> <span class="n">origin</span><span class="p">,</span> <span class="n">origin</span><span class="p">)</span>
-
-<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">]</span>
-<span class="n">origin</span> <span class="o">=</span> <span class="n">b</span>
-<span class="n">b</span> <span class="o">+=</span> <span class="p">[</span><span class="s1">'c'</span><span class="p">,</span> <span class="s1">'d'</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">b</span> <span class="ow">is</span> <span class="n">origin</span><span class="p">,</span> <span class="n">origin</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">timing</span><span class="p">(</span><span class="mi">100000</span><span class="p">,</span><span class="n">func_1</span><span class="p">,[],{})</span>
 </pre></div>
 </div>
 </div>
@@ -1232,8 +1278,29 @@ h6:hover .anchor-link {
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>False ['a', 'b']
-True ['a', 'b', 'c', 'd']
+<pre>0.030747
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [6]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">timing</span><span class="p">(</span><span class="mi">100000</span><span class="p">,</span><span class="n">func_2</span><span class="p">,[],{})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0.220824
 </pre>
 </div>
 </div>
@@ -1245,11 +1312,57 @@ True ['a', 'b', 'c', 'd']
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>origin指向的位置是a一开始创建的时候在内存中的数据。</p>
-<p>第一段代码中， a指向的数据内存位置发生了改变， 因此a, origin的内容最终不一致。</p>
-<p>第二部分代码中， a和origin始终指向同样内存位置的数据, a对自己的修改也影响到了origin。</p>
-<p>如果进行更多的实验， 容易发现对于mutable类型的变量x, <strong>x op= y </strong>会直接修改<strong>x</strong>， 而<strong>x = x op y </strong>则会创建新的数据后重新和<strong>x</strong>绑定。</p>
-<p>不过对于immutalbe类型的变量<strong>x</strong>, 这两种方法的表现是一致的， 都是内存中创建新的数据后， 重新将内存数据和<strong>x</strong>绑定。 用下面的代码演示这点， 注意这里将list(mutable)换成了tuple(immutable)</p>
+<p>可以看到，有接近7~8倍的差距</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>float同样无法准确表达过大的数值，例如下面的例子</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [7]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">123123123123123123123123</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[7]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>123123123123123117883392</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>可以看到, 如果将大整数转化成float,再转回成int,数值上已经发生了偏差。 不过由于python的int类型本来就可以表示任意大的整数(只要内存允许)，直接使用int类型进行计算即可。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="pandas,-numpy与大数值int">pandas, numpy与大数值int<a class="anchor-link" href="#pandas,-numpy与大数值int">¶</a></h2><p>一些pandas（或是底层用到的numpy）的函数并不支持数值较大的int</p>
 </div>
 </div>
 </div>
@@ -1258,15 +1371,847 @@ True ['a', 'b', 'c', 'd']
 <div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">)</span>
-<span class="n">origin</span> <span class="o">=</span> <span class="n">a</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">+</span><span class="p">(</span><span class="s1">'c'</span><span class="p">,</span><span class="s1">'d'</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">is</span> <span class="n">origin</span><span class="p">,</span> <span class="n">origin</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="mi">62226003100113821696</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">),</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><class 'TypeError'> ufunc 'isinf' not supported for the input types, and the inputs could not be safely coerced to any supported types according to the casting rule ''safe''
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [9]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">Series</span><span class="p">([</span><span class="mi">99898989789797878797</span><span class="p">,</span><span class="mi">99898989789797878797</span><span class="p">],</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">),</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><class 'OverflowError'> Python int too large to convert to C long
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>如果不想损失精度的话， 部分场景可以使用decimal.Decimal解决</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [10]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">decimal</span> <span class="k">import</span> <span class="n">Decimal</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [11]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">Series</span><span class="p">([</span><span class="n">Decimal</span><span class="p">(</span><span class="s1">'99898989789797878797'</span><span class="p">),</span><span class="n">Decimal</span><span class="p">(</span><span class="s1">'99898989789797878797'</span><span class="p">)],</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">),</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>99898989789797878797    2
+dtype: int64
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>然而，并不是所有的情况都管用</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [12]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s1">'62226003100113821696'</span><span class="p">))</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">),</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><class 'TypeError'> ufunc 'isinf' not supported for the input types, and the inputs could not be safely coerced to any supported types according to the casting rule ''safe''
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>想上面这种情况， 就只能转成float损失精度了。(对于例子中的np.isinf来说，精度是否降低是无关紧要的)</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [13]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="s1">'62226003100113821696'</span><span class="p">))</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">),</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="操作系统默认encoding">操作系统默认encoding<a class="anchor-link" href="#操作系统默认encoding">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>ubuntu下用open新建文件的时候,默认的encoding就是utf8,因此要往文件写入中文等字符都是没有问题的。但是windows的默认encoding不是utf8(似乎是ascii?有windows的同学可以试试)，则需要额外的在open中制定encoding才能顺利写入特殊的字符。</p>
+<p>大家可以在自己的操作系统下测试一下下面代码的结果。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [19]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">getdefaultencoding</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>utf-8
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [20]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'test.txt'</span><span class="p">,</span><span class="n">mode</span> <span class="o">=</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'测试'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>可以通过encoding参数强制指定encoding</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [21]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'test.txt'</span><span class="p">,</span><span class="n">mode</span> <span class="o">=</span> <span class="s1">'w'</span><span class="p">,</span><span class="n">encoding</span> <span class="o">=</span> <span class="s1">'utf'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'测试'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="cx_Oracle的arraysize">cx_Oracle的arraysize<a class="anchor-link" href="#cx_Oracle的arraysize">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">conn</span><span class="o">.</span><span class="n">arrayzie</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">conn</span><span class="o">.</span><span class="n">arrayzie</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>cx_Oracle的connection有一个arraysize控制每次从数据库中一次读取的数据行数， arraysize的设置必须发生在conn.execute(sql)之前，否则是不会生效的。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(这个例子暂时不提供实验， 以后可能要配上docker实验环境)</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="条件判断的括号">条件判断的括号<a class="anchor-link" href="#条件判断的括号">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>下面的例子的结果估计大部分想象的都不太一样</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [23]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">setA</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">}</span>
+<span class="n">setB</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">}</span>
 
-<span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">)</span>
-<span class="n">origin</span> <span class="o">=</span> <span class="n">b</span>
-<span class="n">b</span> <span class="o">+=</span> <span class="p">(</span><span class="s1">'c'</span><span class="p">,</span> <span class="s1">'d'</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">b</span> <span class="ow">is</span> <span class="n">origin</span><span class="p">,</span> <span class="n">origin</span><span class="p">)</span>
+<span class="kc">True</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">setA</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span> <span class="o">&</span> <span class="nb">len</span><span class="p">(</span><span class="n">setB</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span> <span class="o">&</span> <span class="nb">len</span><span class="p">(</span><span class="n">setA</span><span class="o">|</span><span class="n">setB</span><span class="p">)</span><span class="o">==</span><span class="mi">2</span> <span class="k">else</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[23]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>False</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>如果不想去费无意义的脑力去记忆运算执行顺序规则的话， 多利用括号就好。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [24]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">setA</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span> <span class="o">&</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">setB</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span> <span class="o">&</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">setA</span><span class="o">|</span><span class="n">setB</span><span class="p">)</span><span class="o">==</span><span class="mi">2</span><span class="p">)</span> <span class="k">else</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[24]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>True</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="眼见不为实">眼见不为实<a class="anchor-link" href="#眼见不为实">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>在jupyter中使用pandas时， jupyter会将dataframe用比较美观的方式的展现出来。 但是特别要注意的是， 一些不同数据类型的数据， 或者带有空格的字符串， 在jupyter中是看不到区别的，例如:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [25]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">({</span><span class="s1">'A'</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="s1">'B'</span><span class="p">:[</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">,</span><span class="s1">'c'</span><span class="p">]})</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">({</span><span class="s1">'A'</span><span class="p">:[</span><span class="s1">'1'</span><span class="p">,</span><span class="s1">'2'</span><span class="p">,</span><span class="s1">'3'</span><span class="p">],</span><span class="s1">'C'</span><span class="p">:[</span><span class="s1">'aa'</span><span class="p">,</span><span class="s1">'ba'</span><span class="p">,</span><span class="s1">'ca'</span><span class="p">]})</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [26]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[26]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>A</th>
+<th>B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1</td>
+<td>a</td>
+</tr>
+<tr>
+<th>1</th>
+<td>2</td>
+<td>b</td>
+</tr>
+<tr>
+<th>2</th>
+<td>3</td>
+<td>c</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [27]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[27]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>A</th>
+<th>C</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1</td>
+<td>aa</td>
+</tr>
+<tr>
+<th>1</th>
+<td>2</td>
+<td>ba</td>
+</tr>
+<tr>
+<th>2</th>
+<td>3</td>
+<td>ca</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>看上去A列一模一样， 但是如果merge的话， 是什么也得不到的。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [28]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="s1">'A'</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[28]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>因此， 使用DataFrame的时候一定要记得检查一下相关列的数据类型是什么。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>同理， 如果字符中含有空格， 在jupyter中也不容易被观察出来。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [29]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">s1</span> <span class="o">=</span> <span class="n">Series</span><span class="p">([</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">])</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="n">Series</span><span class="p">([</span><span class="s1">'a '</span><span class="p">,</span><span class="s1">'b '</span><span class="p">])</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [30]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">s1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[30]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>a</td>
+</tr>
+<tr>
+<th>1</th>
+<td>b</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [31]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">s2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[31]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>a</td>
+</tr>
+<tr>
+<th>1</th>
+<td>b</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>进行数值比较的时候实际上会被判定为False</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [198]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">s1</span><span class="o">==</span><span class="n">s2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[198]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>False</td>
+</tr>
+<tr>
+<th>1</th>
+<td>False</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>但是如果转成list然后print出来的话，就很容易看出空格的存在。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [201]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">s1</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[201]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>['a', 'b']</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [202]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">s2</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[202]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>['a ', 'b ']</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="中英文符号">中英文符号<a class="anchor-link" href="#中英文符号">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>在写代码的时候最好关闭中文输入法， 避免混入中文或全角标点， 尤其是在编写正则表达式的时候。 例如， 我们希望根据'ab'或者'ad'去分割字符串</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [32]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="n">string</span> <span class="o">=</span> <span class="s1">'abcadfa'</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [35]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'ab｜ad'</span><span class="p">,</span><span class="n">string</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[35]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>['abcadfa']</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [34]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'ab|ad'</span><span class="p">,</span><span class="n">string</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[34]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>['', 'c', 'fa']</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>第一段代码没能生效的原因是'｜'是在全角状态输入的。　像这样的问题是很难观察到的。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="函数默认初始值">函数默认初始值<a class="anchor-link" href="#函数默认初始值">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>mutable类型的数据不要作为函数的初始值，它并不会每次使用函数的时候被初始化,而是会记忆之前的运行状态。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [14]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># mutable作为默认初始值的问题</span>
+<span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="p">[]):</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'*'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>运行一次的时候，正常</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [15]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1276,8 +2221,7 @@ True ['a', 'b', 'c', 'd']
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>False ('a', 'b')
-False ('a', 'b')
+<pre>['*']
 </pre>
 </div>
 </div>
@@ -1289,41 +2233,16 @@ False ('a', 'b')
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="默认值为空list的陷阱">默认值为空list的陷阱<a class="anchor-link" href="#默认值为空list的陷阱">¶</a></h2>
+<p>运行第二次的时候</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [16]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">这里写一个函数</span><span class="err">，</span> <span class="n">这个函数接受一个list作为变量</span><span class="err">，</span> <span class="n">并且在这个list中添加一个当前的时间后返回这个list</span><span class="err">。</span> <span class="n">如果没有传入任何变量</span><span class="err">，</span><span class="n">那么用空的list作为默认值</span><span class="err">。</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [40]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">datetime</span>
-<span class="k">def</span> <span class="nf">append_time</span><span class="p">(</span><span class="n">b</span> <span class="o">=</span> <span class="p">[]):</span>
-    <span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span><span class="s1">'%H:%M:%S'</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">b</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [41]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">append_time</span><span class="p">())</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1333,141 +2252,7 @@ False ('a', 'b')
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>['04:58:25']
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">运行一次后看上去很正常</span><span class="err">，</span> <span class="n">但是如果我们再次运行这个函数</span><span class="err">。</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [42]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">append_time</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>['04:58:25', '04:58:27']
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">可以发现</span><span class="err">，</span> <span class="n">这个函数并没有把之前的运行的结果清空</span><span class="err">。</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>这是因为在之前的代码中, b = []只是在函数被定义的时候执行， 在内存中创建了这个空list， 此后每次运行这个函数的时候， b的默认值都指向了内存中这个list的位置。 因此多次运行函数对这个list的影响都会被保留下来。</p>
-<p>如果希望每次运行函数， 都让b的默认值是空list， 需要将生成空list的语句放在函数体内。</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [43]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">append_time</span><span class="p">(</span><span class="n">b</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
-    <span class="n">b</span> <span class="o">=</span> <span class="p">[]</span> <span class="k">if</span> <span class="n">b</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">b</span>
-    <span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span><span class="s1">'%H:%M:%S'</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">b</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">执行一次没问题</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [44]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">append_time</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>['04:58:53']
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">再执行一次</span><span class="err">，</span> <span class="n">也没问题</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [45]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">append_time</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>['04:59:16']
+<pre>['*', '*']
 </pre>
 </div>
 </div>
@@ -1479,16 +2264,22 @@ False ('a', 'b')
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="逻辑运算符and,-or">逻辑运算符and, or<a class="anchor-link" href="#逻辑运算符and,-or">¶</a></h2>
+<p>可以看到a并不是从[]开始运行的。</p>
+<p>如果的确需要使用[]作为初始默认值,常见的做法是接受None作为参数后，在函数内部完成初始化。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [17]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">用在if语句中的时候</span><span class="err">，</span> <span class="mi">0</span><span class="n">相当于False</span><span class="p">,</span> <span class="n">其他值相当于True</span><span class="p">;</span> <span class="n">空list相当于False</span><span class="p">,</span> <span class="n">有任何内容的list相当于True等规则相信大家是比较熟悉的</span><span class="err">，</span> <span class="n">因此不难判断下面语句的执行结果</span><span class="err">。</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="ow">or</span> <span class="p">[]</span>
+
+    <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'*'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+        
 </pre></div>
 </div>
 </div>
@@ -1496,18 +2287,10 @@ False ('a', 'b')
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [49]:</div>
+<div class="prompt input_prompt">In [18]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="mi">3</span> <span class="ow">and</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'Evaluated as True'</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'Evaluated as False'</span><span class="p">)</span>    
-    
-<span class="k">if</span> <span class="p">[]</span> <span class="ow">and</span> <span class="mi">6</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'Evaluated as True'</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'Evaluated as False'</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1517,30 +2300,19 @@ False ('a', 'b')
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Evaluated as True
-Evaluated as False
+<pre>['*']
 </pre>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>但是这里要注意的是， and, or并不是真的返回True, False的结果， 而是返回第一个逻辑表达式中能够决定真假值的object(采用short circuit方式)</p>
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [50]:</div>
+<div class="prompt input_prompt">In [19]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="ow">and</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">([]</span> <span class="ow">and</span> <span class="mi">6</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1550,41 +2322,7 @@ Evaluated as False
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>-1
-[]
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>如果真的需要对应的boolean值的话， 需要用bool转化一下</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [51]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="mi">3</span> <span class="ow">and</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">([]</span> <span class="ow">and</span> <span class="mi">6</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>True
-False
+<pre>['*']
 </pre>
 </div>
 </div>
@@ -1623,12 +2361,12 @@ False
                 </article>
 		<div align='center'>
 		            <div class="tags">
-		                <p>tags: <a href="/tag/subtles.html">subtles</a></p>
+		                <p>tags: <a href="/tag/pitfalls.html">pitfalls</a></p>
 		            </div>
 			<p>若觉得本文对您有帮助,欢迎赞助作者一顿早餐:D</p>			
 			<img class='reward' style="display:inline;margin-right:10px" src="/theme/images/award.jpeg" alt="weixin">
 		</div>
-<div class="ds-thread" data-thread-key="junjiecai.github.io/" data-title="junjiecai.github.io/" data-url="junjiecai.github.io/drafts/pythonyi-xie-wei-miao-de-xi-jie.html" style="width: 80%;margin-left: 20%;"></div>
+<div class="ds-thread" data-thread-key="junjiecai.github.io/" data-title="junjiecai.github.io/" data-url="junjiecai.github.io/posts/2016/9月/27/pythonzhong-de-yi-xie-xian-jing/" style="width: 80%;margin-left: 20%;"></div>
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"junjiecai1984"};
 	(function() {
