@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-        <title>Pytest基本介绍</title>
+        <title>Sympy tutorial I</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="https://junjiecai.github.io/theme/css/bootstrap.min.css" rel="stylesheet">
@@ -79,21 +79,22 @@
     </script>
 
 
-        <meta name="description" content="总结了Pytest的基本用法">
+        <meta name="description" content="Tutorial fot Sympy, a powerful symbolic package for Python.\n关于Sympy的教程。Sympy是一个Python下功能强大的符号计算库。">
 
         <meta name="author" content="Exolution">
 
-        <meta name="tags" content="test">
+        <meta name="tags" content="python">
+        <meta name="tags" content="Sympy">
 
 	                <meta property="og:locale" content="en_US.utf8">
 		<meta property="og:site_name" content="Exolution's Bizarre Adventure">
 
 	<meta property="og:type" content="article">
             <meta property="article:author" content="https://junjiecai.github.io/author/exolution.html">
-	<meta property="og:url" content="https://junjiecai.github.io/posts/2016/Jul/15/pytestji-ben-jie-shao/">
-	<meta property="og:title" content="Pytest基本介绍">
-	<meta property="article:published_time" content="2016-07-15 00:00:00+08:00">
-            <meta property="og:description" content="总结了Pytest的基本用法">
+	<meta property="og:url" content="https://junjiecai.github.io/posts/2017/Jan/26/sympy_intro_1/">
+	<meta property="og:title" content="Sympy tutorial I">
+	<meta property="article:published_time" content="2017-01-26 00:00:00+08:00">
+            <meta property="og:description" content="Tutorial fot Sympy, a powerful symbolic package for Python.\n关于Sympy的教程。Sympy是一个Python下功能强大的符号计算库。">
 
             <meta property="og:image" content="https://junjiecai.github.io/../theme/images/home-bg.jpg">
 </head>
@@ -134,15 +135,15 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
-                        <h1>Pytest基本介绍</h1>
+                        <h1>Sympy tutorial I</h1>
                         <span class="meta">
                             作者: Exolution
                         </span>
                         <span class="meta">
-                            发布: 15/07/2016
+                            发布: 26/01/2017
                         </span>
                         <span class="meta">
-                            修改: 15/07/2016
+                            修改: 26/01/2017
                         </span>
                         <span class = 'meta'>
                             <span id="busuanzi_container_page_pv">
@@ -168,7 +169,7 @@
             <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1">
                 <article>
 <p style='margin-left:140px'>
-	可以从<a href="https://github.com/junjiecai/jupyter_labs/tree/master/exolution/0001-pytest_tutorial")>这里</a>下载这篇文章对应的.ipynb文件和相关python代码等资源。建议下载后在本地打开Jupuyter边阅读边运行调试其中的代码，会有更好的理解效果。
+	可以从<a href="https://github.com/junjiecai/jupyter_labs/tree/master/exolution/0026_sympy")>这里</a>下载这篇文章对应的.ipynb文件和相关python代码等资源。建议下载后在本地打开Jupuyter边阅读边运行调试其中的代码，会有更好的理解效果。
 </p>
                     <style type="text/css">/*!
 *
@@ -1142,36 +1143,12 @@ h6:hover .anchor-link {
 
 .ansi-bold { font-weight: bold; }
 </style>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="PyTest笔记">PyTest笔记<a class="anchor-link" href="#PyTest笔记">¶</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="pytest的基本文件结构">pytest的基本文件结构<a class="anchor-link" href="#pytest的基本文件结构">¶</a></h2><p>pytest可以自动遍历文件夹中包含测试用例的.py文件， 并且运行其中的测试用例代码。如何才能被pytest自动识别到呢？只要让.py文件，以及其中测试用例代码用'test_'或者'_test'结尾即可。</p>
-<p>例如我们测试文件是这样的组织的</p>
-<pre><code>|demo
-    test_basic.py
-    test_resource.py</code></pre>
-<p>打开的话可以找到很多'test_'开头的函数，这些都是可以被自动识别的。</p>
-<p>(在Jupyter Notebook中用'!'可以运行terminal命令，下面的命令等同于在这个notebook所在的文件夹打开一个terminal,运行<code>pytest demo</code>)</p>
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [18]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span> pytest demo
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span>
 </pre></div>
 </div>
 </div>
@@ -1182,7 +1159,7 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>上面的例子里， pytest找到了demo文件夹下2个包含测试用例的.py文件， 并且找到其中测试用例代码并且执行。(这里我们的测试用例都是能通过的)</p>
+<h1 id="Preliminarys（预备知识）">Preliminarys（预备知识）<a class="anchor-link" href="#Preliminarys（预备知识）">¶</a></h1>
 </div>
 </div>
 </div>
@@ -1191,7 +1168,8 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="测试用例的基本写法">测试用例的基本写法<a class="anchor-link" href="#测试用例的基本写法">¶</a></h2>
+<p>This tutorial assumes the reader already knows the basics of python and a decent mathmetical backgound. Most of the examples require a level of mathmetics lower than calculus, and some require knowledge at calculus or higher level.You can skip the sections that use mathmetics you are not familiar with.Some import mathmetical concept that are not common knowledge will be introduced as necessary.</p>
+<p>这个教程假定读者具备基础的python知识并且有一定的数学基础。教程中大部分的例子需要微积分以下等级的数学知识。有些需要微积分或者更高程度的数学知识。如果遇到涉及自己不熟悉的数学知识的部分，可以先跳过。如果有必要，教程会介绍一些重要，但不能算作常识的数学知识。</p>
 </div>
 </div>
 </div>
@@ -1200,7 +1178,8 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>测试用例的基本思路是， 运行待测函数，然后比较待测函数的行为(生成特定结果， 正确的raise Exception)是否和设计的一致。</p>
+<h1 id="What-is-symbolic-computation?(符号计算是什么？)">What is symbolic computation?(符号计算是什么？)<a class="anchor-link" href="#What-is-symbolic-computation?(符号计算是什么？)">¶</a></h1><p>Sympy deals with mathmetical computation symbolicly and mathmethical expressions with unevaluated variables are left in their symbolic form. Let's take an example.</p>
+<p>Sympy能以符号形式进行数学计算。数学表达式中未经计算的变量可以以符号的形式存在。我们看下面的例子。</p>
 </div>
 </div>
 </div>
@@ -1209,200 +1188,18 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>例如我们构想一个函数func, 需要满足两个特征。</p>
-<ol>
-<li>接受参数字符串s和整数n, 返回将s扩增n次以后拼接在一起的结果</li>
-<li>如果s的类型不是str, raise TypeError</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>针对第一个要求， 我们可以构造一个具体的参数组合, 让待测函数执行， 然后比较返回的结果是否和我们设计的一致。</p>
+<p>First, we import python built-in functions to compute square root.We might do something like this</p>
+<p>首先，我们用python的内置函数计算开方，我们可能会这么做。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [57]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">test_value</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="n">func</span><span class="p">(</span><span class="s1">'ab'</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="s1">'ababab'</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>assert语句会判断之后的条件表达式是否成立， 如果成立， 什么都不发生； 如果不成立， 会raise Exception并被pytest捕捉。</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>针对第二个需求， 无法直接利用assert语句判断， 但是可以利用pytest提供的context manager去表达"这是会raise xx类型的Exception的错误"的要求， 语法如下。</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">test_error</span><span class="p">():</span>
-    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">TypeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">error_info</span><span class="p">:</span>
-        <span class="n">func</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>我们一开始的代码是两个测试都能通过的， 大家可以修改一下代码后观察一下pytest的运行结果。</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="需要创建和销毁资源的测试用例">需要创建和销毁资源的测试用例<a class="anchor-link" href="#需要创建和销毁资源的测试用例">¶</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>有些场合下， 我们需要在测试用例执行前创建一些资源， 以及在测试用例执行后销毁一些资源。 比如在数据库中创建表， 导入数据， 测试一段sql逻辑， 然后销毁这张表。 这种场合可以利用pytest提供的@pytest.fixture和yield语法构造一个资源管理器</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span> <span class="c1"># pytest提供的装饰器</span>
-<span class="k">def</span> <span class="nf">function_level_resource</span><span class="p">():</span>
-    <span class="c1"># 创建资源的代码</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'---------------------'</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'setup function level resource'</span><span class="p">)</span>
-    
-    <span class="c1"># 如果有必要, 返回生成的资源(例如和特定数据库的连接conn); 如果不需要(例如只是在数据库中建张表), 写一个空的yield语句即可</span>
-    <span class="k">yield</span> <span class="s1">'some resource'</span> <span class="c1"># replace into real resource, such as connection</span>
-
-    <span class="c1"># 销毁资源的代码</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'teardown function level resource'</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'---------------------'</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>如果不理解python的decorator和yield语法的话， 对上面这段代码可能会比较迷茫。 如果没有时间去详细理解decorator和yield， 这里只要知道</p>
-<ol>
-<li>虽然这段代码用的是函数定义的语法， 但是得到的结果并不是一个函数, 而是一个object， 所以别用函数的观点去理解这段代码</li>
-<li>记住生成资源， 返回资源， 销毁资源的代码写哪即可。</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>如果要在测试用例代码中使用相关的资源， 把这个"函数"名传入测试用例的代码即可</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">test_1</span><span class="p">(</span><span class="n">function_level_resource</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'running test case '</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'Get '</span><span class="o">+</span><span class="n">function_level_resource</span><span class="p">)</span> <span class="c1">#yield返回的结果在测试用例代码中可以用函数的名字访问</span>
-
-    <span class="k">assert</span> <span class="kc">True</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>这样在运行这个测试用例前， 就会执行function_level_resource定义的资源创建代码， 将yield返回的资源通过function_level_resource这个变量暴露给测试用例代码。并且在测试用例完成后，执行销毁资源的代码。</p>
-<p>如果需要让整个.py文件共享一个资源， 在所有该文件的test case执行前统一创建一次资源， 等所有该文件的test case完成后统一销毁资源。 可以定义一个module level的资源管理器， 像这样。</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="s2">"module"</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">moudule_level_resource</span><span class="p">():</span>
-    <span class="c1"># setup resource and return by yield</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'=========================='</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'setup module level resource'</span><span class="p">)</span>
-    
-    <span class="k">yield</span> <span class="s1">'some module level resource'</span> <span class="c1"># replace into real resource, such as connection</span>
-
-    <span class="c1"># teardown resource</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'teardown module level resource'</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'=========================='</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>在test_resource.py中， 每个测试用例同时使用了module level的资源和function level的资源。</p>
-<p>下面验证一下结果， 可以看到module_level资源只是在测试test_resource.py时被创建和销毁一次， function_level的资源在每个待测函数的起始和终止都被创建和销毁一次。</p>
-<p>(注意pytest默认不会输出print的结果， 如果需要显示， 要添加-s的参数)</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [14]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span> pytest demo -s
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="k">import</span> <span class="n">sqrt</span>
+<span class="n">display</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1411,34 +1208,486 @@ h6:hover .anchor-link {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-bold">============================= test session starts ==============================</span>
-platform linux -- Python 3.5.2, pytest-3.0.5, py-1.4.31, pluggy-0.4.0
-rootdir: /home/exolution/Documents/blogs/0010-pytest_tutorial, inifile: 
-collected 4 items 
-
-demo/test_basic.py ..
-demo/test_resource.py 
-==========================
-setup module level resource
----------------------
-setup function level resource
-running test case 1
-Get some function level resource
-.teardown function level resource
----------------------
----------------------
-setup function level resource
-running test case 2
-Get some function level resource
-.teardown function level resource
----------------------
-teardown module level resource
-==========================
-
-
-<span class="ansi-green-intense-fg ansi-bold">=========================== 4 passed in 0.01 seconds ===========================</span>
-</pre>
+<div class="output_latex output_subarea ">
+$$2.8284271247461903$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>That is not an accurate represetation of $\sqrt{8}$ and we would have a hard time deducing it from the long float to origin expression. This is symbolic computation comes in. With symbolic computaion system like Sympy, squared roots of numbers that are not perfect square are left unevaluated by default.</p>
+<p>这个结果并不能精确的表达$\sqrt{8}$而且我们也很难从这一大串float数值推出原来的表达式是什么。这就是为什么我们需要符号计算。在像Sympy这样的符号计算系统中,不能准确表达的开发运算会保留未经计算的符号形态。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [58]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="k">import</span> <span class="n">sqrt</span>
+<span class="n">display</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$2 \sqrt{2}$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Setting-up-Pretty-Printing(设置更好的显示效果)">Setting up Pretty Printing(设置更好的显示效果)<a class="anchor-link" href="#Setting-up-Pretty-Printing(设置更好的显示效果)">¶</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In example above the result is great but the printing in jupyter doesn't looks great. To get a prettier printing, call sympy.init_printing()</p>
+<p>上面的例子中，结果很棒。但是在Jupyter中的显示效果看起来并不怎么样。如果我们要更好的显示效果，可以调用<code>sympy.init_printing()</code>方法</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [59]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="k">import</span> <span class="n">init_printing</span>
+<span class="n">init_printing</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [60]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$2 \sqrt{2}$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Looks great now!!</p>
+<p>看上去棒极了!!</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Symbolic-computation-with-variables(对变量进行符号计算)">Symbolic computation with variables(对变量进行符号计算)<a class="anchor-link" href="#Symbolic-computation-with-variables(对变量进行符号计算)">¶</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Sympy is capable of manipulating expressions with symbolic variables. Here is an example.</p>
+<p>Sympy能够对包含符号变量的表达式进行计算。下面是个例子。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [61]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="k">import</span> <span class="n">symbols</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">'x y'</span><span class="p">)</span>
+<span class="n">expr</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">y</span>
+<span class="n">display</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$x + 2 y$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Obvious simplications are automatically applied by Sympy so in the example below we get $y$ insted of $x+2y-x-y$</p>
+<p>Sympy能自动应用一些明显的化简。 所以下面的例子里，我们得到的结果是$y$而不是$x+2y-x-y$</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [62]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">expr</span><span class="o">-</span><span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$y$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>That's what we cannot realize without the help from a symbolic computation system like Sympy since in common situations a programming language cannot manipulate a variable before assigning a concret value to it.</p>
+<p>如果没有像Sympy这样的符号计算系统的帮助，我们是实现不了这样的效果的。因为大部分情况下，编程语言都没法去处理一个没有赋上具体值的变量。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Power-of-Sympy(Sympy的威力)">Power of Sympy(Sympy的威力)<a class="anchor-link" href="#Power-of-Sympy(Sympy的威力)">¶</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here is a small sampling of the sort of symbolic power Sympy is capable of, to whet you appetite.</p>
+<p>为了满足你的好奇心，下面挑了一小部分例子，演示Sympy在符号计算的威力。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [63]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="k">import</span> <span class="o">*</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">nu</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">'x t z nu'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="derivative(微分)">derivative(微分)<a class="anchor-link" href="#derivative(微分)">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Take the derivative of $\sin{(x)}e^x$</p>
+<p>计算$\sin{(x)}e^x$的微分</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [64]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">diff</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$e^{x} \sin{\left (x \right )} + e^{x} \cos{\left (x \right )}$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="integral(积分)">integral(积分)<a class="anchor-link" href="#integral(积分)">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Compute $\int(e^x\sin{(x)} + e^x\cos{(x)})\,dx$</p>
+<p>计算$\int(e^x\sin{(x)} + e^x\cos{(x)})\,dx$</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [66]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">integrate</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$e^{x} \sin{\left (x \right )}$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Compute $\int_{-\infty}^\infty \sin{(x^2)}\,dx$</p>
+<p>计算$\int_{-\infty}^\infty \sin{(x^2)}\,dx$</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [45]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">integrate</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="n">oo</span><span class="p">,</span> <span class="n">oo</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\frac{\sqrt{2} \sqrt{\pi}}{2}$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Compute $\lim_{x\to 0}\frac{\sin{(x)}}{x}$</p>
+<p>计算$\lim_{x\to 0}\frac{\sin{(x)}}{x}$</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [67]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">limit</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$1$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Solve $x^2 - 2 = 0$</p>
+<p>求解 $x^2 - 2 = 0$</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [68]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">solve</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[68]:</div>
+<div class="output_latex output_subarea output_execute_result">
+$$\left [ - \sqrt{2}, \quad \sqrt{2}\right ]$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Solve differential equation $y'' - y = e^t$</p>
+<p>计算微分方程$y'' - y = e^t$</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [69]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="s1">'y'</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">dsolve</span><span class="p">(</span><span class="n">Eq</span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="n">y</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">exp</span><span class="p">(</span><span class="n">t</span><span class="p">)),</span> <span class="n">y</span><span class="p">(</span><span class="n">t</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$y{\left (t \right )} = C_{2} e^{- t} + \left(C_{1} + \frac{t}{2}\right) e^{t}$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Find the eigenvalue of $\left[\begin{smallmatrix}1 & 2\\2 &
+2\end{smallmatrix}\right]$</p>
+<p>计算$\left[\begin{smallmatrix}1 & 2\\2 &
+2\end{smallmatrix}\right]$的engenvalue</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [70]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span><span class="o">.</span><span class="n">eigenvals</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[70]:</div>
+<div class="output_latex output_subarea output_execute_result">
+$$\left \{ \frac{3}{2} + \frac{\sqrt{17}}{2} : 1, \quad - \frac{\sqrt{17}}{2} + \frac{3}{2} : 1\right \}$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Rewrite the Bessel function Jν(z) in terms of the spherical Bessel function jν(z).</p>
+<p>这个我看不懂，放弃翻译-_-</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [71]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">besselj</span><span class="p">(</span><span class="n">nu</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span><span class="o">.</span><span class="n">rewrite</span><span class="p">(</span><span class="n">jn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[71]:</div>
+<div class="output_latex output_subarea output_execute_result">
+$$\frac{\sqrt{2} \sqrt{z}}{\sqrt{\pi}} j_{\nu - \frac{1}{2}}\left(z\right)$$
 </div>
 </div>
 </div>
@@ -1476,11 +1725,11 @@ teardown module level resource
                 </article>
 		<div align='center'>
 		            <div class="tags">
-		                <p>tags: <a href="https://junjiecai.github.io/tag/test.html">test</a></p>
+		                <p>tags: <a href="https://junjiecai.github.io/tag/python.html">python</a>, <a href="https://junjiecai.github.io/tag/sympy.html">Sympy</a></p>
 		            </div>
 <p>若觉得本文对您有帮助,欢迎赞助作者一顿早餐:D</p>			
 <img class='reward' style="display:inline;margin-right:10px" src="https://junjiecai.github.io/theme/customs/award.jpeg" alt="weixin_payment">		</div>
-<div class="ds-thread" data-thread-key="//junjiecai.github.io/" data-title="//junjiecai.github.io/" data-url="//junjiecai.github.io/posts/2016/Jul/15/pytestji-ben-jie-shao/" style="width: 80%;margin-left: 20%;"></div>
+<div class="ds-thread" data-thread-key="//junjiecai.github.io/0026" data-title="//junjiecai.github.io/0026" data-url="//junjiecai.github.io/posts/2017/Jan/26/sympy_intro_1/" style="width: 80%;margin-left: 20%;"></div>
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"junjiecai1984"};
 	(function() {
