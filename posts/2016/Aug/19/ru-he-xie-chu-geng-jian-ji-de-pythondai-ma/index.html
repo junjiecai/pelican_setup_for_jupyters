@@ -86,7 +86,7 @@
         <meta name="tags" content="code quality">
 
 	                <meta property="og:locale" content="en_US.utf8">
-		<meta property="og:site_name" content="Exolution's Bizzare Adventure">
+		<meta property="og:site_name" content="Exolution's Bizarre Adventure">
 
 	<meta property="og:type" content="article">
             <meta property="article:author" content="https://junjiecai.github.io/author/exolution.html">
@@ -111,7 +111,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="https://junjiecai.github.io/">Exolution's Bizzare Adventure</a>
+                <a class="navbar-brand" href="https://junjiecai.github.io/">Exolution's Bizarre Adventure</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -1147,37 +1147,27 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img alt="python logo" src="https://www.python.org/static/community_logos/python-logo-master-v3-TM.png"/></p>
+<p>充分利用python的特点和功能， 可以让我们的代码更加的简洁， 有更好的可读性， 很多情况下也会带来更好的性能。 符合这样要求的代码也被python社区称为pythonic的代码。</p>
+<p>这里举例一些常见的使用python时遇到的场景。 针对这些场景， 给出两个版本的代码， 它们都实现了同样的功能， 但是第一个版本没有充分利用python特性，另一个版本则比较pythonic。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>pythonic的代码除了简介优雅，大部分时候，也会有更好的性能(因为它们经过特别优化)。为了验证这点，我们可以利用helper.py中的func_compare函数比较两个版本的代码的性能。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [11]:</div>
+<div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 这段代码定义了一个函数， 可以将相同的参数传给两个版本的函数后比较运行时间， 后面会用到， 默认重复100000次</span>
-<span class="kn">from</span> <span class="nn">timeit</span> <span class="k">import</span> <span class="n">timeit</span>
-
-<span class="k">def</span> <span class="nf">func_compare</span><span class="p">(</span><span class="n">func_1</span><span class="p">,</span> <span class="n">func_2</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">kwargs</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span><span class="mi">1000000</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">args</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">args</span> <span class="o">=</span><span class="p">[]</span>
-    <span class="k">if</span> <span class="n">kwargs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{}</span> 
-        
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"func_1 result:"</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">func_1</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">()</span>
-    
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"func_2 result:"</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">func_2</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span> 
-    <span class="nb">print</span><span class="p">()</span>
-
-    <span class="n">t1</span> <span class="o">=</span> <span class="n">timeit</span><span class="p">(</span><span class="k">lambda</span> <span class="p">:</span> <span class="n">func_1</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">),</span> <span class="n">number</span> <span class="o">=</span> <span class="n">n</span><span class="p">)</span>
-    <span class="n">t2</span> <span class="o">=</span> <span class="n">timeit</span><span class="p">(</span><span class="k">lambda</span> <span class="p">:</span> <span class="n">func_2</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">),</span> <span class="n">number</span> <span class="o">=</span> <span class="n">n</span><span class="p">)</span>
-    
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'time: </span><span class="si">{t1:0.3f}</span><span class="s1">s vs </span><span class="si">{t2:0.3f}</span><span class="s1">s'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t1</span><span class="o">=</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="o">=</span><span class="n">t2</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'----------------------'</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 这段代码定义了一个函数， 可以将相同的参数传给两个版本的函数后比较运行时间， 后面的代码实验中会用到， 默认每个函数重复100000次。</span>
+<span class="kn">from</span> <span class="nn">helper</span> <span class="k">import</span> <span class="n">func_compare</span>
 </pre></div>
 </div>
 </div>
@@ -1188,7 +1178,7 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="如何让代码更pythonic">如何让代码更pythonic<a class="anchor-link" href="#如何让代码更pythonic">¶</a></h1>
+<h2 id="tuple/list-unpacking">tuple/list unpacking<a class="anchor-link" href="#tuple/list-unpacking">¶</a></h2>
 </div>
 </div>
 </div>
@@ -1197,47 +1187,17 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>充分利用python的特点和功能， 可以让我们的代码更加的简洁， 有更好的可读性， 很多情况下也会带来更好的性能。 符合这样要求的代码也被python社区称为pythonic的代码。</p>
-<p>这个notebook主要举例一些使用python时遇到的场景。 针对这些场景， 给出两个版本的代码， 它们都实现了同样的功能， 但是第一个版本没有充分利用python特性，另一个版本则比较pythonic。</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="利用tuple/list-unpack机制进行批量的赋值">利用tuple/list unpack机制进行批量的赋值<a class="anchor-link" href="#利用tuple/list-unpack机制进行批量的赋值">¶</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="1.-带有嵌套的tuple/list中的数值取出并赋值给多个变量">1. 带有嵌套的tuple/list中的数值取出并赋值给多个变量<a class="anchor-link" href="#1.-带有嵌套的tuple/list中的数值取出并赋值给多个变量">¶</a></h3><p>从一个tuple/list中将数据取出， 赋值给几个不同的变量是一个常见的需求。有时候这个tuple/list中还会嵌套更多的tuple/list。</p>
+<h3 id="批量赋值给多个变量">批量赋值给多个变量<a class="anchor-link" href="#批量赋值给多个变量">¶</a></h3><p>从一个tuple/list中将数据取出， 赋值给几个不同的变量是一个常见的需求。有时候这个tuple/list中还会嵌套更多的tuple/list。</p>
 <p>下面的例子里， 我们有这样一个tuple</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [1]:</div>
+<div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'male'</span><span class="p">,(</span><span class="s1">'Junjie'</span><span class="p">,</span> <span class="s1">'Cai'</span><span class="p">),</span> <span class="s1">'cjj@jfpal.com'</span><span class="p">,</span> <span class="s1">'data engineer'</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [2]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sex</span><span class="p">,</span> <span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">family_name</span><span class="p">),</span> <span class="n">email</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="n">d</span>
 </pre></div>
 </div>
 </div>
@@ -1249,12 +1209,13 @@ h6:hover .anchor-link {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>现在希望将里面的性别， 姓， 名， 邮箱几个数据取出并赋值给相应的变量后， 然后用这些变量组成一个字符串返回。</p>
+<p>版本1的代码用index一个个的取出数值</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [223]:</div>
+<div class="prompt input_prompt">In [9]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">func_ver_1</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
@@ -1265,10 +1226,28 @@ h6:hover .anchor-link {
     <span class="n">first_name</span> <span class="o">=</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">title</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
     
-    <span class="k">return</span> <span class="s2">"</span><span class="si">{family_name}</span><span class="s2"> </span><span class="si">{first_name}</span><span class="s2"> is a </span><span class="si">{sex}</span><span class="s2"> </span><span class="si">{title}</span><span class="s2"> with email:</span><span class="si">{email}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="nb">locals</span><span class="p">())</span>
-    
-<span class="k">def</span> <span class="nf">func_ver_2</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
-    <span class="n">sex</span><span class="p">,</span> <span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">family_name</span><span class="p">),</span> <span class="n">email</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="n">d</span> <span class="c1">#注</span>
+    <span class="k">return</span> <span class="s2">"</span><span class="si">{family_name}</span><span class="s2"> </span><span class="si">{first_name}</span><span class="s2"> is a </span><span class="si">{sex}</span><span class="s2"> </span><span class="si">{title}</span><span class="s2"> with email:</span><span class="si">{email}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="nb">locals</span><span class="p">())</span>   
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>版本2的代码则利用tuple unpacking一次性的取出所有数值。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [12]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">func_ver_2</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+    <span class="n">sex</span><span class="p">,</span> <span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">family_name</span><span class="p">),</span> <span class="n">email</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="n">d</span>
     
     <span class="k">return</span> <span class="s2">"</span><span class="si">{family_name}</span><span class="s2"> </span><span class="si">{first_name}</span><span class="s2"> is a </span><span class="si">{sex}</span><span class="s2"> </span><span class="si">{title}</span><span class="s2"> with email:</span><span class="si">{email}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="nb">locals</span><span class="p">())</span>
     
@@ -1290,7 +1269,7 @@ Cai Junjie is a male data engineer with email:cjj@jfpal.com
 func_2 result:
 Cai Junjie is a male data engineer with email:cjj@jfpal.com
 
-time: 2.962s vs 2.548s
+time: 1.912s vs 1.681s
 ----------------------
 </pre>
 </div>
@@ -1303,23 +1282,13 @@ time: 2.962s vs 2.548s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>注:</p>
-<p>只要让需要赋值的变量名， 组成和等号右边结构一致的tuple， 就能正确的批量赋值。 即使tuple/list内嵌套了别的tuple/list也没问题</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.在循环体中利用unpacking">2.在循环体中利用unpacking<a class="anchor-link" href="#2.在循环体中利用unpacking">¶</a></h3><p>现在有多个和上面的例子结构一样的tuple， 组成了一个list。</p>
+<h3 id="在循环中利用">在循环中利用<a class="anchor-link" href="#在循环中利用">¶</a></h3><p>上面的技巧可以放在for循环中使用。看下面的例子。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [224]:</div>
+<div class="prompt input_prompt">In [14]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">d_list</span> <span class="o">=</span> <span class="p">[</span>
@@ -1331,18 +1300,9 @@ time: 2.962s vs 2.548s
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>现在需要循环体中将里面的性别， 姓， 名， 邮箱几个数据取出并赋值给相应的变量。</p>
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [93]:</div>
+<div class="prompt input_prompt">In [15]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">func_ver_1</span><span class="p">(</span><span class="n">d_list</span><span class="p">):</span>
@@ -1384,7 +1344,7 @@ time: 2.962s vs 2.548s
 func_2 result:
 ['Cai Junjie is a male data engineer with email:cjj@jfpal.com', 'Bao Hongfei is a male data engineer with email:bhf@jfpal.com']
 
-time: 5.450s vs 4.767s
+time: 3.791s vs 3.231s
 ----------------------
 </pre>
 </div>
@@ -1397,13 +1357,14 @@ time: 5.450s vs 4.767s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.只选取tuple中开头和结尾部分的变量">3.只选取tuple中开头和结尾部分的变量<a class="anchor-link" href="#3.只选取tuple中开头和结尾部分的变量">¶</a></h3><p>接第1个例子， 假设这里只需要取出第一个和最后一个变量</p>
+<h3 id="选取开头和结尾部分的变量">选取开头和结尾部分的变量<a class="anchor-link" href="#选取开头和结尾部分的变量">¶</a></h3><p>假设这里只需要取出第一个和最后一个变量。</p>
+<p>tuple/list unpacking是不能只选择头尾部分的数据的， 但是如果对tuple/list中间的部分不感兴趣， 可以用 <strong><code>*_</code></strong> 统一接收， 这样就会将中间段的数据放入变量名为<strong>_</strong>的list中， 后面代码不使用即可。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [96]:</div>
+<div class="prompt input_prompt">In [18]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">func_ver_1</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
@@ -1413,7 +1374,7 @@ time: 5.450s vs 4.767s
     <span class="k">return</span> <span class="s2">"Owner of </span><span class="si">{email}</span><span class="s2"> is </span><span class="si">{sex}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="nb">locals</span><span class="p">())</span>
     
 <span class="k">def</span> <span class="nf">func_ver_2</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
-    <span class="n">sex</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span><span class="p">,</span> <span class="n">email</span> <span class="o">=</span> <span class="n">d</span> <span class="c1">#注</span>
+    <span class="n">sex</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span><span class="p">,</span> <span class="n">email</span> <span class="o">=</span> <span class="n">d</span> <span class="c1">#注意这里</span>
     
     <span class="k">return</span> <span class="s2">"Owner of </span><span class="si">{email}</span><span class="s2"> is </span><span class="si">{sex}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="nb">locals</span><span class="p">())</span>    
     
@@ -1435,7 +1396,7 @@ Owner of cjj@jfpal.com is male
 func_2 result:
 Owner of cjj@jfpal.com is male
 
-time: 1.400s vs 1.658s
+time: 1.081s vs 1.230s
 ----------------------
 </pre>
 </div>
@@ -1448,8 +1409,6 @@ time: 1.400s vs 1.658s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>注:</p>
-<p>tuple/list unpacking是不能只选择头尾部分的数据的， 但是如果对tuple/list中间的部分不感兴趣， 可以用 <strong><code>*_</code></strong> 统一接收， 这样就会将中间段的数据放入变量名为<strong>_</strong>的list中， 后面代码不使用即可。</p>
 <p>注意这里使用<strong>_</strong>作为变量名， 只是一种约定， 表示unpacking后，这个变量存的信息代码的作者并不关心。 不过实际上使用任何合法的变量名都是可以的。</p>
 </div>
 </div>
@@ -1459,13 +1418,13 @@ time: 1.400s vs 1.658s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="4.-数值交换">4. 数值交换<a class="anchor-link" href="#4.-数值交换">¶</a></h3><p>有a, b两个变量，</p>
+<h3 id="数值交换">数值交换<a class="anchor-link" href="#数值交换">¶</a></h3><p>有a, b两个变量</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [227]:</div>
+<div class="prompt input_prompt">In [19]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
@@ -1480,13 +1439,13 @@ time: 1.400s vs 1.658s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>希望交换a, b两个变量的数值</p>
+<p>我们需要交换a, b两个变量的数值。这时也可以利用tuple unpacking的技巧。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [228]:</div>
+<div class="prompt input_prompt">In [22]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">func_ver_1</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
@@ -1497,7 +1456,7 @@ time: 1.400s vs 1.658s
     <span class="k">return</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">func_ver_2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="c1">#注</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="c1"># 注意这里</span>
     
     <span class="k">return</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 
@@ -1517,7 +1476,7 @@ time: 1.400s vs 1.658s
 func_2 result:
 (10, 1)
 
-time: 0.396s vs 0.360s
+time: 0.482s vs 0.362s
 ----------------------
 </pre>
 </div>
@@ -1530,14 +1489,13 @@ time: 0.396s vs 0.360s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>注释：</p>
-<p>如果不是用在函数的参数列表， 不加()， python实际上也是创建了一个tuple哦</p>
+<p>注意虽然没有添加()，但是python也是创建了一个tuple哦。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [229]:</div>
+<div class="prompt input_prompt">In [25]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span>
@@ -1563,13 +1521,13 @@ time: 0.396s vs 0.360s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>所以这里的数值交换实际上还是利用了tuple/list unpacking的机制。 这种场景很容易推广到多个变量数值进行交换的情况</p>
+<p>这种场景很容易推广到多个变量数值进行交换的情况</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [230]:</div>
+<div class="prompt input_prompt">In [26]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
@@ -1600,7 +1558,7 @@ time: 0.396s vs 0.360s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="字符串的连接">字符串的连接<a class="anchor-link" href="#字符串的连接">¶</a></h2>
+<h2 id="字符串连接">字符串连接<a class="anchor-link" href="#字符串连接">¶</a></h2>
 </div>
 </div>
 </div>
@@ -1615,7 +1573,7 @@ time: 0.396s vs 0.360s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [12]:</div>
+<div class="prompt input_prompt">In [27]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">s_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'To'</span><span class="p">,</span> <span class="s1">'be'</span><span class="p">,</span> <span class="s1">'or'</span><span class="p">,</span> <span class="s1">'not'</span><span class="p">,</span> <span class="s1">'to'</span><span class="p">,</span> <span class="s1">'be'</span><span class="p">]</span>
@@ -1635,7 +1593,7 @@ time: 0.396s vs 0.360s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [13]:</div>
+<div class="prompt input_prompt">In [28]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">func_1</span><span class="p">(</span><span class="n">s_list</span><span class="p">,</span> <span class="n">sep</span><span class="p">):</span>
@@ -1668,7 +1626,7 @@ To be or not to be
 func_2 result:
 To be or not to be
 
-time: 1.512s vs 0.481s
+time: 1.557s vs 0.473s
 ----------------------
 </pre>
 </div>
@@ -1690,7 +1648,7 @@ time: 1.512s vs 0.481s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="二.-快速创建拥有相同值的list">二. 快速创建拥有相同值的list<a class="anchor-link" href="#二.-快速创建拥有相同值的list">¶</a></h2>
+<h2 id="二.-创建同值的list">二. 创建同值的list<a class="anchor-link" href="#二.-创建同值的list">¶</a></h2>
 </div>
 </div>
 </div>
@@ -1706,7 +1664,7 @@ time: 1.512s vs 0.481s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [234]:</div>
+<div class="prompt input_prompt">In [31]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">func_1</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
@@ -1718,7 +1676,7 @@ time: 1.512s vs 0.481s
 <span class="k">def</span> <span class="nf">func_2</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="o">*</span><span class="n">n</span>
 
-<span class="n">func_compare</span><span class="p">(</span><span class="n">func_1</span><span class="p">,</span> <span class="n">func_2</span><span class="p">,</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">func_compare</span><span class="p">(</span><span class="n">func_1</span><span class="p">,</span> <span class="n">func_2</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1729,12 +1687,12 @@ time: 1.512s vs 0.481s
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>func_1 result:
-[[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+[0, 0, 0, 0]
 
 func_2 result:
-[[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+[0, 0, 0, 0]
 
-time: 1.206s vs 0.554s
+time: 1.103s vs 0.483s
 ----------------------
 </pre>
 </div>
@@ -1747,40 +1705,26 @@ time: 1.206s vs 0.554s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>python提供的<strong><code>*</code></strong>运算符可以将list复制扩增。不过这里要注意的是, 这种方法创建的list中， 每个位置指向的都是同一个数据。 用下面的代码可以验证这点</p>
+<p>python提供的<strong><code>*</code></strong>运算符可以将list复制扩增。</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [20]:</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span>
-<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">x</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[20]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>[5, 0, 0, 0]</pre>
-</div>
-</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>不过这里要注意的是, 用这种方法创建的list中存放的数据如果是object， 它们指向的都是同一个object。 用下面的代码可以验证这点</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [16]:</div>
+<div class="prompt input_prompt">In [35]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span><span class="o">*</span><span class="mi">4</span>
-<span class="n">a</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1788,9 +1732,10 @@ time: 1.206s vs 0.554s
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
-<div class="prompt output_prompt">Out[16]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>[[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]</pre>
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+</pre>
 </div>
 </div>
 </div>
@@ -1798,13 +1743,13 @@ time: 1.206s vs 0.554s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [18]:</div>
+<div class="prompt input_prompt">In [36]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">is</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="c1">#注1</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">is</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 
 <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c1">#注2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1827,62 +1772,7 @@ time: 1.206s vs 0.554s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>注释</p>
-<ol>
-<li><strong>is</strong>运算符的结果为True， 说明a[0], a[1]其实指向的数据是内存中同一位置的数据</li>
-<li>由于a[0], a[1], a[2], a[3]指向的是内存中同一位置的数据， 因此修改了a[0]后, a[1], a[2], a[3]也跟着变了</li>
-</ol>
-<p>如果真的只想修改a[0], 可以用以下的代码来实现</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [19]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span><span class="o">*</span><span class="mi">4</span>
-
-<span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1">#注1</span>
-
-<span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span> <span class="c1">#注2</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[[10, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>注释</p>
-<ol>
-<li>由于b是从a[0] copy出来的，因此它的内容和a[0]一样， 但是在内存中和a[0]是不一样位置的数据, 修改b， 不会影响a[0]指向的数据。</li>
-<li>让a[0]重新指向b</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="判断for循环是否全部通过">判断for循环是否全部通过<a class="anchor-link" href="#判断for循环是否全部通过">¶</a></h2>
+<h2 id="for循环是否全通过">for循环是否全通过<a class="anchor-link" href="#for循环是否全通过">¶</a></h2>
 </div>
 </div>
 </div>
@@ -1892,13 +1782,13 @@ time: 1.206s vs 0.554s
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>有时候我们要判断一个for循环是否中途被break掉还是“寿终正寝”。</p>
-<p>例如下面判断list_a中每一个元素是否都属于list_b(这里暂时封印一下set...)</p>
+<p>例如下面判断list_a中每一个元素是否都属于list_b(这里只是为了演示for...else...,完成这个需求更好的办法是用set)</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [235]:</div>
+<div class="prompt input_prompt">In [37]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">list_a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'java'</span><span class="p">,</span><span class="s1">'spark'</span><span class="p">,</span><span class="s1">'python'</span><span class="p">]</span>
@@ -1910,7 +1800,7 @@ time: 1.206s vs 0.554s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [236]:</div>
+<div class="prompt input_prompt">In [39]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">func_1</span><span class="p">(</span><span class="n">list_a</span><span class="p">,</span> <span class="n">list_b</span><span class="p">):</span>
@@ -1930,7 +1820,7 @@ time: 1.206s vs 0.554s
     <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">list_a</span><span class="p">:</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">list_b</span><span class="p">:</span>
             <span class="k">return</span> <span class="s1">'not all item in list_a is in list_b'</span>        
-    <span class="k">else</span><span class="p">:</span> <span class="c1">#注1</span>
+    <span class="k">else</span><span class="p">:</span> 
         <span class="k">return</span> <span class="s1">'all item in list_a is in list_b'</span>
         
 <span class="n">func_compare</span><span class="p">(</span><span class="n">func_1</span><span class="p">,</span> <span class="n">func_2</span><span class="p">,</span> <span class="p">[</span><span class="n">list_a</span><span class="p">,</span> <span class="n">list_b</span><span class="p">])</span>
@@ -1949,7 +1839,7 @@ all item in list_a is in list_b
 func_2 result:
 all item in list_a is in list_b
 
-time: 0.746s vs 0.681s
+time: 0.641s vs 0.654s
 ----------------------
 </pre>
 </div>
@@ -1962,36 +1852,7 @@ time: 0.746s vs 0.681s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>注释:</p>
-<ol>
-<li>for ...else...中的else刚接触会觉得有点别扭， 总之记住如果for循环部分执行了break， 或者出现Exception， else分支就不会被执行即可。 利用这个语句可以省掉一个flag去标记for循环是否中途被break掉。</li>
-</ol>
-<p>当然， 这里只是为了举例需要， 真的需要判断list_a的所有元素是否在list_b中， 用set更简单。</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [146]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">list_a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'java'</span><span class="p">,</span><span class="s1">'spark'</span><span class="p">,</span><span class="s1">'python'</span><span class="p">]</span>
-<span class="n">list_b</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'java'</span><span class="p">,</span><span class="s1">'html5'</span><span class="p">,</span><span class="s1">'excel'</span><span class="p">,</span><span class="s1">'spark'</span><span class="p">,</span><span class="s1">'python'</span><span class="p">]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">list_a</span><span class="p">)</span><span class="o"><=</span><span class="nb">set</span><span class="p">(</span><span class="n">list_b</span><span class="p">))</span> <span class="c1">#注</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>True
-</pre>
-</div>
-</div>
+<p>for ...else...中的else刚接触会觉得有点别扭， 总之记住如果for循环部分执行了break， 或者出现Exception， else分支就不会被执行即可。 利用这个语句可以省掉一个flag变量标记for循环是否中途被break掉。</p>
 </div>
 </div>
 </div>
@@ -2000,16 +1861,7 @@ time: 0.746s vs 0.681s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code><=</code>用在set上， 可以用于判断一个集合是否是另一个集合的子集</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="10>c>b>a>0">10>c>b>a>0<a class="anchor-link" href="#10>c>b>a>0">¶</a></h2>
+<h2 id="10>c>b>a>0?">10>c>b>a>0?<a class="anchor-link" href="#10>c>b>a>0?">¶</a></h2>
 </div>
 </div>
 </div>
@@ -2024,7 +1876,7 @@ time: 0.746s vs 0.681s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [23]:</div>
+<div class="prompt input_prompt">In [40]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">func_ver_1</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>
@@ -2054,7 +1906,7 @@ True
 func_2 result:
 True
 
-time: 0.408s vs 0.409s
+time: 0.458s vs 0.408s
 ----------------------
 </pre>
 </div>
@@ -2067,10 +1919,7 @@ time: 0.408s vs 0.409s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>注释:</p>
-<ol>
-<li>几乎每个学C语言的同学都会被老师告诫不能这么写， 不过这种写法在python确是完全可以的哦。</li>
-</ol>
+<p>几乎每个学C语言的同学都课上都会被强调不能用第二个版本的中的写法，否则无法得到正确的结果。不过这种写法在python确是完全可以的哦。</p>
 </div>
 </div>
 </div>
@@ -2088,7 +1937,7 @@ time: 0.408s vs 0.409s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="1.判断容器为空">1.判断容器为空<a class="anchor-link" href="#1.判断容器为空">¶</a></h3>
+<h3 id="判断容器为空">判断容器为空<a class="anchor-link" href="#判断容器为空">¶</a></h3>
 </div>
 </div>
 </div>
@@ -2103,7 +1952,7 @@ time: 0.408s vs 0.409s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [24]:</div>
+<div class="prompt input_prompt">In [42]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">func_ver_1</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
@@ -2113,7 +1962,7 @@ time: 0.408s vs 0.409s
         <span class="k">return</span> <span class="kc">False</span>
         
 <span class="k">def</span> <span class="nf">func_ver_2</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">l</span><span class="p">:</span> <span class="c1">#注1</span>
+    <span class="k">if</span> <span class="n">l</span><span class="p">:</span> <span class="c1"># 不需要用len</span>
         <span class="k">return</span> <span class="kc">True</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">False</span>      
@@ -2136,7 +1985,7 @@ False
 func_2 result:
 False
 
-time: 0.379s vs 0.315s
+time: 0.389s vs 0.304s
 ----------------------
 </pre>
 </div>
@@ -2149,16 +1998,14 @@ time: 0.379s vs 0.315s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>注:</p>
-<ol>
-<li>如果把list直接用在if语句中， 那么如果它们是空的， 对于if相当于False， 否则为True。 因此如果目的是判断它们是否为空， 就不用额外的使用len求长度了。 这点同样适用于tuple, set, dict, string, 见下面代码</li>
-</ol>
+<p>如果把list直接用在if语句中， 那么如果它们是空的， 对于if相当于False， 否则为True。</p>
+<p>因此如果目的是判断它们是否为空， 就不用额外的使用len求长度了。 这点同样适用于tuple, set, dict, string, 见下面代码</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [25]:</div>
+<div class="prompt input_prompt">In [43]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="p">():</span>
@@ -2210,14 +2057,17 @@ string is empty
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [241]:</div>
+<div class="prompt input_prompt">In [45]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pandas</span> <span class="k">import</span> <span class="n">DataFrame</span>
-<span class="k">if</span> <span class="n">DataFrame</span><span class="p">():</span>
-    <span class="k">pass</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'DataFrame is empty'</span><span class="p">)</span>   
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">pandas</span> <span class="k">import</span> <span class="n">DataFrame</span>
+    <span class="k">if</span> <span class="n">DataFrame</span><span class="p">():</span>
+        <span class="k">pass</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'DataFrame is empty'</span><span class="p">)</span>       
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">),</span><span class="n">e</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2226,25 +2076,9 @@ string is empty
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg"><ipython-input-241-89eb3ebe44fe></span> in <span class="ansi-cyan-fg"><module></span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">from</span> pandas <span class="ansi-green-fg">import</span> DataFrame
-<span class="ansi-green-fg">----> 2</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">if</span> DataFrame<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span>     <span class="ansi-green-fg">pass</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span>     print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">'DataFrame is empty'</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">/home/exolution/anaconda3/lib/python3.5/site-packages/pandas/core/generic.py</span> in <span class="ansi-cyan-fg">__nonzero__</span><span class="ansi-blue-fg">(self)</span>
-<span class="ansi-green-intense-fg ansi-bold">    890</span>         raise ValueError("The truth value of a {0} is ambiguous. "
-<span class="ansi-green-intense-fg ansi-bold">    891</span>                          <span class="ansi-blue-fg">"Use a.empty, a.bool(), a.item(), a.any() or a.all()."</span>
-<span class="ansi-green-fg">--> 892</span><span class="ansi-red-fg">                          .format(self.__class__.__name__))
-</span><span class="ansi-green-intense-fg ansi-bold">    893</span> 
-<span class="ansi-green-intense-fg ansi-bold">    894</span>     __bool__ <span class="ansi-blue-fg">=</span> __nonzero__
-
-<span class="ansi-red-fg">ValueError</span>: The truth value of a DataFrame is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><class 'ValueError'> The truth value of a DataFrame is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+</pre>
 </div>
 </div>
 </div>
@@ -2255,7 +2089,7 @@ string is empty
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.-判断数据是否是None">2. 判断数据是否是None<a class="anchor-link" href="#2.-判断数据是否是None">¶</a></h3>
+<h3 id="判断是否是None">判断是否是None<a class="anchor-link" href="#判断是否是None">¶</a></h3>
 </div>
 </div>
 </div>
@@ -2270,7 +2104,7 @@ string is empty
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [242]:</div>
+<div class="prompt input_prompt">In [46]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">func_ver_1</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
@@ -2280,7 +2114,7 @@ string is empty
         <span class="k">return</span> <span class="kc">False</span>
         
 <span class="k">def</span> <span class="nf">func_ver_2</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">x</span><span class="p">:</span> <span class="c1">#注1</span>
+    <span class="k">if</span> <span class="n">x</span><span class="p">:</span> <span class="c1"># 注意这里</span>
         <span class="k">return</span> <span class="kc">False</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">True</span>
@@ -2303,7 +2137,7 @@ True
 func_2 result:
 True
 
-time: 0.406s vs 0.334s
+time: 0.347s vs 0.311s
 ----------------------
 </pre>
 </div>
@@ -2316,10 +2150,7 @@ time: 0.406s vs 0.334s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>注释：</p>
-<ol>
-<li>如果将None直接用在if中， 相当于False， 因此可以利用这点很方便的判断一个数据是否为None</li>
-</ol>
+<p>如果将None直接用在if中， 相当于False， 因此可以利用这点很方便的判断一个数据是否为None</p>
 </div>
 </div>
 </div>
@@ -2328,7 +2159,7 @@ time: 0.406s vs 0.334s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="从一个list/-dict筛选，变换成另一个list/dict">从一个list/ dict筛选，变换成另一个list/dict<a class="anchor-link" href="#从一个list/-dict筛选，变换成另一个list/dict">¶</a></h2>
+<h2 id="list/generator/dict/set-comprehension">list/generator/dict/set comprehension<a class="anchor-link" href="#list/generator/dict/set-comprehension">¶</a></h2>
 </div>
 </div>
 </div>
@@ -2337,13 +2168,14 @@ time: 0.406s vs 0.334s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="1.-list快速变换">1. list快速变换<a class="anchor-link" href="#1.-list快速变换">¶</a></h3><p>假设下面把list中的偶数取出， 求平方后存在另一个list</p>
+<p>一个很常见的场景是, 把一个容器中的元素进行便利，取出符合条件的值， 进行变换处理，然后存放在另一个容器中。</p>
+<p>例如下面把list中的偶数取出， 求平方后存在另一个list。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [243]:</div>
+<div class="prompt input_prompt">In [54]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
@@ -2354,7 +2186,7 @@ time: 0.406s vs 0.334s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [28]:</div>
+<div class="prompt input_prompt">In [55]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">func_ver_1</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
@@ -2365,7 +2197,7 @@ time: 0.406s vs 0.334s
     <span class="k">return</span> <span class="n">new_list</span>
 
 <span class="k">def</span> <span class="nf">func_ver_2</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">[</span><span class="n">v</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">l</span> <span class="k">if</span> <span class="n">v</span><span class="o">%</span><span class="k">2</span>==0] #注1
+    <span class="k">return</span> <span class="p">[</span><span class="n">v</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">l</span> <span class="k">if</span> <span class="n">v</span><span class="o">%</span><span class="k">2</span>==0] #注意
 
 
 
@@ -2380,12 +2212,12 @@ time: 0.406s vs 0.334s
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>func_1 result:
-[]
+[4, 16, 36, 64, 100]
 
 func_2 result:
-[]
+[4, 16, 36, 64, 100]
 
-time: 0.374s vs 0.485s
+time: 3.040s vs 2.717s
 ----------------------
 </pre>
 </div>
@@ -2398,10 +2230,32 @@ time: 0.374s vs 0.485s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>注</p>
-<ol>
-<li>这里利用了python提供的list comprehension功能</li>
-</ol>
+<p>版本2的写法叫做list comprehension功能，它有几个组成要素。换行后更容易观察。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [59]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span> <span class="c1">#定义新容器的类型，这里是list</span>
+    <span class="n">v</span><span class="o">**</span><span class="mi">2</span> <span class="c1">#需要进行的变换方式</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">l</span> <span class="c1"># 对原容器进行遍历</span>
+    <span class="k">if</span> <span class="n">v</span><span class="o">%</span><span class="k">2</span>==0 #筛选条件， 这部分是可选的
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[59]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>[4, 16, 36, 64, 100]</pre>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -2410,13 +2264,13 @@ time: 0.374s vs 0.485s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.-dict筛选变换">2. dict筛选变换<a class="anchor-link" href="#2.-dict筛选变换">¶</a></h3><p>下面的场景是有这样一个dict</p>
+<p>对应的也有dict comprehension， 例如下面的例子中。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [30]:</div>
+<div class="prompt input_prompt">In [62]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="s1">'apple'</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="s1">'peach'</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="s1">'melon'</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="s1">'banana'</span><span class="p">}</span>
@@ -2430,13 +2284,13 @@ time: 0.374s vs 0.485s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>把key为偶数的item取出后， 将value变成大写， 然后将这个key-value pair存入新的dict</p>
+<p>我们把key为偶数的item取出后， 将value变成大写， 然后将这个key-value pair存入新的dict</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [248]:</div>
+<div class="prompt input_prompt">In [63]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">func_ver_1</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
@@ -2450,6 +2304,7 @@ time: 0.374s vs 0.485s
     <span class="k">return</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="n">v</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span><span class="o">%</span><span class="k">2</span>==0} #注1
 
 <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="s1">'apple'</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="s1">'peach'</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="s1">'melon'</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="s1">'banana'</span><span class="p">}</span>
+
 <span class="n">func_compare</span><span class="p">(</span><span class="n">func_ver_1</span><span class="p">,</span> <span class="n">func_ver_2</span><span class="p">,</span> <span class="p">[</span><span class="n">d</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -2466,7 +2321,7 @@ time: 0.374s vs 0.485s
 func_2 result:
 {2: 'PEACH', 4: 'BANANA'}
 
-time: 1.388s vs 1.543s
+time: 1.266s vs 1.397s
 ----------------------
 </pre>
 </div>
@@ -2479,20 +2334,22 @@ time: 1.388s vs 1.543s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>注释:</p>
-<ol>
-<li>这里需要同时遍历dict的key， value, 因此需要对d调用items()函数。 生成一个能生成包含key, value构成的tuple的dict_items类型</li>
-</ol>
+<p>换行后更好的观察各个要素</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [252]:</div>
+<div class="prompt input_prompt">In [65]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">iterator</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">iterator</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">new_d</span> <span class="o">=</span> <span class="p">{</span> <span class="c1">#定义新容器的类型，这里是dict</span>
+    <span class="n">k</span><span class="p">:</span><span class="n">v</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="c1">#新的key-value pair,可以分别进行变换</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="c1"># 对原来的dict进行遍历</span>
+    <span class="k">if</span> <span class="n">k</span><span class="o">%</span><span class="k">2</span>==0 #筛选条件，k是偶数
+<span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">new_d</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2502,7 +2359,7 @@ time: 1.388s vs 1.543s
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>dict_items([(1, 'apple'), (2, 'peach'), (3, 'melon'), (4, 'banana')])
+<pre>{2: 'PEACH', 4: 'BANANA'}
 </pre>
 </div>
 </div>
@@ -2514,7 +2371,32 @@ time: 1.388s vs 1.543s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="用两个list创建一个dict">用两个list创建一个dict<a class="anchor-link" href="#用两个list创建一个dict">¶</a></h2>
+<p>同样，有set comprehension。 例如将下面list中的偶数取出，放入一个set</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [66]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">l</span> <span class="k">if</span> <span class="n">v</span><span class="o">%</span><span class="k">2</span>==0}
+
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{8, 2, 10, 4, 6}
+</pre>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -2523,25 +2405,71 @@ time: 1.388s vs 1.543s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>一个list提供key, 另一个list提供value</p>
+<p>有一点要注意的是,如果使用(),得到的并不是一个tuple,而是generator</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [36]:</div>
+<div class="prompt input_prompt">In [69]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">func_1</span><span class="p">(</span><span class="n">l_key</span><span class="p">,</span> <span class="n">v_key</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">g</span> <span class="o">=</span> <span class="p">(</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">l</span> <span class="k">if</span> <span class="n">v</span><span class="o">%</span><span class="k">2</span>==0)
+
+<span class="nb">print</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">g</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><generator object <genexpr> at 0x7f69f1d8beb8>
+[2, 4, 6, 8, 10]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="两个list创建一个dict">两个list创建一个dict<a class="anchor-link" href="#两个list创建一个dict">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>这也是一个非常常见的场景。一个list提供key, 另一个list提供value</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [72]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">func_1</span><span class="p">(</span><span class="n">l_key</span><span class="p">,</span> <span class="n">l_value</span><span class="p">):</span>
     <span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">l_key</span><span class="p">):</span>
-        <span class="n">d</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">v_key</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">d</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">l_value</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">d</span>
 
-<span class="k">def</span> <span class="nf">func_2</span><span class="p">(</span><span class="n">l_key</span><span class="p">,</span> <span class="n">v_key</span><span class="p">):</span>
-    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">l_key</span><span class="p">,</span> <span class="n">v_key</span><span class="p">))</span> <span class="c1">#注1</span>
+<span class="k">def</span> <span class="nf">func_2</span><span class="p">(</span><span class="n">l_key</span><span class="p">,</span> <span class="n">l_value</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">l_key</span><span class="p">,</span> <span class="n">l_value</span><span class="p">))</span> <span class="c1">#注1</span>
 
-
+<span class="n">l_key</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">l_value</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">,</span><span class="s1">'c'</span><span class="p">,</span><span class="s1">'d'</span><span class="p">,</span><span class="s1">'e'</span><span class="p">]</span>
 
 <span class="n">func_compare</span><span class="p">(</span><span class="n">func_1</span><span class="p">,</span> <span class="n">func_2</span><span class="p">,</span> <span class="p">[</span><span class="n">l_key</span><span class="p">,</span> <span class="n">l_value</span><span class="p">])</span>
 </pre></div>
@@ -2554,12 +2482,12 @@ time: 1.388s vs 1.543s
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>func_1 result:
-{'b': 2, 'c': 3, 'a': 1}
+{1: 'a', 2: 'b', 3: 'c', 4: 'd', 5: 'e'}
 
 func_2 result:
-{'b': 2, 'c': 3, 'a': 1}
+{1: 'a', 2: 'b', 3: 'c', 4: 'd', 5: 'e'}
 
-time: 0.923s vs 1.191s
+time: 1.104s vs 1.227s
 ----------------------
 </pre>
 </div>
@@ -2572,16 +2500,13 @@ time: 0.923s vs 1.191s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>注释</p>
-<ol>
-<li>这里利用zip函数将两个list合并成一个generator, generator会按顺序输出一系列tuple, tuple中的数据分别来自两个list. 见下面代码。</li>
-</ol>
+<p>这里利用zip函数将两个list合并成一个generator, generator会按顺序输出一系列tuple, tuple中的数据分别来自两个list. 见下面代码。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [205]:</div>
+<div class="prompt input_prompt">In [73]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">list_a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">,</span><span class="s1">'c'</span><span class="p">]</span>
@@ -2614,7 +2539,7 @@ time: 0.923s vs 1.191s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>之后dict()函数从这一系列tuple中的取一项作为key, 第二项作为value</p>
+<p>dict()函数可以接受输出一列二元tuple的generator并构造dict，这种写法非常简洁。</p>
 </div>
 </div>
 </div>
@@ -2623,7 +2548,7 @@ time: 0.923s vs 1.191s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="确保打开的资源被正确关闭">确保打开的资源被正确关闭<a class="anchor-link" href="#确保打开的资源被正确关闭">¶</a></h2>
+<h2 id="确保资源被正确关闭">确保资源被正确关闭<a class="anchor-link" href="#确保资源被正确关闭">¶</a></h2>
 </div>
 </div>
 </div>
@@ -2638,25 +2563,23 @@ time: 0.923s vs 1.191s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [209]:</div>
+<div class="prompt input_prompt">In [77]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">func_ver_1</span><span class="p">(</span><span class="n">file_name</span><span class="p">):</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span>        
-        <span class="c1">#对f做所需的操作， 这里略过</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
         <span class="k">pass</span>
     <span class="k">finally</span><span class="p">:</span>
         <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
 <span class="k">def</span> <span class="nf">func_ver_2</span><span class="p">(</span><span class="n">file_name</span><span class="p">):</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span> <span class="c1">#注1</span>
-        <span class="c1">#对f做所需的操作， 这里略过        </span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span> <span class="c1">#注1    </span>
         <span class="k">pass</span>
     
 <span class="n">file_name</span> <span class="o">=</span> <span class="s1">'test_temp_file.txt'</span>
-<span class="n">func_compare</span><span class="p">(</span><span class="n">func_ver_1</span><span class="p">,</span> <span class="n">func_ver_2</span><span class="p">,</span> <span class="p">[</span><span class="n">file_name</span><span class="p">])</span>
+<span class="n">func_compare</span><span class="p">(</span><span class="n">func_ver_1</span><span class="p">,</span> <span class="n">func_ver_2</span><span class="p">,</span> <span class="p">[</span><span class="n">file_name</span><span class="p">],</span><span class="n">n</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2672,7 +2595,7 @@ None
 func_2 result:
 None
 
-time: 25.202s vs 25.910s
+time: 0.355s vs 0.373s
 ----------------------
 </pre>
 </div>
@@ -2685,12 +2608,8 @@ time: 25.202s vs 25.910s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>注释</p>
-<ol>
-<li><p>在with语句去打开文件， 将对这个文件所需的处理语句放在with中， 这样可以确、无论这些语句是否raise Exception， context manager都能保证文件都能被关闭。 可以省掉一大块try, except, finnaly组合， 让代码简洁不少。</p>
+<p>with语法在python中叫做context manager, 在with语句去打开文件， 将对这个文件所需的处理语句放在with中， 这样无论这些语句是否raise Exception， 都能保证文件都能被关闭。 可以省掉一大块try, except, finnaly组合， 让代码简洁不少。</p>
 <p>其他一些连接数据资源， 比如连接数据库的函数， 一般也会支持这种用法。</p>
-</li>
-</ol>
 </div>
 </div>
 </div>
@@ -2714,7 +2633,7 @@ time: 25.202s vs 25.910s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [37]:</div>
+<div class="prompt input_prompt">In [78]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
@@ -2723,20 +2642,18 @@ time: 25.202s vs 25.910s
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">判断函数可以用callable</span>
-</pre></div>
-</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>判断是否是函数可以用callable</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [49]:</div>
+<div class="prompt input_prompt">In [81]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">a</span><span class="p">():</span>
@@ -2750,7 +2667,7 @@ time: 25.202s vs 25.910s
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
-<div class="prompt output_prompt">Out[49]:</div>
+<div class="prompt output_prompt">Out[81]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>True</pre>
 </div>
@@ -2760,7 +2677,7 @@ time: 25.202s vs 25.910s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [212]:</div>
+<div class="prompt input_prompt">In [82]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">func_ver_1</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
@@ -2787,12 +2704,12 @@ time: 25.202s vs 25.910s
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>func_1 result:
-True
+False
 
 func_2 result:
-True
+False
 
-time: 1.303s vs 0.624s
+time: 1.393s vs 0.592s
 ----------------------
 </pre>
 </div>

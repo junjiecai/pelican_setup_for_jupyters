@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-        <title>Ubuntu16数据工程师装机指南</title>
+        <title>Python Multiprocess演示</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="https://junjiecai.github.io/theme/css/bootstrap.min.css" rel="stylesheet">
@@ -79,21 +79,22 @@
     </script>
 
 
-        <meta name="description" content="Ubuntu16的装机指南，主要面向数据工程师">
+        <meta name="description" content="Python Multiprocess演示">
 
         <meta name="author" content="Exolution">
 
-        <meta name="tags" content="setup">
+        <meta name="tags" content="python">
+        <meta name="tags" content="performance">
 
 	                <meta property="og:locale" content="en_US.utf8">
 		<meta property="og:site_name" content="Exolution's Bizarre Adventure">
 
 	<meta property="og:type" content="article">
             <meta property="article:author" content="https://junjiecai.github.io/author/exolution.html">
-	<meta property="og:url" content="https://junjiecai.github.io/posts/2016/Oct/05/ubuntu16shu-ju-gong-cheng-shi-zhuang-ji-zhi-nan/">
-	<meta property="og:title" content="Ubuntu16数据工程师装机指南">
-	<meta property="article:published_time" content="2016-10-05 21:04:00+08:00">
-            <meta property="og:description" content="Ubuntu16的装机指南，主要面向数据工程师">
+	<meta property="og:url" content="https://junjiecai.github.io/posts/2016/Oct/21/python_multiple_process/">
+	<meta property="og:title" content="Python Multiprocess演示">
+	<meta property="article:published_time" content="2016-10-21 00:00:00+08:00">
+            <meta property="og:description" content="Python Multiprocess演示">
 
             <meta property="og:image" content="https://junjiecai.github.io/../theme/images/home-bg.jpg">
 </head>
@@ -134,15 +135,15 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
-                        <h1>Ubuntu16数据工程师装机指南</h1>
+                        <h1>Python Multiprocess演示</h1>
                         <span class="meta">
                             作者: Exolution
                         </span>
                         <span class="meta">
-                            发布: 05/10/2016
+                            发布: 21/10/2016
                         </span>
                         <span class="meta">
-                            修改: 05/12/2016
+                            修改: 
                         </span>
                         <span class = 'meta'>
                             <span id="busuanzi_container_page_pv">
@@ -168,7 +169,7 @@
             <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1">
                 <article>
 <p style='margin-left:140px'>
-	可以从<a href="https://github.com/junjiecai/jupyter_labs/tree/master/exolution/0005_ubuntu_setup")>这里</a>下载这篇文章对应的.ipynb文件和相关python代码等资源。建议下载后在本地打开Jupuyter边阅读边运行调试其中的代码，会有更好的理解效果。
+	可以从<a href="https://github.com/junjiecai/jupyter_labs/tree/master/exolution/0025_multiprocess")>这里</a>下载这篇文章对应的.ipynb文件和相关python代码等资源。建议下载后在本地打开Jupuyter边阅读边运行调试其中的代码，会有更好的理解效果。
 </p>
                     <style type="text/css">/*!
 *
@@ -1147,86 +1148,204 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Ubuntu-16装机过程">Ubuntu 16装机过程<a class="anchor-link" href="#Ubuntu-16装机过程">¶</a></h1><h2 id="解决网络问题">解决网络问题<a class="anchor-link" href="#解决网络问题">¶</a></h2><h3 id="DNS-Server">DNS Server<a class="anchor-link" href="#DNS-Server">¶</a></h3><p>默认的DNS Server可能是无效的。 如果不能上网， 试试在network connection的IPV4 setting里面添加有效的DNS Server，如114.114.114.114, 并且把Method设置成Automatic(DHCP) address only</p>
-<p><img alt="dns server" src="dns.png"/></p>
-<p>配置后需要运行'''sudo systemctl restart network-manager.service'''让设置生效</p>
-<h3 id="翻墙">翻墙<a class="anchor-link" href="#翻墙">¶</a></h3><p>shadowsocks安装和配置看<a href="https://github.com/shadowsocks/shadowsocks/wiki/Shadowsocks-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E">这里</a></p>
-<p>注意安装shadowsocks的时候，要用sudo安装</p>
-<pre><code>sudo to install shadowsocks</code></pre>
-<p>为了开机的时候能够自动启动ss，可以将</p>
-<p><code>sslocal -c /etc/shadowsocks.json -d start</code></p>
-<p>这一命令添加至</p>
-<pre><code>/etc/rc.local```
+<h1 id="Python多进程的演示">Python多进程的演示<a class="anchor-link" href="#Python多进程的演示">¶</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>多进程模式常见的模式</p>
+<ul>
+<li>主进程和子进程之间通过Queue传递数据</li>
+<li>主进程开启多个process, 并且负责往Queue中不断的放入数据。主进程可以通过传递特殊的信息例如None， 表示没有更多的数据。</li>
+<li>子进程不断的从Queue获取数据（可以用<code>while True</code>实现）,并进行处理。如果接受到特殊的终止信息， 则退出函数结束进程。</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="代码示例">代码示例<a class="anchor-link" href="#代码示例">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>run_parallel负责自进程的建立和往Queue放数据和传递终止信息</li>
+<li>task是子进程的运算内容</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [55]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="k">import</span> <span class="n">Process</span><span class="p">,</span> <span class="n">Queue</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">datetime</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [58]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">task</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">random</span> <span class="k">import</span> <span class="n">randint</span>
+    <span class="kn">from</span> <span class="nn">time</span> <span class="k">import</span> <span class="n">sleep</span>    
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Worker </span><span class="si">{}</span><span class="s1"> is starting'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+    
+    <span class="c1"># 不断的尝试从Queue获取数据</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>  
+        
+        <span class="c1"># 如果拿到终止信息， 退出函数</span>
+        <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">'No more jobs. Worker </span><span class="si">{}</span><span class="s1"> is quiting'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+            <span class="k">return</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># 实际的处理内容， 这里为了演示， 只是简单的将拿到的数据开方并print。</span>
+            <span class="c1"># 为了模拟较慢的运算， 每次处理时随机休眠0.5~0.6秒</span>
+            
+            <span class="n">sleep</span><span class="p">(</span><span class="n">randint</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">60</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">'Worker </span><span class="si">{}</span><span class="s1"> is inputing </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">data</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+            
+<span class="k">def</span> <span class="nf">run_parallel</span><span class="p">(</span><span class="n">njob</span><span class="p">,</span> <span class="n">join</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+    <span class="c1"># 创建子进程， 配置子进程所需的函数和函数参数</span>
+    <span class="n">workers</span> <span class="o">=</span> <span class="p">[</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span> <span class="o">=</span> <span class="n">task</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">queue</span><span class="p">,</span><span class="n">n</span><span class="p">))</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">njob</span><span class="p">)]</span>
+    <span class="k">for</span> <span class="n">worker</span> <span class="ow">in</span> <span class="n">workers</span><span class="p">:</span>
+        <span class="n">worker</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
-这样每次开机就能自动启动sslocal。
+    <span class="c1">## 放入待处理的数据    </span>
+    <span class="k">for</span> <span class="n">data_chunk</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">):</span>
+        <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">data_chunk</span><span class="p">)</span>
+    <span class="c1">## 传递终止信息， 数量要和njob保持一直</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">njob</span><span class="p">):</span>
+        <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>    
+    
+    <span class="k">if</span> <span class="n">join</span><span class="p">:</span>
+        <span class="c1"># 这段功能是让主进程的函数等待所有的字进程函数完成后在返回, </span>
+        <span class="c1"># 如果不加这一段, 主进程的函数会立即返回。</span>
+        <span class="k">for</span> <span class="n">worker</span> <span class="ow">in</span> <span class="n">workers</span><span class="p">:</span>
+            <span class="n">worker</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
 
-启动了shadowsocks， 还得配置firefox， [见这里](https://aiguge.xyz/firefox-shadowsocks-foxyproxy-standard/)
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+    <span class="c1"># 子进程数量, 可以调整下观察效果</span>
+    <span class="n">n_job</span> <span class="o">=</span> <span class="mi">10</span>
+    
+    <span class="c1"># 启用worker.join()</span>
+    <span class="n">t1</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="c1">#开始时间</span>
+    <span class="n">run_parallel</span><span class="p">(</span><span class="n">n_job</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="n">t2</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="c1"># 结束时间</span>
+    <span class="n">time</span> <span class="o">=</span> <span class="p">(</span><span class="n">t2</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span> <span class="c1">#时间差(秒)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'***run_parallel(n_job,True) returned***'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Time spent: </span><span class="si">{}</span><span class="s1"> seconds'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="p">))</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+    <span class="c1"># 不启用worker.join()    </span>
+    <span class="n">t1</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>    
+    <span class="n">run_parallel</span><span class="p">(</span><span class="n">n_job</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+    <span class="n">t2</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    <span class="n">time</span> <span class="o">=</span> <span class="p">(</span><span class="n">t2</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span>    
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'***run_parallel(n_job,False) returned***'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Time spent: </span><span class="si">{}</span><span class="s1"> seconds'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="p">))</span>                
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Worker 0 is starting
+Worker 1 is starting
+Worker 2 is starting
+Worker 3 is starting
+Worker 4 is starting
+Worker 5 is starting
+Worker 6 is starting
+Worker 7 is starting
+Worker 8 is starting
+No more jobs. Worker 7 is quiting
+No more jobs. Worker 8 is quiting
+Worker 9 is starting
+No more jobs. Worker 9 is quiting
+Worker 2 is inputing 9
+No more jobs. Worker 2 is quiting
+Worker 5 is inputing 36
+No more jobs. Worker 5 is quiting
+Worker 1 is inputing 4
+Worker 3 is inputing 16
+Worker 6 is inputing 49
+No more jobs. Worker 3 is quiting
+No more jobs. Worker 1 is quiting
+No more jobs. Worker 6 is quiting
+Worker 4 is inputing 25
+No more jobs. Worker 4 is quiting
+Worker 0 is inputing 1
+No more jobs. Worker 0 is quiting
+***run_parallel(n_job,True) returned***
+Time spent: 0.681672 seconds
 
-gfwlist可以使用```https://aiguge.xyz/firefox-shadowsocks-foxyproxy-standard/</code></pre>
-<h2 id="升级ubuntu到较新的状态">升级ubuntu到较新的状态<a class="anchor-link" href="#升级ubuntu到较新的状态">¶</a></h2><p><code>sudo apt-get dist-upgrade</code></p>
-<h2 id="python必备库安装">python必备库安装<a class="anchor-link" href="#python必备库安装">¶</a></h2><p>ubuntu 16自带了python3.5， 可以不需要自己安装</p>
-<h3 id="安装pip">安装pip<a class="anchor-link" href="#安装pip">¶</a></h3><p><code>apt-get install python-pip</code></p>
-<h3 id="virtualenv">virtualenv<a class="anchor-link" href="#virtualenv">¶</a></h3><p>由于Ubuntu默认使用的python是2.7版本的,为了避免不必要的麻烦，可以使用virtualenv创造一个python3.5的环境。先安装virtualenv
-<code>sudo apt-get install virtualenv</code></p>
-<p>然后创建虚拟环境，我将虚拟环境的文件夹放在了home下， 如果想放在别的地方请自己调整命令的参数。</p>
-<pre><code>virtualenv -p /usr/bin/python3.5 ~/venv</code></pre>
-<p>然后激活创建的virtualenv,新建一个teminal后，输入。</p>
-<pre><code>source ~/venv/bin/activate</code></pre>
-<p>可以看到terminal前面出现了一个(venv)字样，提示已经进入了虚拟环境。</p>
-<p>这个命令太长，每次输入很麻烦。我们可以为这个命令创建一个简化的命令'venv'。在<code>~/.bash_aliases</code>文件中输入</p>
-<pre><code>alias venv='source ~/venv/bin/activate'</code></pre>
-<p>运行</p>
-<pre><code>source ~/bashrc</code></pre>
-<p>让刚才的设置生效。之后进入terminal后只要输入<code>venv</code>就可以进入我们的虚拟环境。</p>
-<p>**之后安装python库的时候都是先进入<code>venv</code>虚拟环境后安装的，后面不在重复说明。</p>
-<h3 id="cx_Oracle">cx_Oracle<a class="anchor-link" href="#cx_Oracle">¶</a></h3><p><code>sudo apt-get install unzip python3.5-dev libaio-dev</code>
-<a href="https://gist.github.com/kimus/10012910">具体安装方式见</a></p>
-<p>instantclient-basic-linux.x64-12.1.0.2.0.zip<a href="http://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html">下载</a></p>
-<p>instantclient-sdk-linux.x64-12.1.0.2.0.zip<a href="http://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html">下载</a></p>
-<h3 id="psycopg2">psycopg2<a class="anchor-link" href="#psycopg2">¶</a></h3><p><code>sudo apt-get install python-psycopg2</code></p>
-<p><code>pip install psycopg2</code></p>
-<h2 id="Postgresql-9.5安装">Postgresql-9.5安装<a class="anchor-link" href="#Postgresql-9.5安装">¶</a></h2><p><a href="https://www.postgresql.org/download/linux/ubuntu/">见这里</a></p>
-<h3 id="添加数据库用户">添加数据库用户<a class="anchor-link" href="#添加数据库用户">¶</a></h3><p>postgreSQL会自动给ubuntu和数据库本身创建一个名为postgres的用户名。</p>
-<p>首先修改postgres用户(ubuntu)的密码</p>
-<pre><code>sudo passwd postgres</code></pre>
-<p>切换到postgres用户(ubuntu)，登陆数据库</p>
-<pre><code>sudo su postgres
-psql</code></pre>
-<p>然后建立一些普通的数据库用户，习惯上可以和ubunut的用户名保持一直。 注意这个账号如果要使用pl/python， 就必须得提供超级用户权限。</p>
-<pre><code>create user datascience superuser password 'xxxxxxx';</code></pre>
-<h3 id="建立数据库">建立数据库<a class="anchor-link" href="#建立数据库">¶</a></h3><p>可以根据需要为该账号建立数据库。</p>
-<pre><code>create database etl;
-alter database etl owner to datascience;
-\q</code></pre>
-<p>之后如果要在非postgres用户状态下进入数据库</p>
-<pre><code>psql -U [dbuser] -d [db] -h 127.0.0.1 -p 5432</code></pre>
-<h3 id="plpython的安装">plpython的安装<a class="anchor-link" href="#plpython的安装">¶</a></h3>
-<pre><code>sudo apt-get install postgresql-plpython3</code></pre>
-<p>登陆想使用plpython3数据库后，运行</p>
-<pre><code>CREATE EXTENSION plpython3u;</code></pre>
-<p>如果要让plpython能够使用自己python库， 需要添加PYTHONPATH信息至etc/postgresql/9.5/main/environment, 如</p>
-<pre><code>PYTHONPATH='/home/cjj/jfds</code></pre>
-<h2 id="Wine">Wine<a class="anchor-link" href="#Wine">¶</a></h2><p>如果要在ubuntu运行一些window程序的话，需要这个</p>
-<pre><code>sudo apt-get update
-sudo apt-get install wine</code></pre>
-<p>注意安装wine的界面要按tab才能切换到OK按钮</p>
-<h2 id="Git安装">Git安装<a class="anchor-link" href="#Git安装">¶</a></h2><p><code>sudo apt-get install git</code></p>
-<h2 id="安装常用软件">安装常用软件<a class="anchor-link" href="#安装常用软件">¶</a></h2><h3 id="搜狗拼音">搜狗拼音<a class="anchor-link" href="#搜狗拼音">¶</a></h3><p>先用</p>
-<pre><code>sudo apt-get install -f</code></pre>
-<p>修复一些包依赖的问题。</p>
-<p><a href="http://pinyin.sogou.com/linux/help.php">download</a>很不错的中文输入法, 直接下载双击deb会失败，需要用<code>sudo dpkg -i xxx.deb</code>命令安装</p>
-<p>如果出现了下面的提示</p>
-<p>No such key 'Gtk/IMModule' in schema 'org.gnome.settings-daemon.plugins.xsettings' as specified in override file '/usr/share/glib-2.0/schemas/50_sogoupinyin.gschema.override'; ignoring override for this key.</p>
-<p>并不用在意，这个不会影响搜狗输入法的使用。</p>
-<h3 id="download-them-all">download them all<a class="anchor-link" href="#download-them-all">¶</a></h3><p>这个是firefox的插件， 可以有更好的下载体验</p>
-<h3 id="okular">okular<a class="anchor-link" href="#okular">¶</a></h3><p>一个带笔记标注功能的pdf浏览器</p>
-<h3 id="startuml2">startuml2<a class="anchor-link" href="#startuml2">¶</a></h3><p>很好的uml建模工具</p>
-<p>[下载依赖库](<a href="https://launchpad.net/ubuntu/+archive/primary/+files/libgcrypt11_1.5.3-2ubuntu4.2_amd64.deb">https://launchpad.net/ubuntu/+archive/primary/+files/libgcrypt11_1.5.3-2ubuntu4.2_amd64.deb</a></p>
-<pre><code>sudo dpkg -i libgcrypt11_1.5.3-2ubuntu4.2_amd64.deb</code></pre>
-<pre><code>sudo apt-get libpango1.0-0 libpangox-1.0-0</code></pre>
-<p><a href="www.staruml.io">官网</a>下载deb安装包安装
-```
-sudo dpkg -i StarUML-v2.7.0-64-bit.deb</p>
+
+Worker 0 is starting
+Worker 1 is starting
+Worker 2 is starting
+Worker 3 is starting
+Worker 4 is starting
+Worker 5 is starting
+Worker 6 is starting
+Worker 7 is starting
+Worker 8 is starting
+***run_parallel(n_job,False) returned***
+Time spent: 0.055571 seconds
+No more jobs. Worker 8 is quiting
+Worker 9 is starting
+No more jobs. Worker 7 is quiting
+No more jobs. Worker 9 is quiting
+Worker 4 is inputing 25
+No more jobs. Worker 4 is quiting
+Worker 5 is inputing 36
+No more jobs. Worker 5 is quiting
+Worker 0 is inputing 1
+No more jobs. Worker 0 is quiting
+Worker 2 is inputing 9
+No more jobs. Worker 2 is quiting
+Worker 6 is inputing 49
+Worker 1 is inputing 4
+No more jobs. Worker 6 is quiting
+No more jobs. Worker 1 is quiting
+Worker 3 is inputing 16
+No more jobs. Worker 3 is quiting
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -1262,11 +1381,11 @@ sudo dpkg -i StarUML-v2.7.0-64-bit.deb</p>
                 </article>
 		<div align='center'>
 		            <div class="tags">
-		                <p>tags: <a href="https://junjiecai.github.io/tag/setup.html">setup</a></p>
+		                <p>tags: <a href="https://junjiecai.github.io/tag/python.html">python</a>, <a href="https://junjiecai.github.io/tag/performance.html">performance</a></p>
 		            </div>
 <p>若觉得本文对您有帮助,欢迎赞助作者一顿早餐:D</p>			
 <img class='reward' style="display:inline;margin-right:10px" src="https://junjiecai.github.io/theme/customs/award.jpeg" alt="weixin_payment">		</div>
-<div class="ds-thread" data-thread-key="//junjiecai.github.io/" data-title="//junjiecai.github.io/" data-url="//junjiecai.github.io/posts/2016/Oct/05/ubuntu16shu-ju-gong-cheng-shi-zhuang-ji-zhi-nan/" style="width: 80%;margin-left: 20%;"></div>
+<div class="ds-thread" data-thread-key="//junjiecai.github.io/0025" data-title="//junjiecai.github.io/0025" data-url="//junjiecai.github.io/posts/2016/Oct/21/python_multiple_process/" style="width: 80%;margin-left: 20%;"></div>
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"junjiecai1984"};
 	(function() {
