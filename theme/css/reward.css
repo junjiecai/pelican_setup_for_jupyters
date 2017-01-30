@@ -25,5 +25,5 @@ article p{
 }
 
 div.prompt{
-   display:none
+   visibility:hidden
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ch">
+<html lang="en">
 
 <head>
             <meta charset="utf-8">
@@ -10,15 +10,15 @@
         <title>Sympy tutorial 3</title>
 
         <!-- Bootstrap Core CSS -->
-        <link href="https://junjiecai.github.io/theme/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://junjiecai.github.io/theme/css/bootstrap-theme.min.css" rel="stylesheet">
+        <link href="https://junjiecai.github.io/../theme/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://junjiecai.github.io/../theme/css/bootstrap-theme.min.css" rel="stylesheet">
         <!-- Custom CSS -->
-        <link href="https://junjiecai.github.io/theme/css/clean-blog.min.css" rel="stylesheet">
+        <link href="https://junjiecai.github.io/../theme/css/clean-blog.min.css" rel="stylesheet">
 
 
         <!-- Code highlight color scheme -->
-            <link href="https://junjiecai.github.io/theme/css/code_blocks/github.css" rel="stylesheet">
-        <link href="https://junjiecai.github.io/theme/css/reward.css" rel="stylesheet">
+            <link href="https://junjiecai.github.io/../theme/css/code_blocks/github.css" rel="stylesheet">
+        <link href="https://junjiecai.github.io/../theme/css/reward.css" rel="stylesheet">
 
 
 
@@ -26,16 +26,16 @@
         <!-- Custom Fonts -->
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <!-- jQuery -->
-        <script src="https://junjiecai.github.io/theme/js/jquery.min.js"></script>
+        <script src="https://junjiecai.github.io/../theme/js/jquery.min.js"></script>
 
         <!-- Bootstrap Core JavaScript -->
-        <script src="https://junjiecai.github.io/theme/js/bootstrap.min.js"></script>
-        <script src="https://junjiecai.github.io/theme/js/jquery-ui.min.js"></script>
+        <script src="https://junjiecai.github.io/../theme/js/bootstrap.min.js"></script>
+        <script src="https://junjiecai.github.io/../theme/js/jquery-ui.min.js"></script>
 
 
 
         <!-- Custom Theme JavaScript -->
-        <script src="https://junjiecai.github.io/theme/js/clean-blog.min.js"></script>
+        <script src="https://junjiecai.github.io/../theme/js/clean-blog.min.js"></script>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -43,8 +43,8 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-    <link href="https://junjiecai.github.io/theme/css/jquery.tocify.css" rel="stylesheet">
-    <script src="https://junjiecai.github.io/theme/js/jquery.tocify.js"></script>
+    <link href="https://junjiecai.github.io/../theme/css/jquery.tocify.css" rel="stylesheet">
+    <script src="https://junjiecai.github.io/../theme/js/jquery.tocify.js"></script>
     <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
     <script>
@@ -79,7 +79,7 @@
     </script>
 
 
-        <meta name="description" content="Tutorial fot Sympy, a powerful symbolic package for Python. Part III cover matrix and solver.">
+        <meta name="description" content="Tutorial fot Sympy, a powerful symbolic package for Python. Part III of the tutorial covers matrix and solver.">
 
         <meta name="author" content="Exolution">
 
@@ -87,16 +87,16 @@
         <meta name="tags" content="Sympy">
 
 	                <meta property="og:locale" content="en_US.utf8">
-		<meta property="og:site_name" content="Exolution的奇妙冒险">
+		<meta property="og:site_name" content="Exolution's Bizarre Adventure">
 
 	<meta property="og:type" content="article">
-            <meta property="article:author" content="https://junjiecai.github.io/author/exolution.html">
-	<meta property="og:url" content="https://junjiecai.github.io/drafts/sympy_intro_3.html">
+            <meta property="article:author" content="https://junjiecai.github.io/en/author/exolution.html">
+	<meta property="og:url" content="https://junjiecai.github.io/en/posts/2017/Jan/30/sympy_intro_3/">
 	<meta property="og:title" content="Sympy tutorial 3">
 	<meta property="article:published_time" content="2017-01-30 00:00:00+08:00">
-            <meta property="og:description" content="Tutorial fot Sympy, a powerful symbolic package for Python. Part III cover matrix and solver.">
+            <meta property="og:description" content="Tutorial fot Sympy, a powerful symbolic package for Python. Part III of the tutorial covers matrix and solver.">
 
-            <meta property="og:image" content="https://junjiecai.github.io/../theme/images/home-bg.jpg">
+            <meta property="og:image" content="https://junjiecai.github.io/en/../theme/images/home-bg.jpg">
 </head>
 
 <body>
@@ -112,16 +112,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="https://junjiecai.github.io/">Exolution的奇妙冒险</a>
+                <a class="navbar-brand" href="https://junjiecai.github.io/en/">Exolution's Bizarre Adventure</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                        <li><a href="https://junjiecai.github.io/categories.html">分类</a></li>
-                        <li><a href="https://junjiecai.github.io/tags.html">标签</a></li>
-                        <li><a href="https://junjiecai.github.io/archives.html">归档</a></li>
-                            <li><a href="https://junjiecai.github.io/pages/about/">关于我</a></li>
+                        <li><a href="https://junjiecai.github.io/en/categories.html">Categories</a></li>
+                        <li><a href="https://junjiecai.github.io/en/tags.html">Tags</a></li>
+                        <li><a href="https://junjiecai.github.io/en/archives.html">Archives</a></li>
+                            <li><a href="https://junjiecai.github.io/en/pages/about/">Abount Me</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -130,30 +130,30 @@
     </nav>
 
     <!-- Page Header -->
-        <header class="intro-header" style="padding:20px;background:black;background-image: url('https://junjiecai.github.io/theme/customs/bg_image.jpg')">
+        <header class="intro-header" style="padding:20px;background:black;background-image: url('https://junjiecai.github.io/../theme/customs/bg_image.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
                         <h1>Sympy tutorial 3</h1>
                         <span class="meta">
-                                作者:
+                                Author:
                              
                             Exolution
                         </span>
                         <span class="meta">
-                                发布:
+                                Publish:
   
-                            2017-01-30
+                            30/01/2017
                         </span>
                         <span class="meta">
-                                修改:
+                                Modified:
   
-                            2017-01-30
+                            30/01/2017
                         </span>
                         <span class = 'meta'>
                             <span id="busuanzi_container_page_pv">
-                                    访问:
+                                    Visited:
                                 <span id="busuanzi_value_page_pv"></span>
                             </span>
                         </span>
@@ -180,7 +180,7 @@
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
     <p>
-        建议从<a href="https://github.com/junjiecai/jupyter_labs/tree/master/exolution/0026_sympy")>这里</a>下载这篇文章对应的.ipynb文件和相关资源。这样你就能在Jupyter中边阅读，边测试文中的代码。
+        It is recommended to download the .ipynb file and related resources <a href="https://github.com/junjiecai/jupyter_labs/tree/master/exolution/0026_sympy")>here</a>. Then you can test the codes in the article interactively while you are reading in Jupyter.
     </p>
 </div>
 </div>
@@ -1427,7 +1427,7 @@ $$\left[\begin{matrix}-1 & 0 & 0 & 0\\0 & 1 & 1 & 0\\0 & 1 & 1 & 0\\0 & 0 & 0 & 
 <div class="prompt input_prompt">In [114]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span><span class="o">.</span><span class="n">shape</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2730,11 +2730,11 @@ $$\left \{ 0 : 1, \quad 3 : 2\right \}$$
                 </article>
 		<div align='center'>
 		            <div class="tags">
-		                <p>tags: <a href="https://junjiecai.github.io/tag/python.html">python</a>, <a href="https://junjiecai.github.io/tag/sympy.html">Sympy</a></p>
+		                <p>tags: <a href="https://junjiecai.github.io/en/tag/python.html">python</a>, <a href="https://junjiecai.github.io/en/tag/sympy.html">Sympy</a></p>
 		            </div>
 <p>若觉得本文对您有帮助,欢迎赞助作者一顿早餐:D</p>			
-<img class='reward' style="display:inline;margin-right:10px" src="https://junjiecai.github.io/theme/customs/award.jpeg" alt="weixin_payment">		</div>
-<div class="ds-thread" data-thread-key="//junjiecai.github.io/0028" data-title="//junjiecai.github.io/0028" data-url="//junjiecai.github.io/drafts/sympy_intro_3.html" style="width: 80%;margin-left: 20%;"></div>
+<img class='reward' style="display:inline;margin-right:10px" src="https://junjiecai.github.io/../theme/customs/award.jpeg" alt="weixin_payment">		</div>
+<div class="ds-thread" data-thread-key="//junjiecai.github.io/0028" data-title="//junjiecai.github.io/0028" data-url="//junjiecai.github.io/posts/2017/Jan/30/sympy_intro_3/" style="width: 80%;margin-left: 20%;"></div>
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"junjiecai1984"};
 	(function() {
