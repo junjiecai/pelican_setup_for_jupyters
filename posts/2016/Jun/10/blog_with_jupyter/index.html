@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="ch">
+
+<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <title>如何用Pelican, Jupyter notebook,Github Pages搭建博客</title>
+
+        <!-- Bootstrap Core CSS -->
+        <link href="https://junjiecai.github.io/theme/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://junjiecai.github.io/theme/css/bootstrap-theme.min.css" rel="stylesheet">
+        <!-- Custom CSS -->
+        <link href="https://junjiecai.github.io/theme/css/clean-blog.min.css" rel="stylesheet">
+
+
+        <!-- Code highlight color scheme -->
+            <link href="https://junjiecai.github.io/theme/css/code_blocks/github.css" rel="stylesheet">
+        <link href="https://junjiecai.github.io/theme/css/reward.css" rel="stylesheet">
+
+
+
+
+        <!-- Custom Fonts -->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <!-- jQuery -->
+        <script src="https://junjiecai.github.io/theme/js/jquery.min.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="https://junjiecai.github.io/theme/js/bootstrap.min.js"></script>
+        <script src="https://junjiecai.github.io/theme/js/jquery-ui.min.js"></script>
+
+
+
+        <!-- Custom Theme JavaScript -->
+        <script src="https://junjiecai.github.io/theme/js/clean-blog.min.js"></script>
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    <link href="https://junjiecai.github.io/theme/css/jquery.tocify.css" rel="stylesheet">
+    <script src="https://junjiecai.github.io/theme/js/jquery.tocify.js"></script>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <script>
+        $(document).ready(function(){	 
+            $('article').find('div.rendered').each(function(i, item){
+                if(($(item).find('div.rendered_html').length>0)&&($(item).hasClass('text_cell'))){  
+                    $(item).find('div.rendered_html').each(function(i, item){
+		        if ($(window).width() >= 726){
+		            $(item).children().css('margin-left', '140px');
+		        }else{
+			    $(item).children().css('margin-left', '5px');
+			};
+                        $(item).children().detach().appendTo($('article'))
+                    })
+                    $(item).remove()
+                }else{
+                   $(item).detach().appendTo($('article'))
+                }
+            })
+
+            $("#toc").tocify({selectors:'h1,h2,h3,h4,h5'});
+            if ($(window).width() >= 726){	
+                $('#toc').css('top', Math.max(50, 582+50-$(window).scrollTop()));
+            };
+            $(window).scroll(function () {
+                //You've scrolled this much:
+                if ($(window).width() >= 726){	
+                    $('#toc').css('top', Math.max(50, 582+50-$(window).scrollTop()));
+                };
+            });
+        });
+    </script>
+
+
+        <meta name="description" content="描述了如何在Pelican和Github Pages的帮助下，用Jupyter Notebook撰写Blog">
+
+        <meta name="author" content="Exolution">
+
+        <meta name="tags" content="blog">
+        <meta name="tags" content="jupyter">
+
+	                <meta property="og:locale" content="en_US.utf8">
+		<meta property="og:site_name" content="Exolution的奇妙冒险">
+
+	<meta property="og:type" content="article">
+            <meta property="article:author" content="https://junjiecai.github.io/author/exolution.html">
+	<meta property="og:url" content="https://junjiecai.github.io/posts/2016/Jun/10/blog_with_jupyter/">
+	<meta property="og:title" content="如何用Pelican, Jupyter notebook,Github Pages搭建博客">
+	<meta property="article:published_time" content="2016-06-10 00:00:00+08:00">
+            <meta property="og:description" content="描述了如何在Pelican和Github Pages的帮助下，用Jupyter Notebook撰写Blog">
+
+            <meta property="og:image" content="https://junjiecai.github.io/../theme/images/home-bg.jpg">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="https://junjiecai.github.io/">Exolution的奇妙冒险</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                        <li><a href="https://junjiecai.github.io/categories.html">分类</a></li>
+                        <li><a href="https://junjiecai.github.io/tags.html">标签</a></li>
+                        <li><a href="https://junjiecai.github.io/archives.html">归档</a></li>
+                            <li><a href="https://junjiecai.github.io/pages/about/">关于我</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+        <header class="intro-header" style="padding:20px;background:black;background-image: url('https://junjiecai.github.io/theme/customs/bg_image.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>如何用Pelican, Jupyter notebook,Github Pages搭建博客</h1>
+                        <span class="meta">
+                                作者:
+                             
+                            Exolution
+                        </span>
+                        <span class="meta">
+                                发布:
+  
+                            2016-06-10
+                        </span>
+                        <span class="meta">
+                                修改:
+  
+                            2016-10-20
+                        </span>
+                        <span class = 'meta'>
+                            <span id="busuanzi_container_page_pv">
+                                    访问:
+                                <span id="busuanzi_value_page_pv"></span>
+                            </span>
+                        </span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <!-- Post Content -->
+    <div id ="toc" class ='toc' style="position: fixed; left:50px; top:582px"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1">
+                <article>
+<p style='margin-left:140px'>
+	可以从<a href="https://github.com/junjiecai/jupyter_labs/tree/master/exolution/0000_blog_with_jupyter")>这里</a>下载这篇文章对应的.ipynb文件和相关python代码等资源。建议下载后在本地打开Jupuyter边阅读边运行调试其中的代码，会有更好的理解效果。
+</p>
+                    <style type="text/css">/*!
+*
+* IPython notebook
+*
+*/
+/* CSS font colors for translated ANSI colors. */
+.ansibold {
+  font-weight: bold;
+}
+/* use dark versions for foreground, to improve visibility */
+.ansiblack {
+  color: black;
+}
+.ansired {
+  color: darkred;
+}
+.ansigreen {
+  color: darkgreen;
+}
+.ansiyellow {
+  color: #c4a000;
+}
+.ansiblue {
+  color: darkblue;
+}
+.ansipurple {
+  color: darkviolet;
+}
+.ansicyan {
+  color: steelblue;
+}
+.ansigray {
+  color: gray;
+}
+/* and light for background, for the same reason */
+.ansibgblack {
+  background-color: black;
+}
+.ansibgred {
+  background-color: red;
+}
+.ansibggreen {
+  background-color: green;
+}
+.ansibgyellow {
+  background-color: yellow;
+}
+.ansibgblue {
+  background-color: blue;
+}
+.ansibgpurple {
+  background-color: magenta;
+}
+.ansibgcyan {
+  background-color: cyan;
+}
+.ansibggray {
+  background-color: gray;
+}
+div.cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-radius: 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  width: 100%;
+  padding: 5px;
+  /* This acts as a spacer between cells, that is outside the border */
+  margin: 0px;
+  outline: none;
+  border-left-width: 1px;
+  padding-left: 5px;
+  background: linear-gradient(to right, transparent -40px, transparent 1px, transparent 1px, transparent 100%);
+}
+div.cell.jupyter-soft-selected {
+  border-left-color: #90CAF9;
+  border-left-color: #E3F2FD;
+  border-left-width: 1px;
+  padding-left: 5px;
+  border-right-color: #E3F2FD;
+  border-right-width: 1px;
+  background: #E3F2FD;
+}
+@media print {
+  div.cell.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+div.cell.selected {
+  border-color: #ababab;
+  border-left-width: 0px;
+  padding-left: 6px;
+  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 5px, transparent 5px, transparent 100%);
+}
+@media print {
+  div.cell.selected {
+    border-color: transparent;
+  }
+}
+div.cell.selected.jupyter-soft-selected {
+  border-left-width: 0;
+  padding-left: 6px;
+  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 7px, #E3F2FD 7px, #E3F2FD 100%);
+}
+.edit_mode div.cell.selected {
+  border-color: #66BB6A;
+  border-left-width: 0px;
+  padding-left: 6px;
+  background: linear-gradient(to right, #66BB6A -40px, #66BB6A 5px, transparent 5px, transparent 100%);
+}
+@media print {
+  .edit_mode div.cell.selected {
+    border-color: transparent;
+  }
+}
+.prompt {
+  /* This needs to be wide enough for 3 digit prompt numbers: In[100]: */
+  min-width: 14ex;
+  /* This padding is tuned to match the padding on the CodeMirror editor. */
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace;
+  text-align: right;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+  /* Don't highlight prompt number selection */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Use default cursor */
+  cursor: default;
+}
+@media (max-width: 540px) {
+  .prompt {
+    text-align: left;
+  }
+}
+div.inner_cell {
+  min-width: 0;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_area {
+  border: 1px solid #cfcfcf;
+  border-radius: 2px;
+  background: #f7f7f7;
+  line-height: 1.21429em;
+}
+/* This is needed so that empty prompt areas can collapse to zero height when there
+   is no content in the output_subarea and the prompt. The main purpose of this is
+   to make sure that empty JavaScript output_subareas have no height. */
+div.prompt:empty {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+div.unrecognized_cell {
+  padding: 5px 5px 5px 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.unrecognized_cell .inner_cell {
+  border-radius: 2px;
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+  border: 1px solid #cfcfcf;
+  background: #eaeaea;
+}
+div.unrecognized_cell .inner_cell a {
+  color: inherit;
+  text-decoration: none;
+}
+div.unrecognized_cell .inner_cell a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+@media (max-width: 540px) {
+  div.unrecognized_cell > div.prompt {
+    display: none;
+  }
+}
+div.code_cell {
+  /* avoid page breaking on code cells when printing */
+}
+@media print {
+  div.code_cell {
+    page-break-inside: avoid;
+  }
+}
+/* any special styling for code cells that are currently running goes here */
+div.input {
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.input {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_prompt {
+  color: #303F9F;
+  border-top: 1px solid transparent;
+}
+div.input_area > div.highlight {
+  margin: 0.4em;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+div.input_area > div.highlight > pre {
+  margin: 0px;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+/* The following gets added to the <head> if it is detected that the user has a
+ * monospace font with inconsistent normal/bold/italic height.  See
+ * notebookmain.js.  Such fonts will have keywords vertically offset with
+ * respect to the rest of the text.  The user should select a better font.
+ * See: https://github.com/ipython/ipython/issues/1503
+ *
+ * .CodeMirror span {
+ *      vertical-align: bottom;
+ * }
+ */
+.CodeMirror {
+  line-height: 1.21429em;
+  /* Changed from 1em to our global default */
+  font-size: 14px;
+  height: auto;
+  /* Changed to auto to autogrow */
+  background: none;
+  /* Changed from white to allow our bg to show through */
+}
+.CodeMirror-scroll {
+  /*  The CodeMirror docs are a bit fuzzy on if overflow-y should be hidden or visible.*/
+  /*  We have found that if it is visible, vertical scrollbars appear with font size changes.*/
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+.CodeMirror-lines {
+  /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
+  /* we have set a different line-height and want this to scale with that. */
+  padding: 0.4em;
+}
+.CodeMirror-linenumber {
+  padding: 0 8px 0 4px;
+}
+.CodeMirror-gutters {
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+}
+.CodeMirror pre {
+  /* In CM3 this went to 4px from 0 in CM2. We need the 0 value because of how we size */
+  /* .CodeMirror-lines */
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+}
+/*
+
+Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
+Adapted from GitHub theme
+
+*/
+.highlight-base {
+  color: #000;
+}
+.highlight-variable {
+  color: #000;
+}
+.highlight-variable-2 {
+  color: #1a1a1a;
+}
+.highlight-variable-3 {
+  color: #333333;
+}
+.highlight-string {
+  color: #BA2121;
+}
+.highlight-comment {
+  color: #408080;
+  font-style: italic;
+}
+.highlight-number {
+  color: #080;
+}
+.highlight-atom {
+  color: #88F;
+}
+.highlight-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.highlight-builtin {
+  color: #008000;
+}
+.highlight-error {
+  color: #f00;
+}
+.highlight-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.highlight-meta {
+  color: #AA22FF;
+}
+/* previously not defined, copying from default codemirror */
+.highlight-def {
+  color: #00f;
+}
+.highlight-string-2 {
+  color: #f50;
+}
+.highlight-qualifier {
+  color: #555;
+}
+.highlight-bracket {
+  color: #997;
+}
+.highlight-tag {
+  color: #170;
+}
+.highlight-attribute {
+  color: #00c;
+}
+.highlight-header {
+  color: blue;
+}
+.highlight-quote {
+  color: #090;
+}
+.highlight-link {
+  color: #00c;
+}
+/* apply the same style to codemirror */
+.cm-s-ipython span.cm-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-atom {
+  color: #88F;
+}
+.cm-s-ipython span.cm-number {
+  color: #080;
+}
+.cm-s-ipython span.cm-def {
+  color: #00f;
+}
+.cm-s-ipython span.cm-variable {
+  color: #000;
+}
+.cm-s-ipython span.cm-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-variable-2 {
+  color: #1a1a1a;
+}
+.cm-s-ipython span.cm-variable-3 {
+  color: #333333;
+}
+.cm-s-ipython span.cm-comment {
+  color: #408080;
+  font-style: italic;
+}
+.cm-s-ipython span.cm-string {
+  color: #BA2121;
+}
+.cm-s-ipython span.cm-string-2 {
+  color: #f50;
+}
+.cm-s-ipython span.cm-meta {
+  color: #AA22FF;
+}
+.cm-s-ipython span.cm-qualifier {
+  color: #555;
+}
+.cm-s-ipython span.cm-builtin {
+  color: #008000;
+}
+.cm-s-ipython span.cm-bracket {
+  color: #997;
+}
+.cm-s-ipython span.cm-tag {
+  color: #170;
+}
+.cm-s-ipython span.cm-attribute {
+  color: #00c;
+}
+.cm-s-ipython span.cm-header {
+  color: blue;
+}
+.cm-s-ipython span.cm-quote {
+  color: #090;
+}
+.cm-s-ipython span.cm-link {
+  color: #00c;
+}
+.cm-s-ipython span.cm-error {
+  color: #f00;
+}
+.cm-s-ipython span.cm-tab {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=);
+  background-position: right;
+  background-repeat: no-repeat;
+}
+div.output_wrapper {
+  /* this position must be relative to enable descendents to be absolute within it */
+  position: relative;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  z-index: 1;
+}
+/* class for the output area when it should be height-limited */
+div.output_scroll {
+  /* ideally, this would be max-height, but FF barfs all over that */
+  height: 24em;
+  /* FF needs this *and the wrapper* to specify full width, or it will shrinkwrap */
+  width: 100%;
+  overflow: auto;
+  border-radius: 2px;
+  -webkit-box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  display: block;
+}
+/* output div while it is collapsed */
+div.output_collapsed {
+  margin: 0px;
+  padding: 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+div.out_prompt_overlay {
+  height: 100%;
+  padding: 0px 0.4em;
+  position: absolute;
+  border-radius: 2px;
+}
+div.out_prompt_overlay:hover {
+  /* use inner shadow to get border that is computed the same on WebKit/FF */
+  -webkit-box-shadow: inset 0 0 1px #000;
+  box-shadow: inset 0 0 1px #000;
+  background: rgba(240, 240, 240, 0.5);
+}
+div.output_prompt {
+  color: #D84315;
+}
+/* This class is the outer container of all output sections. */
+div.output_area {
+  padding: 0px;
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.output_area .MathJax_Display {
+  text-align: left !important;
+}
+div.output_area 
+div.output_area 
+div.output_area img,
+div.output_area svg {
+  max-width: 100%;
+  height: auto;
+}
+div.output_area img.unconfined,
+div.output_area svg.unconfined {
+  max-width: none;
+}
+/* This is needed to protect the pre formating from global settings such
+   as that of bootstrap */
+.output {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.output_area {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+div.output_area pre {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  color: black;
+  background-color: transparent;
+  border-radius: 0;
+}
+/* This class is for the output subarea inside the output_area and after
+   the prompt div. */
+div.output_subarea {
+  overflow-x: auto;
+  padding: 0.4em;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+  max-width: calc(100% - 14ex);
+}
+div.output_scroll div.output_subarea {
+  overflow-x: visible;
+}
+/* The rest of the output_* classes are for special styling of the different
+   output types */
+/* all text output has this class: */
+div.output_text {
+  text-align: left;
+  color: #000;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+}
+/* stdout/stderr are 'text' as well as 'stream', but execute_result/error are *not* streams */
+div.output_stderr {
+  background: #fdd;
+  /* very light red background for stderr */
+}
+div.output_latex {
+  text-align: left;
+}
+/* Empty output_javascript divs should have no height */
+div.output_javascript:empty {
+  padding: 0;
+}
+.js-error {
+  color: darkred;
+}
+/* raw_input styles */
+div.raw_input_container {
+  line-height: 1.21429em;
+  padding-top: 5px;
+}
+pre.raw_input_prompt {
+  /* nothing needed here. */
+}
+input.raw_input {
+  font-family: monospace;
+  font-size: inherit;
+  color: inherit;
+  width: auto;
+  /* make sure input baseline aligns with prompt */
+  vertical-align: baseline;
+  /* padding + margin = 0.5em between prompt and cursor */
+  padding: 0em 0.25em;
+  margin: 0em 0.25em;
+}
+input.raw_input:focus {
+  box-shadow: none;
+}
+p.p-space {
+  margin-bottom: 10px;
+}
+div.output_unrecognized {
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+}
+div.output_unrecognized a {
+  color: inherit;
+  text-decoration: none;
+}
+div.output_unrecognized a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+.rendered_html {
+  color: #000;
+  /* any extras will just be numbers: */
+}
+
+
+
+.rendered_html :link {
+  text-decoration: underline;
+}
+.rendered_html :visited {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+.rendered_html h1:first-child {
+  margin-top: 0.538em;
+}
+.rendered_html h2:first-child {
+  margin-top: 0.636em;
+}
+.rendered_html h3:first-child {
+  margin-top: 0.777em;
+}
+.rendered_html h4:first-child {
+  margin-top: 1em;
+}
+.rendered_html h5:first-child {
+  margin-top: 1em;
+}
+.rendered_html h6:first-child {
+  margin-top: 1em;
+}
+
+
+
+
+
+
+
+
+.rendered_html * + ul {
+  margin-top: 1em;
+}
+.rendered_html * + ol {
+  margin-top: 1em;
+}
+
+
+.rendered_html pre,
+
+
+
+.rendered_html tr,
+.rendered_html th,
+
+.rendered_html td,
+
+
+.rendered_html * + table {
+  margin-top: 1em;
+}
+
+.rendered_html * + p {
+  margin-top: 1em;
+}
+
+.rendered_html * + img {
+  margin-top: 1em;
+}
+.rendered_html img,
+
+.rendered_html img.unconfined,
+
+div.text_cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.text_cell > div.prompt {
+    display: none;
+  }
+}
+div.text_cell_render {
+  /*font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;*/
+  outline: none;
+  resize: none;
+  width: inherit;
+  border-style: none;
+  padding: 0.5em 0.5em 0.5em 0.4em;
+  color: #000;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+a.anchor-link:link {
+  text-decoration: none;
+  padding: 0px 20px;
+  visibility: hidden;
+}
+h1:hover .anchor-link,
+h2:hover .anchor-link,
+h3:hover .anchor-link,
+h4:hover .anchor-link,
+h5:hover .anchor-link,
+h6:hover .anchor-link {
+  visibility: visible;
+}
+.text_cell.rendered .input_area {
+  display: none;
+}
+.text_cell.rendered 
+.text_cell.unrendered .text_cell_render {
+  display: none;
+}
+.cm-header-1,
+.cm-header-2,
+.cm-header-3,
+.cm-header-4,
+.cm-header-5,
+.cm-header-6 {
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.cm-header-1 {
+  font-size: 185.7%;
+}
+.cm-header-2 {
+  font-size: 157.1%;
+}
+.cm-header-3 {
+  font-size: 128.6%;
+}
+.cm-header-4 {
+  font-size: 110%;
+}
+.cm-header-5 {
+  font-size: 100%;
+  font-style: italic;
+}
+.cm-header-6 {
+  font-size: 100%;
+  font-style: italic;
+}
+</style>
+<style type="text/css">.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
+<style type="text/css">
+/* Temporary definitions which will become obsolete with Notebook release 5.0 */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+</style>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="注意">注意<a class="anchor-link" href="#注意">¶</a></h1><p>这篇文章主要参考了<a href="https://www.dataquest.io/blog/how-to-setup-a-data-science-blog/">Building a data science portfolio: Making a data science blog</a>一文，讲解了将Jupyter Notebook发布成Blog的基本解决方案。 但是我在实践中发现文中提供的解决方案依然存在多方面的不足。例如</p>
+<ul>
+<li>.ipynb文件一般要配合数据，其他py文件,图片等其他资源一起使用，所以往往需要将.ipynb文件和其他资源文件放在一个文件夹中。按照默认的设置， pelican是无法识别文件夹中的ipynb文件的，需要做出相应调整。</li>
+<li>pelican转成的blog html,内容都是放在深层嵌套的<code><div></code>标签中的，这会导致一些javascript比如tocify.js失效(它能生成能随着文章浏览自动展开折叠的边栏目录)，因此需要添加一些javascript代码重构生成的html的结构</li>
+<li>Pelican的Clean主题缺乏Blog需要的常见功能，例如评论功能，流量统计功能，打赏功能等等。</li>
+</ul>
+<p>总之需要流畅的将一个Jupyter Notebook实验项目发布成功能完备的blog页面，还需要对pelican配置和Theme做出大量调整和修改。</p>
+<p>如果大家不想折腾的话,建议直接fork我在github上的<a href="https://github.com/junjiecai/pelican_setup_for_jupyters">这个项目</a>。这个项目中已经包含了调整过的pelican设置和Theme文件，只需做出最少量的配置就可以顺利的使用jupyter notebook开始写自己的博客，使用方法参见项目的README</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="说明">说明<a class="anchor-link" href="#说明">¶</a></h1><p>Jupyter Notebook是进行代码实验非常好用的工具， 可以一边交互式的进行代码探索，一边利用markdown穿插丰富文本，图片，视频等描述资源。</p>
+<p>另一方面，很多工程师也有写技术Blog记录自己的心得笔记的习惯。 如果能一边用Jupyter Notebook实验代码， 一边添加相关的文本描述， 最后直接将Jupyter Notebook的内容发布为Blog， 那将获得非常流畅的技术Blog创作体验。</p>
+<p>(遥想当年在中科院的时候， 每次要写分析报告， 首先要开matlab编写代码， 运行代码， 将代码的结果保存为文本， 图片，Excel等文件， 然后再开Word， 一边写报告， 一边要导入图片， 数据。 更糟糕的是， 一旦代码发生更改， 程序生成的结果发生了改变， 可能又得重新调整Word文档。 这个过程非常的繁琐耗时。 由于报告的内容和代码并非紧密的结合， 时间久了以后， 想不起来当时某个处理的细节， 又找不到当时的代码的事情也是经常发生。)</p>
+<p>这篇文章就是讲解如何利用Pelican将Jupyter Notebook上做的实验直接发布在Git Pages上。</p>
+<p>这里是一个效果展示。<a href="https://github.com/junjiecai/jupyter_labs/tree/master/exolution">这个git repo</a>用于存放jupyter notebooks实验，而<a href="https://junjiecai.github.io">这里</a>是这个notebooks被发布成blogs以后的效果。</p>
+<h1 id="重要的组件">重要的组件<a class="anchor-link" href="#重要的组件">¶</a></h1><p>在Jupyter Notebook中编写内容， 然后由Pelican负责将jupyter notebook组装成blog html， Github Pages则提供了网站服务，让大家能通过浏览器看到你的Blog。</p>
+<p>不过要注意的是，转成html后的代码部分是不能运行的，如果希望读者享受到Jupyter Notebook的便利，可以将文章对应的.ipynb源文件的地址(可以把源文件也放在Github)贴在文章里，供读者下载。例如这篇文章的。</p>
+<h2 id="Github-Pages">Github Pages<a class="anchor-link" href="#Github-Pages">¶</a></h2><p>Github Pages是github公司提供的免费的静态网站托管服务，具体使用上，就是注册用户在Gihub上创建过一个[username].github.io的repo,并且在里面的master branch存有html文件的话，那么其他人就可以通过<a href="http://[username].github.io">http://[username].github.io</a> 这个链接访问到这些html页面。</p>
+<p>例如我把这篇文章对应的blog_with_jupyter.html放在了junjiecai.github.io的repo中的master branch里(这里是<a href="https://github.com/junjiecai/junjiecai.github.io/tree/master/posts/2016/Aug/10/blog_with_jupyter">链接</a>，那么大家就可以通过<a href="http://junjiecai.github.io/posts/2016/Aug/10/blog_with_jupyter/看到这篇文章">http://junjiecai.github.io/posts/2016/Aug/10/blog_with_jupyter/看到这篇文章</a></p>
+<p>如果用户愿意，也可以绑定自己准备的域名，代替<a href="http://[username].github.io">http://[username].github.io</a></p>
+<h2 id="Pelican">Pelican<a class="anchor-link" href="#Pelican">¶</a></h2><p>Pelican是一个基于python的开源库，可以将markdown, jupyter notebook(需要额外插件)等文件转成html文件，并根据meta-data和theme信息， 在生成的html中添加分类，标签，菜单，侧边栏等组件和相应的css style，生成可以用于Blog使用的html文件。</p>
+<h2 id="Jupyter-Notebook">Jupyter Notebook<a class="anchor-link" href="#Jupyter-Notebook">¶</a></h2><p>jupyter notebook提供了一个交互环境，可以在web浏览器一边编写code，运行并展示结果，一边用markdown添加图文视频等丰富的内容进行相应的描述。代码调试完，文章也写完，省去了将code复制粘贴到文章的繁琐的过程。既省事，也避免了文章中的code和运行时的code不一致的问题。</p>
+<p>另一方面，如果读者如果下载了jupyter notebook源文件，就可以直接在浏览器上边看文章，边调试代码，体验也流畅很多。</p>
+<p>Jupyter notebook支持python, R, scala, Julia等40多种编程语言， 如果对Jupyter Notebook不了解的话，请去<a href="http://jupyter.org/">官网</a>了解一下(似乎被墙了，请自备梯子)。</p>
+<p>下面就是Jupyter Notebook编写了一段可视化代码，运行后展示结果的例子。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [5]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">"dark"</span><span class="p">)</span>
+<span class="n">rs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="c1"># Set up the matplotlib figure</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Rotate the starting point around the cubehelix hue circle</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">)):</span>
+
+    <span class="c1"># Create a cubehelix colormap to use with kdeplot</span>
+    <span class="n">cmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">s</span><span class="p">,</span> <span class="n">light</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Generate and plot a random bivariate dataset</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">rs</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">shade</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cut</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+<span class="n">f</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ImportError</span>                               Traceback (most recent call last)
+<span class="ansi-green-fg"><ipython-input-5-e1e831e479a7></span> in <span class="ansi-cyan-fg"><module></span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> get_ipython<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>magic<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">'matplotlib inline'</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-green-fg">import</span> numpy <span class="ansi-green-fg">as</span> np
+<span class="ansi-green-fg">----> 3</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">import</span> seaborn <span class="ansi-green-fg">as</span> sns
+<span class="ansi-green-intense-fg ansi-bold">      4</span> <span class="ansi-green-fg">import</span> matplotlib<span class="ansi-blue-fg">.</span>pyplot <span class="ansi-green-fg">as</span> plt
+<span class="ansi-green-intense-fg ansi-bold">      5</span> 
+
+<span class="ansi-red-fg">ImportError</span>: No module named 'seaborn'</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="系统环境">系统环境<a class="anchor-link" href="#系统环境">¶</a></h1><ul>
+<li>我的操作系统是Ubunut 16</li>
+<li>Python版本是3.5</li>
+</ul>
+<p>windows/mac或是python2.7的话安装过程请自行做一些相应的调整-_-</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="步骤">步骤<a class="anchor-link" href="#步骤">¶</a></h1><h2 id="安装Pelican和Jupyter">安装Pelican和Jupyter<a class="anchor-link" href="#安装Pelican和Jupyter">¶</a></h2><p>下面是安装过程</p>
+<ul>
+<li>创建一个文件夹， 我用的名字是jupyter-blog</li>
+<li>(可选步骤)在jupyter-blog新建一个virtual env, 不会的话请看<a href="http://docs.python-guide.org/en/latest/dev/virtualenvs/">这里</a></li>
+</ul>
+<p>当然如果不需要让Pelican使用单独的的python环境的话， 跳过这个步骤也没问题</p>
+<ul>
+<li>安装所需的依赖包
+由于所需的依赖比较多，因此可以在jupyter-blog创建requirements.txt文件后一起安装。 requirements.txt中的内容是
+<pre><code>Markdown
+pelican
+jupyter
+ipython
+nbconvert
+beautifulsoup4
+matplotlib</code></pre>
+然后运行<code>pip install -r requirements.txt</code>进行安装。 </li>
+</ul>
+<h2 id="初始化Pelican">初始化Pelican<a class="anchor-link" href="#初始化Pelican">¶</a></h2><p>在jupyter-blog目录运行<code>pelican-quickstart</code>，会弹出一系列的问题，全部填完后Pelican就会完成初始化</p>
+<p>下面只列出几个重要的问题， 和我填的内容, 根据自己的情况调整即可。剩余的问题直接按回车，使用默认值即可。</p>
+<pre><code>What will be the title of this web site? JunjieCai's Blog
+Who will be the author of this web site? JunjieCai
+What will be the default language of this web site? en
+Do you want to specify a URL prefix? e.g., http://example.com (Y/n) n
+What is your time zone? [Europe/Paris] Asia/Shanghai</code></pre>
+<p>这步骤完成后， 文件夹的结构看上去应该是这样的</p>
+<pre><code>jupyter-blog
+│   output
+│   content
+│   develop_server.sh
+│   fabfile.py
+│   Makefile
+│   requirements.txt
+│   pelicanconf.py
+│   publishconf.py</code></pre>
+<h2 id="安装Jupyter-Notebook插件">安装Jupyter Notebook插件<a class="anchor-link" href="#安装Jupyter-Notebook插件">¶</a></h2><p>经过前面的步骤,Pelican已经算是安装好了，但是默认情况下，它是不支持Jupyter Notebook的,因此需要额外的安装Jupyter Plugin。</p>
+<ul>
+<li>如果没有安装git, 先用sudo apt-get install git安装git</li>
+<li>在jupyter-blog运行<code>git init</code>， 将jupyter-blog变成git repository</li>
+<li>在jupyter-blog中创建一个叫plugin的文件夹</li>
+<li>在jupyter-blog中运行<code>git submodule add git://github.com/danielfrg/pelican-ipynb.git plugins/ipynb</code></li>
+</ul>
+<p>为了激活插件，还要记得修改jupyter-blog中的pelicanconf.py文件，在最后添加以下几行，并且保存</p>
+<pre><code>MARKUP = ('md', 'ipynb')
+
+PLUGIN_PATH = './plugins'
+PLUGINS = ['ipynb.markup']</code></pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="发布Blog">发布Blog<a class="anchor-link" href="#发布Blog">¶</a></h2><h3 id="编写Jupyter-Notebook">编写Jupyter Notebook<a class="anchor-link" href="#编写Jupyter-Notebook">¶</a></h3><ul>
+<li><p>在jupyter-blog/content/下打开jupyter notebook， 撰写第一份blog， 并且保存为.ipynb文件。 已当前的这篇文章为例， 我使用的文件名是blog_with_jupyter.ipynb</p>
+</li>
+<li><p>然后新建一个同名的文件, 但是后缀要改成.ipynb-meta。 在我的例子里， 就是blog_with_jupyter.ipynb-meta这个文件主要是为了定义blog的名称，作者，时间，分类等信息, pelican生成html的时候需要用到这些信息。 在该文件中添加以下信息(请根据自己的情况修改)</p>
+</li>
+</ul>
+<pre><code>Title: 如何用pelican, jupyter notebook搭建技术博客
+Slug: blog_with_jupyter
+Date: 2016-09-11 18:55
+Category: tools
+Tags: blog tool
+Author: Junjie Cai
+Summary: 简单介绍了如何在Pelican和GitPages的帮助下，用Jupyter Notebook撰写Blog</code></pre>
+<p><code>Slug</code>是访问这篇Blog所需要的url路径。例如Server地址是<a href="http://junjiecai.github.io/">http://junjiecai.github.io/</a> 的话, 那么这篇blog的访问链接就是<a href="http://junjiecai.github.io/blog_with_jupyter">http://junjiecai.github.io/blog_with_jupyter</a></p>
+<p><code>Tags</code>表示标签， 不过多个Tag之间注意要用空格去区分</p>
+<p>其余的应该不用解释了:)</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>这步骤完成后， 文件夹的结构看上去应该是这样的</p>
+<pre><code>jupyter-blog
+│   output
+│   content
+    | blog_with_jupyter.ipynb
+    | blog_with_jupyter.ipynb-meta
+│   develop_server.sh
+│   fabfile.py
+│   Makefile
+│   requirements.txt
+│   pelicanconf.py
+│   publishconf.py</code></pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="生成HTML文件并在本地测试">生成HTML文件并在本地测试<a class="anchor-link" href="#生成HTML文件并在本地测试">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>切换到jupyter-blog文件夹</li>
+<li>运行<code>pelican content</code>。 这样Pelican就会读取jupyter-blog/content文件夹中的.ipynb和.ipynb-meta文件，并且结合theme等内容， 在jupyter-blog/output文件夹中生成相应的html文件。运行玩这步后，可以在content文件夹中看到新增了不少.html文件</li>
+<li>切换到jupyter-blog/output文件夹， 运行<code>python -m pelican.server</code>启动一个本地的服务起， 然后打开浏览器，输入localhost:8000，一切顺利的话就可以看到自己的blog文章页面</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="将HTML文件部署到到GitHub-Pages">将HTML文件部署到到GitHub Pages<a class="anchor-link" href="#将HTML文件部署到到GitHub-Pages">¶</a></h2><ul>
+<li>没注册Github的，先去<a href="www.github.com">Github</a>注册</li>
+<li>在github创建一个叫[username].github.io的repository, <strong>把[username]替换成注册时用的username,后面相同。</strong></li>
+<li>将本地的jupyter-blog文件夹和github上的[username].github.io建立连接
+切换到jupyter-blog文件夹后运行<code>git remote add origin git@github.com:[username]/[username].github.io.git</code></li>
+<li>在jupyter-blog创建一个.gitignore(这不是后缀，完整的文件名就是这样)文件， 里面的内容可以参考<a href="https://github.com/github/gitignore/blob/master/Python.gitignore">这里</a>， 将一些不必要的内容排除出git同步的范围。</li>
+<li>修改publishconf.py文件， 将SITEURL改成<a href="http://[username].github.io">http://[username].github.io</a></li>
+</ul>
+<p>要部署到GitPages前，在jupyter-blog运行<code>pelican content -s publishconf.py</code>,重新生成html文件
+(如果要在本地预览，用<code>pelican content</code>)</p>
+<p>最后利用</p>
+<pre><code>ghp-import output -b master
+git push origin master</code></pre>
+<p>提交html页面至[username].github.io的master repo即可。</p>
+<p>注:GitHub Pages识别的是[username].github.io中master branch repo根目录下的.html文件， 而我们本地生成的html文件是在output文件家中， 因此这里才需要<code>ghp-import</code>的协助，将output文件夹中的内容部署后实现放在[username].github.io根目录下。</p>
+<p>成功后就可以在[username].github.io的master分支看到变化。 不过如果要在<a href="http://[username].github.io">http://[username].github.io</a> 的页面上看到变化，可能要等上几分钟。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="将.ipynb文件也同步到Github">将.ipynb文件也同步到Github<a class="anchor-link" href="#将.ipynb文件也同步到Github">¶</a></h2><p>如果除了生成的html文件，我们需要将content文件夹中的.ipynb等文件也在[username].github.io保留一份，可以新建一个dev branch， 然后用经典的</p>
+<pre><code>git add --all
+git commit -m 'you comment'
+git push origin dev</code></pre>
+<p>流程将<code>jupyter-blog</code>的内容添加到dev branch即可。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="更改Theme和添加插件">更改Theme和添加插件<a class="anchor-link" href="#更改Theme和添加插件">¶</a></h2><p>可以去查询pelican的<a href="http://docs.getpelican.com/en/3.6.3/">官方文档</a>和pelican的<a href="https://github.com/getpelican/pelican-themes">Theme站</a>自己去进行配置。</p>
+<p>除此之外，也可以去Pelican的<a href="https://github.com/getpelican/pelican-plugins">插件站</a>挑选对自己有用的插件。</p>
+<p>由于每个Theme和插件的配置方式都有有些不同，以Theme和插件自己的说明为准。这里就不详细介绍了。</p>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+
+                </article>
+		<div align='center'>
+		            <div class="tags">
+		                <p>tags: <a href="https://junjiecai.github.io/tag/blog.html">blog</a>, <a href="https://junjiecai.github.io/tag/jupyter.html">jupyter</a></p>
+		            </div>
+<p>若觉得本文对您有帮助,欢迎赞助作者一顿早餐:D</p>			
+<img class='reward' style="display:inline;margin-right:10px" src="https://junjiecai.github.io/theme/customs/award.jpeg" alt="weixin_payment">		</div>
+<div class="ds-thread" data-thread-key="//junjiecai.github.io/0000" data-title="//junjiecai.github.io/0000" data-url="//junjiecai.github.io/posts/2016/Jun/10/blog_with_jupyter/" style="width: 80%;margin-left: 20%;"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"junjiecai1984"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+            </div>
+        </div>
+    </div>
+
+
+    <hr>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                    <!--
+                            <li>
+                                <a href="#">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-you can add links in your config file fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-another social link fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+    
+                    -->
+                    </ul>
+<!--
+<p class="copyright text-muted">
+    Blog powered by <a href="http://getpelican.com">Pelican</a>,
+    which takes great advantage of <a href="http://python.org">Python</a>.
+</p>
+-->
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-89522436-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+</body>
+
+</html>
