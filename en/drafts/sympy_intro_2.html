@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-        <title>Pytest基本介绍</title>
+        <title>Sympy tutorial II</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="https://junjiecai.github.io/../theme/css/bootstrap.min.css" rel="stylesheet">
@@ -79,21 +79,22 @@
     </script>
 
 
-        <meta name="description" content="总结了Pytest的基本用法">
+        <meta name="description" content="Tutorial fot Sympy, a powerful symbolic package for Python. Part II cover derivatives, integrals, limits and series expansion.">
 
         <meta name="author" content="Exolution">
 
-        <meta name="tags" content="test">
+        <meta name="tags" content="python">
+        <meta name="tags" content="Sympy">
 
 	                <meta property="og:locale" content="en_US.utf8">
 		<meta property="og:site_name" content="Exolution's Bizarre Adventure">
 
 	<meta property="og:type" content="article">
             <meta property="article:author" content="https://junjiecai.github.io/en/author/exolution.html">
-	<meta property="og:url" content="https://junjiecai.github.io/en/drafts/pytest_intro-ch.html">
-	<meta property="og:title" content="Pytest基本介绍">
-	<meta property="article:published_time" content="2016-07-15 00:00:00+08:00">
-            <meta property="og:description" content="总结了Pytest的基本用法">
+	<meta property="og:url" content="https://junjiecai.github.io/en/drafts/sympy_intro_2.html">
+	<meta property="og:title" content="Sympy tutorial II">
+	<meta property="article:published_time" content="2017-01-28 00:00:00+08:00">
+            <meta property="og:description" content="Tutorial fot Sympy, a powerful symbolic package for Python. Part II cover derivatives, integrals, limits and series expansion.">
 
             <meta property="og:image" content="https://junjiecai.github.io/en/../theme/images/home-bg.jpg">
 </head>
@@ -134,29 +135,31 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
-                        <h1>Pytest基本介绍</h1>
+                        <h1>Sympy tutorial II</h1>
                         <span class="meta">
-                                作者:
+                                Author:
                              
                             Exolution
                         </span>
                         <span class="meta">
-                                发布:
+                                Publish:
   
-                            2016-07-15
+                            28/01/2017
                         </span>
                         <span class="meta">
-                                修改:
+                                Modified:
   
-                            2016-07-15
+                            28/01/2017
                         </span>
                         <span class = 'meta'>
                             <span id="busuanzi_container_page_pv">
-                                    访问:
+                                    Visited:
                                 <span id="busuanzi_value_page_pv"></span>
                             </span>
                         </span>
-                        
+                                    Tanslation:
+                <a href="https://junjiecai.github.io/en/../drafts/sympy_intro_2.html">中文</a>
+
                     </div>
                 </div>
             </div>
@@ -179,7 +182,7 @@
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
     <p>
-        建议从<a href="https://github.com/junjiecai/jupyter_labs/tree/master/exolution/0001-pytest_tutorial")>这里</a>下载这篇文章对应的.ipynb文件和相关资源。这样你就能在Jupyter中边阅读，边测试文中的代码。
+        I recommend you download the .ipynb file and related resources <a href="https://github.com/junjiecai/jupyter_labs/tree/master/exolution/0026_sympy")>here</a>. Then you can test the codes in the article interactively while you are reading in Jupyter.
     </p>
 </div>
 </div>
@@ -1156,27 +1159,85 @@ h6:hover .anchor-link {
 
 .ansi-bold { font-weight: bold; }
 </style>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="pytest的基本文件结构">pytest的基本文件结构<a class="anchor-link" href="#pytest的基本文件结构">¶</a></h1><p>pytest可以自动遍历文件夹中包含测试用例的.py文件， 并且运行其中的测试用例代码。如何才能被pytest自动识别到呢？只要让.py文件，以及其中测试用例代码用'test_'或者'_test'结尾即可。</p>
-<p>例如我们测试文件是这样的组织的</p>
-<pre><code>|demo
-    test_basic.py
-    test_resource.py</code></pre>
-<p>打开的话可以找到很多'test_'开头的函数，这些都是可以被自动识别的。</p>
-<p>(在Jupyter Notebook中用'!'可以运行terminal命令，下面的命令等同于在这个notebook所在的文件夹打开一个terminal,运行<code>pytest demo</code>)</p>
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span>
+<span class="kn">from</span> <span class="nn">sympy</span> <span class="k">import</span> <span class="o">*</span>
+<span class="n">init_printing</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">compare</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span><span class="n">args</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span><span class="n">kwargs</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">args</span> <span class="ow">or</span> <span class="p">[]</span>
+    <span class="n">kwargs</span> <span class="o">=</span> <span class="n">kwargs</span> <span class="ow">or</span> <span class="p">{}</span>
+    
+    <span class="n">display</span><span class="p">(</span><span class="s1">'before:'</span><span class="p">,</span><span class="n">expr</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="s1">'afterm'</span><span class="p">,</span><span class="n">func</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [1]:</div>
+<div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span> pytest demo
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">'x y z'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Calculus(微积分)">Calculus(微积分)<a class="anchor-link" href="#Calculus(微积分)">¶</a></h1><p>In this section, we will cover how to perform baisc calculus tasks such as derivatives, integrals,litmis and series expansion.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Derivatives">Derivatives<a class="anchor-link" href="#Derivatives">¶</a></h2><p>To take derivatives, use diff()</p>
+<h3 id="basic-derivatives">basic derivatives<a class="anchor-link" href="#basic-derivatives">¶</a></h3><p>Pass in an expresison and one symbol with respect to which the derivative is applied.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [49]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">compare_derivative</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="n">symbols</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">kwargs</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="n">after</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="n">symbols</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Before derivative:'</span><span class="p">,</span><span class="n">expr</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'After derivative :'</span><span class="p">,</span><span class="n">diff</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [50]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">symbol</span> <span class="o">=</span> <span class="n">x</span>
+
+<span class="n">expr_diff</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Before derivative:'</span><span class="p">,</span><span class="n">expr</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'After derivative :'</span><span class="p">,</span><span class="n">expr_diff</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1186,21 +1247,8 @@ h6:hover .anchor-link {
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-bold">============================= test session starts ==============================</span>
-platform linux -- Python 3.5.2, pytest-3.0.6, py-1.4.32, pluggy-0.4.0
-rootdir: /home/junjiecai/Documents/jupyter-blog/content/articles/jupyter_labs/exolution/0001-pytest_tutorial, inifile: 
-collected 4 items / 1 errors <span class="ansi-bold">
-</span>
-==================================== ERRORS ====================================
-_____________________ ERROR collecting demo/test_basic.py ______________________
-<span class="ansi-red-fg">import file mismatch:
-imported module 'test_basic' has this __file__ attribute:
-  /home/exolution/Documents/jupyter-blog/content/0010-pytest_tutorial/demo/test_basic.py
-which is not the same as the test file we want to collect:
-  /home/junjiecai/Documents/jupyter-blog/content/articles/jupyter_labs/exolution/0001-pytest_tutorial/demo/test_basic.py
-HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules</span>
-!!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!
-<span class="ansi-red-intense-fg ansi-bold">=========================== 1 error in 0.13 seconds ============================</span>
+<pre>Before derivative: sin(x)
+After derivative : cos(x)
 </pre>
 </div>
 </div>
@@ -1212,137 +1260,119 @@ HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>上面的例子里， pytest找到了demo文件夹下2个包含测试用例的.py文件， 并且找到其中测试用例代码并且执行。(这里我们的测试用例都是能通过的)</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="用例的基本写法">用例的基本写法<a class="anchor-link" href="#用例的基本写法">¶</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>测试用例的基本思路是， 运行待测函数，然后比较待测函数的行为(生成特定结果， 正确的raise Exception)是否和设计的一致。</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>例如我们构想一个函数func, 需要满足两个特征。</p>
-<ol>
-<li>接受参数字符串s和整数n, 返回将s扩增n次以后拼接在一起的结果</li>
-<li>如果s的类型不是str, raise TypeError</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>针对第一个要求， 我们可以构造一个具体的参数组合, 让待测函数执行， 然后比较返回的结果是否和我们设计的一致。</p>
+<p>diff() can also be called as a method</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [2]:</div>
+<div class="prompt input_prompt">In [51]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">test_value</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="n">func</span><span class="p">(</span><span class="s1">'ab'</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="s1">'ababab'</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>assert语句会判断之后的条件表达式是否成立， 如果成立， 什么都不发生； 如果不成立， 会raise Exception并被pytest捕捉。</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>针对第二个需求， 无法直接利用assert语句判断， 但是可以利用pytest提供的context manager去表达"这是会raise xx类型的Exception的错误"的要求， 语法如下。</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [3]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">test_error</span><span class="p">():</span>
-    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">TypeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">error_info</span><span class="p">:</span>
-        <span class="n">func</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>我们一开始的代码是两个测试都能通过的， 大家可以修改一下代码后观察一下pytest的运行结果。</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="创建和销毁资源">创建和销毁资源<a class="anchor-link" href="#创建和销毁资源">¶</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>有些场合下， 我们需要在测试用例执行前创建一些资源， 以及在测试用例执行后销毁一些资源。 比如在数据库中创建表， 导入数据， 测试一段sql逻辑， 然后销毁这张表。 这种场合可以利用pytest提供的@pytest.fixture和yield语法构造一个资源管理器</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [4]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span> <span class="c1"># pytest提供的装饰器</span>
-<span class="k">def</span> <span class="nf">function_level_resource</span><span class="p">():</span>
-    <span class="c1"># 创建资源的代码</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'---------------------'</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'setup function level resource'</span><span class="p">)</span>
-    
-    <span class="c1"># 如果有必要, 返回生成的资源(例如和特定数据库的连接conn); 如果不需要(例如只是在数据库中建张表), 写一个空的yield语句即可</span>
-    <span class="k">yield</span> <span class="s1">'some resource'</span> <span class="c1"># replace into real resource, such as connection</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-    <span class="c1"># 销毁资源的代码</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'teardown function level resource'</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'---------------------'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Before derivative:'</span><span class="p">,</span><span class="n">expr</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'After derivative :'</span><span class="p">,</span><span class="n">expr</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Before derivative: sin(x)
+After derivative : cos(x)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To create an unevaluated derivative, use Derivative class and initiate it with the same syntax with diff()</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [52]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">diff_expr</span> <span class="o">=</span> <span class="n">Derivative</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Before evaluating:'</span><span class="p">,</span><span class="n">expr_diff</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Before evaluating: cos(x)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And call <code>doit()</code> method to evaluate it.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [53]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'After evaluating:'</span><span class="p">,</span><span class="n">expr_diff</span><span class="o">.</span><span class="n">doit</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>After evaluating: cos(x)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To avoid duplicated code to compare the result and original derivative, we define a function.</p>
+<p><code>args</code> are positional arguments passed to Derivative and <code>kargs</code>are keyword arguments to it.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [1]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display_latex</span><span class="p">(</span><span class="n">latex</span><span class="p">(</span><span class="n">diff_expr</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1355,51 +1385,26 @@ HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg"><ipython-input-4-8260efed2a58></span> in <span class="ansi-cyan-fg"><module></span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----> 1</span><span class="ansi-red-fg"> </span><span class="ansi-blue-fg">@</span>pytest<span class="ansi-blue-fg">.</span>fixture <span class="ansi-red-fg"># pytest提供的装饰器</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-green-fg">def</span> function_level_resource<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span>     <span class="ansi-red-fg"># 创建资源的代码</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span>     print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">'---------------------'</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span>     print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">'setup function level resource'</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg"><ipython-input-1-79579cba055c></span> in <span class="ansi-cyan-fg"><module></span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----> 1</span><span class="ansi-red-fg"> </span>display_latex<span class="ansi-blue-fg">(</span>latex<span class="ansi-blue-fg">(</span>diff_expr<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 
-<span class="ansi-red-fg">NameError</span>: name 'pytest' is not defined</pre>
+<span class="ansi-red-fg">NameError</span>: name 'display_latex' is not defined</pre>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>如果不理解python的decorator和yield语法的话， 对上面这段代码可能会比较迷茫。 如果没有时间去详细理解decorator和yield， 这里只要知道</p>
-<ol>
-<li>虽然这段代码用的是函数定义的语法， 但是得到的结果并不是一个函数, 而是一个object， 所以别用函数的观点去理解这段代码</li>
-<li>记住生成资源， 返回资源， 销毁资源的代码写哪即可。</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>如果要在测试用例代码中使用相关的资源， 把这个"函数"名传入测试用例的代码即可</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [41]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">test_1</span><span class="p">(</span><span class="n">function_level_resource</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'running test case '</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'Get '</span><span class="o">+</span><span class="n">function_level_resource</span><span class="p">)</span> <span class="c1">#yield返回的结果在测试用例代码中可以用函数的名字访问</span>
-
-    <span class="k">assert</span> <span class="kc">True</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">compare_derivative</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kargs</span><span class="p">):</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">args</span> <span class="ow">or</span> <span class="p">[]</span>
+    <span class="n">kargs</span> <span class="o">=</span> <span class="n">kargs</span> <span class="ow">or</span> <span class="p">{}</span>
+    <span class="n">expr_diff</span> <span class="o">=</span> <span class="n">Derivative</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kargs</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="s1">'Before evaluating:'</span><span class="p">,</span><span class="n">expr_diff</span><span class="p">)</span>    
+    <span class="n">display</span><span class="p">(</span><span class="s1">'After evaluating:'</span><span class="p">,</span><span class="n">expr_diff</span><span class="o">.</span><span class="n">doit</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -1410,27 +1415,496 @@ HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>这样在运行这个测试用例前， 就会执行function_level_resource定义的资源创建代码， 将yield返回的资源通过function_level_resource这个变量暴露给测试用例代码。并且在测试用例完成后，执行销毁资源的代码。</p>
-<p>如果需要让整个.py文件共享一个资源， 在所有该文件的test case执行前统一创建一次资源， 等所有该文件的test case完成后统一销毁资源。 可以定义一个module level的资源管理器， 像这样。</p>
+<h3 id="higher-order-derivative">higher order derivative<a class="anchor-link" href="#higher-order-derivative">¶</a></h3><p>To take n order derivatives, pass the symbol n times or pass the symbol once and then follows it with n.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [42]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="s2">"module"</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">moudule_level_resource</span><span class="p">():</span>
-    <span class="c1"># setup resource and return by yield</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'=========================='</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'setup module level resource'</span><span class="p">)</span>
-    
-    <span class="k">yield</span> <span class="s1">'some module level resource'</span> <span class="c1"># replace into real resource, such as connection</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">4</span>
 
-    <span class="c1"># teardown resource</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'teardown module level resource'</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'=========================='</span><span class="p">)</span>
+<span class="n">compare_derivative</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'Before evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\frac{d^{3}}{d x^{3}}  x^{4}$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'After evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$24 x$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can achive the same calculation with the second syntax.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [45]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">compare_derivative</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'Before evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\frac{d^{3}}{d x^{3}}  x^{4}$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'After evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$24 x$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="higher-order-partial-derivatives.">higher order partial derivatives.<a class="anchor-link" href="#higher-order-partial-derivatives.">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Just pass the symbols in order, with the same syntax with single variable derivative.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [46]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">*</span><span class="n">z</span><span class="p">)</span>
+
+<span class="n">compare_derivative</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'Before evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\frac{\partial^{7}}{\partial x\partial y^{2}\partial z^{4}}  e^{x y z}$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'After evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$x^{3} y^{2} \left(x^{3} y^{3} z^{3} + 14 x^{2} y^{2} z^{2} + 52 x y z + 48\right) e^{x y z}$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Or user number to control the derivatives order for each symbol</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [48]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">compare_derivative</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'Before evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\frac{\partial^{7}}{\partial x\partial y^{2}\partial z^{4}}  e^{x y z}$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'After evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$x^{3} y^{2} \left(x^{3} y^{3} z^{3} + 14 x^{2} y^{2} z^{2} + 52 x y z + 48\right) e^{x y z}$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Integrals">Integrals<a class="anchor-link" href="#Integrals">¶</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="indefinte-integrals">indefinte integrals<a class="anchor-link" href="#indefinte-integrals">¶</a></h2><p>Similiar with derivatives, integrals can be performed through integral() by function or method. To construct an unevaluated expression, initialize an Integral class and call doit() to evaludate the calculation.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To avoid duplication, let's define a function similiar with <code>compare_derivatives()</code></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [55]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">compare_integral</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kargs</span><span class="p">):</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">args</span> <span class="ow">or</span> <span class="p">[]</span>
+    <span class="n">kargs</span> <span class="o">=</span> <span class="n">kargs</span> <span class="ow">or</span> <span class="p">{}</span>
+    <span class="n">expr_diff</span> <span class="o">=</span> <span class="n">Integral</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kargs</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="s1">'Before evaluating:'</span><span class="p">,</span><span class="n">expr_diff</span><span class="p">)</span>    
+    <span class="n">display</span><span class="p">(</span><span class="s1">'After evaluating:'</span><span class="p">,</span><span class="n">expr_diff</span><span class="o">.</span><span class="n">doit</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [57]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">compare_integral</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'Before evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\int \cos{\left (x \right )}\, dx$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'After evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\sin{\left (x \right )}$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="definite-integrals">definite integrals<a class="anchor-link" href="#definite-integrals">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To perform a definite integral, pass in a tuple of variable symbol, lower bound and upper bound.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [59]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">compare_integral</span><span class="p">(</span><span class="n">expr</span><span class="p">,(</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">oo</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'Before evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\int_{0}^{\infty} e^{- x}\, dx$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'After evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$1$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Note, $\infty$ in Sympy is oo (double lower case 'O')</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="multiple-integrals">multiple integrals<a class="anchor-link" href="#multiple-integrals">¶</a></h3><p>To perform a multiple integral, pass multiple tuples of symbol variable and integral bounds.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [61]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">compare_integral</span><span class="p">(</span><span class="n">expr</span><span class="p">,(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="n">oo</span><span class="p">,</span> <span class="n">oo</span><span class="p">),</span> <span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="n">oo</span><span class="p">,</span> <span class="n">oo</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'Before evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\int_{-\infty}^{\infty}\int_{-\infty}^{\infty} e^{- x^{2} - y^{2}}\, dx\, dy$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'After evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\pi$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If Sympy cannot calculate an integral on an expression, it returns an unevaluated integral expression.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [65]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="n">x</span>
+
+<span class="n">compare_integral</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'Before evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\int x^{x}\, dx$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'After evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\int x^{x}\, dx$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Limits">Limits<a class="anchor-link" href="#Limits">¶</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Similiar with derivatives, limits can be performed through limit() by function or method. To construct an unevaluated expression, initialize an Limit class and call doit() to evaludate the calculation.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To avoid duplication, let's define a function similiar with <code>compare_limit()</code></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [70]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">compare_limit</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kargs</span><span class="p">):</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">args</span> <span class="ow">or</span> <span class="p">[]</span>
+    <span class="n">kargs</span> <span class="o">=</span> <span class="n">kargs</span> <span class="ow">or</span> <span class="p">{}</span>
+    <span class="n">expr_diff</span> <span class="o">=</span> <span class="n">Limit</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kargs</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="s1">'Before evaluating:'</span><span class="p">,</span><span class="n">expr_diff</span><span class="p">)</span>    
+    <span class="n">display</span><span class="p">(</span><span class="s1">'After evaluating:'</span><span class="p">,</span><span class="n">expr_diff</span><span class="o">.</span><span class="n">doit</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -1441,19 +1915,196 @@ HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>在test_resource.py中， 每个测试用例同时使用了module level的资源和function level的资源。</p>
-<p>下面验证一下结果， 可以看到module_level资源只是在测试test_resource.py时被创建和销毁一次， function_level的资源在每个待测函数的起始和终止都被创建和销毁一次。</p>
-<p>(注意pytest默认不会输出print的结果， 如果需要显示， 要添加-s的参数)</p>
+<p>To perform two-sided, pass the expression, variable symbol and the value to evaluate at. By default the limit is calculated from right to left with default setting <code>dir = '+'</code>.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [75]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span> pytest demo -s
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">x</span>
+
+<span class="n">compare_limit</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'Before evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\lim_{x \to 0^+}\left(\frac{1}{x} \sin{\left (x \right )}\right)$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'After evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$1$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To caluculate a limit from left to right. Pass <code>dir='-'</code></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [76]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">x</span>
+
+<span class="n">compare_limit</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="nb">dir</span> <span class="o">=</span> <span class="s1">'-'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'Before evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\lim_{x \to 0^-}\left(\frac{1}{x} \sin{\left (x \right )}\right)$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'After evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$1$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Series-Expansion">Series Expansion<a class="anchor-link" href="#Series-Expansion">¶</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Sympy can calculate an asymptotic series expansion of a funciton around a point $x_0$ with respect to  $O(x-x_0)^n$.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [84]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">expanded</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">series</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="s1">'Origin expression:'</span><span class="p">,</span><span class="n">expr</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="s1">'Expanded expression:'</span><span class="p">,</span><span class="n">expanded</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'Origin expression:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\sin{\left (x \right )}$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'Expanded expression:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$x - \frac{x^{3}}{6} + \frac{x^{5}}{120} + \mathcal{O}\left(x^{6}\right)$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To remove the order term, call removeO() method</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [85]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="s1">'Expanded expression without order term:'</span><span class="p">,</span><span class="n">expanded</span><span class="o">.</span><span class="n">removeO</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'Expanded expression without order term:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\frac{x^{5}}{120} - \frac{x^{3}}{6} + x$$
+</div>
 </div>
 </div>
 </div>
@@ -1490,11 +2141,11 @@ HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test
                 </article>
 		<div align='center'>
 		            <div class="tags">
-		                <p>tags: <a href="https://junjiecai.github.io/en/tag/test.html">test</a></p>
+		                <p>tags: <a href="https://junjiecai.github.io/en/tag/python.html">python</a>, <a href="https://junjiecai.github.io/en/tag/sympy.html">Sympy</a></p>
 		            </div>
 <p>若觉得本文对您有帮助,欢迎赞助作者一顿早餐:D</p>			
 <img class='reward' style="display:inline;margin-right:10px" src="https://junjiecai.github.io/../theme/customs/award.jpeg" alt="weixin_payment">		</div>
-<div class="ds-thread" data-thread-key="//junjiecai.github.io/0001" data-title="//junjiecai.github.io/0001" data-url="//junjiecai.github.io/drafts/pytest_intro-ch.html" style="width: 80%;margin-left: 20%;"></div>
+<div class="ds-thread" data-thread-key="//junjiecai.github.io/0027" data-title="//junjiecai.github.io/0027" data-url="//junjiecai.github.io/drafts/sympy_intro_2.html" style="width: 80%;margin-left: 20%;"></div>
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"junjiecai1984"};
 	(function() {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ch">
 
 <head>
             <meta charset="utf-8">
@@ -7,18 +7,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-        <title>Pandas Introductio II</title>
+        <title>Sympy tutorial II</title>
 
         <!-- Bootstrap Core CSS -->
-        <link href="https://junjiecai.github.io/../theme/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://junjiecai.github.io/../theme/css/bootstrap-theme.min.css" rel="stylesheet">
+        <link href="https://junjiecai.github.io/theme/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://junjiecai.github.io/theme/css/bootstrap-theme.min.css" rel="stylesheet">
         <!-- Custom CSS -->
-        <link href="https://junjiecai.github.io/../theme/css/clean-blog.min.css" rel="stylesheet">
+        <link href="https://junjiecai.github.io/theme/css/clean-blog.min.css" rel="stylesheet">
 
 
         <!-- Code highlight color scheme -->
-            <link href="https://junjiecai.github.io/../theme/css/code_blocks/github.css" rel="stylesheet">
-        <link href="https://junjiecai.github.io/../theme/css/reward.css" rel="stylesheet">
+            <link href="https://junjiecai.github.io/theme/css/code_blocks/github.css" rel="stylesheet">
+        <link href="https://junjiecai.github.io/theme/css/reward.css" rel="stylesheet">
 
 
 
@@ -26,16 +26,16 @@
         <!-- Custom Fonts -->
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <!-- jQuery -->
-        <script src="https://junjiecai.github.io/../theme/js/jquery.min.js"></script>
+        <script src="https://junjiecai.github.io/theme/js/jquery.min.js"></script>
 
         <!-- Bootstrap Core JavaScript -->
-        <script src="https://junjiecai.github.io/../theme/js/bootstrap.min.js"></script>
-        <script src="https://junjiecai.github.io/../theme/js/jquery-ui.min.js"></script>
+        <script src="https://junjiecai.github.io/theme/js/bootstrap.min.js"></script>
+        <script src="https://junjiecai.github.io/theme/js/jquery-ui.min.js"></script>
 
 
 
         <!-- Custom Theme JavaScript -->
-        <script src="https://junjiecai.github.io/../theme/js/clean-blog.min.js"></script>
+        <script src="https://junjiecai.github.io/theme/js/clean-blog.min.js"></script>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -43,8 +43,8 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-    <link href="https://junjiecai.github.io/../theme/css/jquery.tocify.css" rel="stylesheet">
-    <script src="https://junjiecai.github.io/../theme/js/jquery.tocify.js"></script>
+    <link href="https://junjiecai.github.io/theme/css/jquery.tocify.css" rel="stylesheet">
+    <script src="https://junjiecai.github.io/theme/js/jquery.tocify.js"></script>
     <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
     <script>
@@ -79,24 +79,24 @@
     </script>
 
 
-        <meta name="description" content="Tutorial for pandas. How to create DataFrame and add, modify and delete its members.">
+        <meta name="description" content="Tutorial fot Sympy, a powerful symbolic package for Python. Part II cover derivatives, integrals, limits and series expansion.">
 
         <meta name="author" content="Exolution">
 
         <meta name="tags" content="python">
-        <meta name="tags" content="pandas">
+        <meta name="tags" content="Sympy">
 
 	                <meta property="og:locale" content="en_US.utf8">
-		<meta property="og:site_name" content="Exolution's Bizarre Adventure">
+		<meta property="og:site_name" content="Exolution的奇妙冒险">
 
 	<meta property="og:type" content="article">
-            <meta property="article:author" content="https://junjiecai.github.io/en/author/exolution.html">
-	<meta property="og:url" content="https://junjiecai.github.io/en/drafts/pandas_intro_2-ch.html">
-	<meta property="og:title" content="Pandas Introductio II">
-	<meta property="article:published_time" content="2017-01-29 00:00:00+08:00">
-            <meta property="og:description" content="Tutorial for pandas. How to create DataFrame and add, modify and delete its members.">
+            <meta property="article:author" content="https://junjiecai.github.io/author/exolution.html">
+	<meta property="og:url" content="https://junjiecai.github.io/drafts/sympy_intro_2.html">
+	<meta property="og:title" content="Sympy tutorial II">
+	<meta property="article:published_time" content="2017-01-28 00:00:00+08:00">
+            <meta property="og:description" content="Tutorial fot Sympy, a powerful symbolic package for Python. Part II cover derivatives, integrals, limits and series expansion.">
 
-            <meta property="og:image" content="https://junjiecai.github.io/en/../theme/images/home-bg.jpg">
+            <meta property="og:image" content="https://junjiecai.github.io/../theme/images/home-bg.jpg">
 </head>
 
 <body>
@@ -112,16 +112,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="https://junjiecai.github.io/en/">Exolution's Bizarre Adventure</a>
+                <a class="navbar-brand" href="https://junjiecai.github.io/">Exolution的奇妙冒险</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                        <li><a href="https://junjiecai.github.io/en/categories.html">Categories</a></li>
-                        <li><a href="https://junjiecai.github.io/en/tags.html">Tags</a></li>
-                        <li><a href="https://junjiecai.github.io/en/archives.html">Archives</a></li>
-                            <li><a href="https://junjiecai.github.io/en/pages/about/">Abount Me</a></li>
+                        <li><a href="https://junjiecai.github.io/categories.html">分类</a></li>
+                        <li><a href="https://junjiecai.github.io/tags.html">标签</a></li>
+                        <li><a href="https://junjiecai.github.io/archives.html">归档</a></li>
+                            <li><a href="https://junjiecai.github.io/pages/about/">关于我</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -130,12 +130,12 @@
     </nav>
 
     <!-- Page Header -->
-        <header class="intro-header" style="padding:20px;background:black;background-image: url('https://junjiecai.github.io/../theme/customs/bg_image.jpg')">
+        <header class="intro-header" style="padding:20px;background:black;background-image: url('https://junjiecai.github.io/theme/customs/bg_image.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
-                        <h1>Pandas Introductio II</h1>
+                        <h1>Sympy tutorial II</h1>
                         <span class="meta">
                                 作者:
                              
@@ -144,12 +144,12 @@
                         <span class="meta">
                                 发布:
   
-                            2017-01-29
+                            2017-01-28
                         </span>
                         <span class="meta">
                                 修改:
   
-                            2017-01-29
+                            2017-01-28
                         </span>
                         <span class = 'meta'>
                             <span id="busuanzi_container_page_pv">
@@ -157,7 +157,9 @@
                                 <span id="busuanzi_value_page_pv"></span>
                             </span>
                         </span>
-                        
+                                    Tanslation:
+                <a href="https://junjiecai.github.io/en/drafts/sympy_intro_2.html">English</a>
+
                     </div>
                 </div>
             </div>
@@ -180,7 +182,7 @@
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
     <p>
-        建议从<a href="https://github.com/junjiecai/jupyter_labs/tree/master/exolution/0014_pandas_practice")>这里</a>下载这篇文章对应的.ipynb文件和相关资源。这样你就能在Jupyter中边阅读，边测试文中的代码。
+        建议从<a href="https://github.com/junjiecai/jupyter_labs/tree/master/exolution/0026_sympy")>这里</a>下载这篇文章对应的.ipynb文件和相关资源。这样你就能在Jupyter中边阅读，边测试文中的代码。
     </p>
 </div>
 </div>
@@ -1159,293 +1161,21 @@ h6:hover .anchor-link {
 </style>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [1]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pandas</span> <span class="k">import</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">Series</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="DataFrame">DataFrame<a class="anchor-link" href="#DataFrame">¶</a></h1><h2 id="创建">创建<a class="anchor-link" href="#创建">¶</a></h2><p>和Series一样,DataFrame也可以接收多种数据类型的数据。</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="dict-of-dict/Series">dict of dict/Series<a class="anchor-link" href="#dict-of-dict/Series">¶</a></h3><p>这时DataFrame会用dict的keys作为DataFrame的columns,内层Series的index的并集(或者内层dict的keys的并集)作为DataFrame的index。 内层的Series和Dict长度可以不一样。</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [2]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">'one'</span> <span class="p">:</span> <span class="n">Series</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">]),</span>
-    <span class="s1">'two'</span> <span class="p">:</span> <span class="n">Series</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">,</span> <span class="s1">'d'</span><span class="p">])</span>
-<span class="p">}</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-
-<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_html rendered_html output_subarea ">
-<div>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>one</th>
-<th>two</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>a</th>
-<td>1.0</td>
-<td>1.0</td>
-</tr>
-<tr>
-<th>b</th>
-<td>2.0</td>
-<td>2.0</td>
-</tr>
-<tr>
-<th>c</th>
-<td>3.0</td>
-<td>3.0</td>
-</tr>
-<tr>
-<th>d</th>
-<td>NaN</td>
-<td>4.0</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [3]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">'one'</span> <span class="p">:</span> <span class="p">{</span><span class="s1">'a'</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">'b'</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">'c'</span><span class="p">:</span><span class="mi">3</span><span class="p">},</span>
-    <span class="s1">'two'</span> <span class="p">:</span> <span class="p">{</span><span class="s1">'a'</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">'b'</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">'c'</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="s1">'d'</span><span class="p">:</span><span class="mi">4</span><span class="p">}</span>
-<span class="p">}</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-
-<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_html rendered_html output_subarea ">
-<div>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>one</th>
-<th>two</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>a</th>
-<td>1.0</td>
-<td>1</td>
-</tr>
-<tr>
-<th>b</th>
-<td>2.0</td>
-<td>2</td>
-</tr>
-<tr>
-<th>c</th>
-<td>3.0</td>
-<td>3</td>
-</tr>
-<tr>
-<th>d</th>
-<td>NaN</td>
-<td>4</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>如果额外的传入index,columns参数。那么传入的数据中不在传入index,columns范围内的会被舍弃，传入index,columns中需要，但传入数据中找不到对应值的部分会被用NaN填充。</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
 <div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">'one'</span> <span class="p">:</span> <span class="p">{</span><span class="s1">'a'</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">'b'</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">'c'</span><span class="p">:</span><span class="mi">3</span><span class="p">},</span>
-    <span class="s1">'two'</span> <span class="p">:</span> <span class="p">{</span><span class="s1">'a'</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">'b'</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">'c'</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="s1">'d'</span><span class="p">:</span><span class="mi">4</span><span class="p">}</span>
-<span class="p">}</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span>
+<span class="kn">from</span> <span class="nn">sympy</span> <span class="k">import</span> <span class="o">*</span>
+<span class="n">init_printing</span><span class="p">()</span>
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">,</span><span class="s1">'e'</span><span class="p">],</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'one'</span><span class="p">,</span><span class="s1">'two'</span><span class="p">,</span><span class="s1">'three'</span><span class="p">])</span>
-
-<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">compare</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span><span class="n">args</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span><span class="n">kwargs</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">args</span> <span class="ow">or</span> <span class="p">[]</span>
+    <span class="n">kwargs</span> <span class="o">=</span> <span class="n">kwargs</span> <span class="ow">or</span> <span class="p">{}</span>
+    
+    <span class="n">display</span><span class="p">(</span><span class="s1">'before:'</span><span class="p">,</span><span class="n">expr</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="s1">'afterm'</span><span class="p">,</span><span class="n">func</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_html rendered_html output_subarea ">
-<div>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>one</th>
-<th>two</th>
-<th>three</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>a</th>
-<td>1.0</td>
-<td>1.0</td>
-<td>NaN</td>
-</tr>
-<tr>
-<th>b</th>
-<td>2.0</td>
-<td>2.0</td>
-<td>NaN</td>
-</tr>
-<tr>
-<th>e</th>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>如果希望把外层dict的keys作为index，内层Series的index并集(或者内层dict的keys的并集)作为columns的话，可以用DataFrame.from_dict实现。</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [5]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">'one'</span> <span class="p">:</span> <span class="p">{</span><span class="s1">'a'</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">'b'</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">'c'</span><span class="p">:</span><span class="mi">3</span><span class="p">},</span>
-    <span class="s1">'two'</span> <span class="p">:</span> <span class="p">{</span><span class="s1">'a'</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">'b'</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">'c'</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="s1">'d'</span><span class="p">:</span><span class="mi">4</span><span class="p">}</span>
-<span class="p">}</span>
-
-<span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">orient</span><span class="o">=</span><span class="s1">'index'</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[5]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>c</th>
-<th>b</th>
-<th>d</th>
-<th>a</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>one</th>
-<td>3</td>
-<td>2</td>
-<td>NaN</td>
-<td>1</td>
-</tr>
-<tr>
-<th>two</th>
-<td>3</td>
-<td>2</td>
-<td>4.0</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>注意要把orient设置成'index'(默认是'columns'),否则就和<code>DataFrame(d)</code>的效果一样了。</p>
 </div>
 </div>
 </div>
@@ -1454,56 +1184,18 @@ h6:hover .anchor-link {
 <div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">'one'</span> <span class="p">:</span> <span class="p">{</span><span class="s1">'a'</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">'b'</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">'c'</span><span class="p">:</span><span class="mi">3</span><span class="p">},</span>
-    <span class="s1">'two'</span> <span class="p">:</span> <span class="p">{</span><span class="s1">'a'</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">'b'</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">'c'</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="s1">'d'</span><span class="p">:</span><span class="mi">4</span><span class="p">}</span>
-<span class="p">}</span>
-
-<span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">'x y z'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[6]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>one</th>
-<th>two</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>a</th>
-<td>1.0</td>
-<td>1</td>
-</tr>
-<tr>
-<th>b</th>
-<td>2.0</td>
-<td>2</td>
-</tr>
-<tr>
-<th>c</th>
-<td>3.0</td>
-<td>3</td>
-</tr>
-<tr>
-<th>d</th>
-<td>NaN</td>
-<td>4</td>
-</tr>
-</tbody>
-</table>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Calculus(微积分)">Calculus(微积分)<a class="anchor-link" href="#Calculus(微积分)">¶</a></h1><p>In this section, we will cover how to perform baisc calculus tasks such as derivatives, integrals,litmis and series expansion.</p>
 </div>
 </div>
 </div>
@@ -1512,1138 +1204,40 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="dict-of-list/ndarray">dict of list/ndarray<a class="anchor-link" href="#dict-of-list/ndarray">¶</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>dict内层也可以是list或者ndarray。这时由于没有可利用的index对成员进行匹配，内层list或者ndarry的长度必须一致。</p>
+<h2 id="Derivatives">Derivatives<a class="anchor-link" href="#Derivatives">¶</a></h2><p>To take derivatives, use diff()</p>
+<h3 id="basic-derivatives">basic derivatives<a class="anchor-link" href="#basic-derivatives">¶</a></h3><p>Pass in an expresison and one symbol with respect to which the derivative is applied.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [7]:</div>
+<div class="prompt input_prompt">In [49]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">'one'</span> <span class="p">:</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">],</span>
-    <span class="s1">'two'</span> <span class="p">:</span> <span class="p">[</span><span class="mf">4.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">]</span>
-<span class="p">}</span>
-
-<span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[7]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>one</th>
-<th>two</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>0</th>
-<td>1.0</td>
-<td>4.0</td>
-</tr>
-<tr>
-<th>1</th>
-<td>2.0</td>
-<td>3.0</td>
-</tr>
-<tr>
-<th>2</th>
-<td>3.0</td>
-<td>2.0</td>
-</tr>
-<tr>
-<th>3</th>
-<td>4.0</td>
-<td>1.0</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [8]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">'one'</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">]),</span>
-    <span class="s1">'two'</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">4.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">])</span>
-<span class="p">}</span>
-
-<span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[8]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>one</th>
-<th>two</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>0</th>
-<td>1.0</td>
-<td>4.0</td>
-</tr>
-<tr>
-<th>1</th>
-<td>2.0</td>
-<td>3.0</td>
-</tr>
-<tr>
-<th>2</th>
-<td>3.0</td>
-<td>2.0</td>
-</tr>
-<tr>
-<th>3</th>
-<td>4.0</td>
-<td>1.0</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>也支持DataFrame.from_dict方法</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [9]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">'one'</span> <span class="p">:</span> <span class="p">{</span><span class="s1">'a'</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">'b'</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">'c'</span><span class="p">:</span><span class="mi">3</span><span class="p">},</span>
-    <span class="s1">'two'</span> <span class="p">:</span> <span class="p">{</span><span class="s1">'a'</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">'b'</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">'c'</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="s1">'d'</span><span class="p">:</span><span class="mi">4</span><span class="p">}</span>
-<span class="p">}</span>
-
-<span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">orient</span><span class="o">=</span><span class="s1">'index'</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[9]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>c</th>
-<th>b</th>
-<th>d</th>
-<th>a</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>one</th>
-<td>3</td>
-<td>2</td>
-<td>NaN</td>
-<td>1</td>
-</tr>
-<tr>
-<th>two</th>
-<td>3</td>
-<td>2</td>
-<td>4.0</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="list-of-dict">list of dict<a class="anchor-link" href="#list-of-dict">¶</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>数据可以是list of dict。这时会将内层dict的keys作为组成DataFrame的columns。内侧dict的长度可以不一致。</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [10]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">'a'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span> <span class="p">{</span><span class="s1">'a'</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">:</span> <span class="mi">20</span><span class="p">}]</span>
-
-<span class="n">DataFrame</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[10]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>a</th>
-<th>b</th>
-<th>c</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>0</th>
-<td>1</td>
-<td>2</td>
-<td>NaN</td>
-</tr>
-<tr>
-<th>1</th>
-<td>5</td>
-<td>10</td>
-<td>20.0</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [11]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">'a'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span> <span class="p">{</span><span class="s1">'a'</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">:</span> <span class="mi">20</span><span class="p">}]</span>
-
-<span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[11]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>a</th>
-<th>b</th>
-<th>c</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>0</th>
-<td>1</td>
-<td>2</td>
-<td>NaN</td>
-</tr>
-<tr>
-<th>1</th>
-<td>5</td>
-<td>10</td>
-<td>20.0</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="list-of-tuple">list of tuple<a class="anchor-link" href="#list-of-tuple">¶</a></h3><p>这时会将list中的tuple作为每一个行的</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [12]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,),</span>
-    <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span>    
-<span class="p">]</span>
-
-<span class="n">DataFrame</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[12]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>0</th>
-<th>1</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>0</th>
-<td>1</td>
-<td>2</td>
-</tr>
-<tr>
-<th>1</th>
-<td>3</td>
-<td>4</td>
-</tr>
-<tr>
-<th>2</th>
-<td>5</td>
-<td>6</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>也可以在内层的tuple中指定label并传入DataFrame.from_items。 相比于dict方式,这种方式可以确保生成的columns顺序是和list中出现的顺序一致的。</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [13]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">(</span><span class="s1">'A'</span><span class="p">,(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)),</span>
-    <span class="p">(</span><span class="s1">'B'</span><span class="p">,(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)),</span>
-    <span class="p">(</span><span class="s1">'C'</span><span class="p">,(</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">)),</span>
-<span class="p">]</span>
-
-<span class="n">DataFrame</span><span class="o">.</span><span class="n">from_items</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[13]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>A</th>
-<th>B</th>
-<th>C</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>0</th>
-<td>1</td>
-<td>3</td>
-<td>5</td>
-</tr>
-<tr>
-<th>1</th>
-<td>2</td>
-<td>4</td>
-<td>6</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="数据的选择">数据的选择<a class="anchor-link" href="#数据的选择">¶</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>为了方面后面代码实验，先定义一个函数生成我们需要的测试DataFrame</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [14]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_df</span><span class="p">():</span>
-    <span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">'one'</span> <span class="p">:</span> <span class="n">Series</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">]),</span>
-        <span class="s1">'two'</span> <span class="p">:</span> <span class="n">Series</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">,</span> <span class="s1">'d'</span><span class="p">])</span>
-    <span class="p">}</span>
-
-    <span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">compare_derivative</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="n">symbols</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">kwargs</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="n">after</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="n">symbols</span><span class="p">)</span>
     
-    <span class="k">return</span> <span class="n">df</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Before derivative:'</span><span class="p">,</span><span class="n">expr</span><span class="p">)</span>
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">get_df</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'After derivative :'</span><span class="p">,</span><span class="n">diff</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="n">x</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="选择单列对应的Series">选择单列对应的Series<a class="anchor-link" href="#选择单列对应的Series">¶</a></h3><h4 id="根据label选择">根据label选择<a class="anchor-link" href="#根据label选择">¶</a></h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>传入代表列的label即可,得到的结果是一个Series。</p>
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [94]:</div>
+<div class="prompt input_prompt">In [50]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">'one'</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[94]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>a    1.0
-b    2.0
-c    3.0
-d    NaN
-Name: one, dtype: float64</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="根据位置选择">根据位置选择<a class="anchor-link" href="#根据位置选择">¶</a></h4><p>如果要选择第n列，可以使用<code>iloc[:,n-1]</code>,例如我们要选择第二列的话。</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [95]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[95]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>a    1.0
-b    2.0
-c    3.0
-d    4.0
-Name: two, dtype: float64</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="选择多列对应的DataFrame">选择多列对应的DataFrame<a class="anchor-link" href="#选择多列对应的DataFrame">¶</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="根据label进行选择">根据label进行选择<a class="anchor-link" href="#根据label进行选择">¶</a></h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>将所需的label组成list传入[]即可。</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [98]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">'one'</span><span class="p">,</span><span class="s1">'two'</span><span class="p">]])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_html rendered_html output_subarea ">
-<div>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>one</th>
-<th>two</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>a</th>
-<td>1.0</td>
-<td>1.0</td>
-</tr>
-<tr>
-<th>b</th>
-<td>2.0</td>
-<td>2.0</td>
-</tr>
-<tr>
-<th>c</th>
-<td>3.0</td>
-<td>3.0</td>
-</tr>
-<tr>
-<th>d</th>
-<td>NaN</td>
-<td>4.0</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>注意即使list中只传入一个label，返回的结果依然是DataFrame。</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [99]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">'one'</span><span class="p">]])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_html rendered_html output_subarea ">
-<div>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>one</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>a</th>
-<td>1.0</td>
-</tr>
-<tr>
-<th>b</th>
-<td>2.0</td>
-</tr>
-<tr>
-<th>c</th>
-<td>3.0</td>
-</tr>
-<tr>
-<th>d</th>
-<td>NaN</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="根据位置进行选择">根据位置进行选择<a class="anchor-link" href="#根据位置进行选择">¶</a></h4><p>在iloc中选择</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [102]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_html rendered_html output_subarea ">
-<div>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>one</th>
-<th>two</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>a</th>
-<td>1.0</td>
-<td>1.0</td>
-</tr>
-<tr>
-<th>b</th>
-<td>2.0</td>
-<td>2.0</td>
-</tr>
-<tr>
-<th>c</th>
-<td>3.0</td>
-<td>3.0</td>
-</tr>
-<tr>
-<th>d</th>
-<td>NaN</td>
-<td>4.0</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="修改列">修改列<a class="anchor-link" href="#修改列">¶</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="新增列">新增列<a class="anchor-link" href="#新增列">¶</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [105]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">get_df</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">symbol</span> <span class="o">=</span> <span class="n">x</span>
 
-<span class="n">df</span><span class="p">[</span><span class="s1">'four'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'one'</span><span class="p">]</span><span class="o">+</span><span class="n">df</span><span class="p">[</span><span class="s1">'two'</span><span class="p">]</span>
+<span class="n">expr_diff</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
 
-<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_html rendered_html output_subarea ">
-<div>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>one</th>
-<th>two</th>
-<th>four</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>a</th>
-<td>1.0</td>
-<td>1.0</td>
-<td>2.0</td>
-</tr>
-<tr>
-<th>b</th>
-<td>2.0</td>
-<td>2.0</td>
-<td>4.0</td>
-</tr>
-<tr>
-<th>c</th>
-<td>3.0</td>
-<td>3.0</td>
-<td>6.0</td>
-</tr>
-<tr>
-<th>d</th>
-<td>NaN</td>
-<td>4.0</td>
-<td>NaN</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [106]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">get_df</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Before derivative:'</span><span class="p">,</span><span class="n">expr</span><span class="p">)</span>
 
-<span class="n">df</span><span class="p">[</span><span class="s1">'four'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'one'</span><span class="p">]</span><span class="o">+</span><span class="n">df</span><span class="p">[</span><span class="s1">'two'</span><span class="p">])</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
-
-<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_html rendered_html output_subarea ">
-<div>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>one</th>
-<th>two</th>
-<th>four</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>a</th>
-<td>1.0</td>
-<td>1.0</td>
-<td>2.0</td>
-</tr>
-<tr>
-<th>b</th>
-<td>2.0</td>
-<td>2.0</td>
-<td>4.0</td>
-</tr>
-<tr>
-<th>c</th>
-<td>3.0</td>
-<td>3.0</td>
-<td>6.0</td>
-</tr>
-<tr>
-<th>d</th>
-<td>NaN</td>
-<td>4.0</td>
-<td>NaN</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>如果有inndex,可以行数不一致。</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [109]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">get_df</span><span class="p">()</span>
-
-<span class="n">df</span><span class="p">[</span><span class="s1">'four'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'one'</span><span class="p">]</span><span class="o">+</span><span class="n">df</span><span class="p">[</span><span class="s1">'two'</span><span class="p">])</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
-
-<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_html rendered_html output_subarea ">
-<div>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>one</th>
-<th>two</th>
-<th>four</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>a</th>
-<td>1.0</td>
-<td>1.0</td>
-<td>2.0</td>
-</tr>
-<tr>
-<th>b</th>
-<td>2.0</td>
-<td>2.0</td>
-<td>4.0</td>
-</tr>
-<tr>
-<th>c</th>
-<td>3.0</td>
-<td>3.0</td>
-<td>NaN</td>
-</tr>
-<tr>
-<th>d</th>
-<td>NaN</td>
-<td>4.0</td>
-<td>NaN</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>如果没有index，则需要行数一致。</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [113]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">get_df</span><span class="p">()</span>
-
-<span class="n">df</span><span class="p">[</span><span class="s1">'four'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
-<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_html rendered_html output_subarea ">
-<div>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>one</th>
-<th>two</th>
-<th>four</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>a</th>
-<td>1.0</td>
-<td>1.0</td>
-<td>1</td>
-</tr>
-<tr>
-<th>b</th>
-<td>2.0</td>
-<td>2.0</td>
-<td>2</td>
-</tr>
-<tr>
-<th>c</th>
-<td>3.0</td>
-<td>3.0</td>
-<td>3</td>
-</tr>
-<tr>
-<th>d</th>
-<td>NaN</td>
-<td>4.0</td>
-<td>4</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>增加多列</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>右侧的column不需要和左侧一致。</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [122]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">get_df</span><span class="p">()</span>
-
-<span class="n">df</span><span class="p">[[</span><span class="s1">'four'</span><span class="p">,</span><span class="s1">'five'</span><span class="p">]]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">'one'</span><span class="p">,</span><span class="s1">'two'</span><span class="p">]]</span>
-<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_html rendered_html output_subarea ">
-<div>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>one</th>
-<th>two</th>
-<th>four</th>
-<th>five</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>a</th>
-<td>1.0</td>
-<td>1.0</td>
-<td>1.0</td>
-<td>1.0</td>
-</tr>
-<tr>
-<th>b</th>
-<td>2.0</td>
-<td>2.0</td>
-<td>2.0</td>
-<td>2.0</td>
-</tr>
-<tr>
-<th>c</th>
-<td>3.0</td>
-<td>3.0</td>
-<td>3.0</td>
-<td>3.0</td>
-</tr>
-<tr>
-<th>d</th>
-<td>NaN</td>
-<td>4.0</td>
-<td>NaN</td>
-<td>4.0</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>右侧如果是ndarray,则不能用于创建新列。</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [124]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">get_df</span><span class="p">()</span>
-
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">df</span><span class="p">[[</span><span class="s1">'four'</span><span class="p">,</span><span class="s1">'five'</span><span class="p">]]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">'one'</span><span class="p">,</span><span class="s1">'two'</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
-<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">),</span><span class="n">e</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'After derivative :'</span><span class="p">,</span><span class="n">expr_diff</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2653,8 +1247,863 @@ Name: two, dtype: float64</pre>
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre><class 'KeyError'> "['four' 'five'] not in index"
+<pre>Before derivative: sin(x)
+After derivative : cos(x)
 </pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>diff() can also be called as a method</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [51]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Before derivative:'</span><span class="p">,</span><span class="n">expr</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'After derivative :'</span><span class="p">,</span><span class="n">expr</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Before derivative: sin(x)
+After derivative : cos(x)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To create an unevaluated derivative, use Derivative class and initiate it with the same syntax with diff()</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [52]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">diff_expr</span> <span class="o">=</span> <span class="n">Derivative</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Before evaluating:'</span><span class="p">,</span><span class="n">expr_diff</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Before evaluating: cos(x)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And call <code>doit()</code> method to evaluate it.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [53]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'After evaluating:'</span><span class="p">,</span><span class="n">expr_diff</span><span class="o">.</span><span class="n">doit</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>After evaluating: cos(x)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To avoid duplicated code to compare the result and original derivative, we define a function.</p>
+<p><code>args</code> are positional arguments passed to Derivative and <code>kargs</code>are keyword arguments to it.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [1]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display_latex</span><span class="p">(</span><span class="n">latex</span><span class="p">(</span><span class="n">diff_expr</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg"><ipython-input-1-79579cba055c></span> in <span class="ansi-cyan-fg"><module></span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----> 1</span><span class="ansi-red-fg"> </span>display_latex<span class="ansi-blue-fg">(</span>latex<span class="ansi-blue-fg">(</span>diff_expr<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name 'display_latex' is not defined</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [41]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">compare_derivative</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kargs</span><span class="p">):</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">args</span> <span class="ow">or</span> <span class="p">[]</span>
+    <span class="n">kargs</span> <span class="o">=</span> <span class="n">kargs</span> <span class="ow">or</span> <span class="p">{}</span>
+    <span class="n">expr_diff</span> <span class="o">=</span> <span class="n">Derivative</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kargs</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="s1">'Before evaluating:'</span><span class="p">,</span><span class="n">expr_diff</span><span class="p">)</span>    
+    <span class="n">display</span><span class="p">(</span><span class="s1">'After evaluating:'</span><span class="p">,</span><span class="n">expr_diff</span><span class="o">.</span><span class="n">doit</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="higher-order-derivative">higher order derivative<a class="anchor-link" href="#higher-order-derivative">¶</a></h3><p>To take n order derivatives, pass the symbol n times or pass the symbol once and then follows it with n.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [42]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">4</span>
+
+<span class="n">compare_derivative</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'Before evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\frac{d^{3}}{d x^{3}}  x^{4}$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'After evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$24 x$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can achive the same calculation with the second syntax.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [45]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">compare_derivative</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'Before evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\frac{d^{3}}{d x^{3}}  x^{4}$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'After evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$24 x$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="higher-order-partial-derivatives.">higher order partial derivatives.<a class="anchor-link" href="#higher-order-partial-derivatives.">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Just pass the symbols in order, with the same syntax with single variable derivative.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [46]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">*</span><span class="n">z</span><span class="p">)</span>
+
+<span class="n">compare_derivative</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'Before evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\frac{\partial^{7}}{\partial x\partial y^{2}\partial z^{4}}  e^{x y z}$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'After evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$x^{3} y^{2} \left(x^{3} y^{3} z^{3} + 14 x^{2} y^{2} z^{2} + 52 x y z + 48\right) e^{x y z}$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Or user number to control the derivatives order for each symbol</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [48]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">compare_derivative</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'Before evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\frac{\partial^{7}}{\partial x\partial y^{2}\partial z^{4}}  e^{x y z}$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'After evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$x^{3} y^{2} \left(x^{3} y^{3} z^{3} + 14 x^{2} y^{2} z^{2} + 52 x y z + 48\right) e^{x y z}$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Integrals">Integrals<a class="anchor-link" href="#Integrals">¶</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="indefinte-integrals">indefinte integrals<a class="anchor-link" href="#indefinte-integrals">¶</a></h2><p>Similiar with derivatives, integrals can be performed through integral() by function or method. To construct an unevaluated expression, initialize an Integral class and call doit() to evaludate the calculation.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To avoid duplication, let's define a function similiar with <code>compare_derivatives()</code></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [55]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">compare_integral</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kargs</span><span class="p">):</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">args</span> <span class="ow">or</span> <span class="p">[]</span>
+    <span class="n">kargs</span> <span class="o">=</span> <span class="n">kargs</span> <span class="ow">or</span> <span class="p">{}</span>
+    <span class="n">expr_diff</span> <span class="o">=</span> <span class="n">Integral</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kargs</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="s1">'Before evaluating:'</span><span class="p">,</span><span class="n">expr_diff</span><span class="p">)</span>    
+    <span class="n">display</span><span class="p">(</span><span class="s1">'After evaluating:'</span><span class="p">,</span><span class="n">expr_diff</span><span class="o">.</span><span class="n">doit</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [57]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">compare_integral</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'Before evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\int \cos{\left (x \right )}\, dx$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'After evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\sin{\left (x \right )}$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="definite-integrals">definite integrals<a class="anchor-link" href="#definite-integrals">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To perform a definite integral, pass in a tuple of variable symbol, lower bound and upper bound.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [59]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">compare_integral</span><span class="p">(</span><span class="n">expr</span><span class="p">,(</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">oo</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'Before evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\int_{0}^{\infty} e^{- x}\, dx$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'After evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$1$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Note, $\infty$ in Sympy is oo (double lower case 'O')</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="multiple-integrals">multiple integrals<a class="anchor-link" href="#multiple-integrals">¶</a></h3><p>To perform a multiple integral, pass multiple tuples of symbol variable and integral bounds.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [61]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">compare_integral</span><span class="p">(</span><span class="n">expr</span><span class="p">,(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="n">oo</span><span class="p">,</span> <span class="n">oo</span><span class="p">),</span> <span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="n">oo</span><span class="p">,</span> <span class="n">oo</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'Before evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\int_{-\infty}^{\infty}\int_{-\infty}^{\infty} e^{- x^{2} - y^{2}}\, dx\, dy$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'After evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\pi$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If Sympy cannot calculate an integral on an expression, it returns an unevaluated integral expression.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [65]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="n">x</span>
+
+<span class="n">compare_integral</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'Before evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\int x^{x}\, dx$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'After evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\int x^{x}\, dx$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Limits">Limits<a class="anchor-link" href="#Limits">¶</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Similiar with derivatives, limits can be performed through limit() by function or method. To construct an unevaluated expression, initialize an Limit class and call doit() to evaludate the calculation.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To avoid duplication, let's define a function similiar with <code>compare_limit()</code></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [70]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">compare_limit</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kargs</span><span class="p">):</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">args</span> <span class="ow">or</span> <span class="p">[]</span>
+    <span class="n">kargs</span> <span class="o">=</span> <span class="n">kargs</span> <span class="ow">or</span> <span class="p">{}</span>
+    <span class="n">expr_diff</span> <span class="o">=</span> <span class="n">Limit</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kargs</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="s1">'Before evaluating:'</span><span class="p">,</span><span class="n">expr_diff</span><span class="p">)</span>    
+    <span class="n">display</span><span class="p">(</span><span class="s1">'After evaluating:'</span><span class="p">,</span><span class="n">expr_diff</span><span class="o">.</span><span class="n">doit</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To perform two-sided, pass the expression, variable symbol and the value to evaluate at. By default the limit is calculated from right to left with default setting <code>dir = '+'</code>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [75]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">x</span>
+
+<span class="n">compare_limit</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'Before evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\lim_{x \to 0^+}\left(\frac{1}{x} \sin{\left (x \right )}\right)$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'After evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$1$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To caluculate a limit from left to right. Pass <code>dir='-'</code></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [76]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">x</span>
+
+<span class="n">compare_limit</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="nb">dir</span> <span class="o">=</span> <span class="s1">'-'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'Before evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\lim_{x \to 0^-}\left(\frac{1}{x} \sin{\left (x \right )}\right)$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'After evaluating:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$1$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Series-Expansion">Series Expansion<a class="anchor-link" href="#Series-Expansion">¶</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Sympy can calculate an asymptotic series expansion of a funciton around a point $x_0$ with respect to  $O(x-x_0)^n$.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [84]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">expanded</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">series</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="s1">'Origin expression:'</span><span class="p">,</span><span class="n">expr</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="s1">'Expanded expression:'</span><span class="p">,</span><span class="n">expanded</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'Origin expression:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\sin{\left (x \right )}$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'Expanded expression:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$x - \frac{x^{3}}{6} + \frac{x^{5}}{120} + \mathcal{O}\left(x^{6}\right)$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To remove the order term, call removeO() method</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [85]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="s1">'Expanded expression without order term:'</span><span class="p">,</span><span class="n">expanded</span><span class="o">.</span><span class="n">removeO</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_text output_subarea ">
+<pre>'Expanded expression without order term:'</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\frac{x^{5}}{120} - \frac{x^{3}}{6} + x$$
 </div>
 </div>
 </div>
@@ -2692,11 +2141,11 @@ Name: two, dtype: float64</pre>
                 </article>
 		<div align='center'>
 		            <div class="tags">
-		                <p>tags: <a href="https://junjiecai.github.io/en/tag/python.html">python</a>, <a href="https://junjiecai.github.io/en/tag/pandas.html">pandas</a></p>
+		                <p>tags: <a href="https://junjiecai.github.io/tag/python.html">python</a>, <a href="https://junjiecai.github.io/tag/sympy.html">Sympy</a></p>
 		            </div>
 <p>若觉得本文对您有帮助,欢迎赞助作者一顿早餐:D</p>			
-<img class='reward' style="display:inline;margin-right:10px" src="https://junjiecai.github.io/../theme/customs/award.jpeg" alt="weixin_payment">		</div>
-<div class="ds-thread" data-thread-key="//junjiecai.github.io/0015" data-title="//junjiecai.github.io/0015" data-url="//junjiecai.github.io/drafts/pandas_intro_2-ch.html" style="width: 80%;margin-left: 20%;"></div>
+<img class='reward' style="display:inline;margin-right:10px" src="https://junjiecai.github.io/theme/customs/award.jpeg" alt="weixin_payment">		</div>
+<div class="ds-thread" data-thread-key="//junjiecai.github.io/0027" data-title="//junjiecai.github.io/0027" data-url="//junjiecai.github.io/drafts/sympy_intro_2.html" style="width: 80%;margin-left: 20%;"></div>
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"junjiecai1984"};
 	(function() {
