@@ -1,7 +1,0 @@
-markdown
-pelican
-jupyter
-ipython
-nbconvert
-beautifulsoup4
-matplotlib
