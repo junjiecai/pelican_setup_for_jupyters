@@ -178,12 +178,40 @@ Author: Exolution
 Summary: Introduction for pytest
 Id:0001
 Slug: pytest_intro
+Lang:ch
 ```
 
 'Id' is a number assigned to each blog and should be kept unqiue among all blogs, or comments system like DUOSHUO won't work properly.
 
-Id and Slug can be automatically extracted from filenames of .ipynb if they are named with the pattern like "<id>_<slug>.ipynb", for example,
-"0001_pytest_intro.ipynb". Then you don't have to provide them in .ipynb-meta files.
+'Lang' is used to add bilingual language support of the articles. See explanation later.
+
+Id, Slug, Lang can be automatically extracted from filenames of .ipynb if they are named with the pattern like "<id>_<slug>_<lang>.ipynb", for example, "0001_pytest_intro_ch.ipynb" defines id = '0001', slug = 'pytest_intro' and lang = 'ch'. Then you don't have to provide them in .ipynb-meta files.
+
+'Category' be extracted from the first level path after content path for each article. For example, given the following structure
+```
+content
+|   articles
+    |   pytest_intro
+        |   0001_pytest_intro_ch.ipynb
+
+```
+pytest_intro will have a category of 'article', unless you override it in .ipynb-meta.
+
+
+
+## Add translations for articles
+If you want to add english translation for an article. Write another .ipynb in English and set it with the same slug but lang equals to 'en'. You can set them in .ipynb-meta file or take advantage of the auto meda data extraction if you name your files with proper pattern. For example.
+```
+content
+|   articles
+    |   pytest_intro
+        |   0001_pytest_intro_ch.ipynb
+        |   0001_pytest_intro_ch.ipynb-meta
+        |   0001_pytest_intro_en.ipynb
+        |   0001_pytest_intro_en.ipynb-meta
+```
+
+When the html is generated, you will see a tranlation link at the header of the article.
 
 
 ## Add pages
@@ -210,12 +238,3 @@ git push blog master
 ```
 
 ** Don't forget to delete .ipynb_checkpoints files before run ```pelican``` command**
-
-## Tips for blogging
-In jupyter notebook, ```print``` and ```IPython.display.display``` won't create ```Output[x]``` mark in the output region, but auto-displaying for the last object in input region does.
-
-![demo.jpeg](imgs/comparison.png)
-
-Mixting these two style makes the generated HTML harder to read, so always explicitly call print or display to make the output region consistent is recommended.
-
-

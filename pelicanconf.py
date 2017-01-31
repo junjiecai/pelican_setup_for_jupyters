@@ -51,7 +51,7 @@ PATH_METADATA = "articles/(?P<category>.*?)/(.*/)(?P<folder>.*)(/.*)"
 ARTICLE_URL = 'posts/{date:%Y}/{date:%b}/{date:%d}/{slug}/'
 ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/{date:%d}/{slug}/index.html'
 
-ARTICLE_ORDER_BY = 'reversed-date'
+ARTICLE_ORDER_BY = 'reversed-id'
 
 PAGE_URL = 'pages/{slug}/'
 PAGE_SAVE_AS = 'pages/{slug}/index.html'

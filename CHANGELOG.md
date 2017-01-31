@@ -3,10 +3,7 @@
 ### New Features
 * Category can be extracted from the first level path after content path for each article
 * Side bar toc detect h1~t4 now
-* Generated Site can be bilingual now (Chinese and English).
-
-### Refactoring
-* javascript to refactor generated articel div structure is moved into indivisual file.
+* Generated Site can be bilingual now (support Chinese and English).
 
 
 ## 0.12.1
