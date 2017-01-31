@@ -79,7 +79,7 @@
     </script>
 
 
-        <meta name="description" content="如何利用python的特性写出更地道的python代码">
+        <meta name="description" content="充分利用python的特点和功能， 可以让我们的代码更加的简洁， 有更好的可读性， 很多情况下也会带来更好的性能。 符合这样要求的代码也被python社区称为pythonic的代码。 这里举例一些常见的使用python时遇到的场景。 针对这些场景， 给出两个版本的代码，...">
 
         <meta name="author" content="Exolution">
 
@@ -93,7 +93,7 @@
 	<meta property="og:url" content="https://junjiecai.github.io/en/drafts/pythonic_code-ch.html">
 	<meta property="og:title" content="如何写出更简洁的python代码">
 	<meta property="article:published_time" content="2016-08-19 00:00:00+08:00">
-            <meta property="og:description" content="如何利用python的特性写出更地道的python代码">
+            <meta property="og:description" content="充分利用python的特点和功能， 可以让我们的代码更加的简洁， 有更好的可读性， 很多情况下也会带来更好的性能。 符合这样要求的代码也被python社区称为pythonic的代码。 这里举例一些常见的使用python时遇到的场景。 针对这些场景， 给出两个版本的代码，...">
 
             <meta property="og:image" content="https://junjiecai.github.io/en/../theme/images/home-bg.jpg">
 </head>
@@ -1523,7 +1523,7 @@ time: 0.482s vs 0.362s
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre><class 'tuple'>
+<pre><class &#x27;tuple&#x27;>
 </pre>
 </div>
 </div>
@@ -1875,7 +1875,7 @@ time: 0.641s vs 0.654s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="10>c>b>a>0?">10>c>b>a>0?<a class="anchor-link" href="#10>c>b>a>0?">¶</a></h2>
+<h2 id="10&gt;c&gt;b&gt;a&gt;0?">10>c>b>a>0?<a class="anchor-link" href="#10&gt;c&gt;b&gt;a&gt;0?">¶</a></h2>
 </div>
 </div>
 </div>
@@ -2091,7 +2091,7 @@ string is empty
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre><class 'ValueError'> The truth value of a DataFrame is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+<pre><class &#x27;valueerror&#x27;> The truth value of a DataFrame is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
 </pre>
 </div>
 </div>
@@ -2442,7 +2442,7 @@ time: 1.266s vs 1.397s
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre><generator object <genexpr> at 0x7f69f1d8beb8>
+<pre><generator object &lt;genexpr> at 0x7f69f1d8beb8>
 [2, 4, 6, 8, 10]
 </pre>
 </div>
@@ -2695,7 +2695,7 @@ time: 0.355s vs 0.373s
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">func_ver_1</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="o">==</span> <span class="s2">"<class 'tuple'>"</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="o">==</span> <span class="s2">"<class 'list'>"</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="o">==</span> <span class="s2">"<class &#x27;tuple&#x27;>"</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="o">==</span> <span class="s2">"<class &#x27;list&#x27;>"</span><span class="p">):</span>
         <span class="k">return</span> <span class="kc">True</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">False</span>

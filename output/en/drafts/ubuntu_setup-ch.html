@@ -79,7 +79,7 @@
     </script>
 
 
-        <meta name="description" content="Ubuntu16的装机指南，主要面向数据工程师">
+        <meta name="description" content="Ubuntu 16装机过程¶解决网络问题¶DNS Server¶默认的DNS Server可能是无效的。 如果不能上网， 试试在network connection的IPV4 setting里面添加有效的DNS Server，如114.114.114.114,...">
 
         <meta name="author" content="Exolution">
 
@@ -93,7 +93,7 @@
 	<meta property="og:url" content="https://junjiecai.github.io/en/drafts/ubuntu_setup-ch.html">
 	<meta property="og:title" content="Ubuntu16数据工程师装机指南">
 	<meta property="article:published_time" content="2016-10-05 21:04:00+08:00">
-            <meta property="og:description" content="Ubuntu16的装机指南，主要面向数据工程师">
+            <meta property="og:description" content="Ubuntu 16装机过程¶解决网络问题¶DNS Server¶默认的DNS Server可能是无效的。 如果不能上网， 试试在network connection的IPV4 setting里面添加有效的DNS Server，如114.114.114.114,...">
 
             <meta property="og:image" content="https://junjiecai.github.io/en/../theme/images/home-bg.jpg">
 </head>
@@ -1162,7 +1162,7 @@ h6:hover .anchor-link {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Ubuntu-16装机过程">Ubuntu 16装机过程<a class="anchor-link" href="#Ubuntu-16装机过程">¶</a></h1><h2 id="解决网络问题">解决网络问题<a class="anchor-link" href="#解决网络问题">¶</a></h2><h3 id="DNS-Server">DNS Server<a class="anchor-link" href="#DNS-Server">¶</a></h3><p>默认的DNS Server可能是无效的。 如果不能上网， 试试在network connection的IPV4 setting里面添加有效的DNS Server，如114.114.114.114, 并且把Method设置成Automatic(DHCP) address only</p>
-<p><img alt="dns server" src="dns.png"/></p>
+<p><img alt="dns server" src="dns.png" /></p>
 <p>配置后需要运行'''sudo systemctl restart network-manager.service'''让设置生效</p>
 <h3 id="翻墙">翻墙<a class="anchor-link" href="#翻墙">¶</a></h3><p>shadowsocks安装和配置看<a href="https://github.com/shadowsocks/shadowsocks/wiki/Shadowsocks-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E">这里</a></p>
 <p>注意安装shadowsocks的时候，要用sudo安装</p>

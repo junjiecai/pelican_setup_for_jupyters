@@ -79,7 +79,7 @@
     </script>
 
 
-        <meta name="description" content="总结了常见的sqlalchemy的用法，下部分。包含如何用SQLAlchemy Core表达Select, Update, Delete逻辑。">
+        <meta name="description" content="说明¶ 接sqlalchemy入门(上)，这篇会更详细的讲解和演示如果用SQLAlchemy完成Select, Update, Delete的操作。 准备¶实验准备内容和sqlalchemy入门(上)的内容一致，这里不在重复多说。">
 
         <meta name="author" content="Exolution">
 
@@ -95,7 +95,7 @@
 	<meta property="og:url" content="https://junjiecai.github.io/posts/2017/Jan/17/sqlalchemy_intro_2/">
 	<meta property="og:title" content="sqlalchemy入门(下)">
 	<meta property="article:published_time" content="2017-01-17 00:00:00+08:00">
-            <meta property="og:description" content="总结了常见的sqlalchemy的用法，下部分。包含如何用SQLAlchemy Core表达Select, Update, Delete逻辑。">
+            <meta property="og:description" content="说明¶ 接sqlalchemy入门(上)，这篇会更详细的讲解和演示如果用SQLAlchemy完成Select, Update, Delete的操作。 准备¶实验准备内容和sqlalchemy入门(上)的内容一致，这里不在重复多说。">
 
             <meta property="og:image" content="https://junjiecai.github.io/../theme/images/home-bg.jpg">
 </head>
@@ -1766,7 +1766,7 @@ FROM test.users
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><div class = 'article note'>注意</div></p>
+<p><div class="article note">注意</div></p>
 <p>上面的两个例子里，都使用了'+'号,SQLAlchemy根据数据类型自动决定编译后的结果是字符串连接还是数值相加。</p>
 </div>
 </div>
@@ -3361,7 +3361,7 @@ test.users JOIN test.addresses ON test.users.id = test.addresses.user_id
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><div class = 'article warning'>注意</div></p>
+<p><div class="article warning">注意</div></p>
 <p>auto_load得到的表无法找到正确的foreign_key</p>
 </div>
 </div>
@@ -3384,7 +3384,7 @@ test.users JOIN test.addresses ON test.users.id = test.addresses.user_id
 <div class="output_area">
 <div class="prompt output_prompt">Out[37]:</div>
 <div class="output_text output_subarea output_execute_result">
-<pre>[Column('id', INTEGER(), table=<addresses>, primary_key=True, nullable=False, server_default=DefaultClause(<sqlalchemy.sql.elements.TextClause object at 0x7f77c191f588>, for_update=False)),
+<pre>[Column('id', INTEGER(), table=<addresses>, primary_key=True, nullable=False, server_default=DefaultClause(<sqlalchemy.sql.elements.textclause object at 0x7f77c191f588>, for_update=False)),
  Column('user_id', INTEGER(), ForeignKey('test.users.id'), table=<addresses>),
  Column('email_address', VARCHAR(length=20), table=<addresses>, nullable=False)]</pre>
 </div>
@@ -3419,7 +3419,7 @@ test.users JOIN test.addresses ON test.users.id = test.addresses.user_id
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre><class 'sqlalchemy.exc.NoForeignKeysError'> Can't find any foreign key relationships between 'users' and 'addresses'.
+<pre><class &#x27;sqlalchemy.exc.noforeignkeyserror&#x27;> Can't find any foreign key relationships between 'users' and 'addresses'.
 </pre>
 </div>
 </div>
@@ -4589,7 +4589,7 @@ UPDATE test.users SET fullname=test.users.name, name='*****'
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><div class = 'article warning'>注意</div></p>
+<p><div class="article warning">注意</div></p>
 <p>对于postgresql，上面两种SET的顺序结果都是一致的。但是对于MYSQL数据库，如果编译结果是</p>
 <pre><code>UPDATE test.users SET name='*****', fullname=test.users.name</code></pre>
 <p>在执行<code>fullname=test.users.name</code>部分的时候，会采用"<strong>*</strong>"作为name的数值，导致最后fullname也变成'<strong>*</strong>'，只有用</p>
@@ -4658,7 +4658,7 @@ UPDATE test.users SET fullname=test.users.name, name='*****'
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre><class 'sqlalchemy.exc.IntegrityError'> (psycopg2.IntegrityError) update or delete on table "users" violates foreign key constraint "addresses_user_id_fkey" on table "addresses"
+<pre><class &#x27;sqlalchemy.exc.integrityerror&#x27;> (psycopg2.IntegrityError) update or delete on table "users" violates foreign key constraint "addresses_user_id_fkey" on table "addresses"
 DETAIL:  Key (id)=(1) is still referenced from table "addresses".
  [SQL: 'DELETE FROM test.users']
 </pre>

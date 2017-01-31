@@ -96,13 +96,55 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="post-preview">
-            <a href="https://junjiecai.github.io/posts/2017/Jan/26/sympy_intro_1/" rel="bookmark" title="Permalink to Sympy笔记1">
+            <a href="https://junjiecai.github.io/posts/2017/Jan/31/sympy_intro_4/" rel="bookmark" title="Permalink to Sympy笔记IV">
                 <h2 class="post-title">
-                    Sympy笔记1
+                    Sympy笔记IV
                 </h2>
             </a>
                 <p class="article-summary">
-                    Sympy是一个Python下功能强大的符号计算库。这系列笔记的第一部分，涉及基本的Sympy介绍，基本操作和数学表达式的化简操作。
+                    初始化环境¶
+                </p>
+            <p class="post-meta">Posted by
+                    <a href="https://junjiecai.github.io/author/exolution.html">Exolution</a>
+                 on 2017-01-31
+            </p>
+        </div>
+        <div class="post-preview">
+            <a href="https://junjiecai.github.io/posts/2017/Jan/30/sympy_intro_3/" rel="bookmark" title="Permalink to Sympy笔记III">
+                <h2 class="post-title">
+                    Sympy笔记III
+                </h2>
+            </a>
+                <p class="article-summary">
+                    初始化环境¶
+                </p>
+            <p class="post-meta">Posted by
+                    <a href="https://junjiecai.github.io/author/exolution.html">Exolution</a>
+                 on 2017-01-30
+            </p>
+        </div>
+        <div class="post-preview">
+            <a href="https://junjiecai.github.io/posts/2017/Jan/28/sympy_intro_2/" rel="bookmark" title="Permalink to Sympy笔记II">
+                <h2 class="post-title">
+                    Sympy笔记II
+                </h2>
+            </a>
+                <p class="article-summary">
+                    初始化环境¶
+                </p>
+            <p class="post-meta">Posted by
+                    <a href="https://junjiecai.github.io/author/exolution.html">Exolution</a>
+                 on 2017-01-28
+            </p>
+        </div>
+        <div class="post-preview">
+            <a href="https://junjiecai.github.io/posts/2017/Jan/26/sympy_intro_1/" rel="bookmark" title="Permalink to Sympy笔记I">
+                <h2 class="post-title">
+                    Sympy笔记I
+                </h2>
+            </a>
+                <p class="article-summary">
+                    
                 </p>
             <p class="post-meta">Posted by
                     <a href="https://junjiecai.github.io/author/exolution.html">Exolution</a>
@@ -116,7 +158,7 @@
                 </h2>
             </a>
                 <p class="article-summary">
-                    Python Multiprocess演示
+                    Python多进程的演示¶ 多进程模式常见的模式 主进程和子进程之间通过Queue传递数据 主进程开启多个process, 并且负责往Queue中不断的放入数据。主进程可以通过传递特殊的信息例如None， 表示没有更多的数据。...
                 </p>
             <p class="post-meta">Posted by
                     <a href="https://junjiecai.github.io/author/exolution.html">Exolution</a>
@@ -130,7 +172,7 @@
                 </h2>
             </a>
                 <p class="article-summary">
-                    总结了常见的sqlalchemy的用法，下部分。包含如何用SQLAlchemy Core表达Select, Update, Delete逻辑。
+                    说明¶ 接sqlalchemy入门(上)，这篇会更详细的讲解和演示如果用SQLAlchemy完成Select, Update, Delete的操作。 准备¶实验准备内容和sqlalchemy入门(上)的内容一致，这里不在重复多说。
                 </p>
             <p class="post-meta">Posted by
                     <a href="https://junjiecai.github.io/author/exolution.html">Exolution</a>
@@ -144,7 +186,7 @@
                 </h2>
             </a>
                 <p class="article-summary">
-                    总结了常见的sqlalchemy的用法，上部分。
+                    说明¶ SQLAlchemy包含SQLAlchemy Core和SQLAlchemy ORM两部分, 这个系列只包含SQLAlchemy Core的内容。 由于内容较多，教程被分成了上，下两部分。...
                 </p>
             <p class="post-meta">Posted by
                     <a href="https://junjiecai.github.io/author/exolution.html">Exolution</a>
@@ -158,7 +200,7 @@
                 </h2>
             </a>
                 <p class="article-summary">
-                    介绍了python的closure机制的应用场景和一些替代的等效方案
+                    Closure(闭包) 和相关实现方案¶ python中, function本身也是object， 可以直接被作为变量传入函数或者被作为结果返回(Java等语言就不能这么干)。 这种灵活性带来很多有趣的应用，其中一个就是closure。 上一个最简单的代码的例子。
                 </p>
             <p class="post-meta">Posted by
                     <a href="https://junjiecai.github.io/author/exolution.html">Exolution</a>
@@ -172,7 +214,7 @@
                 </h2>
             </a>
                 <p class="article-summary">
-                    比较None和numpy.nan的特性
+                    python原生的None和pandas, numpy中的numpy.NaN尽管在功能上都是用来标示空缺数据。但它们的行为在很多场景下确有一些相当大的差异。由于不熟悉这些差异，曾经给我的工作带来过不少麻烦。...
                 </p>
             <p class="post-meta">Posted by
                     <a href="https://junjiecai.github.io/author/exolution.html">Exolution</a>
@@ -186,53 +228,11 @@
                 </h2>
             </a>
                 <p class="article-summary">
-                    Ubuntu16的装机指南，主要面向数据工程师
+                    Ubuntu 16装机过程¶解决网络问题¶DNS Server¶默认的DNS Server可能是无效的。 如果不能上网， 试试在network connection的IPV4 setting里面添加有效的DNS Server，如114.114.114.114,...
                 </p>
             <p class="post-meta">Posted by
                     <a href="https://junjiecai.github.io/author/exolution.html">Exolution</a>
                  on 2016-10-05
-            </p>
-        </div>
-        <div class="post-preview">
-            <a href="https://junjiecai.github.io/posts/2016/Sep/27/python_pitfalls/" rel="bookmark" title="Permalink to python中的一些"陷阱"">
-                <h2 class="post-title">
-                    python中的一些"陷阱"
-                </h2>
-            </a>
-                <p class="article-summary">
-                    本文介绍了python中初学者容易忽略的一些“陷阱”
-                </p>
-            <p class="post-meta">Posted by
-                    <a href="https://junjiecai.github.io/author/exolution.html">Exolution</a>
-                 on 2016-09-27
-            </p>
-        </div>
-        <div class="post-preview">
-            <a href="https://junjiecai.github.io/posts/2016/Aug/19/pythonic_code/" rel="bookmark" title="Permalink to 如何写出更简洁的python代码">
-                <h2 class="post-title">
-                    如何写出更简洁的python代码
-                </h2>
-            </a>
-                <p class="article-summary">
-                    如何利用python的特性写出更地道的python代码
-                </p>
-            <p class="post-meta">Posted by
-                    <a href="https://junjiecai.github.io/author/exolution.html">Exolution</a>
-                 on 2016-08-19
-            </p>
-        </div>
-        <div class="post-preview">
-            <a href="https://junjiecai.github.io/posts/2016/Jul/15/pytest_intro/" rel="bookmark" title="Permalink to Pytest基本介绍">
-                <h2 class="post-title">
-                    Pytest基本介绍
-                </h2>
-            </a>
-                <p class="article-summary">
-                    总结了Pytest的基本用法
-                </p>
-            <p class="post-meta">Posted by
-                    <a href="https://junjiecai.github.io/author/exolution.html">Exolution</a>
-                 on 2016-07-15
             </p>
         </div>
 

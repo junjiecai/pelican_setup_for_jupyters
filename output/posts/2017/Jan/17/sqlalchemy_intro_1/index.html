@@ -79,7 +79,7 @@
     </script>
 
 
-        <meta name="description" content="总结了常见的sqlalchemy的用法，上部分。">
+        <meta name="description" content="说明¶ SQLAlchemy包含SQLAlchemy Core和SQLAlchemy ORM两部分, 这个系列只包含SQLAlchemy Core的内容。 由于内容较多，教程被分成了上，下两部分。...">
 
         <meta name="author" content="Exolution">
 
@@ -95,7 +95,7 @@
 	<meta property="og:url" content="https://junjiecai.github.io/posts/2017/Jan/17/sqlalchemy_intro_1/">
 	<meta property="og:title" content="sqlalchemy入门(上)">
 	<meta property="article:published_time" content="2017-01-17 00:00:00+08:00">
-            <meta property="og:description" content="总结了常见的sqlalchemy的用法，上部分。">
+            <meta property="og:description" content="说明¶ SQLAlchemy包含SQLAlchemy Core和SQLAlchemy ORM两部分, 这个系列只包含SQLAlchemy Core的内容。 由于内容较多，教程被分成了上，下两部分。...">
 
             <meta property="og:image" content="https://junjiecai.github.io/../theme/images/home-bg.jpg">
 </head>
@@ -1541,10 +1541,10 @@ HAVING count(test.addresses.email_address) > 1
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre><class 'sqlalchemy.sql.schema.Table'>
-<class 'sqlalchemy.sql.schema.Column'>
-<class 'sqlalchemy.sql.elements.BinaryExpression'>
-<class 'sqlalchemy.sql.selectable.Select'>
+<pre><class &#x27;sqlalchemy.sql.schema.table&#x27;>
+<class &#x27;sqlalchemy.sql.schema.column&#x27;>
+<class &#x27;sqlalchemy.sql.elements.binaryexpression&#x27;>
+<class &#x27;sqlalchemy.sql.selectable.select&#x27;>
 </pre>
 </div>
 </div>
@@ -1911,7 +1911,7 @@ CREATE SCHEMA test
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre><class 'sqlalchemy.exc.ProgrammingError'> (psycopg2.ProgrammingError) schema "test" already exists
+<pre><class &#x27;sqlalchemy.exc.programmingerror&#x27;> (psycopg2.ProgrammingError) schema "test" already exists
  [SQL: 'CREATE SCHEMA test']
 </pre>
 </div>
@@ -1924,7 +1924,7 @@ CREATE SCHEMA test
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><div class = 'warning'>注意</div></p>
+<p><div class="warning">注意</div></p>
 <p>有些sqlalchemy object，例如这个例子中的<code>CreateSchema(schema_name)</code>，结果为None。</p>
 </div>
 </div>
@@ -1977,7 +1977,7 @@ CREATE SCHEMA test
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre><class 'TypeError'> visit_create_schema() got an unexpected keyword argument 'literal_binds'
+<pre><class &#x27;typeerror&#x27;> visit_create_schema() got an unexpected keyword argument 'literal_binds'
 </pre>
 </div>
 </div>
@@ -2043,7 +2043,7 @@ DROP SCHEMA test CASCADE
 <div class="output_area">
 <div class="prompt output_prompt">Out[20]:</div>
 <div class="output_text output_subarea output_execute_result">
-<pre><sqlalchemy.engine.result.ResultProxy at 0x7f734fa1cd30></pre>
+<pre><sqlalchemy.engine.result.resultproxy at 0x7f734fa1cd30></pre>
 </div>
 </div>
 </div>
@@ -2172,7 +2172,7 @@ DROP SCHEMA test CASCADE
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><div class = "article warning">注意</div></p>
+<p><div class="article warning">注意</div></p>
 <p>如果table中定义了foreign key信息,SQLAlchemy Core构建join语句的时候能够自动将foreign key作为join的条件。 但是autoload得到的table会失去这个便利，暂时没找到解决方法。(见join章节的演示)</p>
 </div>
 </div>
@@ -2367,7 +2367,7 @@ CREATE TABLE test.users (
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre><class 'sqlalchemy.exc.InternalError'> (psycopg2.InternalError) cannot drop table users because other objects depend on it
+<pre><class &#x27;sqlalchemy.exc.internalerror&#x27;> (psycopg2.InternalError) cannot drop table users because other objects depend on it
 DETAIL:  constraint addresses_user_id_fkey on table addresses depends on table users
 HINT:  Use DROP ... CASCADE to drop the dependent objects too.
  [SQL: '\nDROP TABLE test.users']
@@ -2414,7 +2414,7 @@ HINT:  Use DROP ... CASCADE to drop the dependent objects too.
 <div class="output_area">
 <div class="prompt output_prompt">Out[28]:</div>
 <div class="output_text output_subarea output_execute_result">
-<pre><sqlalchemy.engine.result.ResultProxy at 0x7f7350290198></pre>
+<pre><sqlalchemy.engine.result.resultproxy at 0x7f7350290198></pre>
 </div>
 </div>
 </div>
@@ -2425,7 +2425,7 @@ HINT:  Use DROP ... CASCADE to drop the dependent objects too.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><div class = 'article tip'>提示</div></p>
+<p><div class="article tip">提示</div></p>
 <p>SQLAlchemy的优势更多的是体现在构造和复用复杂的SQL逻辑上。在删除table的这个例子里。SQLAlchemy Core实际上并不如原生的SQL语句好用。我们完全可以针对自己的场景，选择适合的工作去完成任务。</p>
 </div>
 </div>
@@ -2855,7 +2855,7 @@ INSERT INTO test.users (id, name, fullname) VALUES (%(id)s, %(name)s, %(fullname
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre><class 'sqlalchemy.exc.CompileError'> INSERT value for column users.fullname is explicitly rendered as a boundparameter in the VALUES clause; a Python-side value or SQL expression is required
+<pre><class &#x27;sqlalchemy.exc.compileerror&#x27;> INSERT value for column users.fullname is explicitly rendered as a boundparameter in the VALUES clause; a Python-side value or SQL expression is required
 </pre>
 </div>
 </div>
@@ -3002,7 +3002,7 @@ INSERT INTO test.users (id, name, fullname) VALUES (%(id)s, %(name)s, %(fullname
 <<<
 INSERT INTO test.users (id, name, fullname) VALUES (%(id)s, %(name)s, %(fullname)s)
 >>>
-<class 'sqlalchemy.exc.IntegrityError'> (psycopg2.IntegrityError) duplicate key value violates unique constraint "users_pkey"
+<class &#x27;sqlalchemy.exc.integrityerror&#x27;> (psycopg2.IntegrityError) duplicate key value violates unique constraint "users_pkey"
 DETAIL:  Key (id)=(8) already exists.
  [SQL: 'INSERT INTO test.users (name, fullname) VALUES (%(name)s, %(fullname)s) RETURNING test.users.id'] [parameters: {'fullname': 'Jack Jones', 'name': 'jack'}]
 </pre>
@@ -3110,7 +3110,7 @@ DETAIL:  Key (id)=(8) already exists.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><div class = 'article warnings'>注意</div></p>
+<p><div class="article warnings">注意</div></p>
 <p>尽管<code>list(df.to_records())</code>转成的结果看上去是tuple list</p>
 </div>
 </div>
@@ -3170,7 +3170,7 @@ DETAIL:  Key (id)=(8) already exists.
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre><class 'sqlalchemy.exc.ProgrammingError'> (psycopg2.ProgrammingError) can't adapt type 'record' [SQL: 'INSERT INTO test.users (id, name) VALUES (%(id)s, %(name)s)'] [parameters: {'id': (15, 'Xu', 'ZhangXu'), 'name': (16, 'Junjie', 'CaiJunjie')}]
+<pre><class &#x27;sqlalchemy.exc.programmingerror&#x27;> (psycopg2.ProgrammingError) can't adapt type 'record' [SQL: 'INSERT INTO test.users (id, name) VALUES (%(id)s, %(name)s)'] [parameters: {'id': (15, 'Xu', 'ZhangXu'), 'name': (16, 'Junjie', 'CaiJunjie')}]
 </pre>
 </div>
 </div>
@@ -3266,7 +3266,7 @@ DETAIL:  Key (id)=(8) already exists.
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre><class 'sqlalchemy.exc.ProgrammingError'> (psycopg2.ProgrammingError) can't adapt type 'numpy.int64' [SQL: 'INSERT INTO test.users (id, name, fullname) VALUES (%(id_0)s, %(name_0)s, %(fullname_0)s), (%(id_1)s, %(name_1)s, %(fullname_1)s)'] [parameters: {'name_1': 'Junjie', 'fullname_1': 'CaiJunjie', 'id_0': 15, 'name_0': 'Xu', 'fullname_0': 'ZhangXu', 'id_1': 16}]
+<pre><class &#x27;sqlalchemy.exc.programmingerror&#x27;> (psycopg2.ProgrammingError) can't adapt type 'numpy.int64' [SQL: 'INSERT INTO test.users (id, name, fullname) VALUES (%(id_0)s, %(name_0)s, %(fullname_0)s), (%(id_1)s, %(name_1)s, %(fullname_1)s)'] [parameters: {'name_1': 'Junjie', 'fullname_1': 'CaiJunjie', 'id_0': 15, 'name_0': 'Xu', 'fullname_0': 'ZhangXu', 'id_1': 16}]
 </pre>
 </div>
 </div>
@@ -3695,7 +3695,7 @@ SELECT test.users.id, test.users.name, test.users.fullname
 FROM test.users 
 WHERE test.users.name LIKE NULL + '%%'
 >>>
-<class 'sqlalchemy.exc.ProgrammingError'> (psycopg2.ProgrammingError) operator is not unique: unknown + unknown
+<class &#x27;sqlalchemy.exc.programmingerror&#x27;> (psycopg2.ProgrammingError) operator is not unique: unknown + unknown
 LINE 3: WHERE test.users.name LIKE 'jack' + '%'
                                           ^
 HINT:  Could not choose a best candidate operator. You might need to add explicit type casts.
@@ -3823,7 +3823,7 @@ WHERE test.users.name LIKE ('jack' || '%%')
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre><class 'sqlalchemy.exc.ProgrammingError'> (psycopg2.ProgrammingError) syntax error at or near ":"
+<pre><class &#x27;sqlalchemy.exc.programmingerror&#x27;> (psycopg2.ProgrammingError) syntax error at or near ":"
 LINE 1: ...name, users.fullname from test.users where users.id=:user_id
                                                                ^
  [SQL: 'select users.id, users.name, users.fullname from test.users where users.id=:user_id']
@@ -4009,7 +4009,7 @@ WHERE users.id = addresses.user_id and users.id = NULL
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre><class 'sqlalchemy.sql.selectable.Select'>
+<pre><class &#x27;sqlalchemy.sql.selectable.select&#x27;>
 </pre>
 </div>
 </div>
@@ -4113,7 +4113,7 @@ FROM test.users
 SELECT users.id AS id, '=<' || users.fullname || '>=' AS name 
 FROM "test.users"
 >>>
-<class 'sqlalchemy.exc.ProgrammingError'> (psycopg2.ProgrammingError) relation "test.users" does not exist
+<class &#x27;sqlalchemy.exc.programmingerror&#x27;> (psycopg2.ProgrammingError) relation "test.users" does not exist
 LINE 2: FROM "test.users"
              ^
  [SQL: 'SELECT users.id AS id, %(param_1)s || users.fullname || %(param_2)s AS name \nFROM "test.users"'] [parameters: {'param_2': '>=', 'param_1': '=<'}]
