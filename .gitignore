@@ -13,7 +13,7 @@ tags
 htmlcov
 six-*.egg/
 *.orig
-output/
+output/.*
 customs.py
 content/articles/jupyter_labs
 themes/static/customs/.*

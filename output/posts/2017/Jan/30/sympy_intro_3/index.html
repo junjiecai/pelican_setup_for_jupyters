@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ch">
 
 <head>
             <meta charset="utf-8">
@@ -7,18 +7,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-        <title>Sympy Notes III</title>
+        <title>Sympy笔记III</title>
 
         <!-- Bootstrap Core CSS -->
-        <link href="https://junjiecai.github.io/../theme/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://junjiecai.github.io/../theme/css/bootstrap-theme.min.css" rel="stylesheet">
+        <link href="https://junjiecai.github.io/theme/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://junjiecai.github.io/theme/css/bootstrap-theme.min.css" rel="stylesheet">
         <!-- Custom CSS -->
-        <link href="https://junjiecai.github.io/../theme/css/clean-blog.min.css" rel="stylesheet">
+        <link href="https://junjiecai.github.io/theme/css/clean-blog.min.css" rel="stylesheet">
 
 
         <!-- Code highlight color scheme -->
-            <link href="https://junjiecai.github.io/../theme/css/code_blocks/github.css" rel="stylesheet">
-        <link href="https://junjiecai.github.io/../theme/css/reward.css" rel="stylesheet">
+            <link href="https://junjiecai.github.io/theme/css/code_blocks/github.css" rel="stylesheet">
+        <link href="https://junjiecai.github.io/theme/css/reward.css" rel="stylesheet">
 
 
 
@@ -26,16 +26,16 @@
         <!-- Custom Fonts -->
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <!-- jQuery -->
-        <script src="https://junjiecai.github.io/../theme/js/jquery.min.js"></script>
+        <script src="https://junjiecai.github.io/theme/js/jquery.min.js"></script>
 
         <!-- Bootstrap Core JavaScript -->
-        <script src="https://junjiecai.github.io/../theme/js/bootstrap.min.js"></script>
-        <script src="https://junjiecai.github.io/../theme/js/jquery-ui.min.js"></script>
+        <script src="https://junjiecai.github.io/theme/js/bootstrap.min.js"></script>
+        <script src="https://junjiecai.github.io/theme/js/jquery-ui.min.js"></script>
 
 
 
         <!-- Custom Theme JavaScript -->
-        <script src="https://junjiecai.github.io/../theme/js/clean-blog.min.js"></script>
+        <script src="https://junjiecai.github.io/theme/js/clean-blog.min.js"></script>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -43,8 +43,8 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-    <link href="https://junjiecai.github.io/../theme/css/jquery.tocify.css" rel="stylesheet">
-    <script src="https://junjiecai.github.io/../theme/js/jquery.tocify.js"></script>
+    <link href="https://junjiecai.github.io/theme/css/jquery.tocify.css" rel="stylesheet">
+    <script src="https://junjiecai.github.io/theme/js/jquery.tocify.js"></script>
     <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
     <script>
@@ -79,7 +79,7 @@
     </script>
 
 
-        <meta name="description" content="Tutorial fot Sympy, a powerful symbolic package for Python. Part III of the notes covers matrix and solver.">
+        <meta name="description" content="Sympy是一个Python下功能强大的符号计算库。这篇文章是教程的第三部分，涉及矩阵，等式求解，线性系统求解和非线性系统求解。">
 
         <meta name="author" content="Exolution">
 
@@ -87,16 +87,16 @@
         <meta name="tags" content="Sympy">
 
 	                <meta property="og:locale" content="en_US.utf8">
-		<meta property="og:site_name" content="Exolution's Bizarre Adventure">
+		<meta property="og:site_name" content="Exolution的奇妙冒险">
 
 	<meta property="og:type" content="article">
-            <meta property="article:author" content="https://junjiecai.github.io/en/author/exolution.html">
-	<meta property="og:url" content="https://junjiecai.github.io/en/posts/2017/Jan/30/sympy_intro_3/">
-	<meta property="og:title" content="Sympy Notes III">
+            <meta property="article:author" content="https://junjiecai.github.io/author/exolution.html">
+	<meta property="og:url" content="https://junjiecai.github.io/posts/2017/Jan/30/sympy_intro_3/">
+	<meta property="og:title" content="Sympy笔记III">
 	<meta property="article:published_time" content="2017-01-30 00:00:00+08:00">
-            <meta property="og:description" content="Tutorial fot Sympy, a powerful symbolic package for Python. Part III of the notes covers matrix and solver.">
+            <meta property="og:description" content="Sympy是一个Python下功能强大的符号计算库。这篇文章是教程的第三部分，涉及矩阵，等式求解，线性系统求解和非线性系统求解。">
 
-            <meta property="og:image" content="https://junjiecai.github.io/en/../theme/images/home-bg.jpg">
+            <meta property="og:image" content="https://junjiecai.github.io/../theme/images/home-bg.jpg">
 </head>
 
 <body>
@@ -112,16 +112,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="https://junjiecai.github.io/en/">Exolution's Bizarre Adventure</a>
+                <a class="navbar-brand" href="https://junjiecai.github.io/">Exolution的奇妙冒险</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                        <li><a href="https://junjiecai.github.io/en/categories.html">Categories</a></li>
-                        <li><a href="https://junjiecai.github.io/en/tags.html">Tags</a></li>
-                        <li><a href="https://junjiecai.github.io/en/archives.html">Archives</a></li>
-                            <li><a href="https://junjiecai.github.io/en/pages/about/">About Me</a></li>
+                        <li><a href="https://junjiecai.github.io/categories.html">分类</a></li>
+                        <li><a href="https://junjiecai.github.io/tags.html">标签</a></li>
+                        <li><a href="https://junjiecai.github.io/archives.html">归档</a></li>
+                            <li><a href="https://junjiecai.github.io/pages/about/">关于我</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -130,35 +130,35 @@
     </nav>
 
     <!-- Page Header -->
-        <header class="intro-header" style="padding:20px;background:black;background-image: url('https://junjiecai.github.io/../theme/customs/bg_image.jpg')">
+        <header class="intro-header" style="padding:20px;background:black;background-image: url('https://junjiecai.github.io/theme/customs/bg_image.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
-                        <h1>Sympy Notes III</h1>
+                        <h1>Sympy笔记III</h1>
                         <span class="meta">
-                                Author:
+                                作者:
                              
                             Exolution
                         </span>
                         <span class="meta">
-                                Publish:
+                                发布:
   
-                            30/01/2017
+                            2017-01-30
                         </span>
                         <span class="meta">
-                                Modified:
+                                修改:
   
-                            30/01/2017
+                            2017-01-30
                         </span>
                         <span class = 'meta'>
                             <span id="busuanzi_container_page_pv">
-                                    Visited:
+                                    访问:
                                 <span id="busuanzi_value_page_pv"></span>
                             </span>
                         </span>
                                     Tanslation:
-                <a href="https://junjiecai.github.io/en/../posts/2017/Jan/30/sympy_intro_3/">中文</a>
+                <a href="https://junjiecai.github.io/en/posts/2017/Jan/30/sympy_intro_3/">English</a>
 
                     </div>
                 </div>
@@ -182,7 +182,7 @@
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
     <p>
-        It is recommended to download the .ipynb file and related resources <a href="https://github.com/junjiecai/jupyter_labs/tree/master/exolution/0026_sympy")>here</a>. Then you can test the codes in the article interactively while you are reading in Jupyter.
+        建议从<a href="https://github.com/junjiecai/jupyter_labs/tree/master/exolution/0026_sympy")>这里</a>下载这篇文章对应的.ipynb文件和相关资源。这样你就能在Jupyter中边阅读，边测试文中的代码。
     </p>
 </div>
 </div>
@@ -1164,13 +1164,13 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Initialize-Enviroment">Initialize Enviroment<a class="anchor-link" href="#Initialize-Enviroment">¶</a></h1>
+<h1 id="初始化环境">初始化环境<a class="anchor-link" href="#初始化环境">¶</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [91]:</div>
+<div class="prompt input_prompt">In [73]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span><span class="p">,</span> <span class="n">Latex</span> 
@@ -1181,9 +1181,9 @@ h6:hover .anchor-link {
 
 <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">'x y z'</span><span class="p">)</span>
 
-<span class="n">func_comparator</span> <span class="o">=</span> <span class="n">comparator_factory</span><span class="p">(</span><span class="s1">'Before applying </span><span class="si">{}</span><span class="s1">:'</span><span class="p">,</span><span class="s1">'After:'</span><span class="p">)</span>
-<span class="n">method_comparator</span> <span class="o">=</span> <span class="n">comparator_method_factory</span><span class="p">(</span><span class="s1">'Before calling </span><span class="si">{}</span><span class="s1">:'</span><span class="p">,</span><span class="s1">'After:'</span><span class="p">)</span>
-<span class="n">eval_comparator</span> <span class="o">=</span> <span class="n">comparator_eval_factory</span><span class="p">(</span><span class="s1">'Before evaluation:'</span><span class="p">,</span><span class="s1">'After evaluation:'</span><span class="p">)</span>
+<span class="n">func_comparator</span> <span class="o">=</span> <span class="n">comparator_factory</span><span class="p">(</span><span class="s1">'使用</span><span class="si">{}</span><span class="s1">前:'</span><span class="p">,</span><span class="s1">'使用后:'</span><span class="p">)</span>
+<span class="n">method_comparator</span> <span class="o">=</span> <span class="n">comparator_method_factory</span><span class="p">(</span><span class="s1">'调用</span><span class="si">{}</span><span class="s1">前:'</span><span class="p">,</span><span class="s1">'调用后:'</span><span class="p">)</span>
+<span class="n">eval_comparator</span> <span class="o">=</span> <span class="n">comparator_eval_factory</span><span class="p">(</span><span class="s1">'计算前:'</span><span class="p">,</span><span class="s1">'计算后:'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1194,7 +1194,7 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Matrices">Matrices<a class="anchor-link" href="#Matrices">¶</a></h1>
+<h1 id="矩阵">矩阵<a class="anchor-link" href="#矩阵">¶</a></h1>
 </div>
 </div>
 </div>
@@ -1203,13 +1203,13 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Construct-matrix">Construct matrix<a class="anchor-link" href="#Construct-matrix">¶</a></h2><h3 id="Construct-matrix-from-list">Construct matrix from list<a class="anchor-link" href="#Construct-matrix-from-list">¶</a></h3><p>To make a matrix in Sympy, initialize a <code>Matrix</code> class by providing a list of row vectors (nested list).</p>
+<h2 id="创建矩阵">创建矩阵<a class="anchor-link" href="#创建矩阵">¶</a></h2><h3 id="从list创建矩阵">从list创建矩阵<a class="anchor-link" href="#从list创建矩阵">¶</a></h3><p>如果要在Sympy中创建一个矩阵， 可以通过行向量(内嵌的list)构成的list初始化一个<code>Matrix</code>类。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [92]:</div>
+<div class="prompt input_prompt">In [74]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">(</span>
@@ -1228,7 +1228,7 @@ h6:hover .anchor-link {
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
-<div class="prompt output_prompt">Out[92]:</div>
+<div class="prompt output_prompt">Out[74]:</div>
 <div class="output_latex output_subarea output_execute_result">
 $$\left[\begin{matrix}1 & -1\\3 & 4\\0 & 2\end{matrix}\right]$$
 </div>
@@ -1241,13 +1241,13 @@ $$\left[\begin{matrix}1 & -1\\3 & 4\\0 & 2\end{matrix}\right]$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Pass a single layer list of elements will create a $n \times 1$ matrix.</p>
+<p>如果只传入单层的list，那么会创建一个$n \times 1$矩阵。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [93]:</div>
+<div class="prompt input_prompt">In [75]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
@@ -1260,7 +1260,7 @@ $$\left[\begin{matrix}1 & -1\\3 & 4\\0 & 2\end{matrix}\right]$$
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
-<div class="prompt output_prompt">Out[93]:</div>
+<div class="prompt output_prompt">Out[75]:</div>
 <div class="output_latex output_subarea output_execute_result">
 $$\left[\begin{matrix}1\\2\\3\end{matrix}\right]$$
 </div>
@@ -1273,7 +1273,7 @@ $$\left[\begin{matrix}1\\2\\3\end{matrix}\right]$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Common-Matrix-Constructors">Common Matrix Constructors<a class="anchor-link" href="#Common-Matrix-Constructors">¶</a></h2>
+<h2 id="构造常用的矩阵">构造常用的矩阵<a class="anchor-link" href="#构造常用的矩阵">¶</a></h2>
 </div>
 </div>
 </div>
@@ -1282,7 +1282,7 @@ $$\left[\begin{matrix}1\\2\\3\end{matrix}\right]$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Several constructors exist for creating common matrices.</p>
+<p>有一些创建常用矩阵的方法。</p>
 </div>
 </div>
 </div>
@@ -1291,13 +1291,13 @@ $$\left[\begin{matrix}1\\2\\3\end{matrix}\right]$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Identity-Matrix">Identity Matrix<a class="anchor-link" href="#Identity-Matrix">¶</a></h3><p>To create identity matrix, use <code>eye(n)</code></p>
+<h3 id="单位矩阵">单位矩阵<a class="anchor-link" href="#单位矩阵">¶</a></h3><p>用<code>eye(n)</code>创建单位矩阵。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [94]:</div>
+<div class="prompt input_prompt">In [76]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
@@ -1310,7 +1310,7 @@ $$\left[\begin{matrix}1\\2\\3\end{matrix}\right]$$
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
-<div class="prompt output_prompt">Out[94]:</div>
+<div class="prompt output_prompt">Out[76]:</div>
 <div class="output_latex output_subarea output_execute_result">
 $$\left[\begin{matrix}1 & 0 & 0\\0 & 1 & 0\\0 & 0 & 1\end{matrix}\right]$$
 </div>
@@ -1323,13 +1323,22 @@ $$\left[\begin{matrix}1 & 0 & 0\\0 & 1 & 0\\0 & 0 & 1\end{matrix}\right]$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Matrix-of-Zero">Matrix of Zero<a class="anchor-link" href="#Matrix-of-Zero">¶</a></h3><p>To create a zero matrix, use <code>zero(n)</code></p>
+<h3 id="零矩阵">零矩阵<a class="anchor-link" href="#零矩阵">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>通过<code>zero(n)</code>去创建零矩阵。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [95]:</div>
+<div class="prompt input_prompt">In [77]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
@@ -1355,13 +1364,13 @@ $$\left[\begin{matrix}0 & 0 & 0 & 0\\0 & 0 & 0 & 0\\0 & 0 & 0 & 0\end{matrix}\ri
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Matrix-of-Ones">Matrix of Ones<a class="anchor-link" href="#Matrix-of-Ones">¶</a></h3><p>To create a zero matrix, use <code>one(n)</code></p>
+<h3 id="Matrix-of-Ones">Matrix of Ones<a class="anchor-link" href="#Matrix-of-Ones">¶</a></h3><p>通过<code>ones(n)</code>去创建数值全为1的矩阵。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [96]:</div>
+<div class="prompt input_prompt">In [78]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
@@ -1374,7 +1383,7 @@ $$\left[\begin{matrix}0 & 0 & 0 & 0\\0 & 0 & 0 & 0\\0 & 0 & 0 & 0\end{matrix}\ri
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
-<div class="prompt output_prompt">Out[96]:</div>
+<div class="prompt output_prompt">Out[78]:</div>
 <div class="output_latex output_subarea output_execute_result">
 $$\left[\begin{matrix}1 & 1\\1 & 1\\1 & 1\end{matrix}\right]$$
 </div>
@@ -1387,13 +1396,13 @@ $$\left[\begin{matrix}1 & 1\\1 & 1\\1 & 1\end{matrix}\right]$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Diagonal">Diagonal<a class="anchor-link" href="#Diagonal">¶</a></h3><p>Pass multiple matrix or numbers to construct a diagonal matrix. Numbers will be intepreted as $1 \times 1$ matrix.</p>
+<h3 id="对角矩阵">对角矩阵<a class="anchor-link" href="#对角矩阵">¶</a></h3><p>传入数个矩阵或者数值去构造对角矩阵。 数值会被处理成$1 \times 1$矩阵。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [97]:</div>
+<div class="prompt input_prompt">In [79]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">diag</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">ones</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">Matrix</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">]))</span>
@@ -1406,7 +1415,7 @@ $$\left[\begin{matrix}1 & 1\\1 & 1\\1 & 1\end{matrix}\right]$$
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
-<div class="prompt output_prompt">Out[97]:</div>
+<div class="prompt output_prompt">Out[79]:</div>
 <div class="output_latex output_subarea output_execute_result">
 $$\left[\begin{matrix}-1 & 0 & 0 & 0\\0 & 1 & 1 & 0\\0 & 1 & 1 & 0\\0 & 0 & 0 & 5\\0 & 0 & 0 & 7\\0 & 0 & 0 & 5\end{matrix}\right]$$
 </div>
@@ -1419,7 +1428,7 @@ $$\left[\begin{matrix}-1 & 0 & 0 & 0\\0 & 1 & 1 & 0\\0 & 1 & 1 & 0\\0 & 0 & 0 & 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Basic-operations">Basic operations<a class="anchor-link" href="#Basic-operations">¶</a></h2>
+<h2 id="基本操作">基本操作<a class="anchor-link" href="#基本操作">¶</a></h2>
 </div>
 </div>
 </div>
@@ -1428,7 +1437,7 @@ $$\left[\begin{matrix}-1 & 0 & 0 & 0\\0 & 1 & 1 & 0\\0 & 1 & 1 & 0\\0 & 0 & 0 & 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Shape">Shape<a class="anchor-link" href="#Shape">¶</a></h3>
+<h3 id="获得形状">获得形状<a class="anchor-link" href="#获得形状">¶</a></h3>
 </div>
 </div>
 </div>
@@ -1437,13 +1446,13 @@ $$\left[\begin{matrix}-1 & 0 & 0 & 0\\0 & 1 & 1 & 0\\0 & 1 & 1 & 0\\0 & 0 & 0 & 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>To get the shape of a matrix, use <code>shape</code></p>
+<p>用<code>shape</code>获得矩阵的形状。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [98]:</div>
+<div class="prompt input_prompt">In [80]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span><span class="o">.</span><span class="n">shape</span>
@@ -1454,7 +1463,7 @@ $$\left[\begin{matrix}-1 & 0 & 0 & 0\\0 & 1 & 1 & 0\\0 & 1 & 1 & 0\\0 & 0 & 0 & 
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
-<div class="prompt output_prompt">Out[98]:</div>
+<div class="prompt output_prompt">Out[80]:</div>
 <div class="output_latex output_subarea output_execute_result">
 $$\left ( 6, \quad 4\right )$$
 </div>
@@ -1467,14 +1476,13 @@ $$\left ( 6, \quad 4\right )$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Get-rows-and-columns">Get rows and columns<a class="anchor-link" href="#Get-rows-and-columns">¶</a></h3><p>Use <code>row()</code> and <code>col()</code> to get single row and column.</p>
-<p>To get the first row</p>
+<h3 id="获取行或者列">获取行或者列<a class="anchor-link" href="#获取行或者列">¶</a></h3><p>使用<code>row()</code>和<code>col()</code>获取单行或者单列。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [99]:</div>
+<div class="prompt input_prompt">In [81]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span><span class="o">.</span><span class="n">row</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -1485,7 +1493,7 @@ $$\left ( 6, \quad 4\right )$$
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
-<div class="prompt output_prompt">Out[99]:</div>
+<div class="prompt output_prompt">Out[81]:</div>
 <div class="output_latex output_subarea output_execute_result">
 $$\left[\begin{matrix}-1 & 0 & 0 & 0\end{matrix}\right]$$
 </div>
@@ -1498,13 +1506,13 @@ $$\left[\begin{matrix}-1 & 0 & 0 & 0\end{matrix}\right]$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>To get the last column</p>
+<p>获取单列。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [100]:</div>
+<div class="prompt input_prompt">In [82]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
@@ -1515,7 +1523,7 @@ $$\left[\begin{matrix}-1 & 0 & 0 & 0\end{matrix}\right]$$
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
-<div class="prompt output_prompt">Out[100]:</div>
+<div class="prompt output_prompt">Out[82]:</div>
 <div class="output_latex output_subarea output_execute_result">
 $$\left[\begin{matrix}0\\0\\0\\5\\7\\5\end{matrix}\right]$$
 </div>
@@ -1528,24 +1536,24 @@ $$\left[\begin{matrix}0\\0\\0\\5\\7\\5\end{matrix}\right]$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Delete-Rows-and-Columns">Delete Rows and Columns<a class="anchor-link" href="#Delete-Rows-and-Columns">¶</a></h3><p>To delete a row or column, use <code>row_del</code> and <code>col_del</code>. These operaitons modify the matrix inplace.</p>
-<p>For example, we create a matrix then delete the first row and last column.</p>
+<h3 id="删除行列">删除行列<a class="anchor-link" href="#删除行列">¶</a></h3><p>用<code>row_del</code>或<code>col_del</code>删除行或列。 这些操作会直接修改矩阵。</p>
+<p>例如，我们要删除第一行和最后一列。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [101]:</div>
+<div class="prompt input_prompt">In [83]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
 
-<span class="n">display</span><span class="p">(</span><span class="s1">'Before deletion:'</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="s1">'删除前:'</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
 
 <span class="n">M</span><span class="o">.</span><span class="n">row_del</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">M</span><span class="o">.</span><span class="n">col_del</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="n">display</span><span class="p">(</span><span class="s1">'After deletion:'</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="s1">'删除后:'</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1555,7 +1563,7 @@ $$\left[\begin{matrix}0\\0\\0\\5\\7\\5\end{matrix}\right]$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_text output_subarea ">
-<pre>'Before deletion:'</pre>
+<pre>'删除前:'</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1567,7 +1575,7 @@ $$\left[\begin{matrix}1 & 2 & 3\\3 & 2 & 1\end{matrix}\right]$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_text output_subarea ">
-<pre>'After deletion:'</pre>
+<pre>'删除后:'</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1584,19 +1592,19 @@ $$\left[\begin{matrix}3 & 2\end{matrix}\right]$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Transpose-of-Matrix">Transpose of Matrix<a class="anchor-link" href="#Transpose-of-Matrix">¶</a></h3><p>Use <code>T</code></p>
+<h3 id="矩阵转置">矩阵转置<a class="anchor-link" href="#矩阵转置">¶</a></h3><p>使用<code>T</code></p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [102]:</div>
+<div class="prompt input_prompt">In [84]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
 
-<span class="n">display</span><span class="p">(</span><span class="s1">'Original matrix:'</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="s1">'Transposed matrix:'</span><span class="p">,</span><span class="n">M</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="s1">'原矩阵:'</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="s1">'转职后矩阵:'</span><span class="p">,</span><span class="n">M</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1606,7 +1614,7 @@ $$\left[\begin{matrix}3 & 2\end{matrix}\right]$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_text output_subarea ">
-<pre>'Original matrix:'</pre>
+<pre>'原矩阵:'</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1618,7 +1626,7 @@ $$\left[\begin{matrix}1 & 2 & 3\\4 & 5 & 6\end{matrix}\right]$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_text output_subarea ">
-<pre>'Transposed matrix:'</pre>
+<pre>'转职后矩阵:'</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1635,23 +1643,19 @@ $$\left[\begin{matrix}1 & 4\\2 & 5\\3 & 6\end{matrix}\right]$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Insert-Rows-and-Columns">Insert Rows and Columns<a class="anchor-link" href="#Insert-Rows-and-Columns">¶</a></h3><p>To insert rows and columns, use <code>row_insert</code> and <code>col_insert</code>. These operations don't operate inplace and return a new matrix with modified data.</p>
-<p><code>row_insert()</code> accepts a position and a $1 \times n$  matrix.</p>
+<h3 id="插入行列">插入行列<a class="anchor-link" href="#插入行列">¶</a></h3><p>如果要插入行或者列，用<code>row_insert</code>或<code>col_insert</code>。 这些操作并不会直接修改原矩阵而是返回数值被修改的一个新矩阵。</p>
+<p><code>row_insert()</code>接受位置和$1 \times n$矩阵。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [103]:</div>
+<div class="prompt input_prompt">In [85]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
 
-<span class="n">display</span><span class="p">(</span><span class="s1">'Before insertion:'</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
-
-<span class="n">M</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">row_insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">]]))</span>
-
-<span class="n">display</span><span class="p">(</span><span class="s1">'After Insertion:'</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
+<span class="n">method_comparator</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="s1">'row_insert'</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">]]))</span>
 </pre></div>
 </div>
 </div>
@@ -1660,8 +1664,9 @@ $$\left[\begin{matrix}1 & 4\\2 & 5\\3 & 6\end{matrix}\right]$$
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'Before insertion:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>调用row_insert()前:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1672,8 +1677,9 @@ $$\left[\begin{matrix}1 & 2 & 3\\3 & 2 & 1\end{matrix}\right]$$
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'After Insertion:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>调用后:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1690,22 +1696,18 @@ $$\left[\begin{matrix}6 & 6 & 6\\1 & 2 & 3\\3 & 2 & 1\end{matrix}\right]$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>col_insert()</code> accepts position and $n \times 1$  matrix.</p>
+<p><code>col_insert()</code>接受位置和$n \times 1$矩阵。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [104]:</div>
+<div class="prompt input_prompt">In [86]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
 
-<span class="n">display</span><span class="p">(</span><span class="s1">'Before insertion:'</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
-
-<span class="n">M</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">col_insert</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">Matrix</span><span class="p">([</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">]))</span>
-
-<span class="n">display</span><span class="p">(</span><span class="s1">'After Insertion:'</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
+<span class="n">method_comparator</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="s1">'col_insert'</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>  <span class="n">Matrix</span><span class="p">([</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
@@ -1714,8 +1716,9 @@ $$\left[\begin{matrix}6 & 6 & 6\\1 & 2 & 3\\3 & 2 & 1\end{matrix}\right]$$
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'Before insertion:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>调用col_insert()前:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1726,8 +1729,9 @@ $$\left[\begin{matrix}1 & 2 & 3\\3 & 2 & 1\end{matrix}\right]$$
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'After Insertion:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>调用后:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1744,14 +1748,14 @@ $$\left[\begin{matrix}1 & 2 & 6 & 3\\3 & 2 & 6 & 1\end{matrix}\right]$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Matrix-Computation">Matrix Computation<a class="anchor-link" href="#Matrix-Computation">¶</a></h2><p>Basic matrix computation like addition, substraction, multiplication and inversion can be achived through python operators <code>+</code>,<code>-</code>,<code>*</code>,<code>**</code></p>
-<h3 id="Addition">Addition<a class="anchor-link" href="#Addition">¶</a></h3>
+<h2 id="矩阵计算">矩阵计算<a class="anchor-link" href="#矩阵计算">¶</a></h2><p>基本的矩阵计算像加法，减法，乘法，求逆可以通过pythhon的算符<code>+</code>,<code>-</code>,<code>*</code>,<code>**</code>来实现。</p>
+<h3 id="加法">加法<a class="anchor-link" href="#加法">¶</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [105]:</div>
+<div class="prompt input_prompt">In [87]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
@@ -1816,13 +1820,13 @@ $$\left[\begin{matrix}1 & 6\\-2 & 10\end{matrix}\right]$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Substraction">Substraction<a class="anchor-link" href="#Substraction">¶</a></h3>
+<h3 id="减法">减法<a class="anchor-link" href="#减法">¶</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [106]:</div>
+<div class="prompt input_prompt">In [88]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
@@ -1887,13 +1891,13 @@ $$\left[\begin{matrix}1 & 0\\-2 & -4\end{matrix}\right]$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Multiplication">Multiplication<a class="anchor-link" href="#Multiplication">¶</a></h3>
+<h3 id="乘法">乘法<a class="anchor-link" href="#乘法">¶</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [107]:</div>
+<div class="prompt input_prompt">In [89]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
@@ -1957,13 +1961,13 @@ $$\left[\begin{matrix}5\\3\end{matrix}\right]$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Inverse">Inverse<a class="anchor-link" href="#Inverse">¶</a></h3>
+<h3 id="求逆">求逆<a class="anchor-link" href="#求逆">¶</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [108]:</div>
+<div class="prompt input_prompt">In [90]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
@@ -2012,13 +2016,13 @@ $$\left[\begin{matrix}\frac{1}{3} & - \frac{1}{3}\\\frac{2}{9} & \frac{1}{9}\end
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Determinant">Determinant<a class="anchor-link" href="#Determinant">¶</a></h2><p>To get determinant of matrix, use <code>det</code></p>
+<h2 id="行列式">行列式<a class="anchor-link" href="#行列式">¶</a></h2><p>用<code>det</code>计算矩阵的行列式</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [109]:</div>
+<div class="prompt input_prompt">In [91]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
@@ -2033,7 +2037,7 @@ $$\left[\begin{matrix}\frac{1}{3} & - \frac{1}{3}\\\frac{2}{9} & \frac{1}{9}\end
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Before calling det():
+<pre>调用det()前:
 </pre>
 </div>
 </div>
@@ -2046,7 +2050,7 @@ $$\left[\begin{matrix}1 & 0 & 1\\2 & -1 & 3\\4 & 3 & 2\end{matrix}\right]$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>After:
+<pre>调用后:
 </pre>
 </div>
 </div>
@@ -2064,26 +2068,26 @@ $$-1$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="RREF">RREF<a class="anchor-link" href="#RREF">¶</a></h3><p>To put a matrix into reduced echelon form, use <code>rref()</code>. It returns a matrix of two elements, the first is the reduced echelon form and the second is a list of indices of the pivot columns.</p>
+<h3 id="行阶梯型矩阵">行阶梯型矩阵<a class="anchor-link" href="#行阶梯型矩阵">¶</a></h3><p>用<code>rref()</code>将矩阵处理成行阶梯型矩阵。 它返回两个结果，第一个是行阶梯型矩阵， 第二个是主元列的index。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [110]:</div>
+<div class="prompt input_prompt">In [92]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">]])</span>
 
 <span class="n">M_rref</span><span class="p">,</span> <span class="n">pivot_columns</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">rref</span><span class="p">()</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Original Matrix:'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'原矩阵:'</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Reduced echelon form:'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'阶梯型:'</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">M_rref</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Pivot columns:'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'主元index:'</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">pivot_columns</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2094,7 +2098,7 @@ $$-1$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Original Matrix:
+<pre>原矩阵:
 </pre>
 </div>
 </div>
@@ -2107,7 +2111,7 @@ $$\left[\begin{matrix}1 & 0 & 1 & 3\\2 & 3 & 4 & 7\\-1 & -3 & -3 & -4\end{matrix
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Reduced echelon form:
+<pre>阶梯型:
 </pre>
 </div>
 </div>
@@ -2120,7 +2124,7 @@ $$\left[\begin{matrix}1 & 0 & 1 & 3\\0 & 1 & \frac{2}{3} & \frac{1}{3}\\0 & 0 & 
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Pivot columns:
+<pre>主元index:
 </pre>
 </div>
 </div>
@@ -2138,7 +2142,7 @@ $$\left [ 0, \quad 1\right ]$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Nullspace">Nullspace<a class="anchor-link" href="#Nullspace">¶</a></h3>
+<h3 id="零空间">零空间<a class="anchor-link" href="#零空间">¶</a></h3>
 </div>
 </div>
 </div>
@@ -2147,20 +2151,20 @@ $$\left [ 0, \quad 1\right ]$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>nullspace()</code> returns a list of column vectors which span the nullspace of a matrix.</p>
+<p><code>nullspace()</code>返回一个能够张成矩阵零空间的向量组成的list。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [111]:</div>
+<div class="prompt input_prompt">In [93]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Matrix M:'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'原矩阵M:'</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Spanning vectors for nullspace of M:'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'矩阵M的零空间的张成向量:'</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">nullspace</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -2171,7 +2175,7 @@ $$\left [ 0, \quad 1\right ]$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Matrix M:
+<pre>原矩阵M:
 </pre>
 </div>
 </div>
@@ -2184,7 +2188,7 @@ $$\left[\begin{matrix}1 & 2 & 3 & 0 & 0\\4 & 10 & 0 & 0 & 1\end{matrix}\right]$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Spanning vectors for nullspace of M:
+<pre>矩阵M的零空间的张成向量:
 </pre>
 </div>
 </div>
@@ -2202,7 +2206,7 @@ $$\left [ \left[\begin{matrix}-15\\6\\1\\0\\0\end{matrix}\right], \quad \left[\b
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Column-space">Column space<a class="anchor-link" href="#Column-space">¶</a></h3>
+<h3 id="列空间">列空间<a class="anchor-link" href="#列空间">¶</a></h3>
 </div>
 </div>
 </div>
@@ -2211,20 +2215,20 @@ $$\left [ \left[\begin{matrix}-15\\6\\1\\0\\0\end{matrix}\right], \quad \left[\b
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>columnspace()</code> returns a list of column vectors which span the columnspace of a matrix.</p>
+<p><code>columnspace()</code>返回一个能够张成矩阵列空间的向量组成的list。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [112]:</div>
+<div class="prompt input_prompt">In [94]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span> <span class="p">,</span><span class="mi">1</span> <span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span> <span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Matrix M:'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'矩阵M:'</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Spanning vectors for columnspace of M:'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'张成矩阵M的列空间的向量:'</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">columnspace</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -2235,7 +2239,7 @@ $$\left [ \left[\begin{matrix}-15\\6\\1\\0\\0\end{matrix}\right], \quad \left[\b
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Matrix M:
+<pre>矩阵M:
 </pre>
 </div>
 </div>
@@ -2248,7 +2252,7 @@ $$\left[\begin{matrix}1 & 1 & 2\\2 & 1 & 3\\3 & 1 & 4\end{matrix}\right]$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Spanning vectors for columnspace of M:
+<pre>张成矩阵M的列空间的向量:
 </pre>
 </div>
 </div>
@@ -2266,21 +2270,21 @@ $$\left [ \left[\begin{matrix}1\\2\\3\end{matrix}\right], \quad \left[\begin{mat
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Eigenvalues-and-Eigenvectors">Eigenvalues and Eigenvectors<a class="anchor-link" href="#Eigenvalues-and-Eigenvectors">¶</a></h3><p>To find the eigenvalues of a matrix, use <code>eigenvals</code>. It returns a dictionary of eigenvalue:algebraic multiplicity pairs.</p>
+<h3 id="特征值和特征向量">特征值和特征向量<a class="anchor-link" href="#特征值和特征向量">¶</a></h3><p>要计算矩阵的特征值，可以使用<code>eigenvals</code>。它返回由特征值:代数重数对组成的dict。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [113]:</div>
+<div class="prompt input_prompt">In [95]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span>  <span class="mi">3</span><span class="p">]])</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Matrix M'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'矩阵M'</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Eigenvalues and their algebraic multiplicity:'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'矩阵M的特征值和它们的代数重数:'</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">eigenvals</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -2291,7 +2295,7 @@ $$\left [ \left[\begin{matrix}1\\2\\3\end{matrix}\right], \quad \left[\begin{mat
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Matrix M
+<pre>矩阵M
 </pre>
 </div>
 </div>
@@ -2304,7 +2308,7 @@ $$\left[\begin{matrix}3 & -2 & 4 & -2\\5 & 3 & -3 & -2\\5 & -2 & 2 & -2\\5 & -2 
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Eigenvalues and their algebraic multiplicity:
+<pre>矩阵M的特征值和它们的代数重数:
 </pre>
 </div>
 </div>
@@ -2322,13 +2326,13 @@ $$\left \{ -2 : 1, \quad 3 : 1, \quad 5 : 2\right \}$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>eigenvectors</code> return a list of tuples of the form <code>(eigenvalue, algebraic multiplicity, [eigenvectors])</code></p>
+<p><code>eigenvectors</code>返回由特征值，几何重数，特征向量列表组成的tuple。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [114]:</div>
+<div class="prompt input_prompt">In [96]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">(</span>
@@ -2340,10 +2344,10 @@ $$\left \{ -2 : 1, \quad 3 : 1, \quad 5 : 2\right \}$$
     <span class="p">]</span>
 <span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Matrix M'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'矩阵M'</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Eigenvalues, their algebraic multiplicity and eigenvectors:'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'特征值，几何重数，特征向量:'</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">eigenvects</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -2354,7 +2358,7 @@ $$\left \{ -2 : 1, \quad 3 : 1, \quad 5 : 2\right \}$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Matrix M
+<pre>矩阵M
 </pre>
 </div>
 </div>
@@ -2367,7 +2371,7 @@ $$\left[\begin{matrix}3 & -2 & 4 & -2\\5 & 3 & -3 & -2\\5 & -2 & 2 & -2\\5 & -2 
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Eigenvalues, their algebraic multiplicity and eigenvectors:
+<pre>特征值，几何重数，特征向量:
 </pre>
 </div>
 </div>
@@ -2385,22 +2389,22 @@ $$\left [ \left ( -2, \quad 1, \quad \left [ \left[\begin{matrix}0\\1\\1\\1\end{
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>If all you want is the characteristic polymonial, use <code>charpoly()</code> and <code>factor()</code></p>
+<p>如果只是想获得特征多项式， 用<code>charpoly()</code>和<code>factor()</code></p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [115]:</div>
+<div class="prompt input_prompt">In [97]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'Matrix M'</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'矩阵M'</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
 
 <span class="n">lamda</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">'lamda'</span><span class="p">)</span>
 <span class="n">p</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">charpoly</span><span class="p">(</span><span class="n">lamda</span><span class="p">)</span><span class="o">.</span><span class="n">factor</span><span class="p">()</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">'characteristic polymonial of M'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'矩阵M的特征多项式'</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2411,7 +2415,7 @@ $$\left [ \left ( -2, \quad 1, \quad \left [ \left[\begin{matrix}0\\1\\1\\1\end{
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Matrix M
+<pre>矩阵M
 </pre>
 </div>
 </div>
@@ -2424,7 +2428,7 @@ $$\left[\begin{matrix}3 & -2 & 4 & -2\\5 & 3 & -3 & -2\\5 & -2 & 2 & -2\\5 & -2 
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>characteristic polymonial of M
+<pre>矩阵M的特征多项式
 </pre>
 </div>
 </div>
@@ -2442,13 +2446,13 @@ $$\left(\lambda - 5\right)^{2} \left(\lambda - 3\right) \left(\lambda + 2\right)
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Diagonalization">Diagonalization<a class="anchor-link" href="#Diagonalization">¶</a></h2><p>To diagonalize a matrix , use <code>diagonalize()</code>. diagonalize returns a tuple ($P$,$D$), where D is diagonal and $M = PDP^{-1}$.</p>
+<h2 id="对角化">对角化<a class="anchor-link" href="#对角化">¶</a></h2><p>如果要对角化一个矩阵，用<code>diagonalize()</code>。 它返回($P$,$D$)组成的tuple，其中$D$是对角矩阵并且满足$M = PDP^{-1}$。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [116]:</div>
+<div class="prompt input_prompt">In [98]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">(</span>
@@ -2462,13 +2466,13 @@ $$\left(\lambda - 5\right)^{2} \left(\lambda - 3\right) \left(\lambda + 2\right)
 
 <span class="n">P</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">diagonalize</span><span class="p">()</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Matrix M'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'矩阵M'</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Matrix P'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'矩阵P'</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Matrix D'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'矩阵D'</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
 
 <span class="n">display</span><span class="p">(</span><span class="n">Latex</span><span class="p">(</span><span class="s1">'$PDP^{-1}$'</span><span class="p">))</span>
@@ -2482,7 +2486,7 @@ $$\left(\lambda - 5\right)^{2} \left(\lambda - 3\right) \left(\lambda + 2\right)
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Matrix M
+<pre>矩阵M
 </pre>
 </div>
 </div>
@@ -2495,7 +2499,7 @@ $$\left[\begin{matrix}3 & -2 & 4 & -2\\5 & 3 & -3 & -2\\5 & -2 & 2 & -2\\5 & -2 
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Matrix P
+<pre>矩阵P
 </pre>
 </div>
 </div>
@@ -2508,7 +2512,7 @@ $$\left[\begin{matrix}0 & 1 & 1 & 0\\1 & 1 & 1 & -1\\1 & 1 & 1 & 0\\1 & 1 & 0 & 
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Matrix D
+<pre>矩阵D
 </pre>
 </div>
 </div>
@@ -2538,13 +2542,13 @@ $$\left[\begin{matrix}3 & -2 & 4 & -2\\5 & 3 & -3 & -2\\5 & -2 & 2 & -2\\5 & -2 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Solvers">Solvers<a class="anchor-link" href="#Solvers">¶</a></h1><h2 id="Basic-equations">Basic equations<a class="anchor-link" href="#Basic-equations">¶</a></h2><p>The main function for solving algebraic equations is <code>solveset()</code>. The syntax for <code>solveset()</code> is <code>solveset(equation, variable=None, domain=S.Complexes)</code>.</p>
+<h1 id="等式求解">等式求解<a class="anchor-link" href="#等式求解">¶</a></h1><h2 id="基本求解">基本求解<a class="anchor-link" href="#基本求解">¶</a></h2><p>代数等式求解的主要函数是<code>solveset()</code>。 它的语法是<code>solveset(equation, variable=None, domain=S.Complexes)</code></p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [117]:</div>
+<div class="prompt input_prompt">In [99]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">eq</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
@@ -2559,7 +2563,7 @@ $$\left[\begin{matrix}3 & -2 & 4 & -2\\5 & 3 & -3 & -2\\5 & -2 & 2 & -2\\5 & -2 
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Before applying solveset():
+<pre>使用solveset()前:
 </pre>
 </div>
 </div>
@@ -2572,7 +2576,7 @@ $$x^{2} - 1 = 0$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>After:
+<pre>使用后:
 </pre>
 </div>
 </div>
@@ -2590,18 +2594,18 @@ $$\left\{-1, 1\right\}$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>If an expresison instead of a Eq instance is passed in <code>solveset()</code>, it is automatically assumed to be zero.</p>
+<p>如果<code>solveset()</code>中传入一个表达式而非等式， 那么它会被假设等于0,。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [118]:</div>
+<div class="prompt input_prompt">In [100]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span>
 
-<span class="n">func_comparator</span><span class="p">(</span><span class="n">eq</span><span class="p">,</span> <span class="n">solveset</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">func_comparator</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">solveset</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2611,20 +2615,20 @@ $$\left\{-1, 1\right\}$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Before applying solveset():
+<pre>使用solveset()前:
 </pre>
 </div>
 </div>
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_latex output_subarea ">
-$$x^{2} - 1 = 0$$
+$$x^{2} - 1$$
 </div>
 </div>
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>After:
+<pre>使用后:
 </pre>
 </div>
 </div>
@@ -2642,13 +2646,13 @@ $$\left\{-1, 1\right\}$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Result of the solver can be a infinite set.</p>
+<p>求解结果可以是无限集合。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [119]:</div>
+<div class="prompt input_prompt">In [101]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">eq</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
@@ -2663,7 +2667,7 @@ $$\left\{-1, 1\right\}$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Before applying solveset():
+<pre>使用solveset()前:
 </pre>
 </div>
 </div>
@@ -2676,7 +2680,7 @@ $$\sin{\left (x \right )} - 1 = 0$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>After:
+<pre>使用后:
 </pre>
 </div>
 </div>
@@ -2694,13 +2698,13 @@ $$\left\{2 n \pi + \frac{\pi}{2}\; |\; n \in \mathbb{Z}\right\}$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Result of the solver can be an empty set.</p>
+<p>求解结果可以是空集。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [120]:</div>
+<div class="prompt input_prompt">In [102]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">eq</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
@@ -2715,7 +2719,7 @@ $$\left\{2 n \pi + \frac{\pi}{2}\; |\; n \in \mathbb{Z}\right\}$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Before applying solveset():
+<pre>使用solveset()前:
 </pre>
 </div>
 </div>
@@ -2728,7 +2732,7 @@ $$e^{x} = 0$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>After:
+<pre>使用后:
 </pre>
 </div>
 </div>
@@ -2746,13 +2750,13 @@ $$\emptyset$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>When solver fails to find solutions, it returns an conditional set.</p>
+<p>如果求解失败，会返回一个条件集合。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [121]:</div>
+<div class="prompt input_prompt">In [103]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">eq</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span>
@@ -2767,7 +2771,7 @@ $$\emptyset$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Before applying solveset():
+<pre>使用solveset()前:
 </pre>
 </div>
 </div>
@@ -2780,7 +2784,7 @@ $$- x + \cos{\left (x \right )} = 0$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>After:
+<pre>使用后:
 </pre>
 </div>
 </div>
@@ -2798,13 +2802,13 @@ $$\left\{x\; |\; x \in \mathbb{C} \wedge - x + \cos{\left (x \right )} = 0 \righ
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>solveset()</code> reports each solution only once.</p>
+<p><code>solveset()</code>只会显示每个解一次。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [122]:</div>
+<div class="prompt input_prompt">In [104]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">eq</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">6</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">9</span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
@@ -2819,7 +2823,7 @@ $$\left\{x\; |\; x \in \mathbb{C} \wedge - x + \cos{\left (x \right )} = 0 \righ
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Before applying solveset():
+<pre>使用solveset()前:
 </pre>
 </div>
 </div>
@@ -2832,7 +2836,7 @@ $$x^{3} - 6 x^{2} + 9 x = 0$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>After:
+<pre>使用后:
 </pre>
 </div>
 </div>
@@ -2850,13 +2854,13 @@ $$\left\{0, 3\right\}$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>To get the solutions with polymonial equation with multiplicity, use <code>roots()</code></p>
+<p>如果要获得多项等式每个解的重数，可以用<code>roots()</code></p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [123]:</div>
+<div class="prompt input_prompt">In [105]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">eq</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">6</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">9</span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
@@ -2871,7 +2875,7 @@ $$\left\{0, 3\right\}$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Before applying roots():
+<pre>使用roots()前:
 </pre>
 </div>
 </div>
@@ -2884,7 +2888,7 @@ $$x^{3} - 6 x^{2} + 9 x = 0$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>After:
+<pre>使用后:
 </pre>
 </div>
 </div>
@@ -2902,7 +2906,7 @@ $$\left \{ 0 : 1, \quad 3 : 2\right \}$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Linear-System">Linear System<a class="anchor-link" href="#Linear-System">¶</a></h2>
+<h2 id="线性系统">线性系统<a class="anchor-link" href="#线性系统">¶</a></h2>
 </div>
 </div>
 </div>
@@ -2911,14 +2915,14 @@ $$\left \{ 0 : 1, \quad 3 : 2\right \}$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>linsolve()</code> is the solver to solve a linear system. A linear system can be defined using differet method.</p>
-<h3 id="list-of-equations">list of equations<a class="anchor-link" href="#list-of-equations">¶</a></h3>
+<p><code>linsolve()</code>用于求解线性系统. 线性系统有不同的定义方法。</p>
+<h3 id="等式list">等式list<a class="anchor-link" href="#等式list">¶</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [124]:</div>
+<div class="prompt input_prompt">In [106]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ls</span> <span class="o">=</span> <span class="p">[</span>
@@ -2936,7 +2940,7 @@ $$\left \{ 0 : 1, \quad 3 : 2\right \}$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Before applying linsolve():
+<pre>使用linsolve()前:
 </pre>
 </div>
 </div>
@@ -2949,7 +2953,7 @@ $$\left [ x + y + z - 1 = 0, \quad x + y + 2 z - 3 = 0\right ]$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>After:
+<pre>使用后:
 </pre>
 </div>
 </div>
@@ -2967,20 +2971,52 @@ $$\left\{\left ( - y - 1, \quad 2\right )\right\}$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>List of equatons can be simplified into list of expressions if all of them are equal to zero。</p>
+<p>等式list可以简化成表达式list， 如果这些表达式都等于0。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [125]:</div>
+<div class="prompt input_prompt">In [107]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ls</span> <span class="o">=</span> <span class="p">[</span>
     <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> 
     <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">z</span> <span class="o">-</span> <span class="mi">3</span>
 <span class="p">]</span>
+
+<span class="n">func_comparator</span><span class="p">(</span><span class="n">ls</span><span class="p">,</span><span class="n">linsolve</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>使用linsolve()前:
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\left [ x + y + z - 1, \quad x + y + 2 z - 3\right ]$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>使用后:
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\left\{\left ( - y - 1, \quad 2\right )\right\}$$
+</div>
 </div>
 </div>
 </div>
@@ -2990,13 +3026,13 @@ $$\left\{\left ( - y - 1, \quad 2\right )\right\}$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Augmeted-matrix-form">Augmeted matrix form<a class="anchor-link" href="#Augmeted-matrix-form">¶</a></h3>
+<h3 id="增广矩阵形式">增广矩阵形式<a class="anchor-link" href="#增广矩阵形式">¶</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [126]:</div>
+<div class="prompt input_prompt">In [108]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">(</span>
@@ -3016,7 +3052,7 @@ $$\left\{\left ( - y - 1, \quad 2\right )\right\}$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Before applying linsolve():
+<pre>使用linsolve()前:
 </pre>
 </div>
 </div>
@@ -3029,7 +3065,7 @@ $$\left[\begin{matrix}1 & 1 & 1 & 1\\1 & 1 & 2 & 3\end{matrix}\right]$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>After:
+<pre>使用后:
 </pre>
 </div>
 </div>
@@ -3047,13 +3083,13 @@ $$\left\{\left ( - y - 1, \quad y, \quad 2\right )\right\}$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="$Ax-=-b$-form">$Ax = b$ form<a class="anchor-link" href="#$Ax-=-b$-form">¶</a></h3>
+<h3 id="$Ax-=-b$-形式">$Ax = b$ 形式<a class="anchor-link" href="#$Ax-=-b$-形式">¶</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [127]:</div>
+<div class="prompt input_prompt">In [109]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">(</span>
@@ -3064,7 +3100,7 @@ $$\left\{\left ( - y - 1, \quad y, \quad 2\right )\right\}$$
 <span class="p">)</span>
 <span class="n">ls</span> <span class="o">=</span> <span class="n">A</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">M</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">M</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
-<span class="n">func_comparator</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">linsolve</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+<span class="n">func_comparator</span><span class="p">(</span><span class="n">ls</span><span class="p">,</span><span class="n">linsolve</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3074,20 +3110,20 @@ $$\left\{\left ( - y - 1, \quad y, \quad 2\right )\right\}$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Before applying linsolve():
+<pre>使用linsolve()前:
 </pre>
 </div>
 </div>
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_latex output_subarea ">
-$$\left[\begin{matrix}1 & 1 & 1 & 1\\1 & 1 & 2 & 3\end{matrix}\right]$$
+$$\left ( \left[\begin{matrix}1 & 1 & 1\\1 & 1 & 2\end{matrix}\right], \quad \left[\begin{matrix}1\\3\end{matrix}\right]\right )$$
 </div>
 </div>
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>After:
+<pre>使用后:
 </pre>
 </div>
 </div>
@@ -3105,7 +3141,7 @@ $$\left\{\left ( - y - 1, \quad y, \quad 2\right )\right\}$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Non-linear-Systems">Non-linear Systems<a class="anchor-link" href="#Non-linear-Systems">¶</a></h2>
+<h2 id="非线性系统">非线性系统<a class="anchor-link" href="#非线性系统">¶</a></h2>
 </div>
 </div>
 </div>
@@ -3114,13 +3150,13 @@ $$\left\{\left ( - y - 1, \quad y, \quad 2\right )\right\}$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>solvset()</code> is not capable of solving mutiple variable non-linear system. In this situation, use <code>solve()</code> instead.</p>
+<p><code>solvset()</code>不能解非线性多元系统。 遇到这样的需求用<code>solve()</code>代替。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [128]:</div>
+<div class="prompt input_prompt">In [110]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">eq_list</span> <span class="o">=</span> <span class="p">[</span>
@@ -3138,7 +3174,7 @@ $$\left\{\left ( - y - 1, \quad y, \quad 2\right )\right\}$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Before applying solve():
+<pre>使用solve()前:
 </pre>
 </div>
 </div>
@@ -3151,7 +3187,7 @@ $$\left [ x y - 1 = 0, \quad x - 2 = 0\right ]$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>After:
+<pre>使用后:
 </pre>
 </div>
 </div>
@@ -3169,13 +3205,13 @@ $$\left [ \left ( 2, \quad \frac{1}{2}\right )\right ]$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Differential-equition">Differential equition<a class="anchor-link" href="#Differential-equition">¶</a></h2><p>First define needed function symbol variables.</p>
+<h2 id="微分方程">微分方程<a class="anchor-link" href="#微分方程">¶</a></h2><p>先定义函数符号变量。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [129]:</div>
+<div class="prompt input_prompt">In [111]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">'f'</span><span class="p">,</span> <span class="bp">cls</span> <span class="o">=</span> <span class="n">Function</span><span class="p">)</span>
@@ -3189,13 +3225,13 @@ $$\left [ \left ( 2, \quad \frac{1}{2}\right )\right ]$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Then define the differential equation. For example, $f''(x) - 2f'(x) + f(x) = \sin(x)$</p>
+<p>然后定义微分方程，例如，$f''(x) - 2f'(x) + f(x) = \sin(x)$</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [130]:</div>
+<div class="prompt input_prompt">In [112]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">diffeq</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
@@ -3209,13 +3245,13 @@ $$\left [ \left ( 2, \quad \frac{1}{2}\right )\right ]$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Then use <code>dsolve()</code> to solve the equation.</p>
+<p>然后用<code>dsolve()</code>求解。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [131]:</div>
+<div class="prompt input_prompt">In [113]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">func_comparator</span><span class="p">(</span><span class="n">diffeq</span><span class="p">,</span> <span class="n">dsolve</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
@@ -3228,7 +3264,7 @@ $$\left [ \left ( 2, \quad \frac{1}{2}\right )\right ]$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Before applying dsolve():
+<pre>使用dsolve()前:
 </pre>
 </div>
 </div>
@@ -3241,7 +3277,7 @@ $$f{\left (x \right )} - 2 \frac{d}{d x} f{\left (x \right )} + \frac{d^{2}}{d x
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>After:
+<pre>使用后:
 </pre>
 </div>
 </div>
@@ -3259,13 +3295,13 @@ $$f{\left (x \right )} = \left(C_{1} + C_{2} x\right) e^{x} + \frac{1}{2} \cos{\
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>If the equation cannot be solved explicitly, <code>dsolve()</code> returns an implicit equation.</p>
+<p>如果无法得到显式的解， <code>dsolve()</code>返回一个隐函数形式。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [132]:</div>
+<div class="prompt input_prompt">In [114]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">diffeq</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">sin</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))),</span> <span class="mi">0</span><span class="p">)</span>
@@ -3280,7 +3316,7 @@ $$f{\left (x \right )} = \left(C_{1} + C_{2} x\right) e^{x} + \frac{1}{2} \cos{\
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Before applying dsolve():
+<pre>使用dsolve()前:
 </pre>
 </div>
 </div>
@@ -3293,7 +3329,7 @@ $$\left(- \sin{\left (f{\left (x \right )} \right )} + 1\right) \frac{d}{d x} f{
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>After:
+<pre>使用后:
 </pre>
 </div>
 </div>
@@ -3311,7 +3347,7 @@ $$f{\left (x \right )} + \cos{\left (f{\left (x \right )} \right )} = C_{1}$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Reference">Reference<a class="anchor-link" href="#Reference">¶</a></h1><p><a href="http://docs.sympy.org/latest/index.html">Sympy Documentation</a></p>
+<h1 id="参考资料">参考资料<a class="anchor-link" href="#参考资料">¶</a></h1><p><a href="http://docs.sympy.org/latest/index.html">Sympy Documentation</a></p>
 </div>
 </div>
 </div>
@@ -3347,10 +3383,10 @@ $$f{\left (x \right )} + \cos{\left (f{\left (x \right )} \right )} = C_{1}$$
                 </article>
 		<div align='center'>
 		            <div class="tags">
-		                <p>tags: <a href="https://junjiecai.github.io/en/tag/python.html">python</a>, <a href="https://junjiecai.github.io/en/tag/sympy.html">Sympy</a></p>
+		                <p>tags: <a href="https://junjiecai.github.io/tag/python.html">python</a>, <a href="https://junjiecai.github.io/tag/sympy.html">Sympy</a></p>
 		            </div>
 <p>若觉得本文对您有帮助,欢迎赞助作者一顿早餐:D</p>			
-<img class='reward' style="display:inline;margin-right:10px" src="https://junjiecai.github.io/../theme/customs/award.jpeg" alt="weixin_payment">		</div>
+<img class='reward' style="display:inline;margin-right:10px" src="https://junjiecai.github.io/theme/customs/award.jpeg" alt="weixin_payment">		</div>
 <div class="ds-thread" data-thread-key="//junjiecai.github.io/0028" data-title="//junjiecai.github.io/0028" data-url="//junjiecai.github.io/posts/2017/Jan/30/sympy_intro_3/" style="width: 80%;margin-left: 20%;"></div>
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"junjiecai1984"};

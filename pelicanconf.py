@@ -94,6 +94,8 @@ MARKUP = ('md', 'ipynb')
 PLUGIN_PATHS = ['plugins']
 PLUGINS = ['ipynb.markup','i18n_subsites']
 
+IPYNB_USE_META_SUMMARY = True
+
 #,'', 'extract_toc','neighbors','pdf'
 
 ## Theme Config for pelican-clean-blog

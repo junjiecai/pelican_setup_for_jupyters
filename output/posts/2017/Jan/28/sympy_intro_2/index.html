@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ch">
 
 <head>
             <meta charset="utf-8">
@@ -7,18 +7,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-        <title>Sympy Notes II</title>
+        <title>Sympy笔记II</title>
 
         <!-- Bootstrap Core CSS -->
-        <link href="https://junjiecai.github.io/../theme/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://junjiecai.github.io/../theme/css/bootstrap-theme.min.css" rel="stylesheet">
+        <link href="https://junjiecai.github.io/theme/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://junjiecai.github.io/theme/css/bootstrap-theme.min.css" rel="stylesheet">
         <!-- Custom CSS -->
-        <link href="https://junjiecai.github.io/../theme/css/clean-blog.min.css" rel="stylesheet">
+        <link href="https://junjiecai.github.io/theme/css/clean-blog.min.css" rel="stylesheet">
 
 
         <!-- Code highlight color scheme -->
-            <link href="https://junjiecai.github.io/../theme/css/code_blocks/github.css" rel="stylesheet">
-        <link href="https://junjiecai.github.io/../theme/css/reward.css" rel="stylesheet">
+            <link href="https://junjiecai.github.io/theme/css/code_blocks/github.css" rel="stylesheet">
+        <link href="https://junjiecai.github.io/theme/css/reward.css" rel="stylesheet">
 
 
 
@@ -26,16 +26,16 @@
         <!-- Custom Fonts -->
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <!-- jQuery -->
-        <script src="https://junjiecai.github.io/../theme/js/jquery.min.js"></script>
+        <script src="https://junjiecai.github.io/theme/js/jquery.min.js"></script>
 
         <!-- Bootstrap Core JavaScript -->
-        <script src="https://junjiecai.github.io/../theme/js/bootstrap.min.js"></script>
-        <script src="https://junjiecai.github.io/../theme/js/jquery-ui.min.js"></script>
+        <script src="https://junjiecai.github.io/theme/js/bootstrap.min.js"></script>
+        <script src="https://junjiecai.github.io/theme/js/jquery-ui.min.js"></script>
 
 
 
         <!-- Custom Theme JavaScript -->
-        <script src="https://junjiecai.github.io/../theme/js/clean-blog.min.js"></script>
+        <script src="https://junjiecai.github.io/theme/js/clean-blog.min.js"></script>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -43,8 +43,8 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-    <link href="https://junjiecai.github.io/../theme/css/jquery.tocify.css" rel="stylesheet">
-    <script src="https://junjiecai.github.io/../theme/js/jquery.tocify.js"></script>
+    <link href="https://junjiecai.github.io/theme/css/jquery.tocify.css" rel="stylesheet">
+    <script src="https://junjiecai.github.io/theme/js/jquery.tocify.js"></script>
     <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
     <script>
@@ -79,7 +79,7 @@
     </script>
 
 
-        <meta name="description" content="Tutorial fot Sympy, a powerful symbolic package for Python. Part II of the notes covers calculus and series expansion.">
+        <meta name="description" content="Sympy是一个Python下功能强大的符号计算库。这篇文章是教程的第二部分，涉及微积分和级数展开。">
 
         <meta name="author" content="Exolution">
 
@@ -87,16 +87,16 @@
         <meta name="tags" content="Sympy">
 
 	                <meta property="og:locale" content="en_US.utf8">
-		<meta property="og:site_name" content="Exolution's Bizarre Adventure">
+		<meta property="og:site_name" content="Exolution的奇妙冒险">
 
 	<meta property="og:type" content="article">
-            <meta property="article:author" content="https://junjiecai.github.io/en/author/exolution.html">
-	<meta property="og:url" content="https://junjiecai.github.io/en/posts/2017/Jan/28/sympy_intro_2/">
-	<meta property="og:title" content="Sympy Notes II">
+            <meta property="article:author" content="https://junjiecai.github.io/author/exolution.html">
+	<meta property="og:url" content="https://junjiecai.github.io/posts/2017/Jan/28/sympy_intro_2/">
+	<meta property="og:title" content="Sympy笔记II">
 	<meta property="article:published_time" content="2017-01-28 00:00:00+08:00">
-            <meta property="og:description" content="Tutorial fot Sympy, a powerful symbolic package for Python. Part II of the notes covers calculus and series expansion.">
+            <meta property="og:description" content="Sympy是一个Python下功能强大的符号计算库。这篇文章是教程的第二部分，涉及微积分和级数展开。">
 
-            <meta property="og:image" content="https://junjiecai.github.io/en/../theme/images/home-bg.jpg">
+            <meta property="og:image" content="https://junjiecai.github.io/../theme/images/home-bg.jpg">
 </head>
 
 <body>
@@ -112,16 +112,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="https://junjiecai.github.io/en/">Exolution's Bizarre Adventure</a>
+                <a class="navbar-brand" href="https://junjiecai.github.io/">Exolution的奇妙冒险</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                        <li><a href="https://junjiecai.github.io/en/categories.html">Categories</a></li>
-                        <li><a href="https://junjiecai.github.io/en/tags.html">Tags</a></li>
-                        <li><a href="https://junjiecai.github.io/en/archives.html">Archives</a></li>
-                            <li><a href="https://junjiecai.github.io/en/pages/about/">About Me</a></li>
+                        <li><a href="https://junjiecai.github.io/categories.html">分类</a></li>
+                        <li><a href="https://junjiecai.github.io/tags.html">标签</a></li>
+                        <li><a href="https://junjiecai.github.io/archives.html">归档</a></li>
+                            <li><a href="https://junjiecai.github.io/pages/about/">关于我</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -130,35 +130,35 @@
     </nav>
 
     <!-- Page Header -->
-        <header class="intro-header" style="padding:20px;background:black;background-image: url('https://junjiecai.github.io/../theme/customs/bg_image.jpg')">
+        <header class="intro-header" style="padding:20px;background:black;background-image: url('https://junjiecai.github.io/theme/customs/bg_image.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
-                        <h1>Sympy Notes II</h1>
+                        <h1>Sympy笔记II</h1>
                         <span class="meta">
-                                Author:
+                                作者:
                              
                             Exolution
                         </span>
                         <span class="meta">
-                                Publish:
+                                发布:
   
-                            28/01/2017
+                            2017-01-28
                         </span>
                         <span class="meta">
-                                Modified:
+                                修改:
   
-                            28/01/2017
+                            2017-01-28
                         </span>
                         <span class = 'meta'>
                             <span id="busuanzi_container_page_pv">
-                                    Visited:
+                                    访问:
                                 <span id="busuanzi_value_page_pv"></span>
                             </span>
                         </span>
                                     Tanslation:
-                <a href="https://junjiecai.github.io/en/../posts/2017/Jan/28/sympy_intro_2/">中文</a>
+                <a href="https://junjiecai.github.io/en/posts/2017/Jan/28/sympy_intro_2/">English</a>
 
                     </div>
                 </div>
@@ -182,7 +182,7 @@
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
     <p>
-        It is recommended to download the .ipynb file and related resources <a href="https://github.com/junjiecai/jupyter_labs/tree/master/exolution/0026_sympy")>here</a>. Then you can test the codes in the article interactively while you are reading in Jupyter.
+        建议从<a href="https://github.com/junjiecai/jupyter_labs/tree/master/exolution/0026_sympy")>这里</a>下载这篇文章对应的.ipynb文件和相关资源。这样你就能在Jupyter中边阅读，边测试文中的代码。
     </p>
 </div>
 </div>
@@ -1164,13 +1164,13 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Initialize-Enviroment">Initialize Enviroment<a class="anchor-link" href="#Initialize-Enviroment">¶</a></h1>
+<h1 id="初始化环境">初始化环境<a class="anchor-link" href="#初始化环境">¶</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [18]:</div>
+<div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span>
@@ -1181,9 +1181,9 @@ h6:hover .anchor-link {
 
 <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">'x y z'</span><span class="p">)</span>
 
-<span class="n">comparator</span> <span class="o">=</span> <span class="n">comparator_factory</span><span class="p">(</span><span class="s1">'Before applying </span><span class="si">{}</span><span class="s1">:'</span><span class="p">,</span><span class="s1">'After:'</span><span class="p">)</span>
-<span class="n">method_comparator</span> <span class="o">=</span> <span class="n">comparator_method_factory</span><span class="p">(</span><span class="s1">'Before calling </span><span class="si">{}</span><span class="s1">:'</span><span class="p">,</span><span class="s1">'After:'</span><span class="p">)</span>
-<span class="n">eval_comparator</span> <span class="o">=</span> <span class="n">comparator_eval_factory</span><span class="p">(</span><span class="s1">'Before evaluation:'</span><span class="p">,</span><span class="s1">'After evaluation:'</span><span class="p">)</span>
+<span class="n">comparator</span> <span class="o">=</span> <span class="n">comparator_factory</span><span class="p">(</span><span class="s1">'使用</span><span class="si">{}</span><span class="s1">前:'</span><span class="p">,</span><span class="s1">'使用后:'</span><span class="p">)</span>
+<span class="n">method_comparator</span> <span class="o">=</span> <span class="n">comparator_method_factory</span><span class="p">(</span><span class="s1">'调用</span><span class="si">{}</span><span class="s1">前:'</span><span class="p">,</span><span class="s1">'调用后:'</span><span class="p">)</span>
+<span class="n">eval_comparator</span> <span class="o">=</span> <span class="n">comparator_eval_factory</span><span class="p">(</span><span class="s1">'计算前:'</span><span class="p">,</span><span class="s1">'计算后:'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1194,7 +1194,7 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Calculus">Calculus<a class="anchor-link" href="#Calculus">¶</a></h1><p>In this section, we will cover how to perform baisc calculus tasks such as derivatives, integrals,litmis and series expansion.</p>
+<h1 id="微积分">微积分<a class="anchor-link" href="#微积分">¶</a></h1><p>这部分设计如何进行基本的微积分操作，比如微分，积分，求极限，级数展开。</p>
 </div>
 </div>
 </div>
@@ -1203,14 +1203,14 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Derivatives">Derivatives<a class="anchor-link" href="#Derivatives">¶</a></h2><p>To take derivatives, use diff()</p>
-<h3 id="basic-derivatives">basic derivatives<a class="anchor-link" href="#basic-derivatives">¶</a></h3><p>Pass in an expresison and one symbol with respect to which the derivative is applied.</p>
+<h2 id="微分">微分<a class="anchor-link" href="#微分">¶</a></h2><p>用<code>diff()</code>求微分</p>
+<h3 id="基本的微分">基本的微分<a class="anchor-link" href="#基本的微分">¶</a></h3><p>传入表达式和应用微分的符号变量。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [19]:</div>
+<div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -1227,7 +1227,7 @@ h6:hover .anchor-link {
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Before applying diff():
+<pre>使用diff()前:
 </pre>
 </div>
 </div>
@@ -1240,7 +1240,7 @@ $$\sin{\left (x \right )}$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>After:
+<pre>使用后:
 </pre>
 </div>
 </div>
@@ -1258,13 +1258,13 @@ $$\cos{\left (x \right )}$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>diff() can also be called as a method</p>
+<p>也可以用方法调用的方式计算微分</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [20]:</div>
+<div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -1279,7 +1279,7 @@ $$\cos{\left (x \right )}$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Before calling diff():
+<pre>调用diff()前:
 </pre>
 </div>
 </div>
@@ -1292,7 +1292,7 @@ $$\sin{\left (x \right )}$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>After:
+<pre>调用后:
 </pre>
 </div>
 </div>
@@ -1310,13 +1310,13 @@ $$\cos{\left (x \right )}$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>To create an unevaluated derivative, use Derivative class and initiate it with the same syntax with diff()</p>
+<p>如果要创建一个未执行计算的微分， 可以使用<code>Derivative</code>类。 初始化的语法和<code>diff()</code>是一样的。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [21]:</div>
+<div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -1352,13 +1352,13 @@ $$\frac{d}{d x} \sin{\left (x \right )}$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>And call <code>doit()</code> method to evaluate it.</p>
+<p>然后调用<code>doit()</code>方法执行计算。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [22]:</div>
+<div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'After evaluation:'</span><span class="p">)</span>
@@ -1390,7 +1390,7 @@ $$\cos{\left (x \right )}$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>To reduce code duplication, we user <code>eval_comparator</code> to handle the comparasion in later notes</p>
+<p>为了避免冗余代码， 后面的笔记我们使用<code>eval_comparator</code>来进行比较。</p>
 </div>
 </div>
 </div>
@@ -1399,13 +1399,13 @@ $$\cos{\left (x \right )}$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="higher-order-derivative">higher order derivative<a class="anchor-link" href="#higher-order-derivative">¶</a></h3><p>To take n order derivatives, pass the symbol n times or pass the symbol once and then follows it with n.</p>
+<h3 id="高阶微分">高阶微分<a class="anchor-link" href="#高阶微分">¶</a></h3><p>如果要计算n次高阶微分， 传入符号n次或者在符号后面传入n。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [23]:</div>
+<div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">Derivative</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">4</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
@@ -1420,7 +1420,7 @@ $$\cos{\left (x \right )}$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Before evaluation:
+<pre>计算前:
 </pre>
 </div>
 </div>
@@ -1433,7 +1433,7 @@ $$\frac{d^{3}}{d x^{3}}  x^{4}$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>After evaluation:
+<pre>计算后:
 </pre>
 </div>
 </div>
@@ -1451,13 +1451,13 @@ $$24 x$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>You can achive the same calculation with the second syntax.</p>
+<p>用第二种方式达到同样的效果。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [24]:</div>
+<div class="prompt input_prompt">In [9]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">Derivative</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">4</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
@@ -1472,7 +1472,7 @@ $$24 x$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Before evaluation:
+<pre>计算前:
 </pre>
 </div>
 </div>
@@ -1485,7 +1485,7 @@ $$\frac{d^{3}}{d x^{3}}  x^{4}$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>After evaluation:
+<pre>计算后:
 </pre>
 </div>
 </div>
@@ -1503,7 +1503,7 @@ $$24 x$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="higher-order-partial-derivatives.">higher order partial derivatives.<a class="anchor-link" href="#higher-order-partial-derivatives.">¶</a></h3>
+<h3 id="高阶偏微分">高阶偏微分<a class="anchor-link" href="#高阶偏微分">¶</a></h3>
 </div>
 </div>
 </div>
@@ -1512,13 +1512,13 @@ $$24 x$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Just pass the symbols in order, with the same syntax with single variable derivative.</p>
+<p>只要按照顺序传入符号就可以， 语法和一阶微分一样。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [25]:</div>
+<div class="prompt input_prompt">In [10]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">Derivative</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">*</span><span class="n">z</span><span class="p">),</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
@@ -1533,7 +1533,7 @@ $$24 x$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Before evaluation:
+<pre>计算前:
 </pre>
 </div>
 </div>
@@ -1546,7 +1546,7 @@ $$\frac{\partial^{7}}{\partial x\partial y^{2}\partial z^{4}}  e^{x y z}$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>After evaluation:
+<pre>计算后:
 </pre>
 </div>
 </div>
@@ -1564,13 +1564,13 @@ $$x^{3} y^{2} \left(x^{3} y^{3} z^{3} + 14 x^{2} y^{2} z^{2} + 52 x y z + 48\rig
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Or user number to control the derivatives order for each symbol</p>
+<p>或者通过数字控制每个符号的微分阶数</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [26]:</div>
+<div class="prompt input_prompt">In [11]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">Derivative</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">*</span><span class="n">z</span><span class="p">),</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
@@ -1585,7 +1585,7 @@ $$x^{3} y^{2} \left(x^{3} y^{3} z^{3} + 14 x^{2} y^{2} z^{2} + 52 x y z + 48\rig
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Before evaluation:
+<pre>计算前:
 </pre>
 </div>
 </div>
@@ -1598,7 +1598,7 @@ $$\frac{\partial^{7}}{\partial x\partial y^{2}\partial z^{4}}  e^{x y z}$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>After evaluation:
+<pre>计算后:
 </pre>
 </div>
 </div>
@@ -1616,7 +1616,7 @@ $$x^{3} y^{2} \left(x^{3} y^{3} z^{3} + 14 x^{2} y^{2} z^{2} + 52 x y z + 48\rig
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Integrals">Integrals<a class="anchor-link" href="#Integrals">¶</a></h1>
+<h1 id="积分">积分<a class="anchor-link" href="#积分">¶</a></h1>
 </div>
 </div>
 </div>
@@ -1625,13 +1625,13 @@ $$x^{3} y^{2} \left(x^{3} y^{3} z^{3} + 14 x^{2} y^{2} z^{2} + 52 x y z + 48\rig
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="indefinte-integrals">indefinte integrals<a class="anchor-link" href="#indefinte-integrals">¶</a></h2><p>Similiar with derivatives, integrals can be performed through integral() by function or method. To construct an unevaluated expression, initialize an Integral class and call doit() to evaludate the calculation.</p>
+<h2 id="不定积分">不定积分<a class="anchor-link" href="#不定积分">¶</a></h2><p>和微分类似，积分可以通过<code>integral()</code>函数或者方法来实现。 如果要创建未计算的积分表达式，初始化一个<code>Integral</code>类然后调用<code>doit()</code>进行计算。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [27]:</div>
+<div class="prompt input_prompt">In [12]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">Integral</span><span class="p">(</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">x</span><span class="p">)</span>
@@ -1646,7 +1646,7 @@ $$x^{3} y^{2} \left(x^{3} y^{3} z^{3} + 14 x^{2} y^{2} z^{2} + 52 x y z + 48\rig
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Before evaluation:
+<pre>计算前:
 </pre>
 </div>
 </div>
@@ -1659,7 +1659,7 @@ $$\int \cos{\left (x \right )}\, dx$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>After evaluation:
+<pre>计算后:
 </pre>
 </div>
 </div>
@@ -1677,7 +1677,7 @@ $$\sin{\left (x \right )}$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="definite-integrals">definite integrals<a class="anchor-link" href="#definite-integrals">¶</a></h3>
+<h3 id="定积分">定积分<a class="anchor-link" href="#定积分">¶</a></h3>
 </div>
 </div>
 </div>
@@ -1686,13 +1686,13 @@ $$\sin{\left (x \right )}$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>To perform a definite integral, pass in a tuple of variable symbol, lower bound and upper bound.</p>
+<p>传入一个包含符号，积分下限， 积分上线的tuple去进行定积分。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [28]:</div>
+<div class="prompt input_prompt">In [13]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">Integral</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">),(</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">oo</span><span class="p">))</span>
@@ -1707,7 +1707,7 @@ $$\sin{\left (x \right )}$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Before evaluation:
+<pre>计算前:
 </pre>
 </div>
 </div>
@@ -1720,7 +1720,7 @@ $$\int_{0}^{\infty} e^{- x}\, dx$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>After evaluation:
+<pre>计算后:
 </pre>
 </div>
 </div>
@@ -1738,7 +1738,7 @@ $$1$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Note, $\infty$ in Sympy is oo (double lower case 'O')</p>
+<p>注意，在Sympy中$\infty$用oo表示(两个小写的'O')</p>
 </div>
 </div>
 </div>
@@ -1747,13 +1747,13 @@ $$1$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="multiple-integrals">multiple integrals<a class="anchor-link" href="#multiple-integrals">¶</a></h3><p>To perform a multiple integral, pass multiple tuples of symbol variable and integral bounds.</p>
+<h3 id="多重积分">多重积分<a class="anchor-link" href="#多重积分">¶</a></h3><p>传入多个包含符号和积分限的tuple进行多重积分。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [29]:</div>
+<div class="prompt input_prompt">In [14]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">Integral</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="n">oo</span><span class="p">,</span> <span class="n">oo</span><span class="p">),</span> <span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="n">oo</span><span class="p">,</span> <span class="n">oo</span><span class="p">))</span>
@@ -1768,7 +1768,7 @@ $$1$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Before evaluation:
+<pre>计算前:
 </pre>
 </div>
 </div>
@@ -1781,7 +1781,7 @@ $$\int_{-\infty}^{\infty}\int_{-\infty}^{\infty} e^{- x^{2} - y^{2}}\, dx\, dy$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>After evaluation:
+<pre>计算后:
 </pre>
 </div>
 </div>
@@ -1799,13 +1799,13 @@ $$\pi$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>If Sympy cannot calculate an integral on an expression, it returns an unevaluated integral expression.</p>
+<p>如果Sympy无法计算一个表达式的积分，机会返回未计算的积分式。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [30]:</div>
+<div class="prompt input_prompt">In [15]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">Integral</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="n">x</span><span class="p">)</span>
@@ -1820,7 +1820,7 @@ $$\pi$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Before evaluation:
+<pre>计算前:
 </pre>
 </div>
 </div>
@@ -1833,7 +1833,7 @@ $$\int x^{x}\, dx$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>After evaluation:
+<pre>计算后:
 </pre>
 </div>
 </div>
@@ -1851,7 +1851,7 @@ $$\int x^{x}\, dx$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Limits">Limits<a class="anchor-link" href="#Limits">¶</a></h1>
+<h1 id="极限">极限<a class="anchor-link" href="#极限">¶</a></h1>
 </div>
 </div>
 </div>
@@ -1860,7 +1860,7 @@ $$\int x^{x}\, dx$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Similiar with derivatives, limits can be performed through limit() by function or method. To construct an unevaluated expression, initialize an Limit class and call doit() to evaludate the calculation.</p>
+<p>和微分一样， 极限可以用过<code>limit()</code>函数或者方法进行微分计算。 如果要创建未计算的表达式，初始化一个<code>Limit</code>类， 然后通过调用<code>doit()</code>方法完成计算。</p>
 </div>
 </div>
 </div>
@@ -1869,13 +1869,13 @@ $$\int x^{x}\, dx$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>By default the limit is calculated from right to left with default setting <code>dir = '+'</code>.</p>
+<p>默认情况下， <code>dir = '+'</code>， 极限从右侧计算。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [36]:</div>
+<div class="prompt input_prompt">In [16]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">Limit</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
@@ -1890,7 +1890,7 @@ $$\int x^{x}\, dx$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Before evaluation:
+<pre>计算前:
 </pre>
 </div>
 </div>
@@ -1903,7 +1903,7 @@ $$\lim_{x \to 0^+}\left(\frac{1}{x} \sin{\left (x \right )}\right)$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>After evaluation:
+<pre>计算后:
 </pre>
 </div>
 </div>
@@ -1921,13 +1921,13 @@ $$1$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>To caluculate a limit from left to right. Pass <code>dir='-'</code></p>
+<p>如果要计算左侧极限， 可以传入<code>dir='-'</code></p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [32]:</div>
+<div class="prompt input_prompt">In [17]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">Limit</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">dir</span> <span class="o">=</span> <span class="s1">'-'</span><span class="p">)</span>
@@ -1942,7 +1942,7 @@ $$1$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Before evaluation:
+<pre>计算前:
 </pre>
 </div>
 </div>
@@ -1955,7 +1955,7 @@ $$\lim_{x \to 0^-}\left(\frac{1}{x} \sin{\left (x \right )}\right)$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>After evaluation:
+<pre>计算后:
 </pre>
 </div>
 </div>
@@ -1973,7 +1973,7 @@ $$1$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Series-Expansion">Series Expansion<a class="anchor-link" href="#Series-Expansion">¶</a></h1>
+<h1 id="级数展开">级数展开<a class="anchor-link" href="#级数展开">¶</a></h1>
 </div>
 </div>
 </div>
@@ -1982,13 +1982,13 @@ $$1$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Sympy can calculate an asymptotic series expansion of a funciton around a point $x_0$ with respect to  $O(x-x_0)^n$ by calling <code>series</code> method of an expression.</p>
+<p>通过调用<code>series()</code>方法， Sympy可以计算误差关于$O(x-x_0)^n$， 在点$x_0$处的渐进级数展开。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [33]:</div>
+<div class="prompt input_prompt">In [18]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -2003,7 +2003,7 @@ $$1$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Before calling series():
+<pre>调用series()前:
 </pre>
 </div>
 </div>
@@ -2016,7 +2016,7 @@ $$\sin{\left (x \right )}$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>After:
+<pre>调用后:
 </pre>
 </div>
 </div>
@@ -2034,13 +2034,13 @@ $$x - \frac{x^{3}}{6} + \frac{x^{5}}{120} + \mathcal{O}\left(x^{6}\right)$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>To remove the order term, call <code>removeO()</code> method</p>
+<p>如果要去掉误差项，可以调用<code>removeO()</code>方法。</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [34]:</div>
+<div class="prompt input_prompt">In [19]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'Expanded expression without order term:'</span><span class="p">)</span>
@@ -2059,7 +2059,7 @@ $$x - \frac{x^{3}}{6} + \frac{x^{5}}{120} + \mathcal{O}\left(x^{6}\right)$$
 </div>
 </div>
 <div class="output_area">
-<div class="prompt output_prompt">Out[34]:</div>
+<div class="prompt output_prompt">Out[19]:</div>
 <div class="output_latex output_subarea output_execute_result">
 $$\frac{x^{5}}{120} - \frac{x^{3}}{6} + x$$
 </div>
@@ -2108,10 +2108,10 @@ $$\frac{x^{5}}{120} - \frac{x^{3}}{6} + x$$
                 </article>
 		<div align='center'>
 		            <div class="tags">
-		                <p>tags: <a href="https://junjiecai.github.io/en/tag/python.html">python</a>, <a href="https://junjiecai.github.io/en/tag/sympy.html">Sympy</a></p>
+		                <p>tags: <a href="https://junjiecai.github.io/tag/python.html">python</a>, <a href="https://junjiecai.github.io/tag/sympy.html">Sympy</a></p>
 		            </div>
 <p>若觉得本文对您有帮助,欢迎赞助作者一顿早餐:D</p>			
-<img class='reward' style="display:inline;margin-right:10px" src="https://junjiecai.github.io/../theme/customs/award.jpeg" alt="weixin_payment">		</div>
+<img class='reward' style="display:inline;margin-right:10px" src="https://junjiecai.github.io/theme/customs/award.jpeg" alt="weixin_payment">		</div>
 <div class="ds-thread" data-thread-key="//junjiecai.github.io/0027" data-title="//junjiecai.github.io/0027" data-url="//junjiecai.github.io/posts/2017/Jan/28/sympy_intro_2/" style="width: 80%;margin-left: 20%;"></div>
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"junjiecai1984"};
