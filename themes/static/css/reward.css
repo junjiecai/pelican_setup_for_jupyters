@@ -1,0 +1,29 @@
+@media screen and (min-width: 727px) and (max-width: 1960px) {
+    .reward {width: 30%;}
+}
+
+@media screen and (min-width: 0px) and (max-width: 726px) {
+    .reward {width: 80%;}
+}
+
+.dataframe{
+    margin:10px;
+}
+
+.dataframe td{
+    padding:5px;
+}
+
+.dataframe th{
+    padding:5px;
+}
+
+
+article p{
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+div.prompt{
+   visibility:hidden
+}
