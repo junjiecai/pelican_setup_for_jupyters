@@ -1,4 +1,4 @@
-# Version 0.12.1
+# Version 0.13
 
 # Project Goal
 This project provides a initial pelican configs and theme files to offer a painless experience to publish jupyter notebooks as pelican blogs into gitpages.
