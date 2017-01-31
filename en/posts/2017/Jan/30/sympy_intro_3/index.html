@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-        <title>Sympy tutorial III</title>
+        <title>Sympy Notes III</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="https://junjiecai.github.io/../theme/css/bootstrap.min.css" rel="stylesheet">
@@ -79,7 +79,7 @@
     </script>
 
 
-        <meta name="description" content="Tutorial fot Sympy, a powerful symbolic package for Python. Part III of the tutorial covers matrix and solver.">
+        <meta name="description" content="Tutorial fot Sympy, a powerful symbolic package for Python. Part III of the notes covers matrix and solver.">
 
         <meta name="author" content="Exolution">
 
@@ -92,9 +92,9 @@
 	<meta property="og:type" content="article">
             <meta property="article:author" content="https://junjiecai.github.io/en/author/exolution.html">
 	<meta property="og:url" content="https://junjiecai.github.io/en/posts/2017/Jan/30/sympy_intro_3/">
-	<meta property="og:title" content="Sympy tutorial III">
+	<meta property="og:title" content="Sympy Notes III">
 	<meta property="article:published_time" content="2017-01-30 00:00:00+08:00">
-            <meta property="og:description" content="Tutorial fot Sympy, a powerful symbolic package for Python. Part III of the tutorial covers matrix and solver.">
+            <meta property="og:description" content="Tutorial fot Sympy, a powerful symbolic package for Python. Part III of the notes covers matrix and solver.">
 
             <meta property="og:image" content="https://junjiecai.github.io/en/../theme/images/home-bg.jpg">
 </head>
@@ -135,7 +135,7 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
-                        <h1>Sympy tutorial III</h1>
+                        <h1>Sympy Notes III</h1>
                         <span class="meta">
                                 Author:
                              
@@ -1157,14 +1157,31 @@ h6:hover .anchor-link {
 
 .ansi-bold { font-weight: bold; }
 </style>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Initialize-Enviroment">Initialize Enviroment<a class="anchor-link" href="#Initialize-Enviroment">¶</a></h1>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [107]:</div>
+<div class="prompt input_prompt">In [27]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Latex</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span><span class="p">,</span> <span class="n">Latex</span> 
 <span class="kn">from</span> <span class="nn">sympy</span> <span class="k">import</span> <span class="o">*</span>
 <span class="n">init_printing</span><span class="p">()</span>
+
+<span class="kn">from</span> <span class="nn">helper</span> <span class="k">import</span> <span class="n">comparator_factory</span><span class="p">,</span> <span class="n">comparator_eval_factory</span><span class="p">,</span> <span class="n">comparator_method_factory</span>
+
+<span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">'x y z'</span><span class="p">)</span>
+
+<span class="n">func_comparator</span> <span class="o">=</span> <span class="n">comparator_factory</span><span class="p">(</span><span class="s1">'Before applying </span><span class="si">{}</span><span class="s1">:'</span><span class="p">,</span><span class="s1">'After:'</span><span class="p">)</span>
+<span class="n">method_comparator</span> <span class="o">=</span> <span class="n">comparator_method_factory</span><span class="p">(</span><span class="s1">'Before calling </span><span class="si">{}</span><span class="s1">:'</span><span class="p">,</span><span class="s1">'After:'</span><span class="p">)</span>
+<span class="n">eval_comparator</span> <span class="o">=</span> <span class="n">comparator_eval_factory</span><span class="p">(</span><span class="s1">'Before evaluation:'</span><span class="p">,</span><span class="s1">'After evaluation:'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1190,7 +1207,7 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [108]:</div>
+<div class="prompt input_prompt">In [28]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">(</span>
@@ -1201,7 +1218,7 @@ h6:hover .anchor-link {
     <span class="p">]</span>
 <span class="p">)</span>
 
-<span class="n">display</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="n">m</span>
 </pre></div>
 </div>
 </div>
@@ -1209,8 +1226,8 @@ h6:hover .anchor-link {
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
-<div class="prompt"></div>
-<div class="output_latex output_subarea ">
+<div class="prompt output_prompt">Out[28]:</div>
+<div class="output_latex output_subarea output_execute_result">
 $$\left[\begin{matrix}1 & -1\\3 & 4\\0 & 2\end{matrix}\right]$$
 </div>
 </div>
@@ -1228,12 +1245,12 @@ $$\left[\begin{matrix}1 & -1\\3 & 4\\0 & 2\end{matrix}\right]$$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [109]:</div>
+<div class="prompt input_prompt">In [29]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
 
-<span class="n">display</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="n">m</span>
 </pre></div>
 </div>
 </div>
@@ -1241,8 +1258,8 @@ $$\left[\begin{matrix}1 & -1\\3 & 4\\0 & 2\end{matrix}\right]$$
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
-<div class="prompt"></div>
-<div class="output_latex output_subarea ">
+<div class="prompt output_prompt">Out[29]:</div>
+<div class="output_latex output_subarea output_execute_result">
 $$\left[\begin{matrix}1\\2\\3\end{matrix}\right]$$
 </div>
 </div>
@@ -1278,12 +1295,12 @@ $$\left[\begin{matrix}1\\2\\3\end{matrix}\right]$$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [110]:</div>
+<div class="prompt input_prompt">In [30]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 
-<span class="n">display</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+<span class="n">M</span>
 </pre></div>
 </div>
 </div>
@@ -1291,8 +1308,8 @@ $$\left[\begin{matrix}1\\2\\3\end{matrix}\right]$$
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
-<div class="prompt"></div>
-<div class="output_latex output_subarea ">
+<div class="prompt output_prompt">Out[30]:</div>
+<div class="output_latex output_subarea output_execute_result">
 $$\left[\begin{matrix}1 & 0 & 0\\0 & 1 & 0\\0 & 0 & 1\end{matrix}\right]$$
 </div>
 </div>
@@ -1310,7 +1327,7 @@ $$\left[\begin{matrix}1 & 0 & 0\\0 & 1 & 0\\0 & 0 & 1\end{matrix}\right]$$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [111]:</div>
+<div class="prompt input_prompt">In [31]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
@@ -1342,12 +1359,12 @@ $$\left[\begin{matrix}0 & 0 & 0 & 0\\0 & 0 & 0 & 0\\0 & 0 & 0 & 0\end{matrix}\ri
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [112]:</div>
+<div class="prompt input_prompt">In [32]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="n">display</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+<span class="n">M</span>
 </pre></div>
 </div>
 </div>
@@ -1355,8 +1372,8 @@ $$\left[\begin{matrix}0 & 0 & 0 & 0\\0 & 0 & 0 & 0\\0 & 0 & 0 & 0\end{matrix}\ri
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
-<div class="prompt"></div>
-<div class="output_latex output_subarea ">
+<div class="prompt output_prompt">Out[32]:</div>
+<div class="output_latex output_subarea output_execute_result">
 $$\left[\begin{matrix}1 & 1\\1 & 1\\1 & 1\end{matrix}\right]$$
 </div>
 </div>
@@ -1374,12 +1391,12 @@ $$\left[\begin{matrix}1 & 1\\1 & 1\\1 & 1\end{matrix}\right]$$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [113]:</div>
+<div class="prompt input_prompt">In [33]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">diag</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">ones</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">Matrix</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">]))</span>
 
-<span class="n">display</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+<span class="n">M</span>
 </pre></div>
 </div>
 </div>
@@ -1387,8 +1404,8 @@ $$\left[\begin{matrix}1 & 1\\1 & 1\\1 & 1\end{matrix}\right]$$
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
-<div class="prompt"></div>
-<div class="output_latex output_subarea ">
+<div class="prompt output_prompt">Out[33]:</div>
+<div class="output_latex output_subarea output_execute_result">
 $$\left[\begin{matrix}-1 & 0 & 0 & 0\\0 & 1 & 1 & 0\\0 & 1 & 1 & 0\\0 & 0 & 0 & 5\\0 & 0 & 0 & 7\\0 & 0 & 0 & 5\end{matrix}\right]$$
 </div>
 </div>
@@ -1424,10 +1441,10 @@ $$\left[\begin{matrix}-1 & 0 & 0 & 0\\0 & 1 & 1 & 0\\0 & 1 & 1 & 0\\0 & 0 & 0 & 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [114]:</div>
+<div class="prompt input_prompt">In [34]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -1435,7 +1452,7 @@ $$\left[\begin{matrix}-1 & 0 & 0 & 0\\0 & 1 & 1 & 0\\0 & 1 & 1 & 0\\0 & 0 & 0 & 
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
-<div class="prompt output_prompt">Out[114]:</div>
+<div class="prompt output_prompt">Out[34]:</div>
 <div class="output_latex output_subarea output_execute_result">
 $$\left ( 6, \quad 4\right )$$
 </div>
@@ -1455,7 +1472,7 @@ $$\left ( 6, \quad 4\right )$$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [115]:</div>
+<div class="prompt input_prompt">In [35]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span><span class="o">.</span><span class="n">row</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -1466,7 +1483,7 @@ $$\left ( 6, \quad 4\right )$$
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
-<div class="prompt output_prompt">Out[115]:</div>
+<div class="prompt output_prompt">Out[35]:</div>
 <div class="output_latex output_subarea output_execute_result">
 $$\left[\begin{matrix}-1 & 0 & 0 & 0\end{matrix}\right]$$
 </div>
@@ -1485,7 +1502,7 @@ $$\left[\begin{matrix}-1 & 0 & 0 & 0\end{matrix}\right]$$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [116]:</div>
+<div class="prompt input_prompt">In [36]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
@@ -1496,7 +1513,7 @@ $$\left[\begin{matrix}-1 & 0 & 0 & 0\end{matrix}\right]$$
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
-<div class="prompt output_prompt">Out[116]:</div>
+<div class="prompt output_prompt">Out[36]:</div>
 <div class="output_latex output_subarea output_execute_result">
 $$\left[\begin{matrix}0\\0\\0\\5\\7\\5\end{matrix}\right]$$
 </div>
@@ -1517,7 +1534,7 @@ $$\left[\begin{matrix}0\\0\\0\\5\\7\\5\end{matrix}\right]$$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [117]:</div>
+<div class="prompt input_prompt">In [37]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
@@ -1572,7 +1589,7 @@ $$\left[\begin{matrix}3 & 2\end{matrix}\right]$$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [118]:</div>
+<div class="prompt input_prompt">In [38]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
@@ -1624,7 +1641,7 @@ $$\left[\begin{matrix}1 & 4\\2 & 5\\3 & 6\end{matrix}\right]$$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [119]:</div>
+<div class="prompt input_prompt">In [39]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
@@ -1678,7 +1695,7 @@ $$\left[\begin{matrix}6 & 6 & 6\\1 & 2 & 3\\3 & 2 & 1\end{matrix}\right]$$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [120]:</div>
+<div class="prompt input_prompt">In [40]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
@@ -1733,15 +1750,18 @@ $$\left[\begin{matrix}1 & 2 & 6 & 3\\3 & 2 & 6 & 1\end{matrix}\right]$$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [121]:</div>
+<div class="prompt input_prompt">In [41]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
 <span class="n">N</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">]])</span>
 
-<span class="n">display</span><span class="p">(</span><span class="s1">'M:'</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="s1">'N:'</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="s1">'M+N:'</span><span class="p">,</span><span class="n">M</span><span class="o">+</span><span class="n">N</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'M'</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'N'</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'M+N'</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">M</span><span class="o">+</span><span class="n">N</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1750,8 +1770,9 @@ $$\left[\begin{matrix}1 & 2 & 6 & 3\\3 & 2 & 6 & 1\end{matrix}\right]$$
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'M:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>M
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1762,8 +1783,9 @@ $$\left[\begin{matrix}1 & 3\\-2 & 3\end{matrix}\right]$$
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'N:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>N
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1774,8 +1796,9 @@ $$\left[\begin{matrix}0 & 3\\0 & 7\end{matrix}\right]$$
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'M+N:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>M+N
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1798,15 +1821,18 @@ $$\left[\begin{matrix}1 & 6\\-2 & 10\end{matrix}\right]$$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [122]:</div>
+<div class="prompt input_prompt">In [42]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
 <span class="n">N</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">]])</span>
 
-<span class="n">display</span><span class="p">(</span><span class="s1">'M:'</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="s1">'N:'</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="s1">'M+N:'</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">N</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'M'</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'N'</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'M-N'</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">N</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1815,8 +1841,9 @@ $$\left[\begin{matrix}1 & 6\\-2 & 10\end{matrix}\right]$$
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'M:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>M
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1827,8 +1854,9 @@ $$\left[\begin{matrix}1 & 3\\-2 & 3\end{matrix}\right]$$
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'N:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>N
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1839,8 +1867,9 @@ $$\left[\begin{matrix}0 & 3\\0 & 7\end{matrix}\right]$$
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'M+N:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>M-N
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1863,15 +1892,18 @@ $$\left[\begin{matrix}1 & 0\\-2 & -4\end{matrix}\right]$$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [123]:</div>
+<div class="prompt input_prompt">In [43]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
 <span class="n">N</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 
-<span class="n">display</span><span class="p">(</span><span class="s1">'M:'</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="s1">'N:'</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="s1">'M*N:'</span><span class="p">,</span><span class="n">M</span><span class="o">*</span><span class="n">N</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'M'</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'N'</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="s1">'MxN'</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">M</span><span class="o">*</span><span class="n">N</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1880,8 +1912,9 @@ $$\left[\begin{matrix}1 & 0\\-2 & -4\end{matrix}\right]$$
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'M:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>M
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1892,8 +1925,9 @@ $$\left[\begin{matrix}1 & 2 & 3\\3 & 2 & 1\end{matrix}\right]$$
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'N:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>N
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1905,7 +1939,7 @@ $$\left[\begin{matrix}0\\1\\1\end{matrix}\right]$$
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_text output_subarea ">
-<pre>'M*N:'</pre>
+<pre>'MxN'</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1928,13 +1962,15 @@ $$\left[\begin{matrix}5\\3\end{matrix}\right]$$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [124]:</div>
+<div class="prompt input_prompt">In [44]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
 
-<span class="n">display</span><span class="p">(</span><span class="s1">'M:'</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="s1">'inverse of M:'</span><span class="p">,</span><span class="n">M</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'M'</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'inverse of M:'</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">M</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1943,8 +1979,9 @@ $$\left[\begin{matrix}5\\3\end{matrix}\right]$$
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'M:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>M
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1955,8 +1992,9 @@ $$\left[\begin{matrix}1 & 3\\-2 & 3\end{matrix}\right]$$
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'inverse of M:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>inverse of M:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1979,13 +2017,12 @@ $$\left[\begin{matrix}\frac{1}{3} & - \frac{1}{3}\\\frac{2}{9} & \frac{1}{9}\end
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [125]:</div>
+<div class="prompt input_prompt">In [45]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
 
-<span class="n">display</span><span class="p">(</span><span class="s1">'Matrix M:'</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="s1">'Determinant of M:'</span><span class="p">,</span><span class="n">M</span><span class="o">.</span><span class="n">det</span><span class="p">())</span>
+<span class="n">method_comparator</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="s1">'det'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1994,8 +2031,9 @@ $$\left[\begin{matrix}\frac{1}{3} & - \frac{1}{3}\\\frac{2}{9} & \frac{1}{9}\end
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'Matrix M:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Before calling det():
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -2006,8 +2044,9 @@ $$\left[\begin{matrix}1 & 0 & 1\\2 & -1 & 3\\4 & 3 & 2\end{matrix}\right]$$
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'Determinant of M:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>After:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -2030,18 +2069,21 @@ $$-1$$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [126]:</div>
+<div class="prompt input_prompt">In [46]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">]])</span>
 
 <span class="n">M_rref</span><span class="p">,</span> <span class="n">pivot_columns</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">rref</span><span class="p">()</span>
 
-<span class="n">display</span><span class="p">(</span><span class="s1">'Original Matrix:'</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Original Matrix:'</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
 
-<span class="n">display</span><span class="p">(</span><span class="s1">'Reduced echelon form:'</span><span class="p">,</span><span class="n">M_rref</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Reduced echelon form:'</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">M_rref</span><span class="p">)</span>
 
-<span class="n">display</span><span class="p">(</span><span class="s1">'Pivot columns:'</span><span class="p">,</span><span class="n">pivot_columns</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Pivot columns:'</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">pivot_columns</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2050,8 +2092,9 @@ $$-1$$
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'Original Matrix:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Original Matrix:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -2062,8 +2105,9 @@ $$\left[\begin{matrix}1 & 0 & 1 & 3\\2 & 3 & 4 & 7\\-1 & -3 & -3 & -4\end{matrix
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'Reduced echelon form:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Reduced echelon form:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -2074,8 +2118,9 @@ $$\left[\begin{matrix}1 & 0 & 1 & 3\\0 & 1 & \frac{2}{3} & \frac{1}{3}\\0 & 0 & 
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'Pivot columns:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Pivot columns:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -2107,13 +2152,15 @@ $$\left [ 0, \quad 1\right ]$$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [127]:</div>
+<div class="prompt input_prompt">In [47]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
 
-<span class="n">display</span><span class="p">(</span><span class="s1">'Matrix M:'</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="s1">'Spanning vectors for nullspace of M:'</span><span class="p">,</span><span class="n">M</span><span class="o">.</span><span class="n">nullspace</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Matrix M:'</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Spanning vectors for nullspace of M:'</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">nullspace</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -2122,8 +2169,9 @@ $$\left [ 0, \quad 1\right ]$$
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'Matrix M:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Matrix M:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -2134,8 +2182,9 @@ $$\left[\begin{matrix}1 & 2 & 3 & 0 & 0\\4 & 10 & 0 & 0 & 1\end{matrix}\right]$$
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'Spanning vectors for nullspace of M:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Spanning vectors for nullspace of M:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -2167,13 +2216,15 @@ $$\left [ \left[\begin{matrix}-15\\6\\1\\0\\0\end{matrix}\right], \quad \left[\b
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [128]:</div>
+<div class="prompt input_prompt">In [48]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span> <span class="p">,</span><span class="mi">1</span> <span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span> <span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
 
-<span class="n">display</span><span class="p">(</span><span class="s1">'Matrix M:'</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="s1">'Spanning vectors for columnspace of M:'</span><span class="p">,</span><span class="n">M</span><span class="o">.</span><span class="n">columnspace</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Matrix M:'</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Spanning vectors for columnspace of M:'</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">columnspace</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -2182,8 +2233,9 @@ $$\left [ \left[\begin{matrix}-15\\6\\1\\0\\0\end{matrix}\right], \quad \left[\b
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'Matrix M:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Matrix M:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -2194,8 +2246,9 @@ $$\left[\begin{matrix}1 & 1 & 2\\2 & 1 & 3\\3 & 1 & 4\end{matrix}\right]$$
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'Spanning vectors for columnspace of M:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Spanning vectors for columnspace of M:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -2218,13 +2271,16 @@ $$\left [ \left[\begin{matrix}1\\2\\3\end{matrix}\right], \quad \left[\begin{mat
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [129]:</div>
+<div class="prompt input_prompt">In [49]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span>  <span class="mi">3</span><span class="p">]])</span>
 
-<span class="n">display</span><span class="p">(</span><span class="s1">'Matrix M'</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="s1">'Eigenvalues and their algebraic multiplicity:'</span><span class="p">,</span><span class="n">M</span><span class="o">.</span><span class="n">eigenvals</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Matrix M'</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Eigenvalues and their algebraic multiplicity:'</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">eigenvals</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -2233,8 +2289,9 @@ $$\left [ \left[\begin{matrix}1\\2\\3\end{matrix}\right], \quad \left[\begin{mat
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'Matrix M'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Matrix M
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -2245,8 +2302,9 @@ $$\left[\begin{matrix}3 & -2 & 4 & -2\\5 & 3 & -3 & -2\\5 & -2 & 2 & -2\\5 & -2 
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'Eigenvalues and their algebraic multiplicity:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Eigenvalues and their algebraic multiplicity:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -2263,18 +2321,23 @@ $$\left \{ -2 : 1, \quad 3 : 1, \quad 5 : 2\right \}$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>If all you want is the characteristic polymonial, use <code>charpoly</code> and factor()</p>
+<p>If all you want is the characteristic polymonial, use <code>charpoly()</code> and factor()</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [130]:</div>
+<div class="prompt input_prompt">In [50]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lamda</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">'lamda'</span><span class="p">)</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">charpoly</span><span class="p">(</span><span class="n">lamda</span><span class="p">)</span>
-<span class="n">factor</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'Matrix M'</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+
+<span class="n">lamda</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">'lamda'</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">charpoly</span><span class="p">(</span><span class="n">lamda</span><span class="p">)</span><span class="o">.</span><span class="n">factor</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'characteristic polymonial of M'</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2282,8 +2345,28 @@ $$\left \{ -2 : 1, \quad 3 : 1, \quad 5 : 2\right \}$$
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
-<div class="prompt output_prompt">Out[130]:</div>
-<div class="output_latex output_subarea output_execute_result">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Matrix M
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\left[\begin{matrix}3 & -2 & 4 & -2\\5 & 3 & -3 & -2\\5 & -2 & 2 & -2\\5 & -2 & -3 & 3\end{matrix}\right]$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>characteristic polymonial of M
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
 $$\left(\lambda - 5\right)^{2} \left(\lambda - 3\right) \left(\lambda + 2\right)$$
 </div>
 </div>
@@ -2301,13 +2384,23 @@ $$\left(\lambda - 5\right)^{2} \left(\lambda - 3\right) \left(\lambda + 2\right)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [131]:</div>
+<div class="prompt input_prompt">In [51]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span>  <span class="mi">3</span><span class="p">]])</span>
-    
-<span class="n">display</span><span class="p">(</span><span class="s1">'Matrix M'</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="s1">'Eigenvalues, their algebraic multiplicity and eigenvectors:'</span><span class="p">,</span><span class="n">M</span><span class="o">.</span><span class="n">eigenvects</span><span class="p">())</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> 
+        <span class="p">[</span><span class="mi">5</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> 
+        <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> 
+        <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span>  <span class="mi">3</span><span class="p">]</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Matrix M'</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Eigenvalues, their algebraic multiplicity and eigenvectors:'</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">eigenvects</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -2316,8 +2409,9 @@ $$\left(\lambda - 5\right)^{2} \left(\lambda - 3\right) \left(\lambda + 2\right)
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'Matrix M'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Matrix M
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -2328,8 +2422,9 @@ $$\left[\begin{matrix}3 & -2 & 4 & -2\\5 & 3 & -3 & -2\\5 & -2 & 2 & -2\\5 & -2 
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'Eigenvalues, their algebraic multiplicity and eigenvectors:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Eigenvalues, their algebraic multiplicity and eigenvectors:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -2352,17 +2447,31 @@ $$\left [ \left ( -2, \quad 1, \quad \left [ \left[\begin{matrix}0\\1\\1\\1\end{
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [132]:</div>
+<div class="prompt input_prompt">In [52]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span>  <span class="mi">3</span><span class="p">]])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> 
+        <span class="p">[</span><span class="mi">5</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> 
+        <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> 
+        <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span>  <span class="mi">3</span><span class="p">]</span>
+    <span class="p">]</span>
+<span class="p">)</span>
 
 <span class="n">P</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">diagonalize</span><span class="p">()</span>
 
-<span class="n">display</span><span class="p">(</span><span class="s1">'Matrix M'</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="s1">'P:'</span><span class="p">,</span><span class="n">P</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="s1">'D:'</span><span class="p">,</span><span class="n">D</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">Latex</span><span class="p">(</span><span class="s1">'$M = PDP^{-1}$'</span><span class="p">),</span><span class="n">P</span><span class="o">*</span><span class="n">D</span><span class="o">*</span><span class="n">P</span><span class="o">**-</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Matrix M'</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'P'</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'D'</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">Latex</span><span class="p">(</span><span class="s1">'$M = PDP^{-1}$'</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">P</span><span class="o">*</span><span class="n">D</span><span class="o">*</span><span class="n">P</span><span class="o">**-</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2371,8 +2480,9 @@ $$\left [ \left ( -2, \quad 1, \quad \left [ \left[\begin{matrix}0\\1\\1\\1\end{
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'Matrix M'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Matrix M
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -2383,8 +2493,9 @@ $$\left[\begin{matrix}3 & -2 & 4 & -2\\5 & 3 & -3 & -2\\5 & -2 & 2 & -2\\5 & -2 
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'P:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>P
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -2395,8 +2506,9 @@ $$\left[\begin{matrix}0 & 1 & 1 & 0\\1 & 1 & 1 & -1\\1 & 1 & 1 & 0\\1 & 1 & 0 & 
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'D:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>D
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -2431,13 +2543,14 @@ $$\left[\begin{matrix}3 & -2 & 4 & -2\\5 & 3 & -3 & -2\\5 & -2 & 2 & -2\\5 & -2 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [133]:</div>
+<div class="prompt input_prompt">In [53]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">'x,y'</span><span class="p">)</span>
 
 <span class="n">eq</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Equation:'</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">eq</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2445,6 +2558,13 @@ $$\left[\begin{matrix}3 & -2 & 4 & -2\\5 & 3 & -3 & -2\\5 & -2 & 2 & -2\\5 & -2 
 </div>
 <div class="output_wrapper">
 <div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Equation:
+</pre>
+</div>
+</div>
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_latex output_subarea ">
@@ -2459,20 +2579,18 @@ $$x^{2} - x = 0$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Solvers">Solvers<a class="anchor-link" href="#Solvers">¶</a></h1><p>The main function for solving algebraic equations is <code>solveset()</code>. The syntax for <code>solveset()</code> is <code>solveset(equation, variable=None, domain=S.Complexes)</code>.</p>
+<h1 id="Solvers">Solvers<a class="anchor-link" href="#Solvers">¶</a></h1><h2 id="Basic-equations">Basic equations<a class="anchor-link" href="#Basic-equations">¶</a></h2><p>The main function for solving algebraic equations is <code>solveset()</code>. The syntax for <code>solveset()</code> is <code>solveset(equation, variable=None, domain=S.Complexes)</code>.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [134]:</div>
+<div class="prompt input_prompt">In [54]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">eq</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">eq</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
-<span class="n">display</span><span class="p">(</span><span class="n">eq</span><span class="p">)</span>
-
-<span class="n">display</span><span class="p">(</span><span class="n">solveset</span><span class="p">(</span><span class="n">eq</span><span class="p">,</span><span class="n">x</span><span class="p">))</span>
+<span class="n">func_comparator</span><span class="p">(</span><span class="n">eq</span><span class="p">,</span> <span class="n">solveset</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2481,8 +2599,22 @@ $$x^{2} - x = 0$$
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Before applying solveset():
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_latex output_subarea ">
 $$x^{2} - 1 = 0$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>After:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -2505,14 +2637,12 @@ $$\left\{-1, 1\right\}$$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [135]:</div>
+<div class="prompt input_prompt">In [55]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span>
 
-<span class="n">display</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
-
-<span class="n">display</span><span class="p">(</span><span class="n">solveset</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="n">x</span><span class="p">))</span>
+<span class="n">func_comparator</span><span class="p">(</span><span class="n">eq</span><span class="p">,</span> <span class="n">solveset</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2521,8 +2651,22 @@ $$\left\{-1, 1\right\}$$
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Before applying solveset():
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_latex output_subarea ">
-$$x^{2} - 1$$
+$$x^{2} - 1 = 0$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>After:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -2534,16 +2678,23 @@ $$\left\{-1, 1\right\}$$
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Result of the solver can be a infinite set.</p>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [136]:</div>
+<div class="prompt input_prompt">In [56]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">eq</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
 
-<span class="n">display</span><span class="p">(</span><span class="n">eq</span><span class="p">)</span>
-
-<span class="n">display</span><span class="p">(</span><span class="n">solveset</span><span class="p">(</span><span class="n">eq</span><span class="p">,</span><span class="n">x</span><span class="p">))</span>
+<span class="n">func_comparator</span><span class="p">(</span><span class="n">eq</span><span class="p">,</span> <span class="n">solveset</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2552,8 +2703,22 @@ $$\left\{-1, 1\right\}$$
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Before applying solveset():
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_latex output_subarea ">
 $$\sin{\left (x \right )} - 1 = 0$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>After:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -2565,16 +2730,23 @@ $$\left\{2 n \pi + \frac{\pi}{2}\; |\; n \in \mathbb{Z}\right\}$$
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Result of the solver can be an empty set.</p>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [137]:</div>
+<div class="prompt input_prompt">In [57]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">eq</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 
-<span class="n">display</span><span class="p">(</span><span class="n">eq</span><span class="p">)</span>
-
-<span class="n">display</span><span class="p">(</span><span class="n">solveset</span><span class="p">(</span><span class="n">eq</span><span class="p">,</span><span class="n">x</span><span class="p">))</span>
+<span class="n">func_comparator</span><span class="p">(</span><span class="n">eq</span><span class="p">,</span> <span class="n">solveset</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2583,8 +2755,22 @@ $$\left\{2 n \pi + \frac{\pi}{2}\; |\; n \in \mathbb{Z}\right\}$$
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Before applying solveset():
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_latex output_subarea ">
 $$e^{x} = 0$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>After:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -2596,16 +2782,23 @@ $$\emptyset$$
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When solver fails to find solutions, it returns an conditional set.</p>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [138]:</div>
+<div class="prompt input_prompt">In [58]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">eq</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span>
 
-<span class="n">display</span><span class="p">(</span><span class="n">eq</span><span class="p">)</span>
-
-<span class="n">display</span><span class="p">(</span><span class="n">solveset</span><span class="p">(</span><span class="n">eq</span><span class="p">,</span><span class="n">x</span><span class="p">))</span>
+<span class="n">func_comparator</span><span class="p">(</span><span class="n">eq</span><span class="p">,</span> <span class="n">solveset</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2614,8 +2807,22 @@ $$\emptyset$$
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Before applying solveset():
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_latex output_subarea ">
 $$- x + \cos{\left (x \right )} = 0$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>After:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -2638,14 +2845,12 @@ $$\left\{x\; |\; x \in \mathbb{C} \wedge - x + \cos{\left (x \right )} = 0 \righ
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [139]:</div>
+<div class="prompt input_prompt">In [59]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">eq</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">6</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">9</span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 
-<span class="n">display</span><span class="p">(</span><span class="n">eq</span><span class="p">)</span>
-
-<span class="n">display</span><span class="p">(</span><span class="n">solveset</span><span class="p">(</span><span class="n">eq</span><span class="p">,</span><span class="n">x</span><span class="p">))</span>
+<span class="n">func_comparator</span><span class="p">(</span><span class="n">eq</span><span class="p">,</span> <span class="n">solveset</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2654,8 +2859,22 @@ $$\left\{x\; |\; x \in \mathbb{C} \wedge - x + \cos{\left (x \right )} = 0 \righ
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Before applying solveset():
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_latex output_subarea ">
 $$x^{3} - 6 x^{2} + 9 x = 0$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>After:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -2669,14 +2888,12 @@ $$\left\{0, 3\right\}$$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [140]:</div>
+<div class="prompt input_prompt">In [60]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">eq</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">6</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">9</span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 
-<span class="n">display</span><span class="p">(</span><span class="n">eq</span><span class="p">)</span>
-
-<span class="n">display</span><span class="p">(</span><span class="n">roots</span><span class="p">(</span><span class="n">eq</span><span class="p">,</span><span class="n">x</span><span class="p">))</span>
+<span class="n">func_comparator</span><span class="p">(</span><span class="n">eq</span><span class="p">,</span> <span class="n">roots</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2685,8 +2902,22 @@ $$\left\{0, 3\right\}$$
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Before applying roots():
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_latex output_subarea ">
 $$x^{3} - 6 x^{2} + 9 x = 0$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>After:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -2695,6 +2926,424 @@ $$x^{3} - 6 x^{2} + 9 x = 0$$
 $$\left \{ 0 : 1, \quad 3 : 2\right \}$$
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Linear-System">Linear System<a class="anchor-link" href="#Linear-System">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>linsolve()</code> is the solver to solve a linear system. A linear system can be defined using differet method.</p>
+<h3 id="list-of-equations">list of equations<a class="anchor-link" href="#list-of-equations">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [62]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ls</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Eq</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> 
+    <span class="n">Eq</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">z</span> <span class="o">-</span> <span class="mi">3</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">func_comparator</span><span class="p">(</span><span class="n">ls</span><span class="p">,</span><span class="n">linsolve</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Before applying linsolve():
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\left [ x + y + z - 1 = 0, \quad x + y + 2 z - 3 = 0\right ]$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>After:
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\left\{\left ( - y - 1, \quad 2\right )\right\}$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>List of equatons can be simplified into list of expressions if all of them are equal to zero。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [63]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ls</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> 
+    <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">z</span> <span class="o">-</span> <span class="mi">3</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Augmeted-matrix-form">Augmeted matrix form<a class="anchor-link" href="#Augmeted-matrix-form">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [64]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> 
+        <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+    
+<span class="n">func_comparator</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">linsolve</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Before applying linsolve():
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\left[\begin{matrix}1 & 1 & 1 & 1\\1 & 1 & 2 & 3\end{matrix}\right]$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>After:
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\left\{\left ( - y - 1, \quad y, \quad 2\right )\right\}$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="$Ax-=-b$-form">$Ax = b$ form<a class="anchor-link" href="#$Ax-=-b$-form">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [65]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> 
+        <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+<span class="n">ls</span> <span class="o">=</span> <span class="n">A</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">M</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">M</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">func_comparator</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">linsolve</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Before applying linsolve():
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\left[\begin{matrix}1 & 1 & 1 & 1\\1 & 1 & 2 & 3\end{matrix}\right]$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>After:
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\left\{\left ( - y - 1, \quad y, \quad 2\right )\right\}$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Non-linear-Systems">Non-linear Systems<a class="anchor-link" href="#Non-linear-Systems">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>solvset</code> is not capable of solving mutiple variable non-linear system. In this situation, use <code>solve()</code> instead.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [70]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">eq_list</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Eq</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="n">Eq</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">func_comparator</span><span class="p">(</span><span class="n">eq_list</span><span class="p">,</span> <span class="n">solve</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Before applying solve():
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\left [ x y - 1 = 0, \quad x - 2 = 0\right ]$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>After:
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\left [ \left ( 2, \quad \frac{1}{2}\right )\right ]$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Differential-equition">Differential equition<a class="anchor-link" href="#Differential-equition">¶</a></h2><p>First define needed function symbol variables.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [66]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">'f'</span><span class="p">,</span> <span class="bp">cls</span> <span class="o">=</span> <span class="n">Function</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Then define the differential equation. For example, $f''(x) - 2f'(x) + f(x) = \sin(x)$</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [67]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">diffeq</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Then use <code>dsolve()</code> to solve the equation.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [68]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">func_comparator</span><span class="p">(</span><span class="n">diffeq</span><span class="p">,</span> <span class="n">dsolve</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Before applying dsolve():
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$f{\left (x \right )} - 2 \frac{d}{d x} f{\left (x \right )} + \frac{d^{2}}{d x^{2}}  f{\left (x \right )} = \sin{\left (x \right )}$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>After:
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$f{\left (x \right )} = \left(C_{1} + C_{2} x\right) e^{x} + \frac{1}{2} \cos{\left (x \right )}$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If the function cannot be solved explicitly, <code>dsolve()</code> returns an implicit equation.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [69]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">diffeq</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">sin</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))),</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">func_comparator</span><span class="p">(</span><span class="n">diffeq</span><span class="p">,</span> <span class="n">dsolve</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Before applying dsolve():
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\left(- \sin{\left (f{\left (x \right )} \right )} + 1\right) \frac{d}{d x} f{\left (x \right )} = 0$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>After:
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$f{\left (x \right )} + \cos{\left (f{\left (x \right )} \right )} = C_{1}$$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Reference">Reference<a class="anchor-link" href="#Reference">¶</a></h1><p><a href="http://docs.sympy.org/latest/index.html">Sympy Documentation</a></p>
 </div>
 </div>
 </div>

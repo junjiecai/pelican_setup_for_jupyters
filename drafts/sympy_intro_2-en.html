@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-        <title>Sympy tutorial II</title>
+        <title>Sympy Notes II</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="https://junjiecai.github.io/theme/css/bootstrap.min.css" rel="stylesheet">
@@ -79,7 +79,7 @@
     </script>
 
 
-        <meta name="description" content="Tutorial fot Sympy, a powerful symbolic package for Python. Part II of the tutorial covers calculus and series expansion.">
+        <meta name="description" content="Tutorial fot Sympy, a powerful symbolic package for Python. Part II of the notes covers calculus and series expansion.">
 
         <meta name="author" content="Exolution">
 
@@ -92,9 +92,9 @@
 	<meta property="og:type" content="article">
             <meta property="article:author" content="https://junjiecai.github.io/author/exolution.html">
 	<meta property="og:url" content="https://junjiecai.github.io/drafts/sympy_intro_2-en.html">
-	<meta property="og:title" content="Sympy tutorial II">
+	<meta property="og:title" content="Sympy Notes II">
 	<meta property="article:published_time" content="2017-01-28 00:00:00+08:00">
-            <meta property="og:description" content="Tutorial fot Sympy, a powerful symbolic package for Python. Part II of the tutorial covers calculus and series expansion.">
+            <meta property="og:description" content="Tutorial fot Sympy, a powerful symbolic package for Python. Part II of the notes covers calculus and series expansion.">
 
             <meta property="og:image" content="https://junjiecai.github.io/../theme/images/home-bg.jpg">
 </head>
@@ -135,7 +135,7 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
-                        <h1>Sympy tutorial II</h1>
+                        <h1>Sympy Notes II</h1>
                         <span class="meta">
                                 Author:
                              
@@ -1157,25 +1157,31 @@ h6:hover .anchor-link {
 
 .ansi-bold { font-weight: bold; }
 </style>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Initialize-Enviroment">Initialize Enviroment<a class="anchor-link" href="#Initialize-Enviroment">¶</a></h1>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [1]:</div>
+<div class="prompt input_prompt">In [18]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span>
 <span class="kn">from</span> <span class="nn">sympy</span> <span class="k">import</span> <span class="o">*</span>
 <span class="n">init_printing</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [2]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">'x y z'</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">helper</span> <span class="k">import</span> <span class="n">comparator_factory</span><span class="p">,</span> <span class="n">comparator_eval_factory</span><span class="p">,</span> <span class="n">comparator_method_factory</span>
+
+<span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">'x y z'</span><span class="p">)</span>
+
+<span class="n">comparator</span> <span class="o">=</span> <span class="n">comparator_factory</span><span class="p">(</span><span class="s1">'Before applying </span><span class="si">{}</span><span class="s1">:'</span><span class="p">,</span><span class="s1">'After:'</span><span class="p">)</span>
+<span class="n">method_comparator</span> <span class="o">=</span> <span class="n">comparator_method_factory</span><span class="p">(</span><span class="s1">'Before calling </span><span class="si">{}</span><span class="s1">:'</span><span class="p">,</span><span class="s1">'After:'</span><span class="p">)</span>
+<span class="n">eval_comparator</span> <span class="o">=</span> <span class="n">comparator_eval_factory</span><span class="p">(</span><span class="s1">'Before evaluation:'</span><span class="p">,</span><span class="s1">'After evaluation:'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1202,17 +1208,14 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [3]:</div>
+<div class="prompt input_prompt">In [19]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">symbol</span> <span class="o">=</span> <span class="n">x</span>
 
 <span class="n">expr_diff</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Before derivative:'</span><span class="p">,</span><span class="n">expr</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">'After derivative :'</span><span class="p">,</span><span class="n">expr_diff</span><span class="p">)</span>
+<span class="n">comparator</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">diff</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1222,9 +1225,27 @@ h6:hover .anchor-link {
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Before derivative: sin(x)
-After derivative : cos(x)
+<pre>Before applying diff():
 </pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\sin{\left (x \right )}$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>After:
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\cos{\left (x \right )}$$
 </div>
 </div>
 </div>
@@ -1241,14 +1262,12 @@ After derivative : cos(x)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [4]:</div>
+<div class="prompt input_prompt">In [20]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Before derivative:'</span><span class="p">,</span><span class="n">expr</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">'After derivative :'</span><span class="p">,</span><span class="n">expr</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">method_comparator</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="s1">'diff'</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1258,9 +1277,27 @@ After derivative : cos(x)
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Before derivative: sin(x)
-After derivative : cos(x)
+<pre>Before calling diff():
 </pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\sin{\left (x \right )}$$
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>After:
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\cos{\left (x \right )}$$
 </div>
 </div>
 </div>
@@ -1277,14 +1314,15 @@ After derivative : cos(x)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [5]:</div>
+<div class="prompt input_prompt">In [21]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
 <span class="n">diff_expr</span> <span class="o">=</span> <span class="n">Derivative</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Before evaluating:'</span><span class="p">,</span> <span class="n">diff_expr</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Before evaluation:'</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">diff_expr</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1294,8 +1332,14 @@ After derivative : cos(x)
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Before evaluating: Derivative(sin(x), x)
+<pre>Before evaluation:
 </pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\frac{d}{d x} \sin{\left (x \right )}$$
 </div>
 </div>
 </div>
@@ -1312,10 +1356,11 @@ After derivative : cos(x)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [6]:</div>
+<div class="prompt input_prompt">In [22]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'After evaluating:'</span><span class="p">,</span><span class="n">diff_expr</span><span class="o">.</span><span class="n">doit</span><span class="p">())</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'After evaluation:'</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">diff_expr</span><span class="o">.</span><span class="n">doit</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -1325,8 +1370,14 @@ After derivative : cos(x)
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>After evaluating: cos(x)
+<pre>After evaluation:
 </pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_latex output_subarea ">
+$$\cos{\left (x \right )}$$
 </div>
 </div>
 </div>
@@ -1337,40 +1388,7 @@ After derivative : cos(x)
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>To avoid duplicated code to compare the result and original derivative, we define a function.</p>
-<p><code>args</code> are positional arguments passed to Derivative and <code>kargs</code>are keyword arguments to it.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [7]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">compare_derivative</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="n">symbols</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">kwargs</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
-    <span class="n">after</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="n">symbols</span><span class="p">)</span>
-    
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'Before derivative:'</span><span class="p">,</span><span class="n">expr</span><span class="p">)</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'After derivative :'</span><span class="p">,</span><span class="n">diff</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="n">x</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [8]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">compare_derivative</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kargs</span><span class="p">):</span>
-    <span class="n">args</span> <span class="o">=</span> <span class="n">args</span> <span class="ow">or</span> <span class="p">[]</span>
-    <span class="n">kargs</span> <span class="o">=</span> <span class="n">kargs</span> <span class="ow">or</span> <span class="p">{}</span>
-    <span class="n">expr_diff</span> <span class="o">=</span> <span class="n">Derivative</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kargs</span><span class="p">)</span>
-    <span class="n">display</span><span class="p">(</span><span class="s1">'Before evaluating:'</span><span class="p">,</span><span class="n">expr_diff</span><span class="p">)</span>    
-    <span class="n">display</span><span class="p">(</span><span class="s1">'After evaluating:'</span><span class="p">,</span><span class="n">expr_diff</span><span class="o">.</span><span class="n">doit</span><span class="p">())</span>
-</pre></div>
-</div>
+<p>To reduce code duplication, we user <code>eval_comparator</code> to handle the comparasion in later notes</p>
 </div>
 </div>
 </div>
@@ -1385,12 +1403,12 @@ After derivative : cos(x)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [9]:</div>
+<div class="prompt input_prompt">In [23]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">4</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">Derivative</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">4</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
 
-<span class="n">compare_derivative</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+<span class="n">eval_comparator</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1399,8 +1417,9 @@ After derivative : cos(x)
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'Before evaluating:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Before evaluation:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1411,8 +1430,9 @@ $$\frac{d^{3}}{d x^{3}}  x^{4}$$
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'After evaluating:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>After evaluation:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1435,10 +1455,12 @@ $$24 x$$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [10]:</div>
+<div class="prompt input_prompt">In [24]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">compare_derivative</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">Derivative</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">4</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">eval_comparator</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1447,8 +1469,9 @@ $$24 x$$
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'Before evaluating:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Before evaluation:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1459,8 +1482,9 @@ $$\frac{d^{3}}{d x^{3}}  x^{4}$$
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'After evaluating:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>After evaluation:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1492,12 +1516,12 @@ $$24 x$$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [11]:</div>
+<div class="prompt input_prompt">In [25]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">*</span><span class="n">z</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">Derivative</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">*</span><span class="n">z</span><span class="p">),</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
 
-<span class="n">compare_derivative</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+<span class="n">eval_comparator</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1506,8 +1530,9 @@ $$24 x$$
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'Before evaluating:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Before evaluation:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1518,8 +1543,9 @@ $$\frac{\partial^{7}}{\partial x\partial y^{2}\partial z^{4}}  e^{x y z}$$
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'After evaluating:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>After evaluation:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1542,10 +1568,12 @@ $$x^{3} y^{2} \left(x^{3} y^{3} z^{3} + 14 x^{2} y^{2} z^{2} + 52 x y z + 48\rig
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [12]:</div>
+<div class="prompt input_prompt">In [26]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">compare_derivative</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">Derivative</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">*</span><span class="n">z</span><span class="p">),</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+<span class="n">eval_comparator</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1554,8 +1582,9 @@ $$x^{3} y^{2} \left(x^{3} y^{3} z^{3} + 14 x^{2} y^{2} z^{2} + 52 x y z + 48\rig
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'Before evaluating:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Before evaluation:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1566,8 +1595,9 @@ $$\frac{\partial^{7}}{\partial x\partial y^{2}\partial z^{4}}  e^{x y z}$$
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'After evaluating:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>After evaluation:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1597,39 +1627,14 @@ $$x^{3} y^{2} \left(x^{3} y^{3} z^{3} + 14 x^{2} y^{2} z^{2} + 52 x y z + 48\rig
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>To avoid duplication, let's define a function similiar with <code>compare_derivatives()</code></p>
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [13]:</div>
+<div class="prompt input_prompt">In [27]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">compare_integral</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kargs</span><span class="p">):</span>
-    <span class="n">args</span> <span class="o">=</span> <span class="n">args</span> <span class="ow">or</span> <span class="p">[]</span>
-    <span class="n">kargs</span> <span class="o">=</span> <span class="n">kargs</span> <span class="ow">or</span> <span class="p">{}</span>
-    <span class="n">expr_diff</span> <span class="o">=</span> <span class="n">Integral</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kargs</span><span class="p">)</span>
-    <span class="n">display</span><span class="p">(</span><span class="s1">'Before evaluating:'</span><span class="p">,</span><span class="n">expr_diff</span><span class="p">)</span>    
-    <span class="n">display</span><span class="p">(</span><span class="s1">'After evaluating:'</span><span class="p">,</span><span class="n">expr_diff</span><span class="o">.</span><span class="n">doit</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [14]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">Integral</span><span class="p">(</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">x</span><span class="p">)</span>
 
-<span class="n">compare_integral</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+<span class="n">eval_comparator</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1638,8 +1643,9 @@ $$x^{3} y^{2} \left(x^{3} y^{3} z^{3} + 14 x^{2} y^{2} z^{2} + 52 x y z + 48\rig
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'Before evaluating:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Before evaluation:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1650,8 +1656,9 @@ $$\int \cos{\left (x \right )}\, dx$$
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'After evaluating:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>After evaluation:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1683,12 +1690,12 @@ $$\sin{\left (x \right )}$$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [15]:</div>
+<div class="prompt input_prompt">In [28]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">Integral</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">),(</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">oo</span><span class="p">))</span>
 
-<span class="n">compare_integral</span><span class="p">(</span><span class="n">expr</span><span class="p">,(</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">oo</span><span class="p">))</span>
+<span class="n">eval_comparator</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1697,8 +1704,9 @@ $$\sin{\left (x \right )}$$
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'Before evaluating:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Before evaluation:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1709,8 +1717,9 @@ $$\int_{0}^{\infty} e^{- x}\, dx$$
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'After evaluating:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>After evaluation:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1742,12 +1751,12 @@ $$1$$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [16]:</div>
+<div class="prompt input_prompt">In [29]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">Integral</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="n">oo</span><span class="p">,</span> <span class="n">oo</span><span class="p">),</span> <span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="n">oo</span><span class="p">,</span> <span class="n">oo</span><span class="p">))</span>
 
-<span class="n">compare_integral</span><span class="p">(</span><span class="n">expr</span><span class="p">,(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="n">oo</span><span class="p">,</span> <span class="n">oo</span><span class="p">),</span> <span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="n">oo</span><span class="p">,</span> <span class="n">oo</span><span class="p">))</span>
+<span class="n">eval_comparator</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1756,8 +1765,9 @@ $$1$$
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'Before evaluating:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Before evaluation:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1768,8 +1778,9 @@ $$\int_{-\infty}^{\infty}\int_{-\infty}^{\infty} e^{- x^{2} - y^{2}}\, dx\, dy$$
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'After evaluating:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>After evaluation:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1792,12 +1803,12 @@ $$\pi$$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [17]:</div>
+<div class="prompt input_prompt">In [30]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="n">x</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">Integral</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="n">x</span><span class="p">)</span>
 
-<span class="n">compare_integral</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+<span class="n">eval_comparator</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1806,8 +1817,9 @@ $$\pi$$
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'Before evaluating:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Before evaluation:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1818,8 +1830,9 @@ $$\int x^{x}\, dx$$
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'After evaluating:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>After evaluation:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1854,43 +1867,18 @@ $$\int x^{x}\, dx$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>To avoid duplication, let's define a function similiar with <code>compare_limit()</code></p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [18]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">compare_limit</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kargs</span><span class="p">):</span>
-    <span class="n">args</span> <span class="o">=</span> <span class="n">args</span> <span class="ow">or</span> <span class="p">[]</span>
-    <span class="n">kargs</span> <span class="o">=</span> <span class="n">kargs</span> <span class="ow">or</span> <span class="p">{}</span>
-    <span class="n">expr_diff</span> <span class="o">=</span> <span class="n">Limit</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kargs</span><span class="p">)</span>
-    <span class="n">display</span><span class="p">(</span><span class="s1">'Before evaluating:'</span><span class="p">,</span><span class="n">expr_diff</span><span class="p">)</span>    
-    <span class="n">display</span><span class="p">(</span><span class="s1">'After evaluating:'</span><span class="p">,</span><span class="n">expr_diff</span><span class="o">.</span><span class="n">doit</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p>To perform two-sided, pass the expression, variable symbol and the value to evaluate at. By default the limit is calculated from right to left with default setting <code>dir = '+'</code>.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [19]:</div>
+<div class="prompt input_prompt">In [31]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">x</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">Limit</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
-<span class="n">compare_limit</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">eval_comparator</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1899,8 +1887,9 @@ $$\int x^{x}\, dx$$
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'Before evaluating:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Before evaluation:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1911,8 +1900,9 @@ $$\lim_{x \to 0^+}\left(\frac{1}{x} \sin{\left (x \right )}\right)$$
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'After evaluating:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>After evaluation:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1935,12 +1925,12 @@ $$1$$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [20]:</div>
+<div class="prompt input_prompt">In [32]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">x</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">Limit</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">dir</span> <span class="o">=</span> <span class="s1">'-'</span><span class="p">)</span>
 
-<span class="n">compare_limit</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="nb">dir</span> <span class="o">=</span> <span class="s1">'-'</span><span class="p">)</span>
+<span class="n">eval_comparator</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1949,8 +1939,9 @@ $$1$$
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'Before evaluating:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Before evaluation:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1961,8 +1952,9 @@ $$\lim_{x \to 0^-}\left(\frac{1}{x} \sin{\left (x \right )}\right)$$
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'After evaluating:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>After evaluation:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -1988,22 +1980,18 @@ $$1$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Sympy can calculate an asymptotic series expansion of a funciton around a point $x_0$ with respect to  $O(x-x_0)^n$.</p>
+<p>Sympy can calculate an asymptotic series expansion of a funciton around a point $x_0$ with respect to  $O(x-x_0)^n$ by calling <code>series</code> method of an expression.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [21]:</div>
+<div class="prompt input_prompt">In [33]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-<span class="n">expanded</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">series</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
-
-<span class="n">display</span><span class="p">(</span><span class="s1">'Origin expression:'</span><span class="p">,</span><span class="n">expr</span><span class="p">)</span>
-
-<span class="n">display</span><span class="p">(</span><span class="s1">'Expanded expression:'</span><span class="p">,</span><span class="n">expanded</span><span class="p">)</span>
+<span class="n">method_comparator</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="s1">'series'</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2012,8 +2000,9 @@ $$1$$
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'Origin expression:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Before calling series():
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -2024,8 +2013,9 @@ $$\sin{\left (x \right )}$$
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'Expanded expression:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>After:
+</pre>
 </div>
 </div>
 <div class="output_area">
@@ -2048,10 +2038,11 @@ $$x - \frac{x^{3}}{6} + \frac{x^{5}}{120} + \mathcal{O}\left(x^{6}\right)$$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [22]:</div>
+<div class="prompt input_prompt">In [34]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="s1">'Expanded expression without order term:'</span><span class="p">,</span><span class="n">expanded</span><span class="o">.</span><span class="n">removeO</span><span class="p">())</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'Expanded expression without order term:'</span><span class="p">)</span>
+<span class="n">expr</span><span class="o">.</span><span class="n">series</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">removeO</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -2060,16 +2051,26 @@ $$x - \frac{x^{3}}{6} + \frac{x^{5}}{120} + \mathcal{O}\left(x^{6}\right)$$
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_text output_subarea ">
-<pre>'Expanded expression without order term:'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Expanded expression without order term:
+</pre>
 </div>
 </div>
 <div class="output_area">
-<div class="prompt"></div>
-<div class="output_latex output_subarea ">
+<div class="prompt output_prompt">Out[34]:</div>
+<div class="output_latex output_subarea output_execute_result">
 $$\frac{x^{5}}{120} - \frac{x^{3}}{6} + x$$
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Reference">Reference<a class="anchor-link" href="#Reference">¶</a></h1><p><a href="http://docs.sympy.org/latest/index.html">Sympy Documentation</a></p>
 </div>
 </div>
 </div>
