@@ -4,6 +4,7 @@
 * Category can be extracted from the first level path after content path for each article
 * Side bar toc detect h1~t4 now
 * Generated Site can be bilingual now (support Chinese and English).
+* Hide ```div.prompt``` in generated HMTL for better visual effect.
 
 
 ## 0.12.1
