@@ -4,14 +4,12 @@
 
 {% block header %}
     <!-- Page Header -->
-    {% if page.header_cover %}
-        <header class="intro-header" style="background-image: url('{{ page.header_cover }}')">
-    {% elif HEADER_COVER %}
-        <header class="intro-header" style="background-image: url('{{ BASEURL }}/{{ HEADER_COVER }}')">
+    {% if HEADER_COVER %}
+        <header class="intro-header" style="background-image: url('{{ SITEURL }}/{{ THEME_STATIC_DIR }}/customs/{{ HEADER_COVER_IMAGE }}')">
     {% elif HEADER_COLOR %}
         <header class="intro-header" style="background-color: {{ HEADER_COLOR }}">
     {% else %}
-        <header class="intro-header" style="background-image: url('{{ BASEURL }}/{{ THEME_STATIC_DIR }}/images/home-bg.jpg')">
+        <header class="intro-header" style="background-image: url('{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/home-bg.jpg')">
     {% endif %}
         <div class="container">
             <div class="row">

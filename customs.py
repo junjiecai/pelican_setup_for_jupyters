@@ -22,15 +22,15 @@ I18N_SUBSITES = {
 
 from os import listdir, getcwd, makedirs, remove
 from shutil import rmtree, copyfile
-from os.path import join, isdir, exists
+from os.path import join, isdir, exists, isfile
 
 
 cwd = getcwd()
 
 # seems useless
-STATIC_PATHS = []
-for artical_path in ARTICLE_PATHS:
-    STATIC_PATHS += [join(artical_path, blog_path) for blog_path in listdir(join(cwd, 'content', artical_path))]
+#STATIC_PATHS = []
+#for artical_path in ARTICLE_PATHS:
+#    STATIC_PATHS += [join(artical_path, blog_path) for blog_path in listdir(join(cwd, 'content', artical_path))]
 
 
 month_mapping = {
@@ -54,6 +54,7 @@ def get_file_info(full_path):
     lang_name = file_name[-2:]
 
     year = None
+    title = None
 
     with open(full_path) as f:
         lines = f.readlines()
@@ -62,12 +63,23 @@ def get_file_info(full_path):
             if line.startswith('Date'):
                 time_string = line.split(':')[1].strip()
                 year, month, date = time_string[:10].split('-')
+            elif line.startswith('Title'):
+                title = line.split(':')[1].strip()
+            else:
+                pass
+                                         
 
 
-    return year, month, date, folder_name, lang_name
+    return year, month, date, folder_name, lang_name, title
 
-
-
+def get_nbdata_title(full_path):
+    with open(full_path) as f:
+        lines = f.readlines()
+        for line in lines:
+            line = line.strip()
+            if line.startswith('Title'):
+                title = line.split(':')[1].strip()
+    return title
 
 
 def search_posts():
@@ -88,7 +100,7 @@ def search_posts():
                     elif filename.endswith('.jpeg') or filename.endswith('.png'):
                         image_paths_absolute.append(file_path_absolute)
                     elif filename.endswith('nbdata'):
-                        year, month, day, post_folder_relative, lang_name = get_file_info(file_path_absolute)
+                        year, month, day, post_folder_relative, lang_name, _ = get_file_info(file_path_absolute)
                         month = month_mapping[month]
                         if lang_name == 'ch':
                             target_folder = join(cwd, 'output', 'posts', year, month, day, post_folder_relative[5:])
@@ -98,6 +110,34 @@ def search_posts():
                     else:
                         pass
                 data.append((post_paths_absolute, image_paths_absolute))
+
+    return data
+
+def search_pages():
+    data = []
+
+    pages_path_absolute = join(cwd, 'content', 'pages')
+    image_paths_absolute = []
+    page_paths_absolute = []
+    for filename in listdir(pages_path_absolute):
+        file_path_absolute = join(pages_path_absolute, filename)
+        if filename.endswith('.ipynb_checkpoints'):
+            rmtree(file_path_absolute)
+        elif filename.endswith('.DS_Store'):
+            remove(file_path_absolute)
+        elif filename.endswith('.jpeg') or filename.endswith('.png'):
+            image_paths_absolute.append(file_path_absolute)
+        elif filename.endswith('nbdata'):
+            *_, lang_name, title = get_file_info(file_path_absolute)
+            folder_name = '-'.join([s.lower() for s in title.split(' ')])
+            if lang_name == 'ch':
+                target_folder = join(cwd, 'output', 'pages', folder_name)
+            else:
+                target_folder = join(cwd, 'output', 'en','pages', folder_name)
+            page_paths_absolute.append(target_folder)
+        else:
+            pass
+    data.append((page_paths_absolute, image_paths_absolute))
 
     return data
 
@@ -117,6 +157,9 @@ def copy_image(data):
 data = search_posts()
 copy_image(data)
 
+data = search_pages()
+copy_image(data)
+                                 
 
 
 
