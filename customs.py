@@ -27,12 +27,6 @@ from os.path import join, isdir, exists, isfile
 
 cwd = getcwd()
 
-# seems useless
-#STATIC_PATHS = []
-#for artical_path in ARTICLE_PATHS:
-#    STATIC_PATHS += [join(artical_path, blog_path) for blog_path in listdir(join(cwd, 'content', artical_path))]
-
-
 month_mapping = {
     '01': 'Jan',
     '02': 'Feb',
@@ -97,7 +91,7 @@ def search_posts():
                         rmtree(file_path_absolute)
                     elif filename.endswith('.DS_Store'):
                         remove(file_path_absolute)
-                    elif filename.endswith('.jpeg') or filename.endswith('.png'):
+                    elif filename.endswith('.jpeg') or filename.endswith('.png') or filename.endswith('.jpg'):
                         image_paths_absolute.append(file_path_absolute)
                     elif filename.endswith('nbdata'):
                         year, month, day, post_folder_relative, lang_name, _ = get_file_info(file_path_absolute)

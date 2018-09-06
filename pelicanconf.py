@@ -91,11 +91,11 @@ DEFAULT_PAGINATION = 10
 #RELATIVE_URLS = True
 
 
-MARKUP = ('md', 'ipynb')
+MARKUP = ('md','ipynb')
 
 PLUGIN_PATHS = ['plugins']
 PLUGINS = ['ipynb.markup','i18n_subsites']
-IPYNB_USE_METACELL = True
+IPYNB_USE_METACELL = False
 IGNORE_FILES = ['.ipynb_checkpoints']
 
 
